@@ -5,7 +5,63 @@
 import type { FunctionComponent, JSX } from 'react';
 
 const EntrypointComponent: FunctionComponent = (): JSX.Element => {
-  return <h1>Hello JWizard!</h1>;
+  return (
+    <div>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+      <p>sample component test</p>
+    </div>
+  );
 };
 
 export default EntrypointComponent;
