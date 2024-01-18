@@ -1,3 +1,3 @@
 # JWizard web
 
-Web managment panel UI.
+Web UI interface for management panel.
