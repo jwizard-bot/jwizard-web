@@ -1,0 +1,48 @@
+{
+  "prettier.configPath": "./.prettierrc.cjs",
+  "editor.rulers": [120],
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
+  "explorer.autoReveal": false,
+  "explorer.compactFolders": false,
+  "files.insertFinalNewline": true,
+  "css.lint.unknownAtRules": "ignore",
+  "psi-header.config": {
+    "forceToTop": true,
+    "blankLinesAfter": 1
+  },
+  "psi-header.changes-tracking": {
+    "isActive": true,
+    "autoHeader": "autoSave",
+    "include": ["javascript", "typescript", "typescriptreact", "css"],
+    "exclude": ["json", "jsonl", "jsonc"],
+    "excludeGlob": [".husky/**/*"],
+    "enforceHeader": true
+  },
+  "psi-header.lang-config": [
+    {
+      "language": "javascript",
+      "begin": "/*",
+      "lineLength": 64,
+      "beforeHeader": ["'use strict';"]
+    },
+    {
+      "language": "*",
+      "begin": "/*",
+      "prefix": " * ",
+      "end": " */",
+      "lineLength": 64
+    }
+  ],
+  "psi-header.templates": [
+    {
+      "language": "*",
+      "template": [
+        "Copyright (c) <<year>> by JWizard ",
+        "Originally developed by Miłosz Gilga <https://miloszgilga.pl>"
+      ]
+    }
+  ]
+}

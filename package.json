@@ -1,0 +1,61 @@
+{
+  "name": "jwizard-web",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint:check": "npx eslint **/**/*.{cjs,ts,tsx}",
+    "lint:fix": "npx eslint **/**/*.{cjs,ts,tsx} --fix",
+    "types:check": "npx tsc --noEmit",
+    "format": "npx prettier . --write",
+    "husky:add-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
+    "husky:add-pre-push": "npx husky add .husky/pre-push \"yarn run types:check\"",
+    "configure:husky": "npx husky install && yarn run husky:add-pre-commit && yarn run husky:add-pre-push"
+  },
+  "private": true,
+  "author": {
+    "name": "JWizard",
+    "email": "info@jwizard.pl",
+    "url": "https://jwizard.pl"
+  },
+  "license": "Apache 2.0",
+  "lint-staged": {
+    "**/*.{ts,tsx,js,cjs}": [
+      "yarn run lint:fix",
+      "yarn run format"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run types:check"
+    }
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.55.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}

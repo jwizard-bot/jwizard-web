@@ -1,0 +1,11 @@
+.husky/
+node_modules/
+dist/
+.eslintrc.js
+.eslintignore
+.prettierrc.js
+.prettierignore
+.gitignore
+LICENSE
+README.md
+Dockerfile
