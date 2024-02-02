@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/banner.png" alt="">
+    <img src=".github/gh-banner.png" alt="">
 </p>
 
 This repo contains Web UI for managing guild settings and guild member playlists. Available log-in via OAuth2 Discord
