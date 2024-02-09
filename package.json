@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "lint:check": "npx eslint **/**/*.{cjs,ts,vue}",
     "lint:fix": "npx eslint **/**/*.{cjs,ts,vue} --fix",
-    "types:check": "npx tsc --noEmit",
+    "types:check": "vue-tsc --noEmit --skipLibCheck",
     "format": "npx prettier . --write",
     "husky:add-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "husky:add-pre-push": "npx husky add .husky/pre-push \"yarn run types:check\"",
@@ -22,7 +22,7 @@
   },
   "license": "Apache 2.0",
   "lint-staged": {
-    "**/*.{ts,vue,js,cjs}": [
+    "**/*.{ts,js,cjs,vue}": [
       "yarn run lint:fix",
       "yarn run format"
     ]
