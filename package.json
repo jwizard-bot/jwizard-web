@@ -1,13 +1,13 @@
 {
   "name": "jwizard-web",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint:check": "npx eslint **/**/*.{cjs,ts,tsx}",
-    "lint:fix": "npx eslint **/**/*.{cjs,ts,tsx} --fix",
+    "lint:check": "npx eslint **/**/*.{cjs,ts,vue}",
+    "lint:fix": "npx eslint **/**/*.{cjs,ts,vue} --fix",
     "types:check": "npx tsc --noEmit",
     "format": "npx prettier . --write",
     "husky:add-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
@@ -22,7 +22,7 @@
   },
   "license": "Apache 2.0",
   "lint-staged": {
-    "**/*.{ts,tsx,js,cjs}": [
+    "**/*.{ts,vue,js,cjs}": [
       "yarn run lint:fix",
       "yarn run format"
     ]
@@ -34,28 +34,25 @@
     }
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "vue": "^3.4.15"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-vue": "^5.0.3",
     "autoprefixer": "^10.4.17",
-    "eslint": "^8.55.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-vue": "^9.21.1",
     "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "postcss": "^8.4.33",
-    "prettier": "^3.2.4",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8.4.35",
+    "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.1.0",
+    "vite-plugin-eslint": "^1.8.1",
+    "vue-tsc": "^1.8.27"
   }
 }

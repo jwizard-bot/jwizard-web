@@ -7,6 +7,8 @@
     "dbaeumer.vscode-eslint",
     "naumovs.color-highlight",
     "oderwat.indent-rainbow",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin"
   ]
 }

@@ -9,6 +9,19 @@
   "explorer.compactFolders": false,
   "files.insertFinalNewline": true,
   "css.lint.unknownAtRules": "ignore",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.includeLanguages": {
+    "vue": "html",
+    "vue-html": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
   "psi-header.config": {
     "forceToTop": true,
     "blankLinesAfter": 1
@@ -16,7 +29,7 @@
   "psi-header.changes-tracking": {
     "isActive": true,
     "autoHeader": "autoSave",
-    "include": ["javascript", "typescript", "typescriptreact", "css"],
+    "include": ["javascript", "typescript", "vue", "css"],
     "exclude": ["json", "jsonl", "jsonc"],
     "excludeGlob": [".husky/**/*"],
     "enforceHeader": true
@@ -27,6 +40,13 @@
       "begin": "/*",
       "lineLength": 64,
       "beforeHeader": ["'use strict';"]
+    },
+    {
+      "language": "vue",
+      "begin": "/*",
+      "lineLength": 64,
+      "beforeHeader": ["<script setup lang=\"ts\">"],
+      "afterHeader": ["</script>"]
     },
     {
       "language": "*",
