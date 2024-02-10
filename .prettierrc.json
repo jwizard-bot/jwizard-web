@@ -1,0 +1,9 @@
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "importOrderParserPlugins": ["typescript", "vue"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": ["^vue/(.*)$", "^[^@v](.*)$", "^@(.*)$", "^[./]"],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
+}
