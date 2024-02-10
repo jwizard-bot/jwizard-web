@@ -1,5 +1,4 @@
 {
-  "prettier.configPath": "./.prettierrc.cjs",
   "editor.rulers": [120],
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
@@ -9,18 +8,9 @@
   "explorer.compactFolders": false,
   "files.insertFinalNewline": true,
   "css.lint.unknownAtRules": "ignore",
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "tailwindCSS.includeLanguages": {
     "vue": "html",
     "vue-html": "html"
-  },
-  "editor.quickSuggestions": {
-    "strings": true
   },
   "psi-header.config": {
     "forceToTop": true,
@@ -60,7 +50,7 @@
     {
       "language": "*",
       "template": [
-        "Copyright (c) <<year>> by JWizard ",
+        "Copyright (c) <<year>> by JWizard",
         "Originally developed by Miłosz Gilga <https://miloszgilga.pl>"
       ]
     }
