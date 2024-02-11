@@ -23,7 +23,7 @@ export default {
     extend: {
       fontFamily: {
         logo: ['Paytone One', 'Arial', 'sans-serif'],
-        sans: ['Ubuntu', 'Arial', 'sans-serif'],
+        sans: ['Inter', 'Arial', 'sans-serif'],
       },
     },
   },
