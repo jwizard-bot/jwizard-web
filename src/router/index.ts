@@ -4,7 +4,9 @@
  */
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 import CommandsViewVue from '@/views/CommandsView.vue';
+import ContributeViewVue from '@/views/ContributeView.vue';
 import HomeViewVue from '@/views/HomeView.vue';
+import NotFoundViewVue from '@/views/NotFoundView.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -13,9 +15,18 @@ const routes: RouteRecordRaw[] = [
     component: HomeViewVue,
   },
   {
+    path: '/contribute',
+    name: 'contribute',
+    component: ContributeViewVue,
+  },
+  {
     path: '/commands',
     name: 'commands',
     component: CommandsViewVue,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFoundViewVue,
   },
 ];
 

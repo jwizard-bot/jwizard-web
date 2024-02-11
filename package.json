@@ -32,8 +32,13 @@
     }
   },
   "dependencies": {
+    "bootstrap-icons-vue": "^1.11.3",
+    "flowbite": "^2.2.1",
+    "pinia": "^2.1.7",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-i18n": "^9.9.1",
+    "vue-router": "^4.2.5",
+    "vue3-storage": "^0.1.11"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",

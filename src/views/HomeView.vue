@@ -6,7 +6,18 @@
 </script>
 
 <template>
-  <div>this is home view</div>
+  <section class="bg-indigo-600 h-[400px]">
+    <div class="max-w-[1280px] w-full h-full mx-auto px-3">hero section</div>
+  </section>
+  <section
+    :class="[
+      'flex-grow',
+      'bg-white  dark:bg-slate-800',
+      ' text-slate-800 dark:text-white',
+    ]"
+  >
+    <div class="max-w-[1280px] w-full h-full mx-auto px-3">
+      under hero section
+    </div>
+  </section>
 </template>
-
-<style scoped></style>

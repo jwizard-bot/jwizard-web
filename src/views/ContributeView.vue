@@ -13,6 +13,6 @@
       'text-slate-800 dark:text-white',
     ]"
   >
-    this is commands view
+    this is contribute view
   </section>
 </template>
