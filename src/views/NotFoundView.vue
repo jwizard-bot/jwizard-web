@@ -4,13 +4,13 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 </script>
+
 <template>
   <section
     :class="[
       'max-w-[1280px] w-full',
       'flex-grow flex flex-col justify-center items-center',
       'mt-28 mx-auto',
-      'text-slate-800 dark:text-white',
     ]"
   >
     <h1 class="text-8xl font-logo mb-1">404</h1>

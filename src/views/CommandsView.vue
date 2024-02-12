@@ -6,13 +6,7 @@
 </script>
 
 <template>
-  <section
-    :class="[
-      'max-w-[1280px] w-full',
-      'mt-28 mx-auto',
-      'text-slate-800 dark:text-white',
-    ]"
-  >
+  <section class="max-w-[1280px] w-full mt-28 mx-auto">
     this is commands view
   </section>
 </template>
