@@ -9,12 +9,16 @@ import { URL, fileURLToPath } from 'url';
 import vue from '@vitejs/plugin-vue';
 
 dotenv.config();
+const { hostname, port } = new URL(process.env.BASE_PATH!);
 
 export default defineConfig({
+  server: {
+    host: hostname,
+    port: Number(port),
+  },
   plugins: [
     vue(),
     createHtmlPlugin({
-      minify: true,
       entry: 'src/main.ts',
       template: '/index.html',
       inject: {
@@ -22,6 +26,7 @@ export default defineConfig({
           apiUrl: process.env.API_URL,
           inviteLink: process.env.INVITE_LINK,
           orgLink: process.env.ORG_LINK,
+          basePath: process.env.BASE_PATH,
         },
       },
     }),
