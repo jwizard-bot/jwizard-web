@@ -28,7 +28,6 @@ export const availableLocales: Record<TLocale, TAvailableLocale> = {
 };
 
 export const updateLocale = (locale: TLocale): void => {
-  console.log('upade locale', locale);
   (i18n.global.locale as Ref<string>).value = locale;
 };
 
