@@ -24,9 +24,8 @@ const emits = defineEmits<TEmits>();
       :data-tooltip-target="props.tooptipId"
       data-tooltip-placement="bottom"
       :class="[
-        'hidden',
         'rounded-lg',
-        'sm:inline-flex justify-center items-center',
+        'inline-flex justify-center items-center',
         'w-9 h-9',
         props.isForRootHeader
           ? 'text-white'

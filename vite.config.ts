@@ -9,6 +9,7 @@ import { URL, fileURLToPath } from 'url';
 import vue from '@vitejs/plugin-vue';
 
 dotenv.config();
+
 const { hostname, port } = new URL(process.env.BASE_PATH!);
 
 export default defineConfig({
