@@ -4,6 +4,7 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { computed, reactive, watch } from 'vue';
+import HamburgerMenu from '../hamburger/HamburgerMenu.vue';
 import HeaderLink from './HeaderLink.vue';
 import HeaderTooltipButton from './HeaderTooltipButton.vue';
 import { storeToRefs } from 'pinia';
@@ -51,7 +52,7 @@ function authorizeViaDiscordOpenId(): void {
 <template>
   <header
     :class="[
-      'z-40',
+      'z-10',
       'w-full',
       { 'border-b border-slate-300 dark:border-slate-700': !isRoot },
       { 'backdrop-blur-sm': !isRoot },
@@ -100,7 +101,7 @@ function authorizeViaDiscordOpenId(): void {
         </ul>
       </div>
       <nav class="flex items-center">
-        <ul class="flex gap-x-1 items-center">
+        <ul class="hidden md:flex gap-x-1 items-center">
           <HeaderTooltipButton
             :is-for-root-header="isRoot"
             tooptip-id="theme-tooltip"
@@ -161,7 +162,20 @@ function authorizeViaDiscordOpenId(): void {
             </button>
           </li>
         </ul>
+        <div class="text-center md:hidden">
+          <button
+            class="text-slate-800 dark:text-white text-3xl p-1"
+            type="button"
+            data-drawer-target="hamburger-menu"
+            data-drawer-show="hamburger-menu"
+            data-drawer-placement="right"
+            aria-controls="hamburger-menu"
+          >
+            <BIconList />
+          </button>
+        </div>
       </nav>
     </div>
   </header>
+  <HamburgerMenu />
 </template>
