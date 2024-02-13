@@ -7,19 +7,24 @@ import { onMounted, reactive, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import MainFooter from './components/MainFooter.vue';
 import MainHeader from './components/header/MainHeader.vue';
-import { initTooltips } from 'flowbite';
+import useUiStore from './store/uiStore';
+import { initDrawers, initTooltips } from 'flowbite';
 
 type TState = {
   isRoot: boolean;
 };
 
 const route = useRoute();
+const uiStore = useUiStore();
 const state = reactive<TState>({
-  isRoot: true,
+  isRoot: false,
 });
 
 onMounted(() => {
   assignRoutePath(route.path);
+  uiStore.loadTheme();
+  uiStore.loadLocale();
+  initDrawers();
   initTooltips();
 });
 
@@ -34,6 +39,28 @@ function assignRoutePath(path: string): void {
 </script>
 
 <template>
+  <div
+    v-if="uiStore.suspensed"
+    :class="[
+      'fixed top-0 left-0 z-50',
+      ' w-full h-screen',
+      'bg-white dark:bg-slate-800',
+      'flex justify-center items-center',
+    ]"
+  >
+    <div
+      :class="[
+        'animate-spin',
+        'inline-block w-10 h-10',
+        'rounded-full',
+        'border-[5px] border-current',
+        'border-t-transparent dark:border-t-transparent',
+        'border-indigo-600 dark:border-indigo-600',
+      ]"
+      role="status"
+      aria-label="loading"
+    ></div>
+  </div>
   <div
     :class="[
       'flex flex-col min-h-screen',

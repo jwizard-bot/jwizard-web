@@ -3,36 +3,49 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
-import CommandsViewVue from '@/views/CommandsView.vue';
-import ContributeViewVue from '@/views/ContributeView.vue';
-import HomeViewVue from '@/views/HomeView.vue';
-import NotFoundViewVue from '@/views/NotFoundView.vue';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import useUiStore from '@/store/uiStore';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
-    component: HomeViewVue,
+    component: () => import('@/views/HomeView.vue'),
   },
   {
     path: '/contribute',
     name: 'contribute',
-    component: ContributeViewVue,
+    component: () => import('@/views/ContributeView.vue'),
   },
   {
     path: '/commands',
     name: 'commands',
-    component: CommandsViewVue,
+    component: () => import('@/views/CommandsView.vue'),
   },
   {
     path: '/:pathMatch(.*)*',
-    component: NotFoundViewVue,
+    component: () => import('@/views/NotFoundView.vue'),
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach(async (_to, _from, next) => {
+  const uiStore = useUiStore();
+  uiStore.suspensed = true;
+  disableBodyScroll(document.body);
+  return next();
+});
+
+router.afterEach(async () => {
+  const uiStore = useUiStore();
+  setTimeout(() => {
+    uiStore.suspensed = false;
+    enableBodyScroll(document.body);
+  }, 250);
 });
 
 export default router;
