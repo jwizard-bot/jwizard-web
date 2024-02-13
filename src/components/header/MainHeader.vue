@@ -9,6 +9,7 @@ import HeaderLink from './HeaderLink.vue';
 import HeaderTooltipButton from './HeaderTooltipButton.vue';
 import { storeToRefs } from 'pinia';
 import useUiStore from '@/store/uiStore';
+import { buildDiscordOpenIdRoute } from '@/utils/utils';
 
 type TProps = {
   headerFor: 'default' | 'root';
@@ -42,10 +43,7 @@ function navigateToAddToDiscord(): void {
 }
 
 function authorizeViaDiscordOpenId(): void {
-  const params = new URLSearchParams();
-  const urlWithParams = new URL(/* TODO */ 'http://localhost:8670');
-  urlWithParams.search = params.toString();
-  document.location.href = urlWithParams.toString();
+  document.location.href = buildDiscordOpenIdRoute();
 }
 </script>
 

@@ -5,6 +5,7 @@
  */
 import HamburgerMenuLink from './HamburgerMenuLink.vue';
 import useUiStore from '@/store/uiStore';
+import { buildDiscordOpenIdRoute } from '@/utils/utils';
 
 const uiStore = useUiStore();
 const orgLink = window.ORG_LINK;
@@ -14,10 +15,7 @@ function navigateToAddToDiscord(): void {
 }
 
 function authorizeViaDiscordOpenId(): void {
-  const params = new URLSearchParams();
-  const urlWithParams = new URL(/* TODO */ 'http://localhost:8670');
-  urlWithParams.search = params.toString();
-  document.location.href = urlWithParams.toString();
+  document.location.href = buildDiscordOpenIdRoute();
 }
 </script>
 
