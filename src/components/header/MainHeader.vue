@@ -89,13 +89,13 @@ function authorizeViaDiscordOpenId(): void {
         </router-link>
         <ul class="flex items-center ms-8 gap-x-4">
           <HeaderLink :is-for-root-header="isRoot" link-href="/">
-            Home
+            {{ $t('home') }}
           </HeaderLink>
           <HeaderLink :is-for-root-header="isRoot" link-href="/contribute">
-            Contribute
+            {{ $t('contribute') }}
           </HeaderLink>
           <HeaderLink :is-for-root-header="isRoot" link-href="/commands">
-            Commands
+            {{ $t('commands') }}
           </HeaderLink>
         </ul>
       </div>
@@ -104,7 +104,7 @@ function authorizeViaDiscordOpenId(): void {
           <HeaderTooltipButton
             :is-for-root-header="isRoot"
             tooptip-id="theme-tooltip"
-            tooltip-text="Toggle light/dark mode"
+            :tooltip-text="$t('toggleTheme')"
             @on-click-button="uiStore.toggleThemeMode()"
           >
             <BIconBrightnessHighFill v-if="theme === 'dark'" />
@@ -113,12 +113,12 @@ function authorizeViaDiscordOpenId(): void {
           <HeaderTooltipButton
             :is-for-root-header="isRoot"
             tooptip-id="github-tooltip"
-            tooltip-text="Go to Github repository"
+            :tooltip-text="$t('goToGithubRepository')"
             @on-click-button="navigateToGithubRepo"
           >
             <BIconGithub class="text-xl" />
           </HeaderTooltipButton>
-          <li class="me-1">
+          <li>
             <button
               type="button"
               :class="[
@@ -136,7 +136,7 @@ function authorizeViaDiscordOpenId(): void {
               ]"
               @click="navigateToAddToDiscord"
             >
-              Add to Discord
+              {{ $t('addToDiscord') }}
             </button>
           </li>
           <li>
@@ -157,7 +157,7 @@ function authorizeViaDiscordOpenId(): void {
               ]"
               @click="authorizeViaDiscordOpenId"
             >
-              Log in
+              {{ $t('login') }}
             </button>
           </li>
         </ul>

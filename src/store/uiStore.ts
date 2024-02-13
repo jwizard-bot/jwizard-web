@@ -2,13 +2,15 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { onMounted, reactive, toRefs, watch } from 'vue';
+import { reactive, toRefs, watch } from 'vue';
 import { useStorage } from 'vue3-storage';
 import { defineStore } from 'pinia';
+import { TLocale, availableLocales, updateLocale } from '@/i18n';
 
 type TUiStore = {
   theme: 'light' | 'dark';
-  lang: 'pl' | 'en-US';
+  locale: TLocale;
+  suspensed: boolean;
 };
 
 const useUiStore = defineStore('ui', () => {
@@ -16,36 +18,55 @@ const useUiStore = defineStore('ui', () => {
 
   const state = reactive<TUiStore>({
     theme: 'light',
-    lang: 'pl',
+    locale: 'pl',
+    suspensed: true,
   });
 
-  onMounted(() => {
-    state.theme = storage.getStorageSync('theme') || 'light';
-    toggleClass();
-  });
+  const htmlEl = document.querySelector('html')!;
 
   watch(
     () => state.theme,
+    (currMode) => storage.setStorageSync('theme', currMode),
+  );
+
+  watch(
+    () => state.locale,
     (currMode) => {
-      storage.setStorageSync('theme', currMode);
+      updateLocale(currMode);
+      htmlEl.setAttribute('lang', state.locale);
+      storage.setStorageSync('locale', currMode);
     },
   );
 
+  function loadTheme() {
+    state.theme = storage.getStorageSync('theme') || 'light';
+    htmlEl.setAttribute('class', state.theme === 'dark' ? 'dark' : '');
+  }
+
+  function loadLocale() {
+    const localeFromStore = storage.getStorageSync('locale');
+    if (!localeFromStore) {
+      const browserlocale = navigator.language;
+      if (Object.keys(availableLocales).includes(browserlocale)) {
+        state.locale = navigator.language.toLowerCase() as TLocale;
+      }
+    } else {
+      state.locale = localeFromStore;
+    }
+    htmlEl.setAttribute('lang', state.locale);
+  }
+
   function toggleThemeMode() {
     state.theme = state.theme === 'light' ? 'dark' : 'light';
-    toggleClass();
+    htmlEl.setAttribute('class', state.theme === 'dark' ? 'dark' : '');
   }
 
-  function toggleClass() {
-    const root = document.querySelector('html')!;
-    if (state.theme === 'light') {
-      root.classList.remove('dark');
-    } else {
-      root.classList.add('dark');
-    }
-  }
-
-  return { ...toRefs(state), toggleThemeMode };
+  return {
+    ...toRefs(state),
+    toggleThemeMode,
+    loadTheme,
+    loadLocale,
+  };
 });
 
 export default useUiStore;

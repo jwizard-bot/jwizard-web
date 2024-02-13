@@ -3,6 +3,10 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
+import { availableLocales } from '@/i18n';
+import useUiStore from '@/store/uiStore';
+
+const uiStore = useUiStore();
 const year = new Date().getFullYear();
 
 function navigateToAddToDiscord(): void {
@@ -36,9 +40,7 @@ function navigateToAddToDiscord(): void {
             'text-indigo-300',
           ]"
         >
-          JWizard is a multi-purpose Discord music bot. It provides an audio
-          player that allows playback from a wide variety of sources. Supplied
-          an original playlists system for saving and playing them on any guild.
+          {{ $t('description') }}
         </p>
         <router-link
           to="/"
@@ -63,18 +65,20 @@ function navigateToAddToDiscord(): void {
         <nav class="font-medium mb-10 md:mb-0">
           <ul class="flex gap-x-6 justify-center md:justify-start">
             <li class="text-sm">
-              <router-link to="/" class="hover:underline">Home</router-link>
+              <router-link to="/" class="hover:underline">
+                {{ $t('home') }}
+              </router-link>
             </li>
             <li class="-mt-[3px]">&bull;</li>
             <li class="text-sm">
               <router-link to="/contribute" class="hover:underline">
-                Contribute
+                {{ $t('contribute') }}
               </router-link>
             </li>
             <li class="-mt-[3px]">&bull;</li>
             <li class="text-sm">
               <router-link to="/commands" class="hover:underline">
-                Commands
+                {{ $t('commands') }}
               </router-link>
             </li>
           </ul>
@@ -93,9 +97,10 @@ function navigateToAddToDiscord(): void {
             ]"
             @click="navigateToAddToDiscord"
           >
-            Add to discord
+            {{ $t('addToDiscord') }}
           </button>
           <select
+            v-model="uiStore.locale"
             :class="[
               'text-center text-sm',
               'basis-[50%] md:basis-auto',
@@ -111,8 +116,13 @@ function navigateToAddToDiscord(): void {
               'focus:ring-white',
             ]"
           >
-            <option>English, US</option>
-            <option>Polski</option>
+            <option
+              v-for="(locale, localeId) in availableLocales"
+              :key="localeId"
+              :value="localeId"
+            >
+              {{ locale.label }}
+            </option>
           </select>
         </div>
       </section>
