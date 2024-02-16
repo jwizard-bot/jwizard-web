@@ -71,14 +71,14 @@ function navigateToAddToDiscord(): void {
             </li>
             <li class="-mt-[3px]">&bull;</li>
             <li class="text-sm">
-              <router-link to="/contribute" class="hover:underline">
-                {{ $t('contribute') }}
+              <router-link to="/commands" class="hover:underline">
+                {{ $t('commands') }}
               </router-link>
             </li>
             <li class="-mt-[3px]">&bull;</li>
             <li class="text-sm">
-              <router-link to="/commands" class="hover:underline">
-                {{ $t('commands') }}
+              <router-link to="/contribute" class="hover:underline">
+                {{ $t('contribute') }}
               </router-link>
             </li>
           </ul>

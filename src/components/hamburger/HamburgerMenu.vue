@@ -57,11 +57,11 @@ function authorizeViaDiscordOpenId(): void {
           <HamburgerMenuLink link-href="/">
             {{ $t('home') }}
           </HamburgerMenuLink>
-          <HamburgerMenuLink link-href="/contribute">
-            {{ $t('contribute') }}
-          </HamburgerMenuLink>
           <HamburgerMenuLink link-href="/commands">
             {{ $t('commands') }}
+          </HamburgerMenuLink>
+          <HamburgerMenuLink link-href="/contribute">
+            {{ $t('contribute') }}
           </HamburgerMenuLink>
         </ul>
       </nav>

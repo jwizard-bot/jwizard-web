@@ -90,11 +90,11 @@ function authorizeViaDiscordOpenId(): void {
           <HeaderLink :is-for-root-header="isRoot" link-href="/">
             {{ $t('home') }}
           </HeaderLink>
-          <HeaderLink :is-for-root-header="isRoot" link-href="/contribute">
-            {{ $t('contribute') }}
-          </HeaderLink>
           <HeaderLink :is-for-root-header="isRoot" link-href="/commands">
             {{ $t('commands') }}
+          </HeaderLink>
+          <HeaderLink :is-for-root-header="isRoot" link-href="/contribute">
+            {{ $t('contribute') }}
           </HeaderLink>
         </ul>
       </div>
