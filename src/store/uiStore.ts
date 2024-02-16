@@ -48,7 +48,7 @@ const useUiStore = defineStore('ui', () => {
     if (!localeFromStore) {
       const browserlocale = navigator.language;
       if (Object.keys(availableLocales).includes(browserlocale)) {
-        state.locale = navigator.language.toLowerCase() as TLocale;
+        state.locale = navigator.language as TLocale;
       }
     } else {
       state.locale = localeFromStore;
