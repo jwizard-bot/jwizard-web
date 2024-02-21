@@ -1,4 +1,9 @@
 {
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#291f4d",
+    "titleBar.activeBackground": "#291f4d",
+    "titleBar.inactiveBackground": "#291f4d"
+  },
   "editor.rulers": [120],
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
