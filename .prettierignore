@@ -1,8 +1,12 @@
-node_modules/
+.github/
 .husky/
+node_modules/
 dist/
+.env
 nginx.conf
 Dockerfile
+example.env
 LICENSE
+package.json
 README.md
 yarn.lock
