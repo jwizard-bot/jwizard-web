@@ -3,7 +3,8 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { onMounted, reactive, watch } from 'vue';
+import { reactive, watch } from 'vue';
+import { onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import MainFooter from './components/MainFooter.vue';
 import MainHeader from './components/header/MainHeader.vue';
@@ -20,7 +21,7 @@ const state = reactive<TState>({
   isRoot: false,
 });
 
-onMounted(() => {
+onBeforeMount(() => {
   assignRoutePath(route.path);
   uiStore.loadTheme();
   uiStore.loadLocale();
