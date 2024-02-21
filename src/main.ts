@@ -17,6 +17,7 @@ import {
   BIconX,
 } from 'bootstrap-icons-vue';
 import { createPinia } from 'pinia';
+import { VueQueryPlugin } from '@tanstack/vue-query';
 
 declare global {
   interface Window {
@@ -37,6 +38,7 @@ const uiStore = useUiStore();
 app.use(i18nFabricator(uiStore.locale));
 
 app.use(router);
+app.use(VueQueryPlugin);
 
 app.component('BIconBrightnessHighFill', BIconBrightnessHighFill);
 app.component('BIconMoonStarsFill', BIconMoonStarsFill);
