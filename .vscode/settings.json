@@ -38,10 +38,10 @@
     },
     {
       "language": "vue",
-      "begin": "/*",
-      "lineLength": 64,
-      "beforeHeader": ["<script setup lang=\"ts\">"],
-      "afterHeader": ["</script>"]
+      "begin": "<!--",
+      "prefix": " ~ ",
+      "end": " -->",
+      "lineLength": 64
     },
     {
       "language": "*",
