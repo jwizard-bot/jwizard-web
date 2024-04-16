@@ -2,48 +2,41 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { Ref } from 'vue';
-import { I18n, createI18n } from 'vue-i18n';
-import EN_US from '../locale/en-US.json';
-import PL from '../locale/pl.json';
+import i18n from 'i18next';
+import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
+import HttpApi from 'i18next-http-backend';
+import { initReactI18next } from 'react-i18next';
+import config from '@/config';
 
-export type TLocale = 'pl' | 'en-US';
+export type Locale = 'pl' | 'en';
 
-type TAvailableLocale = {
-  label: string;
-  data: object;
+type LocaleIdentifier = {
+  id: string;
+  name: string;
 };
 
-let i18n: I18n;
-
-export const availableLocales: Record<TLocale, TAvailableLocale> = {
-  pl: {
-    label: 'Polski',
-    data: PL,
+export const availableLocales: LocaleIdentifier[] = [
+  {
+    id: 'pl',
+    name: 'Polski',
   },
-  'en-US': {
-    label: 'English, US',
-    data: EN_US,
+  {
+    id: 'en',
+    name: 'English',
   },
-};
+];
 
-export const updateLocale = (locale: TLocale): void => {
-  (i18n.global.locale as Ref<string>).value = locale;
-};
-
-const i18nFabricator = (currentLocale: string): I18n => {
-  i18n = createI18n({
-    legacy: false,
-    locale: currentLocale,
-    messages: Object.keys(availableLocales).reduce(
-      (acc, key) => {
-        acc[key as string] = availableLocales[key as TLocale].data;
-        return acc;
-      },
-      {} as Record<string, object>,
-    ) as { [x: string]: never },
+i18n
+  .use(HttpApi)
+  .use(I18nextBrowserLanguageDetector)
+  .use(initReactI18next)
+  .init({
+    debug: !config.isProdMode,
+    load: 'languageOnly',
+    fallbackLng: 'en',
+    detection: {
+      lookupLocalStorage: 'lang',
+    },
   });
-  return i18n;
-};
 
-export default i18nFabricator;
+export default i18n;

@@ -4,10 +4,8 @@
 node_modules/
 dist/
 
-.eslintignore
 .eslintrc.json
 .gitignore
-.prettierignore
 .prettierrc.json
 Dockerfile
 example.env

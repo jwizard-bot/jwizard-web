@@ -12,11 +12,6 @@
   "explorer.autoReveal": false,
   "explorer.compactFolders": false,
   "files.insertFinalNewline": true,
-  "css.lint.unknownAtRules": "ignore",
-  "tailwindCSS.includeLanguages": {
-    "vue": "html",
-    "vue-html": "html"
-  },
   "psi-header.config": {
     "forceToTop": true,
     "blankLinesAfter": 1
@@ -24,7 +19,7 @@
   "psi-header.changes-tracking": {
     "isActive": true,
     "autoHeader": "autoSave",
-    "include": ["javascript", "typescript", "vue", "css"],
+    "include": ["javascript", "typescript", "typescriptreact", "css"],
     "exclude": ["json", "jsonl", "jsonc"],
     "excludeGlob": [".husky/**/*"],
     "enforceHeader": true
@@ -35,13 +30,6 @@
       "begin": "/*",
       "lineLength": 64,
       "beforeHeader": ["'use strict';"]
-    },
-    {
-      "language": "vue",
-      "begin": "<!--",
-      "prefix": " ~ ",
-      "end": " -->",
-      "lineLength": 64
     },
     {
       "language": "*",

@@ -1,9 +1,29 @@
 {
   "tabWidth": 2,
+  "printWidth": 80,
+  "useTabs": false,
   "singleQuote": true,
-  "importOrderParserPlugins": ["typescript", "vue"],
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["^vue/(.*)$", "^[^@v](.*)$", "^@(.*)$", "^[./]"],
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "trailingComma": "es5",
+  "bracketSameLine": true,
+  "impodwrtOrderParserPlugins": [
+    "typescript",
+    "jsx"
+  ],
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^(react*)$",
+    "^([a-zA-Z].*)$",
+    "^@(.*)$",
+    "^[./]",
+    "^[../]",
+    "^@/(-styles)$",
+    "^@/(.styles)$"
+  ],
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true
 }
