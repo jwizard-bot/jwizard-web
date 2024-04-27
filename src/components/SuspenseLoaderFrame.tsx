@@ -17,7 +17,7 @@ const SuspenseLoaderContainer = styled.div`
   z-index: 50;
   width: 100%;
   height: 100vh;
-  background-color: var(--main-bg);
+  background-color: ${({ theme }) => theme.main.bg};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ const SuspenseLoaderContainer = styled.div`
 
 const SpinAnimationElement = styled.div`
   display: inline-block;
-  border: 6px solid var(--theme-color-600);
+  border: 6px solid var(--theme-color-650);
   border-bottom-color: transparent;
   border-radius: 50%;
   width: 100px;

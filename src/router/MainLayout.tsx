@@ -6,19 +6,21 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { MainFooter, MainHeader, SuspenseLoaderFrame } from '@/components';
-import { GlobalStyles, devices } from '@/styles/global';
+import { AppThemedStylesWrapper } from '@/styles/AppThemedStylesWrapper';
+import { breakpoints, devices, space } from '@/styles/global';
 import { DarkModeProvider } from '@rbnd/react-dark-mode';
 
 const MainLayout: React.FC = (): JSX.Element => (
   <DarkModeProvider>
-    <GlobalStyles />
-    <Suspense fallback={<SuspenseLoaderFrame />}>
-      <MainHeader />
-      <MainWrapper>
-        <Outlet />
-      </MainWrapper>
-      <MainFooter />
-    </Suspense>
+    <AppThemedStylesWrapper>
+      <Suspense fallback={<SuspenseLoaderFrame />}>
+        <MainHeader />
+        <MainWrapper>
+          <Outlet />
+        </MainWrapper>
+        <MainFooter />
+      </Suspense>
+    </AppThemedStylesWrapper>
   </DarkModeProvider>
 );
 
@@ -30,13 +32,12 @@ const MainWrapper = styled.main`
 `;
 
 export const SafetyWrapper = styled.section<{ $first?: boolean }>`
-  max-width: var(--br-xl);
+  max-width: ${breakpoints.xl};
   width: 100%;
-  margin: var(${({ $first }) => ($first ? '--space-20' : '--space-8')}) auto
-    var(--space-8) auto;
-  padding: 0 var(--space-5);
+  margin: ${({ $first }) => space($first ? 20 : 8)} auto ${space(8)} auto;
+  padding: 0 ${space(5)};
   @media only ${devices.md} {
-    margin-top: var(${({ $first }) => ($first ? '--space-24' : '--space-8')});
+    margin-top: ${({ $first }) => space($first ? 24 : 8)};
   }
 `;
 

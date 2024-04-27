@@ -5,6 +5,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { space } from '@/styles/global';
 
 type TProps = {
   to: string;
@@ -30,7 +31,7 @@ const NavigationLinkElement: React.FC<TProps> = ({
 };
 
 const NavigationLink = styled(Link)`
-  color: var(--light-color-100);
+  color: var(--theme-color-50);
   font-weight: medium;
   font-size: var(--font-sm);
   line-height: var(--line-height-sm);
@@ -40,7 +41,7 @@ const NavigationLink = styled(Link)`
 `;
 
 const BulletSeparator = styled.li`
-  margin: 0 var(--space-2);
+  margin: 0 ${space(2)};
 `;
 
 export default NavigationLinkElement;

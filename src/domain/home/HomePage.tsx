@@ -4,6 +4,7 @@
  */
 import { styled } from 'styled-components';
 import { SafetyWrapper } from '@/router/MainLayout';
+import { breakpoints, space } from '@/styles/global';
 
 const HomePage: React.FC = (): JSX.Element => {
   return (
@@ -17,13 +18,13 @@ const HomePage: React.FC = (): JSX.Element => {
 };
 
 const HeroContainer = styled.section`
-  background-color: var(--theme-color-600);
-  padding: var(--space-20) 0;
+  background-color: var(--theme-color-650);
+  padding: ${space(20)} 0;
 `;
 
 const HeroWrapper = styled.div`
-  padding: 0 var(--space-5);
-  max-width: var(--br-xl);
+  padding: 0 ${space(5)};
+  max-width: ${breakpoints.xl};
   margin: 0 auto;
   width: 100%;
 `;

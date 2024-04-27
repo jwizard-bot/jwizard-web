@@ -12,6 +12,7 @@ import {
 } from 'react-icons/bs';
 import { styled } from 'styled-components';
 import config from '@/config';
+import { space } from '@/styles/global';
 import { buildDiscordOpenIdRoute, openNewTab } from '@/utils';
 import { useDarkMode } from '@rbnd/react-dark-mode';
 import { JWizardUi } from '../ui';
@@ -87,11 +88,11 @@ const Container = styled.div<{ $isOpen: boolean }>`
   z-index: 40;
   width: 350px;
   height: 100vh;
-  padding: var(--space-4);
+  padding: ${space(4)};
   overflow-y: auto;
   transition: transform var(--duration);
   transform: translateX(${({ $isOpen }) => ($isOpen ? '0' : '100%')});
-  background-color: var(--hamburger-menu-bg);
+  background-color: ${({ theme }) => theme.main.bg};
   box-shadow: var(--base-shadow);
 `;
 
@@ -106,25 +107,25 @@ const CloseButton = styled.button`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  color: var(--tint-color-400);
+  color: var(--gray-color-500);
   border-radius: var(--button-radius);
   &:hover {
-    color: var(--hamburger-menu-close-btn-hover-fg);
-    background-color: var(--hamburger-menu-close-btn-hover-bg);
+    color: ${({ theme }) => theme.main.bg};
+    background-color: ${({ theme }) => theme.main.fg};
   }
 `;
 
 const ElementsWrapper = styled.div`
-  margin-top: var(--space-10);
+  margin-top: ${space(10)};
   display: flex;
   flex-direction: column;
-  row-gap: var(--space-8);
+  row-gap: ${space(8)};
 `;
 
 const SectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  row-gap: var(--space-3);
+  row-gap: ${space(3)};
 `;
 
 export default HamburgerMenu;

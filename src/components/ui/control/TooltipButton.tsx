@@ -5,6 +5,7 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled } from 'styled-components';
+import { space } from '@/styles/global';
 import {
   Placement,
   arrow,
@@ -70,11 +71,11 @@ const TooltipButton: React.FC<TooltipProps> = ({
 };
 
 const TooltipContainer = styled.div`
-  background-color: var(--tooltip-bg);
-  color: var(--tooltip-fg);
+  background-color: ${({ theme }) => theme.main.fg};
+  color: ${({ theme }) => theme.main.bg};
   border-radius: 10px;
-  margin-top: var(--space-2);
-  padding: var(--space-2) var(--space-3);
+  margin-top: ${space(2)};
+  padding: ${space(2)} ${space(3)};
   font-size: var(--font-sm);
   font-weight: 500;
   box-shadow: var(--base-shadow);
@@ -84,7 +85,7 @@ const TooltipArrow = styled.div<{ $x: number; $y: number }>`
   position: absolute;
   top: ${({ $y }) => `${$y}px`};
   left: ${({ $x }) => `${$x}px`};
-  background-color: var(--tooltip-bg);
+  background-color: ${({ theme }) => theme.main.fg};
   width: 15px;
   height: 15px;
   transform: translateY(-3px) rotate(45deg);

@@ -11,9 +11,9 @@ import {
   BsGithub,
 } from 'react-icons/bs';
 import { Link, useLocation } from 'react-router-dom';
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import config from '@/config';
-import { devices } from '@/styles/global';
+import { breakpoints, devices, space } from '@/styles/global';
 import { buildDiscordOpenIdRoute, openNewTab } from '@/utils';
 import { useDarkMode } from '@rbnd/react-dark-mode';
 import { JWizardUi } from '../ui';
@@ -100,17 +100,9 @@ const HeaderContainer = styled.header<{ $isRoot: boolean }>`
   position: ${({ $isRoot }) => ($isRoot ? 'relative' : 'fixed')};
   z-index: 10;
   width: 100%;
-  ${({ $isRoot }) =>
-    $isRoot
-      ? css`
-          background-color: var(--theme-color-600);
-        `
-      : css`
-          backdrop-filter: blur(4px);
-          border-bottom-width: 1px;
-          border-color: var(--header-border);
-          background-color: var(--header-bg);
-        `};
+  backdrop-filter: ${({ $isRoot }) => ($isRoot ? 'none' : 'blur(10px)')};
+  background-color: ${({ $isRoot, theme }) =>
+    $isRoot ? 'var(--theme-color-650)' : theme.header.bg};
 `;
 
 const HeaderWrapper = styled.div`
@@ -118,8 +110,8 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  padding: var(--space-3) var(--space-5);
-  max-width: var(--br-xl);
+  padding: ${space(3)} ${space(5)};
+  max-width: ${breakpoints.xl};
   width: 100%;
 `;
 
@@ -136,24 +128,23 @@ const HomeLink = styled(Link)`
 const HomeParagraph = styled.p<{ $isRoot: boolean }>`
   font-family: var(--font-logo);
   font-size: var(--font-2xl);
-  margin-left: var(--space-2);
-  margin-top: calc(var(--space-1) * -1);
-  color: var(
-    ${({ $isRoot }) => ($isRoot ? '--header-p-root-fg' : '--header-p-fg')}
-  );
+  margin-left: ${space(2)};
+  margin-top: calc(${space(1)} * -1);
+  color: ${({ $isRoot, theme }) =>
+    $isRoot ? 'var(--theme-color-50)' : theme.main.fg};
 `;
 
 const HeaderNavigation = styled.ul`
   display: flex;
   align-items: center;
-  margin-left: var(--space-8);
-  column-gap: var(--space-4);
+  margin-left: ${space(8)};
+  column-gap: ${space(4)};
 `;
 
 const HeaderRightList = styled.div`
   display: none;
   align-items: center;
-  column-gap: var(--space-2);
+  column-gap: ${space(2)};
   @media only ${devices.md} {
     display: flex;
   }
@@ -162,9 +153,8 @@ const HeaderRightList = styled.div`
 const HeaderHamburgerButton = styled.button<{ $isRoot: boolean }>`
   display: block;
   text-align: center;
-  color: var(
-    ${({ $isRoot }) => ($isRoot ? '--light-color-100' : '--hamburger-bars-fg')}
-  );
+  color: ${({ $isRoot, theme }) =>
+    $isRoot ? 'var(--theme-color-50)' : theme.main.fg};
   @media only ${devices.md} {
     display: none;
   }

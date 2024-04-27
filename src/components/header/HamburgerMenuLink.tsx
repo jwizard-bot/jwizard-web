@@ -5,6 +5,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { space } from '@/styles/global';
 
 type Props = {
   to: string;
@@ -23,11 +24,11 @@ const HamburgerMenuLink: React.FC<Props> = ({ to }): JSX.Element => {
 const LinkElement = styled(Link)`
   display: block;
   font-weight: 500;
-  padding: var(--space-2) 0;
+  padding: ${space(2)} 0;
   width: 100%;
-  color: var(--hamburger-menu-link-fg);
+  color: ${({ theme }) => theme.main.fg};
   &:hover {
-    color: var(--hamburger-menu-link-hover-fg);
+    color: var(--theme-color-650);
   }
 `;
 

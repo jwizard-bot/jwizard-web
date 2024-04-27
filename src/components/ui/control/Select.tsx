@@ -4,6 +4,7 @@
  */
 import { forwardRef } from 'react';
 import { styled } from 'styled-components';
+import { space } from '@/styles/global';
 
 type SelectType = 'agnosticDark';
 
@@ -18,8 +19,8 @@ type SelectColors = {
 
 const selectStyles: Record<SelectType, SelectColors> = {
   agnosticDark: {
-    $fgColor: '--light-color-100',
-    $bgColor: '--tint-color-950',
+    $fgColor: 'var(--theme-color-50)',
+    $bgColor: 'var(--gray-color-800)',
   },
 };
 
@@ -35,9 +36,9 @@ const SelectWrapper = styled.select<SelectColors>`
   font-size: var(--font-sm);
   font-weight: 500;
   border-radius: var(--button-radius);
-  padding: var(--space-2) var(--space-10) var(--space-2) var(--space-6);
-  color: ${({ $fgColor }) => `var(${$fgColor})`};
-  background-color: ${({ $bgColor }) => `var(${$bgColor})`};
+  padding: ${space(2)} ${space(10)} ${space(2)} ${space(6)};
+  color: ${({ $fgColor }) => $fgColor};
+  background-color: ${({ $bgColor }) => $bgColor};
   appearance: none;
 `;
 
@@ -53,7 +54,7 @@ const SelectContainer = styled.div<SelectColors>`
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid ${({ $fgColor }) => `var(${$fgColor})`};
+    border-top: 5px solid ${({ $fgColor }) => $fgColor};
   }
 `;
 

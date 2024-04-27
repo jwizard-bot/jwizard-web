@@ -4,6 +4,7 @@
  */
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { space } from '@/styles/global';
 
 const NotFoundPage: React.FC = (): JSX.Element => (
   <NotFoundContainer>
@@ -19,17 +20,18 @@ const NotFoundContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: ${space(10)} 0;
 `;
 
 const Header = styled.h1`
   font-family: var(--font-logo);
   font-size: var(--font-8xl);
-  margin-bottom: var(--space-1);
+  margin-bottom: ${space(1)};
 `;
 
 const Paragraph = styled.p`
-  color: var(--paragraph-fg);
-  margin-bottom: var(--space-8);
+  color: ${({ theme }) => theme.p.fg};
+  margin-bottom: ${space(8)};
   font-weight: 500;
 `;
 
@@ -38,9 +40,9 @@ const LinkElement = styled(Link)`
   border-radius: var(--button-radius);
   font-size: var(--font-sm);
   text-align: center;
-  padding: var(--space-3) var(--space-5);
-  color: var(--light-color-100);
-  background-color: var(--theme-color-600);
+  padding: ${space(3)} ${space(5)};
+  color: var(--theme-color-50);
+  background-color: var(--theme-color-650);
   &:hover {
     background-color: var(--theme-color-700);
   }

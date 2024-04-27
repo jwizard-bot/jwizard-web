@@ -2,9 +2,11 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { forwardRef } from 'react';
+import { forwardRef, useContext } from 'react';
 import { IconBaseProps } from 'react-icons';
-import { styled } from 'styled-components';
+import { ThemeContext, styled } from 'styled-components';
+import { space } from '@/styles/global';
+import { CssThemedStyles } from '@/styles/types';
 
 type ButtonType =
   | 'agnosticLight'
@@ -25,46 +27,55 @@ type ButtonColors = {
   $hoverColor: string;
 };
 
-const buttonStyles: Record<ButtonType, ButtonColors> = {
+const buttonStyles = ({
+  control,
+  main,
+}: CssThemedStyles): Record<ButtonType, ButtonColors> => ({
   agnosticLight: {
-    $fgColor: '--tint-color-950',
-    $bgColor: '--light-color-100',
-    $border: '--light-color-100',
-    $hoverColor: '--tint-color-200',
+    $fgColor: 'var(--gray-color-800)',
+    $bgColor: 'var(--theme-color-50)',
+    $border: 'var(--theme-color-50)',
+    $hoverColor: 'var(--theme-color-100)',
   },
   agnosticDark: {
-    $fgColor: '--light-color-100',
-    $bgColor: '--tint-color-950',
-    $border: '--tint-color-950',
-    $hoverColor: '--tint-color-800',
+    $fgColor: 'var(--theme-color-50)',
+    $bgColor: 'var(--gray-color-800)',
+    $border: 'var(--gray-color-800)',
+    $hoverColor: 'var(--gray-color-700)',
   },
   light: {
-    $fgColor: '--light-control-fg',
-    $bgColor: '--light-control-bg',
-    $border: '--light-control-bg',
-    $hoverColor: '--light-control-hover-bg',
+    $fgColor: main.bg,
+    $bgColor: main.fg,
+    $border: main.fg,
+    $hoverColor: control.light.hover,
   },
   outlineLight: {
-    $fgColor: '--light-control-bg',
-    $bgColor: '--transparent-color',
-    $border: '--light-control-bg',
-    $hoverColor: '--transparent-color',
+    $fgColor: main.bg,
+    $bgColor: 'transparent',
+    $border: main.bg,
+    $hoverColor: 'transparent',
   },
   theme: {
-    $fgColor: '--light-color-100',
-    $bgColor: '--theme-color-600',
-    $border: '--theme-color-600',
-    $hoverColor: '--theme-color-700',
+    $fgColor: 'var(--theme-color-50)',
+    $bgColor: 'var(--theme-color-650)',
+    $border: 'var(--theme-color-650)',
+    $hoverColor: 'var(--theme-color-700)',
   },
-};
+});
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ styleType, Icon, children, ...rest }, ref) => (
-    <ButtonContainer ref={ref} {...buttonStyles[styleType]} {...rest}>
-      {Icon && <Icon size={16} />}
-      {children}
-    </ButtonContainer>
-  )
+  ({ styleType, Icon, children, ...rest }, ref) => {
+    const themeContext = useContext(ThemeContext) as CssThemedStyles;
+    return (
+      <ButtonContainer
+        ref={ref}
+        {...buttonStyles(themeContext)[styleType]}
+        {...rest}>
+        {Icon && <Icon size={16} />}
+        {children}
+      </ButtonContainer>
+    );
+  }
 );
 
 const ButtonContainer = styled.button<ButtonColors>`
@@ -72,16 +83,16 @@ const ButtonContainer = styled.button<ButtonColors>`
   display: flex;
   justify-content: center;
   align-items: center;
-  column-gap: var(--space-3);
+  column-gap: ${space(3)};
   border-radius: var(--button-radius);
   font-size: var(--font-sm);
   text-align: center;
-  border: ${({ $border }) => `1px solid var(${$border})`};
-  padding: var(--space-2) var(--space-4);
-  color: ${({ $fgColor }) => `var(${$fgColor})`};
-  background-color: ${({ $bgColor }) => `var(${$bgColor})`};
+  border: ${({ $border }) => `1px solid ${$border}`};
+  padding: ${space(2)} ${space(4)};
+  color: ${({ $fgColor }) => $fgColor};
+  background-color: ${({ $bgColor }) => $bgColor};
   &:hover {
-    background-color: ${({ $hoverColor }) => `var(${$hoverColor})`};
+    background-color: ${({ $hoverColor }) => $hoverColor};
   }
 `;
 

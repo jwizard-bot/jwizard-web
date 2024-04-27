@@ -4,6 +4,7 @@
  */
 import { forwardRef } from 'react';
 import { styled } from 'styled-components';
+import { space } from '@/styles/global';
 
 type HeaderProps = React.HTMLAttributes<HTMLHeadingElement>;
 
@@ -22,8 +23,8 @@ const HeaderContainer = styled.h1`
   font-family: var(--font-logo);
   &::after {
     content: '.';
-    margin-left: var(--space-1);
-    color: var(--theme-color-600);
+    margin-left: ${space(1)};
+    color: var(--theme-color-650);
   }
 `;
 

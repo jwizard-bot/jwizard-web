@@ -3,8 +3,9 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { createGlobalStyle } from 'styled-components';
+import { CssTheme, CssThemedStyles } from './types';
 
-const breakpoints: Record<string, string> = {
+export const breakpoints: Record<string, string> = {
   sm: '640px',
   md: '768px',
   lg: '1024px',
@@ -18,6 +19,8 @@ export const devices = Object.fromEntries(
   ])
 );
 
+export const space = (factor: number) => `calc(var(--space) * ${factor * 2})`;
+
 export const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
@@ -28,23 +31,11 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --font-standard: Inter, Arial, sans-serif;
     --font-logo: Paytone One, Arial, sans-serif;
+    
     --button-radius: 50px;
     --duration: .3s;
-    --transparent-color: transparent;
     --base-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
-
     --space: 0.125rem;
-    --space-1: calc(var(--space) * 2);
-    --space-2: calc(var(--space) * 4);
-    --space-3: calc(var(--space) * 6);
-    --space-4: calc(var(--space) * 8);
-    --space-5: calc(var(--space) * 10);
-    --space-6: calc(var(--space) * 12);
-    --space-8: calc(var(--space) * 16);
-    --space-10: calc(var(--space) * 20);
-    --space-20: calc(var(--space) * 40);
-    --space-24: calc(var(--space) * 48);
-    --space-28: calc(var(--space) * 56);
 
     --line-height-sm: 1.25rem;
     --line-height-2xl: 2rem;
@@ -56,93 +47,40 @@ export const GlobalStyles = createGlobalStyle`
     --font-5xl: 3rem;
     --font-8xl: 6rem;
 
-    --br-sm: 640px;
-    --br-md: 768px;
-    --br-lg: 1024px;
-    --br-xl: 1280px;
+    --theme-color-950: hsl(347, 60%, 20%);
+    --theme-color-900: hsl(347, 60%, 25%);
+    --theme-color-850: hsl(347, 60%, 30%);
+    --theme-color-800: hsl(347, 60%, 35%);
+    --theme-color-750: hsl(347, 60%, 40%);
+    --theme-color-700: hsl(347, 60%, 45%);
+    --theme-color-650: hsl(347, 60%, 50%);
+    --theme-color-600: hsl(347, 60%, 55%);
+    --theme-color-550: hsl(347, 60%, 60%);
+    --theme-color-500: hsl(347, 60%, 65%);
+    --theme-color-450: hsl(347, 60%, 70%);
+    --theme-color-400: hsl(347, 60%, 75%);
+    --theme-color-350: hsl(347, 60%, 80%);
+    --theme-color-300: hsl(347, 60%, 85%);
+    --theme-color-200: hsl(347, 60%, 90%);
+    --theme-color-100: hsl(347, 60%, 95%);
+    --theme-color-50: hsl(347, 60%, 100%);
 
-    --theme-color-950: #1e1b4b;
-    --theme-color-900: #312e81;
-    --theme-color-800: #3730a3;
-    --theme-color-700: #4338ca;
-    --theme-color-600: #4f46e5;
-    --theme-color-500: #6366f1;
-    --theme-color-400: #818cf8;
-    --theme-color-300: #a5b4fc;
-    --theme-color-200: #c7d2fe;
-    --theme-color-100: #e0e7ff;
-    --theme-color-50: #eef2ff;
-
-    --tint-color-50: #f8fafc;
-    --tint-color-100: #f1f5f9;
-    --tint-color-200: #e2e8f0;
-    --tint-color-300: #cbd5e1;
-    --tint-color-400: #94a3b8;
-    --tint-color-500: #64748b;
-    --tint-color-600: #475569;
-    --tint-color-700: #334155;
-    --tint-color-800: #1e293b;
-    --tint-color-800-a40: rgba(30, 41, 59, 0.4);
-    --tint-color-900: #0f172a;
-    --tint-color-950: #020617;
-
-    --light-color-100: #ffffff;
-    --light-color-100-a40: rgba(255, 255, 255, 0.4);
-  }
-  html.light-mode:root {
-    --main-bg: var(--light-color-100);
-    --main-fg: var(--tint-color-950);
-    --paragraph-fg: var(--tint-color-500);
-    --header-border: var(--tint-color-300);
-    --header-bg: var(--light-color-100-a40);
-    --header-p-fg: var(--tint-color-800);
-    --header-p-root-fg: var(--light-color-100);
-    --header-link-fg: var(--tint-color-700);
-    --header-link-root-fg: var(--light-color-100);
-    --header-link-hover-fg: var(--theme-color-600);
-    --header-link-hover-root-fg: var(--tint-color-300);
-    --hamburger-bars-fg: var(--tint-color-950);
-    --hamburger-menu-bg: var(--light-color-100);
-    --hamburger-menu-close-btn-hover-fg: var(--tint-color-800);
-    --hamburger-menu-close-btn-hover-bg: var(--tint-color-200);
-    --hamburger-menu-link-fg: var(--tint-color-700);
-    --hamburger-menu-link-hover-fg: var(--theme-color-600);
-    --light-control-fg: var(--light-color-100);
-    --light-control-bg: var(--tint-color-950);
-    --light-control-hover-bg: var(--tint-color-800);
-    --tooltip-bg: var(--tint-color-950);
-    --tooltip-fg: var(--light-color-100);
-  }
-  html.dark-mode:root {
-    --main-bg: var(--tint-color-800);
-    --main-fg: var(--light-color-100);
-    --paragraph-fg: var(--tint-color-400);
-    --header-border: var(--tint-color-700);
-    --header-bg: var(--tint-color-800-a40);
-    --header-p-fg: var(--light-color-100);
-    --header-p-root-fg: var(--light-color-100);
-    --header-link-fg: var(--tint-color-200);
-    --header-link-root-fg: var(--light-color-100);
-    --header-link-hover-fg: var(--theme-color-500);
-    --header-link-hover-root-fg: var(--tint-color-300);
-    --hamburger-bars-fg: var(--light-color-100);
-    --hamburger-menu-bg: var(--tint-color-800);
-    --hamburger-menu-close-btn-hover-fg: var(--light-color-100);
-    --hamburger-menu-close-btn-hover-bg: var(--tint-color-600);
-    --hamburger-menu-link-fg: var(--tint-color-200);
-    --hamburger-menu-link-hover-fg: var(--theme-color-500);
-    --light-control-fg: var(--tint-color-950);
-    --light-control-bg: var(--light-color-100);
-    --light-control-hover-bg: var(--tint-color-200);
-    --tooltip-bg: var(--light-color-100);
-    --tooltip-fg: var(--tint-color-950);
+    --gray-color-800: hsl(215, 16%, 10%);
+    --gray-color-700: hsl(215, 16%, 20%);
+    --gray-color-600: hsl(215, 16%, 30%);
+    --gray-color-500: hsl(215, 16%, 40%);
+    --gray-color-400: hsl(215, 16%, 50%);
+    --gray-color-300: hsl(215, 16%, 60%);
+    --gray-color-200: hsl(215, 16%, 70%);
+    --gray-color-100: hsl(215, 16%, 80%);
   }
   body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: var(--main-fg);
-    background-color: var(--main-bg);
+    color: ${({ theme }) => theme.main.fg};
+    background-color: ${({ theme }) => theme.main.bg};
+    overflow-x: hidden;
   }
   a {
     font-size: 16px;
@@ -164,3 +102,50 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 `;
+
+export const themedStyles: Record<CssTheme, CssThemedStyles> = {
+  light: {
+    main: {
+      bg: 'var(--theme-color-50)',
+      fg: 'var(--gray-color-800)',
+    },
+    header: {
+      bg: 'rgba(255, 255, 255, 0.7)',
+      link: {
+        root: {
+          hover: 'var(--theme-color-200)',
+        },
+      },
+    },
+    p: {
+      fg: 'var(--gray-color-500)',
+    },
+    control: {
+      light: {
+        hover: 'var(--gray-color-700)',
+      },
+    },
+  },
+  dark: {
+    main: {
+      bg: 'var(--gray-color-800)',
+      fg: 'var(--theme-color-50)',
+    },
+    header: {
+      bg: 'rgba(21, 25, 30, 0.7)',
+      link: {
+        root: {
+          hover: 'var(--theme-color-300)',
+        },
+      },
+    },
+    p: {
+      fg: 'var(--gray-color-400)',
+    },
+    control: {
+      light: {
+        hover: 'var(--theme-color-100)',
+      },
+    },
+  },
+};
