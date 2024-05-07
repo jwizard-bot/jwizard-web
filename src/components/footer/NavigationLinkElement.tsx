@@ -31,7 +31,7 @@ const NavigationLinkElement: React.FC<TProps> = ({
 };
 
 const NavigationLink = styled(Link)`
-  color: var(--theme-color-50);
+  color: var(--gray-color-0);
   font-weight: medium;
   font-size: var(--font-sm);
   line-height: var(--line-height-sm);

@@ -24,7 +24,7 @@ const HeaderContainer = styled.h1`
   &::after {
     content: '.';
     margin-left: ${space(1)};
-    color: var(--theme-color-650);
+    color: var(--gray-color-500);
   }
 `;
 

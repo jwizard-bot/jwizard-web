@@ -41,7 +41,7 @@ const MainHeader: React.FC = (): JSX.Element => {
         <HeaderSection>
           <HomeLink to="/">
             <img
-              src={`/logo/logo-${isRoot ? 'white' : 'color'}.svg`}
+              src={`/logo/logo-${isRoot ? 'white' : mode === 'dark' ? 'white' : 'black'}.svg`}
               alt="logo"
               width={40}
               height={40}
@@ -102,7 +102,7 @@ const HeaderContainer = styled.header<{ $isRoot: boolean }>`
   width: 100%;
   backdrop-filter: ${({ $isRoot }) => ($isRoot ? 'none' : 'blur(10px)')};
   background-color: ${({ $isRoot, theme }) =>
-    $isRoot ? 'var(--theme-color-650)' : theme.header.bg};
+    $isRoot ? 'var(--gray-color-600)' : theme.header.bg};
 `;
 
 const HeaderWrapper = styled.div`
@@ -131,7 +131,7 @@ const HomeParagraph = styled.p<{ $isRoot: boolean }>`
   margin-left: ${space(2)};
   margin-top: calc(${space(1)} * -1);
   color: ${({ $isRoot, theme }) =>
-    $isRoot ? 'var(--theme-color-50)' : theme.main.fg};
+    $isRoot ? 'var(--gray-color-0)' : theme.main.fg};
 `;
 
 const HeaderNavigation = styled.ul`
@@ -154,7 +154,7 @@ const HeaderHamburgerButton = styled.button<{ $isRoot: boolean }>`
   display: block;
   text-align: center;
   color: ${({ $isRoot, theme }) =>
-    $isRoot ? 'var(--theme-color-50)' : theme.main.fg};
+    $isRoot ? 'var(--gray-color-0)' : theme.main.fg};
   @media only ${devices.md} {
     display: none;
   }

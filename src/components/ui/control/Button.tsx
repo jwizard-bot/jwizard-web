@@ -33,12 +33,12 @@ const buttonStyles = ({
 }: CssThemedStyles): Record<ButtonType, ButtonColors> => ({
   agnosticLight: {
     $fgColor: 'var(--gray-color-800)',
-    $bgColor: 'var(--theme-color-50)',
-    $border: 'var(--theme-color-50)',
-    $hoverColor: 'var(--theme-color-100)',
+    $bgColor: 'var(--gray-color-0)',
+    $border: 'var(--gray-color-50)',
+    $hoverColor: 'var(--gray-color-50)',
   },
   agnosticDark: {
-    $fgColor: 'var(--theme-color-50)',
+    $fgColor: 'var(--gray-color-0)',
     $bgColor: 'var(--gray-color-800)',
     $border: 'var(--gray-color-800)',
     $hoverColor: 'var(--gray-color-700)',
@@ -56,10 +56,10 @@ const buttonStyles = ({
     $hoverColor: 'transparent',
   },
   theme: {
-    $fgColor: 'var(--theme-color-50)',
-    $bgColor: 'var(--theme-color-650)',
-    $border: 'var(--theme-color-650)',
-    $hoverColor: 'var(--theme-color-700)',
+    $fgColor: 'var(--gray-color-0)',
+    $bgColor: 'var(--gray-color-500)',
+    $border: 'var(--gray-color-500)',
+    $hoverColor: 'var(--gray-color-600)',
   },
 });
 
@@ -93,6 +93,7 @@ const ButtonContainer = styled.button<ButtonColors>`
   background-color: ${({ $bgColor }) => $bgColor};
   &:hover {
     background-color: ${({ $hoverColor }) => $hoverColor};
+    border-color: ${({ $hoverColor }) => $hoverColor};
   }
 `;
 

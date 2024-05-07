@@ -32,7 +32,7 @@ export const GlobalStyles = createGlobalStyle`
     --font-standard: Inter, Arial, sans-serif;
     --font-logo: Paytone One, Arial, sans-serif;
     
-    --button-radius: 50px;
+    --button-radius: 10px;
     --duration: .3s;
     --base-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;;
     --space: 0.125rem;
@@ -47,25 +47,8 @@ export const GlobalStyles = createGlobalStyle`
     --font-5xl: 3rem;
     --font-8xl: 6rem;
 
-    --theme-color-950: hsl(347, 60%, 20%);
-    --theme-color-900: hsl(347, 60%, 25%);
-    --theme-color-850: hsl(347, 60%, 30%);
-    --theme-color-800: hsl(347, 60%, 35%);
-    --theme-color-750: hsl(347, 60%, 40%);
-    --theme-color-700: hsl(347, 60%, 45%);
-    --theme-color-650: hsl(347, 60%, 50%);
-    --theme-color-600: hsl(347, 60%, 55%);
-    --theme-color-550: hsl(347, 60%, 60%);
-    --theme-color-500: hsl(347, 60%, 65%);
-    --theme-color-450: hsl(347, 60%, 70%);
-    --theme-color-400: hsl(347, 60%, 75%);
-    --theme-color-350: hsl(347, 60%, 80%);
-    --theme-color-300: hsl(347, 60%, 85%);
-    --theme-color-200: hsl(347, 60%, 90%);
-    --theme-color-100: hsl(347, 60%, 95%);
-    --theme-color-50: hsl(347, 60%, 100%);
-
     --gray-color-800: hsl(215, 16%, 10%);
+    --gray-color-750: hsl(215, 16%, 15%);
     --gray-color-700: hsl(215, 16%, 20%);
     --gray-color-600: hsl(215, 16%, 30%);
     --gray-color-500: hsl(215, 16%, 40%);
@@ -73,6 +56,8 @@ export const GlobalStyles = createGlobalStyle`
     --gray-color-300: hsl(215, 16%, 60%);
     --gray-color-200: hsl(215, 16%, 70%);
     --gray-color-100: hsl(215, 16%, 80%);
+    --gray-color-50:  hsl(215, 16%, 90%);
+    --gray-color-0:   hsl(215, 16%, 100%);
   }
   body {
     display: flex;
@@ -106,16 +91,11 @@ export const GlobalStyles = createGlobalStyle`
 export const themedStyles: Record<CssTheme, CssThemedStyles> = {
   light: {
     main: {
-      bg: 'var(--theme-color-50)',
+      bg: 'var(--gray-color-0)',
       fg: 'var(--gray-color-800)',
     },
     header: {
-      bg: 'rgba(255, 255, 255, 0.7)',
-      link: {
-        root: {
-          hover: 'var(--theme-color-200)',
-        },
-      },
+      bg: 'hsla(215, 16%, 100%, 0.7)',
     },
     p: {
       fg: 'var(--gray-color-500)',
@@ -128,23 +108,18 @@ export const themedStyles: Record<CssTheme, CssThemedStyles> = {
   },
   dark: {
     main: {
-      bg: 'var(--gray-color-800)',
-      fg: 'var(--theme-color-50)',
+      bg: 'var(--gray-color-750)',
+      fg: 'var(--gray-color-0)',
     },
     header: {
-      bg: 'rgba(21, 25, 30, 0.7)',
-      link: {
-        root: {
-          hover: 'var(--theme-color-300)',
-        },
-      },
+      bg: 'hsla(215, 16%, 15%, 0.7)',
     },
     p: {
       fg: 'var(--gray-color-400)',
     },
     control: {
       light: {
-        hover: 'var(--theme-color-100)',
+        hover: 'var(--gray-color-50)',
       },
     },
   },

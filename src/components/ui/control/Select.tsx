@@ -19,8 +19,8 @@ type SelectColors = {
 
 const selectStyles: Record<SelectType, SelectColors> = {
   agnosticDark: {
-    $fgColor: 'var(--theme-color-50)',
-    $bgColor: 'var(--gray-color-800)',
+    $fgColor: 'var(--gray-color-0)',
+    $bgColor: 'var(--gray-color-500)',
   },
 };
 

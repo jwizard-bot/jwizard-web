@@ -38,10 +38,11 @@ const HeaderAnchorLink = styled(Link)<{ $isRoot: boolean }>`
   font-size: var(--font-sm);
   font-weight: 500;
   color: ${({ $isRoot, theme }) =>
-    $isRoot ? 'var(--theme-color-50)' : theme.main.fg};
+    $isRoot ? 'var(--gray-color-0)' : theme.main.fg};
   &:hover {
-    color: ${({ $isRoot, theme }) =>
-      $isRoot ? theme.header.link.root.hover : 'var(--theme-color-650)'};
+    color: var(
+      ${({ $isRoot }) => ($isRoot ? '--gray-color-200' : '--gray-color-400')}
+    );
   }
 `;
 

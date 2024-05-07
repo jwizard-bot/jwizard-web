@@ -28,7 +28,7 @@ const LinkElement = styled(Link)`
   width: 100%;
   color: ${({ theme }) => theme.main.fg};
   &:hover {
-    color: var(--theme-color-650);
+    color: var(--gray-color-400);
   }
 `;
 

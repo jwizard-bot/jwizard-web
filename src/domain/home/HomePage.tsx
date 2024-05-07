@@ -18,7 +18,8 @@ const HomePage: React.FC = (): JSX.Element => {
 };
 
 const HeroContainer = styled.section`
-  background-color: var(--theme-color-650);
+  background-color: var(--gray-color-600);
+  color: var(--gray-color-0);
   padding: ${space(20)} 0;
 `;
 

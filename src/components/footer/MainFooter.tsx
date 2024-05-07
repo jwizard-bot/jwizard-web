@@ -58,8 +58,8 @@ const MainFooter: React.FC = (): JSX.Element => {
 };
 
 const FooterContainer = styled.footer`
-  color: var(--theme-color-50);
-  background-color: var(--theme-color-650);
+  color: var(--gray-color-0);
+  background-color: var(--gray-color-800);
 `;
 
 const FooterWrapper = styled.div`
@@ -87,7 +87,8 @@ const DescriptionWithLogoSection = styled.section`
 const Description = styled.p`
   text-align: center;
   max-width: 900px;
-  color: var(--theme-color-400);
+  font-weight: 500;
+  color: var(--gray-color-500);
   @media only ${devices.md} {
     text-align: left;
     margin-right: ${space(20)};
@@ -110,7 +111,7 @@ const LogoText = styled.p`
   font-size: var(--font-2xl);
   line-height: var(--line-height-2xl);
   margin-left: ${space(2)};
-  color: var(--theme-color-50);
+  color: var(--gray-color-0);
 `;
 
 const NavigationWithButtonsSection = styled.section`
@@ -152,7 +153,7 @@ const ButtonsSection = styled.div`
 const Separator = styled.hr`
   border: 0;
   height: 1px;
-  background-color: var(--theme-color-500);
+  background-color: var(--gray-color-600);
   width: 100%;
   margin: ${space(6)} 0 ${space(4)};
 `;
@@ -171,7 +172,8 @@ const CopyrightContainer = styled.section`
 `;
 
 const CopyrightParagraph = styled.p`
-  color: var(--theme-color-500);
+  color: var(--gray-color-500);
+  font-weight: 500;
   margin: ${space(1)} 0;
 `;
 

@@ -12,11 +12,6 @@ export type CssThemedStyles = {
   };
   header: {
     bg: string;
-    link: {
-      root: {
-        hover: string;
-      };
-    };
   };
   p: {
     fg: string;

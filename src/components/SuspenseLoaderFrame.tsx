@@ -25,7 +25,7 @@ const SuspenseLoaderContainer = styled.div`
 
 const SpinAnimationElement = styled.div`
   display: inline-block;
-  border: 6px solid var(--theme-color-650);
+  border: 6px solid var(--gray-color-500);
   border-bottom-color: transparent;
   border-radius: 50%;
   width: 100px;

@@ -41,10 +41,10 @@ const LinkElement = styled(Link)`
   font-size: var(--font-sm);
   text-align: center;
   padding: ${space(3)} ${space(5)};
-  color: var(--theme-color-50);
-  background-color: var(--theme-color-650);
+  color: var(--gray-color-0);
+  background-color: var(--gray-color-500);
   &:hover {
-    background-color: var(--theme-color-700);
+    background-color: var(--gray-color-600);
   }
 `;
 
