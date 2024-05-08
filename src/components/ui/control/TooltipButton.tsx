@@ -16,14 +16,21 @@ import {
 } from '@floating-ui/react';
 import Button, { ButtonProps } from './Button';
 
+type TooltipTheme = {
+  fg: string | null;
+  bg: string | null;
+};
+
 type TooltipProps = ButtonProps & {
   placement: Placement;
   tooltipI18nLabel: string;
+  tooltipTheme?: TooltipTheme;
 };
 
 const TooltipButton: React.FC<TooltipProps> = ({
   placement,
   tooltipI18nLabel,
+  tooltipTheme,
   children,
   ...rest
 }): JSX.Element => {
@@ -56,10 +63,12 @@ const TooltipButton: React.FC<TooltipProps> = ({
       {isMounted && (
         <TooltipContainer
           ref={refs.setFloating}
+          $tooltip={tooltipTheme}
           style={{ ...floatingStyles, ...styles }}
           {...getFloatingProps()}>
           <TooltipArrow
             ref={arrowRef}
+            $tooltip={tooltipTheme}
             $x={middlewareData.arrow?.x || 0}
             $y={middlewareData.arrow?.y || 0}
           />
@@ -70,9 +79,11 @@ const TooltipButton: React.FC<TooltipProps> = ({
   );
 };
 
-const TooltipContainer = styled.div`
-  background-color: ${({ theme }) => theme.main.fg};
-  color: ${({ theme }) => theme.main.bg};
+const TooltipContainer = styled.div<{
+  $tooltip?: TooltipTheme;
+}>`
+  background-color: ${({ theme, $tooltip }) => $tooltip?.fg || theme.main.fg};
+  color: ${({ theme, $tooltip }) => $tooltip?.bg || theme.main.bg};
   border-radius: 10px;
   margin-top: ${space(2)};
   padding: ${space(2)} ${space(3)};
@@ -81,11 +92,15 @@ const TooltipContainer = styled.div`
   box-shadow: var(--base-shadow);
 `;
 
-const TooltipArrow = styled.div<{ $x: number; $y: number }>`
+const TooltipArrow = styled.div<{
+  $tooltip?: TooltipTheme;
+  $x: number;
+  $y: number;
+}>`
   position: absolute;
   top: ${({ $y }) => `${$y}px`};
   left: ${({ $x }) => `${$x}px`};
-  background-color: ${({ theme }) => theme.main.fg};
+  background-color: ${({ theme, $tooltip }) => $tooltip?.fg || theme.main.fg};
   width: 15px;
   height: 15px;
   transform: translateY(-3px) rotate(45deg);

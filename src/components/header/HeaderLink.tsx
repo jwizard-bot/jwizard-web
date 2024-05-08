@@ -2,12 +2,11 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { devices } from '@/styles/global';
-import { IsRootContext, IsRootProps } from './MainHeader';
+import { useIsRootContext } from './context/IsRootContext';
 
 type Props = {
   to: string;
@@ -15,7 +14,7 @@ type Props = {
 };
 
 const HeaderLink: React.FC<Props> = ({ to, i18nLabel }): JSX.Element => {
-  const { isRoot } = useContext<IsRootProps>(IsRootContext);
+  const { isRoot } = useIsRootContext();
   const { t } = useTranslation();
 
   return (

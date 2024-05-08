@@ -22,3 +22,8 @@ export type CssThemedStyles = {
     };
   };
 };
+
+export type AgnosticStyles = {
+  fg: string;
+  bg: string;
+};

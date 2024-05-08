@@ -3,7 +3,7 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { createGlobalStyle } from 'styled-components';
-import { CssTheme, CssThemedStyles } from './types';
+import { AgnosticStyles, CssTheme, CssThemedStyles } from './types';
 
 export const breakpoints: Record<string, string> = {
   sm: '640px',
@@ -123,4 +123,9 @@ export const themedStyles: Record<CssTheme, CssThemedStyles> = {
       },
     },
   },
+};
+
+export const agnosticTheme: AgnosticStyles = {
+  fg: 'var(--gray-color-800)',
+  bg: 'var(--gray-color-0)',
 };

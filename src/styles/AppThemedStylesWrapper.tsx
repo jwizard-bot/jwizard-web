@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { ThemeProvider } from 'styled-components';
 import { useDarkMode } from '@rbnd/react-dark-mode';
-import { GlobalStyles, themedStyles } from './global';
+import { GlobalStyles, agnosticTheme, themedStyles } from './global';
 import { CssTheme } from './types';
 
 type Props = {
@@ -32,7 +32,10 @@ export const AppThemedStylesWrapper: React.FC<Props> = ({
 
   return (
     <ThemeProvider
-      theme={themedStyles[mode === 'system' ? systemMode : (mode as CssTheme)]}>
+      theme={{
+        ...themedStyles[mode === 'system' ? systemMode : (mode as CssTheme)],
+        agnostic: agnosticTheme,
+      }}>
       <GlobalStyles />
       {children}
     </ThemeProvider>
