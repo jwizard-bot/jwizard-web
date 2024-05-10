@@ -3,8 +3,7 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 
-const { IS_PROD, API_URL, INVITE_LINK, ORG_LINK, BUILD_VERSION } =
-  window.jwizard;
+const { MODE, API_URL, INVITE_LINK, ORG_LINK, BUILD_VERSION } = window.jwizard;
 
 type ConfigTypes = {
   isProdMode: boolean;
@@ -17,7 +16,7 @@ type ConfigTypes = {
 declare global {
   interface Window {
     jwizard: {
-      IS_PROD: string;
+      MODE: string;
       API_URL: string;
       INVITE_LINK: string;
       ORG_LINK: string;
@@ -27,7 +26,7 @@ declare global {
 }
 
 const config: ConfigTypes = {
-  isProdMode: IS_PROD === 'true',
+  isProdMode: MODE === 'production',
   apiUrl: API_URL,
   inviteLink: INVITE_LINK,
   orgLink: ORG_LINK,

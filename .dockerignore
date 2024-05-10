@@ -8,6 +8,5 @@ dist/
 .gitignore
 .prettierrc.json
 Dockerfile
-example.env
 LICENSE
 README.md
