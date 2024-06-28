@@ -42,13 +42,13 @@ const BrandLogo: React.FC<Props> = ({
           height={sizePx}
           radius="none"
         />
-        <div className="ms-3">
+        <div className="ms-3 relative">
           <h1
             className={clsx('font-logo -mt-1', classNames?.text ?? 'text-2xl')}>
             JWizard
           </h1>
           {config.prereleaseMode !== 'none' && (
-            <p className="-mt-1.5 text-xs dark:font-semibold text-default-400 capitalize">
+            <p className="absolute -top-[3px] right-[10px] text-[10px] dark:font-semibold text-default-400 capitalize">
               {config.prereleaseMode.toUpperCase()}
             </p>
           )}
