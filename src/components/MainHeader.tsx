@@ -49,7 +49,6 @@ const MainHeader: React.FC = () => {
     <Navbar
       maxWidth="xl"
       isBlurred={!isSmallScreen}
-      shouldHideOnScroll={isSmallScreen && !isMenuOpen}
       disableAnimation
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}>
