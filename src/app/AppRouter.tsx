@@ -2,24 +2,20 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import React from 'react';
+import React, { lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AppLayout from './AppLayout';
 
-const HomePage = React.lazy(() => import('@/app/pages/HomePage'));
-const CommandsRootPage = React.lazy(
-  () => import('@/app/pages/commands/CommandsRootPage')
-);
-const ContributeRootPage = React.lazy(
-  () => import('@/app/pages/contribute/ContributeRootPage')
-);
-const ErrorCodesRootPage = React.lazy(
-  () => import('@/app/pages/error-codes/ErrorCodesRootPage')
-);
-const ErrorCodePage = React.lazy(
-  () => import('@/app/pages/error-codes/ErrorCodePage')
-);
-const NotFoundPage = React.lazy(() => import('@/app/pages/NotFoundPage'));
+/* eslint-disable */
+const HomePage = lazy(() => import('@/app/pages/HomePage'));
+const CommandsRootPage = lazy(() => import('@/app/pages/commands/CommandsRootPage'));
+const ContributeRootPage = lazy(() => import('@/app/pages/contribute/ContributeRootPage'));
+const ErrorCodesRootPage = lazy(() => import('@/app/pages/error-codes/ErrorCodesRootPage'));
+const ErrorCodePage = lazy(() => import('@/app/pages/error-codes/ErrorCodePage'));
+const PrivacyPolicyPage = lazy(() => import('@/app/pages/privacy-policy/PrivacyPolicyRootPage'));
+const TermsOfServicePage = lazy(() => import('@/app/pages/terms-of-service/TermsOfServiceRootPage'));
+const NotFoundPage = lazy(() => import('@/app/pages/NotFoundPage'));
+/* eslint-enable */
 
 const router = createBrowserRouter([
   {
@@ -31,6 +27,8 @@ const router = createBrowserRouter([
       { path: '/contribute', element: <ContributeRootPage /> },
       { path: '/error-codes', element: <ErrorCodesRootPage /> },
       { path: '/error-codes/:code', element: <ErrorCodePage /> },
+      { path: '/privacy-policy', element: <PrivacyPolicyPage /> },
+      { path: '/terms-of-service', element: <TermsOfServicePage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

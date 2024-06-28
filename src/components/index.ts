@@ -4,6 +4,7 @@
  */
 import BackgroundGradient from '@/components/BackgroundGradient';
 import MainHeader from '@/components/MainHeader';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import MainFooter from '@/components/footer/MainFooter';
 import ContributeSection from '@/components/home/ContributeSection';
 import ExistingAndFutureFunctions from '@/components/home/ExistingAndFutureFunction';
@@ -18,4 +19,5 @@ export {
   InfoCardsContainer,
   MainFooter,
   MainHeader,
+  MarkdownRenderer,
 };

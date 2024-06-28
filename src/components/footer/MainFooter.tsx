@@ -3,6 +3,7 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { useTranslation } from 'react-i18next';
+import { GoDotFill } from 'react-icons/go';
 import { Link as ReactLink } from 'react-router-dom';
 import { useMediaQuery } from 'usehooks-ts';
 import config from '@/config';
@@ -12,7 +13,7 @@ import BrandLogo from '../BrandLogo';
 import DropdownWithIcons from '../dropdown/DropdownWithIcons';
 import { commandsDropdownElements } from '../dropdown/dropdownData';
 import Ui from '../ui';
-import CopyrightParagraph from './CopyrightParagraph';
+import CopyrightSection from './CopyrightSection';
 import LanguageToggleDropdown from './LanguageToggleDropdown';
 
 const MainFooter: React.FC = () => {
@@ -70,14 +71,23 @@ const MainFooter: React.FC = () => {
           </Ui.FlexContainer>
         </Ui.FlexContainer>
         <Divider className="my-6" />
-        <Ui.FlexContainer
-          fullWidth
-          toColOnSmallDevices
-          justify="between"
-          className="text-sm text-default-400 mb-4">
-          <CopyrightParagraph>&copy; {year} by JWizard</CopyrightParagraph>
-          <CopyrightParagraph>Build: {config.buildVersion}</CopyrightParagraph>
-        </Ui.FlexContainer>
+        <Ui.GridContainer
+          responsive
+          className="w-full text-sm text-default-400 mb-4">
+          <CopyrightSection alignment="start">
+            <ReactLink to="/privacy-policy" className="hover:underline">
+              {t('privacyPolicy')}
+            </ReactLink>
+            <GoDotFill size={10} />
+            <ReactLink to="/terms-of-service" className="hover:underline">
+              {t('termsOfService')}
+            </ReactLink>
+          </CopyrightSection>
+          <CopyrightSection>&copy; {year} by JWizard</CopyrightSection>
+          <CopyrightSection alignment="end">
+            Build: {config.buildVersion}
+          </CopyrightSection>
+        </Ui.GridContainer>
       </Ui.FlexContainer>
     </Ui.SafetyContainer>
   );
