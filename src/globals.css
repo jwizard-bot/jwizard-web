@@ -6,3 +6,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Geist';
+  src: local('Geist'), url('/font/geist.ttf'), format('opentype');
+}
+
+@font-face {
+  font-family: 'Paytone';
+  src: local('Paytone'), url('/font/paytone.ttf'), format('opentype');
+}
