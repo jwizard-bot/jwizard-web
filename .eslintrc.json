@@ -12,6 +12,7 @@
   },
   "ignorePatterns": [
     "node_modules/",
+    "public/",
     ".husky/",
     "LICENSE",
     "package.json",

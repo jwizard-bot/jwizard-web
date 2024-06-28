@@ -7,14 +7,26 @@ import { nextui } from '@nextui-org/react';
 const tailwindConfig = {
   content: [
     './src/**/*.{ts,tsx}',
+    './index.html',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: 'Geist',
+      logo: 'Paytone',
+    },
   },
   darkMode: 'class',
   plugins: [
     nextui({
+      layout: {
+        fontSize: {
+          tiny: '0.9rem',
+        },
+        borderWidth: {
+          medium: '1px',
+        },
+      },
       themes: {
         light: {
           colors: {
