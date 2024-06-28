@@ -8,7 +8,7 @@
   "arrowParens": "avoid",
   "trailingComma": "es5",
   "bracketSameLine": true,
-  "impodwrtOrderParserPlugins": [
+  "importOrderParserPlugins": [
     "typescript",
     "jsx"
   ],
