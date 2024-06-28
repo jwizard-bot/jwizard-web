@@ -30,6 +30,7 @@ const ExistingAndFutureFunctions: React.FC = (): JSX.Element => {
   return (
     <Ui.SafetyContainer className="mb-16 sm:mb-32">
       <Ui.ContentHeader
+        headingVariant="h2"
         i18nText="keyFeatures"
         translationSources={['homePage']}
       />

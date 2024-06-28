@@ -19,6 +19,7 @@ const ContributeSection: React.FC = (): JSX.Element => {
     <Ui.SafetyContainer className="mb-8 sm:mb-32">
       <Ui.FlexContainer col className="sm:items-center">
         <Ui.ContentHeader
+          headingVariant="h2"
           i18nText="contribute"
           translationSources={['homePage']}
           size="md"
