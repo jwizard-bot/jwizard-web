@@ -14,6 +14,8 @@
   "core": "Core",
   "api": "API",
   "front": "Front-end",
+  "notFound": "Nie znaleziono",
+  "returnToHome": "Powrót do strony głównej",
   "commandsDropdown": {
     "text": "Komendy",
     "data": {

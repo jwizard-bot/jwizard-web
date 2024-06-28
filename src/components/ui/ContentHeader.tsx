@@ -7,10 +7,10 @@ import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { TranslationSources } from '@/i18n';
 
-type HeaderSize = 'sm' | 'md' | 'lg';
+type HeaderSize = 'sm' | 'md' | 'lg' | 'xl';
 
 type Props = {
-  i18nText: string;
+  i18nText?: string;
   translationSources?: TranslationSources[];
   isCentered?: boolean;
   size?: HeaderSize;
@@ -24,6 +24,7 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
       isCentered = false,
       size = 'sm',
       className,
+      children,
       ...rest
     },
     ref
@@ -38,10 +39,11 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
           { 'text-3xl sm:text-4xl': size === 'sm' },
           { 'text-4xl sm:text-5xl': size === 'md' },
           { 'text-5xl sm:text-6xl': size === 'lg' },
+          { 'text-6xl sm:text-8xl': size === 'xl' },
           className
         )}
         {...rest}>
-        {t(i18nText)}
+        {i18nText ? t(i18nText) : children}
         <span className="text-default-400"></span>
       </h3>
     );

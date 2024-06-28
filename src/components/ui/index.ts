@@ -5,6 +5,7 @@
 import ContentHeader from './ContentHeader';
 import FlexContainer from './FlexContainer';
 import GridContainer from './GridContainer';
+import Paragraph from './Paragraph';
 import SafetyContainer from './SafetyContainer';
 import TransparentButton from './TransparentButton';
 
@@ -14,6 +15,7 @@ const Ui = {
   TransparentButton,
   GridContainer,
   ContentHeader,
+  Paragraph,
 };
 
 export default Ui;

@@ -24,7 +24,7 @@ const LanguageToggleDropdown: React.FC = (): JSX.Element => {
     i18n.language.substring(0, 2) as Language
   );
 
-  const GetChevronIconVariant = isDropdownOpen ? GoChevronUp : GoChevronDown;
+  const GetChevronIconVariant = isDropdownOpen ? GoChevronDown : GoChevronUp;
 
   const handleChangeLanguage = (langId: Key): void => {
     setLanguage(langId as Language);

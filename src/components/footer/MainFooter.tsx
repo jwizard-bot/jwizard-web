@@ -29,9 +29,11 @@ const MainFooter: React.FC = () => {
           toColOnSmallDevices
           justify="between"
           className="my-10 flex-col-reverse">
-          <p className="sm:me-16 text-center sm:text-start text-default-500">
-            {t('description')}
-          </p>
+          <Ui.Paragraph
+            i18nText="description"
+            size="md"
+            className="sm:me-16 text-center sm:text-start"
+          />
           <BrandLogo
             sizePx={50}
             classNames={{
