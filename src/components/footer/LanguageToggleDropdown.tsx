@@ -20,9 +20,7 @@ const LanguageToggleDropdown: React.FC = (): JSX.Element => {
   const { i18n } = useTranslation();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [language, setLanguage] = useState<Language>(
-    i18n.language.substring(0, 2) as Language
-  );
+  const [language, setLanguage] = useState<Language>(i18n.language as Language);
 
   const GetChevronIconVariant = isDropdownOpen ? GoChevronDown : GoChevronUp;
 
@@ -52,7 +50,7 @@ const LanguageToggleDropdown: React.FC = (): JSX.Element => {
         selectedKeys={[language]}>
         {(Object.keys(availableLanguages) as Language[]).map(key => (
           <DropdownItem key={key} startContent={<FlagImage lang={key} />}>
-            {availableLanguages[key as keyof typeof availableLanguages]}
+            {availableLanguages[key]}
           </DropdownItem>
         ))}
       </DropdownMenu>

@@ -25,8 +25,10 @@ i18n
     debug: !config.isProdMode,
     load: 'languageOnly',
     fallbackLng: 'en',
+    supportedLngs: Object.keys(availableLanguages),
     detection: {
       lookupLocalStorage: 'lang',
+      convertDetectedLanguage: lng => lng.substring(0, 2),
     },
   });
 
