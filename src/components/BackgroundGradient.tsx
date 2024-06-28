@@ -16,7 +16,7 @@ const gradientElements: GradientElement[] = [
   },
   {
     fileName: 'right.png',
-    styles: '-top-[10%] -right-[20%] 2xl:-top-[60%] 2xl:-right-[45%] rotate-12',
+    styles: '-top-[60%] -right-[45%] rotate-12',
   },
 ];
 

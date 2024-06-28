@@ -30,7 +30,7 @@ const ContributorProfiles: React.FC = (): JSX.Element => {
     }
   }, [data]);
 
-  if (!data) {
+  if (!data || !selectedVariant) {
     return (
       <Ui.FlexContainer justify="center" className="mt-16">
         <Spinner />
