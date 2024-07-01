@@ -48,7 +48,16 @@ const BrandLogo: React.FC<Props> = ({
             JWizard
           </h1>
           {config.prereleaseMode !== 'none' && (
-            <p className="absolute -top-[3px] right-[10px] text-[10px] dark:font-semibold text-default-400 capitalize">
+            <p
+              className={clsx(
+                'absolute',
+                '-top-[3px]',
+                'right-[10px]',
+                'text-[10px]',
+                'dark:font-semibold',
+                'text-default-400',
+                'capitalize'
+              )}>
               {config.prereleaseMode.toUpperCase()}
             </p>
           )}

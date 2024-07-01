@@ -19,7 +19,7 @@ const HeroContainer: React.FC = (): JSX.Element => {
         className="absolute top-20 sm:top-0 right-[50%] translate-x-[50%] w-full sm:w-[900px] opacity-15 -z-[1]"
       />
       <Ui.FlexContainer col fullWidth align="center" className="my-48">
-        <Ui.ContentHeader size="xl" className="sm:mb-4">
+        <Ui.ContentHeader size="xl" className="sm:mb-2">
           JWizard
         </Ui.ContentHeader>
         <Ui.Paragraph

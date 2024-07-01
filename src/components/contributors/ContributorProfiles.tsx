@@ -21,7 +21,7 @@ const ContributorProfiles: React.FC = (): JSX.Element => {
   });
 
   useEffect(() => {
-    console.log(isError);
+    // TODO: add error snackbar
   }, [isError]);
 
   useEffect(() => {
