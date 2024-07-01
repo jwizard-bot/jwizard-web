@@ -18,12 +18,16 @@
   "returnToHome": "Return to home page",
   "privacyPolicy": "Privacy policy",
   "termsOfService": "Terms of service",
-  "commandsDropdown": {
-    "text": "Commands",
+  "featuresDropdown": {
+    "text": "Features",
     "data": {
       "commands": {
         "head": "Commands",
         "body": "List of all available bot commands from all modules."
+      },
+      "radioStations": {
+        "head": "Radio stations",
+        "body": "List of all available radio stations."
       },
       "errorCodes": {
         "head": "Error codes",

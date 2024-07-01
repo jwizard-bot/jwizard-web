@@ -23,7 +23,7 @@ import {
 } from '@nextui-org/react';
 import BrandLogo from './BrandLogo';
 import DropdownWithIcons from './dropdown/DropdownWithIcons';
-import { commandsDropdownElements } from './dropdown/dropdownData';
+import { featuresDropdownElements } from './dropdown/dropdownData';
 import ThemeToggleButton from './theme/ThemeToggleButton';
 import ThemeToggleDropdown from './theme/ThemeToggleDropdown';
 import Ui from './ui';
@@ -59,9 +59,9 @@ const MainHeader: React.FC = () => {
       <NavbarContent className="hidden lg:flex gap-4" justify="start">
         <BrandLogo classNames={{ root: 'me-8' }} />
         <DropdownWithIcons
-          i18nKey="commandsDropdown"
+          i18nKey="featuresDropdown"
           ComponentWrapper={NavbarItem}
-          elements={commandsDropdownElements}
+          elements={featuresDropdownElements}
           placement="bottom-start"
         />
         <NavbarItem>

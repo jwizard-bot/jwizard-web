@@ -18,12 +18,16 @@
   "returnToHome": "Powrót do strony głównej",
   "privacyPolicy": "Polityka prywatności",
   "termsOfService": "Warunki usługi",
-  "commandsDropdown": {
-    "text": "Komendy",
+  "featuresDropdown": {
+    "text": "Funkcje",
     "data": {
       "commands": {
         "head": "Komendy",
         "body": "Lista wszystkich dostępnych komend ze wszystkich modułów."
+      },
+      "radioStations": {
+        "head": "Stacje radiowe",
+        "body": "Lista wszystkich dostępnych stacji radiowych."
       },
       "errorCodes": {
         "head": "Kody błędów",

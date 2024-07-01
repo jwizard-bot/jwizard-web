@@ -12,6 +12,7 @@ const CommandsRootPage = lazy(() => import('@/app/pages/commands/CommandsRootPag
 const ContributeRootPage = lazy(() => import('@/app/pages/contribute/ContributeRootPage'));
 const ErrorCodesRootPage = lazy(() => import('@/app/pages/error-codes/ErrorCodesRootPage'));
 const ErrorCodePage = lazy(() => import('@/app/pages/error-codes/ErrorCodePage'));
+const RadioStationsRootPage = lazy(() => import('@/app/pages/radio-stations/RadioStationsRootPage'));
 const PrivacyPolicyPage = lazy(() => import('@/app/pages/privacy-policy/PrivacyPolicyRootPage'));
 const TermsOfServicePage = lazy(() => import('@/app/pages/terms-of-service/TermsOfServiceRootPage'));
 const NotFoundPage = lazy(() => import('@/app/pages/NotFoundPage'));
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: '/contribute', element: <ContributeRootPage /> },
       { path: '/error-codes', element: <ErrorCodesRootPage /> },
       { path: '/error-codes/:code', element: <ErrorCodePage /> },
+      { path: '/radio-stations', element: <RadioStationsRootPage /> },
       { path: '/privacy-policy', element: <PrivacyPolicyPage /> },
       { path: '/terms-of-service', element: <TermsOfServicePage /> },
       { path: '*', element: <NotFoundPage /> },

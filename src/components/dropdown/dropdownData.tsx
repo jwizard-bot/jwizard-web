@@ -3,9 +3,11 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { GoCommandPalette, GoStop } from 'react-icons/go';
+import { IoIosRadio } from 'react-icons/io';
 import { DropdownElement } from './DropdownWithIcons';
 
-export const commandsDropdownElements: DropdownElement[] = [
+export const featuresDropdownElements: DropdownElement[] = [
   { i18nElementKey: 'commands', Icon: GoCommandPalette },
+  { i18nElementKey: 'radio-stations', Icon: IoIosRadio },
   { i18nElementKey: 'error-codes', Icon: GoStop, iconClasses: 'text-danger' },
 ];

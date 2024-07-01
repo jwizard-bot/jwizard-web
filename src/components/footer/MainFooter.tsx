@@ -11,7 +11,7 @@ import { Divider } from '@nextui-org/divider';
 import { Button, Link } from '@nextui-org/react';
 import BrandLogo from '../BrandLogo';
 import DropdownWithIcons from '../dropdown/DropdownWithIcons';
-import { commandsDropdownElements } from '../dropdown/dropdownData';
+import { featuresDropdownElements } from '../dropdown/dropdownData';
 import Ui from '../ui';
 import CopyrightSection from './CopyrightSection';
 import LanguageToggleDropdown from './LanguageToggleDropdown';
@@ -46,8 +46,8 @@ const MainFooter: React.FC = () => {
         <Ui.FlexContainer fullWidth toColOnSmallDevices justify="between">
           <Ui.FlexContainer gap>
             <DropdownWithIcons
-              i18nKey="commandsDropdown"
-              elements={commandsDropdownElements}
+              i18nKey="featuresDropdown"
+              elements={featuresDropdownElements}
               placement={isSmallScreen ? 'top' : 'top-start'}
             />
             <Ui.TransparentButton
