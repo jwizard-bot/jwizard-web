@@ -40,18 +40,16 @@ const BrandLogo: React.FC<Props> = ({
           src={`/logo/logo-${imagePrefix}.svg`}
           width={sizePx}
           height={sizePx}
-          radius="none"
         />
-        <div className="ms-3 relative">
-          <h1
-            className={clsx('font-logo -mt-1', classNames?.text ?? 'text-2xl')}>
+        <div className="ms-1 relative">
+          <h1 className={clsx('font-logo', classNames?.text ?? 'text-2xl')}>
             JWizard
           </h1>
           {config.prereleaseMode !== 'none' && (
             <p
               className={clsx(
                 'absolute',
-                '-top-[5px]',
+                '-top-[1px]',
                 'right-[12px]',
                 'text-[10px]',
                 'dark:font-semibold',
