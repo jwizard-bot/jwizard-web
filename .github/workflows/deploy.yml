@@ -24,6 +24,10 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
+      - name: Add yarn
+        run: |
+          npm i -g yarn
+
       - name: Install
         run: |
           yarn install
