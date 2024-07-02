@@ -51,8 +51,8 @@ const BrandLogo: React.FC<Props> = ({
             <p
               className={clsx(
                 'absolute',
-                '-top-[3px]',
-                'right-[10px]',
+                '-top-[5px]',
+                'right-[12px]',
                 'text-[10px]',
                 'dark:font-semibold',
                 'text-default-400',
