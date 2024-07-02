@@ -7,7 +7,6 @@ import clsx from 'clsx';
 import { Link as ReactLink } from 'react-router-dom';
 import config from '@/config';
 import { useDarkMode } from '@/context/DarkModeProvider';
-import { Image } from '@nextui-org/react';
 import Ui from './ui';
 
 type ImagePrefix = 'white' | 'black';
@@ -36,7 +35,7 @@ const BrandLogo: React.FC<Props> = ({
       to="/"
       className={clsx('w-fit flex-shrink-0', classNames?.root ?? '')}>
       <Ui.FlexContainer align="center">
-        <Image
+        <img
           src={`/logo/logo-${imagePrefix}.svg`}
           width={sizePx}
           height={sizePx}
