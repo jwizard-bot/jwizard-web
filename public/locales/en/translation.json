@@ -2,9 +2,37 @@
   "addToDiscord": "Add to Discord",
   "login": "Log in",
   "goToGithubRepository": "Go to Github repository",
-  "toggleTheme": "Toggle theme mode",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
   "home": "Home",
   "contribute": "Contribute",
   "commands": "Commands",
-  "description": "JWizard is a multi-purpose Discord music bot. It provides an audio player that allows playback from a wide variety of sources. Supplied an original playlists system for saving and playing them on any guild."
+  "errorCodes": "Error codes",
+  "description": "JWizard is a multi-purpose Discord music bot. It provides an audio player that allows playback from a wide variety of sources. Supplied an original playlists system for saving and playing them on any guild.",
+  "all": "All",
+  "core": "Core",
+  "api": "API",
+  "front": "Front-end",
+  "notFound": "Not Found",
+  "returnToHome": "Return to home page",
+  "privacyPolicy": "Privacy policy",
+  "termsOfService": "Terms of service",
+  "featuresDropdown": {
+    "text": "Features",
+    "data": {
+      "commands": {
+        "head": "Commands",
+        "body": "List of all available bot commands from all modules."
+      },
+      "radioStations": {
+        "head": "Radio stations",
+        "body": "List of all available radio stations."
+      },
+      "errorCodes": {
+        "head": "Error codes",
+        "body": "List of all error codes with additional description."
+      }
+    }
+  }
 }

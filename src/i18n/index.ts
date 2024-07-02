@@ -8,23 +8,14 @@ import HttpApi from 'i18next-http-backend';
 import { initReactI18next } from 'react-i18next';
 import config from '@/config';
 
-export type Locale = 'pl' | 'en';
+export type Language = 'pl' | 'en';
 
-type LocaleIdentifier = {
-  id: string;
-  name: string;
+export type TranslationSources = 'homePage';
+
+export const availableLanguages: Record<Language, string> = {
+  pl: 'Polski',
+  en: 'English',
 };
-
-export const availableLocales: LocaleIdentifier[] = [
-  {
-    id: 'pl',
-    name: 'Polski',
-  },
-  {
-    id: 'en',
-    name: 'English',
-  },
-];
 
 i18n
   .use(HttpApi)
@@ -34,8 +25,10 @@ i18n
     debug: !config.isProdMode,
     load: 'languageOnly',
     fallbackLng: 'en',
+    supportedLngs: Object.keys(availableLanguages),
     detection: {
       lookupLocalStorage: 'lang',
+      convertDetectedLanguage: lng => lng.substring(0, 2),
     },
   });
 

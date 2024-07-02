@@ -2,14 +2,20 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import Header from './Header';
-import Button from './control/Button';
-import Select from './control/Select';
-import TooltipButton from './control/TooltipButton';
+import ContentHeader from './ContentHeader';
+import FlexContainer from './FlexContainer';
+import GridContainer from './GridContainer';
+import Paragraph from './Paragraph';
+import SafetyContainer from './SafetyContainer';
+import TransparentButton from './TransparentButton';
 
-export const JWizardUi = {
-  Button,
-  Select,
-  TooltipButton,
-  Header,
+const Ui = {
+  FlexContainer,
+  SafetyContainer,
+  TransparentButton,
+  GridContainer,
+  ContentHeader,
+  Paragraph,
 };
+
+export default Ui;
