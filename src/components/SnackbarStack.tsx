@@ -72,7 +72,16 @@ const SnackbarStack: React.FC<Props> = ({
             transition={{ duration: 0.3 }}
             style={{ zIndex: 100 - i }}
             className={clsx(
-              'absolute bottom-8 left-[50%] w-[500px] p-2 px-8 rounded-xl text-sm shadow-sm dark:shadow-md',
+              'absolute',
+              'bottom-8',
+              'left-[50%]',
+              'w-[500px]',
+              'p-2',
+              'px-8',
+              'rounded-xl',
+              'text-sm',
+              'shadow-sm',
+              'dark:shadow-md',
               snackbarStyle[severity]
             )}>
             <div className="text-center">{text}</div>
