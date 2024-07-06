@@ -4,22 +4,21 @@
  */
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 0,
+    },
+  },
+});
+
 type Props = {
   children: React.ReactNode;
 };
 
-const TanstackQueryWrapper: React.FC<Props> = ({ children }): JSX.Element => {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-      },
-    },
-  });
-
-  return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  );
-};
+const TanstackQueryWrapper: React.FC<Props> = ({ children }): JSX.Element => (
+  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+);
 
 export default TanstackQueryWrapper;

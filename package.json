@@ -62,7 +62,8 @@
     "rehype-react": "^8.0.0",
     "remark-gfm": "^4.0.0",
     "tailwindcss": "^3.4.4",
-    "usehooks-ts": "^3.1.0"
+    "usehooks-ts": "^3.1.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.47.0",
@@ -73,6 +74,7 @@
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
     "@types/react-html-parser": "^2.0.6",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^7.6.0",
     "@vitejs/plugin-react": "^4.2.1",
