@@ -6,6 +6,7 @@ import React, { createContext, useContext } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import config from '@/config';
+import { useSnackbar } from '@/context/SnackbarProvider';
 import UtilFetchApi from './fetch/UtilFetchApi';
 
 type AxiosInstanceContextType = {
@@ -21,7 +22,8 @@ type Props = {
 };
 
 const AxiosInstanceWrapper: React.FC<Props> = ({ children }): JSX.Element => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { pushSnackbar } = useSnackbar();
 
   const instance = axios.create({
     baseURL: config.apiUrl,
@@ -34,6 +36,18 @@ const AxiosInstanceWrapper: React.FC<Props> = ({ children }): JSX.Element => {
       return config;
     },
     error => Promise.reject(error)
+  );
+
+  instance.interceptors.response.use(
+    response => response,
+    error => {
+      const message = error?.response?.data?.message;
+      pushSnackbar({
+        textOrI18nLabel: message ? message : t('unexpectedIssue'),
+        severity: 'danger',
+      });
+      return Promise.reject(error);
+    }
   );
 
   return (
