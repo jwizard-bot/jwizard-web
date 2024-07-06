@@ -4,6 +4,7 @@
  */
 import ContentHeader from './ContentHeader';
 import FlexContainer from './FlexContainer';
+import FloatingContainer from './FloatingContainer';
 import GridContainer from './GridContainer';
 import Paragraph from './Paragraph';
 import SafetyContainer from './SafetyContainer';
@@ -16,6 +17,7 @@ const Ui = {
   GridContainer,
   ContentHeader,
   Paragraph,
+  FloatingContainer,
 };
 
 export default Ui;
