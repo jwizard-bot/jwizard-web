@@ -4,12 +4,18 @@
  */
 import { Suspense } from 'react';
 import { Outlet } from 'react-router';
-import { BackgroundGradient, MainFooter, MainHeader } from '@/components';
+import {
+  BackgroundGradient,
+  MainFooter,
+  MainHeader,
+  SnackbarStack,
+} from '@/components';
 import Ui from '@/components/ui';
 import AppRouterSuspense from './AppRouterSuspense';
 
 const AppLayout: React.FC = (): JSX.Element => (
   <Suspense fallback={<AppRouterSuspense />}>
+    <SnackbarStack />
     <BackgroundGradient />
     <Ui.FlexContainer col fullWidth className="min-h-screen relative z-[20]">
       <MainHeader />

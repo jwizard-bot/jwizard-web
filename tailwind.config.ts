@@ -15,6 +15,16 @@ const tailwindConfig = {
       sans: 'Geist',
       logo: 'Paytone',
     },
+    extend: {
+      colors: {
+        'snackbar-success': '#d0ecdc',
+        'snackbar-warning': '#fdedd3',
+        'snackbar-danger': '#fdd0df',
+        'snackbar-success-dark': '#172d20',
+        'snackbar-warning-dark': '#32270f',
+        'snackbar-danger-dark': '#310919',
+      },
+    },
   },
   darkMode: 'class',
   plugins: [

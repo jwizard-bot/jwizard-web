@@ -18,6 +18,8 @@
   "returnToHome": "Return to home page",
   "privacyPolicy": "Privacy policy",
   "termsOfService": "Terms of service",
+  "close": "Close",
+  "unexpectedIssue": "Unexpected issue during fetching data",
   "featuresDropdown": {
     "text": "Features",
     "data": {
