@@ -7,11 +7,11 @@ import ReactDOM from 'react-dom/client';
 import RootRouterProvider from '@/app/AppRouter';
 import DarkModeProvider from '@/context/DarkModeProvider';
 import SnackbarProvider from '@/context/SnackbarProvider';
+import '@/globals.css';
 import '@/i18n';
+import { AxiosInstanceWrapper, TanstackQueryWrapper } from '@/query';
+import { ReduxStoreWrapper } from '@/store';
 import { NextUIProvider } from '@nextui-org/react';
-import './globals.css';
-import { AxiosInstanceWrapper, TanstackQueryWrapper } from './query';
-import { ReduxStoreWrapper } from './store';
 
 const appMount = document.getElementById('app-mount')!;
 
