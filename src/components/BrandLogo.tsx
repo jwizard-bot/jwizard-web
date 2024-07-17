@@ -3,15 +3,22 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import NextLink from 'next/link';
+import logoBlack from '@/assets/logo/logo-black.svg';
+import logoWhite from '@/assets/logo/logo-white.svg';
 import config from '@/config';
 import Ui from './ui';
 
-const themedLogos: Record<string, string> = {
-  white: 'hidden dark:block',
-  black: 'block dark:hidden',
+type ThemedLogo = {
+  image: StaticImageData;
+  className: string;
 };
+
+const themedLogos: ThemedLogo[] = [
+  { image: logoWhite, className: 'hidden dark:block' },
+  { image: logoBlack, className: 'block dark:hidden' },
+];
 
 type Props = {
   sizePx?: number;
@@ -29,12 +36,12 @@ const BrandLogo: React.FC<Props> = ({
     href="/"
     className={clsx('w-fit flex-shrink-0', classNames?.root ?? '')}>
     <Ui.FlexContainer align="center">
-      {Object.entries(themedLogos).map(([imageSuffix, css]) => (
+      {themedLogos.map(({ image, className }) => (
         <Image
-          key={imageSuffix}
-          src={`/logo/logo-${imageSuffix}.svg`}
+          key={image.src}
+          src={image}
           alt="logo"
-          className={css}
+          className={className}
           width={sizePx}
           height={sizePx}
         />
