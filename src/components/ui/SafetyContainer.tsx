@@ -10,21 +10,21 @@ type Props = {
 } & HTMLAttributes<HTMLDivElement>;
 
 const SafetyContainer = forwardRef<HTMLDivElement, Props>(
-  (props, ref): JSX.Element => {
-    const { as: Component = 'div', children, className, ...rest } = props;
-    return (
-      <Component ref={ref} className={clsx('w-full', className)}>
-        <div
-          className={clsx([
-            'max-w-[1280px] mx-auto px-6',
-            Component === 'main' ? 'my-8' : 'my-3',
-          ])}
-          {...rest}>
-          {children}
-        </div>
-      </Component>
-    );
-  }
+  (
+    { as: Component = 'div', children, className, ...rest },
+    ref
+  ): JSX.Element => (
+    <Component ref={ref} className={clsx('w-full', className)}>
+      <div
+        className={clsx([
+          'max-w-[1280px] mx-auto px-6',
+          Component === 'main' ? 'my-8' : 'my-3',
+        ])}
+        {...rest}>
+        {children}
+      </div>
+    </Component>
+  )
 );
 
 SafetyContainer.displayName = 'SafetyContainer';

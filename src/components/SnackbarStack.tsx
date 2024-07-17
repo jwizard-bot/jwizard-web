@@ -1,14 +1,18 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 import { IoMdClose } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
-import { removeSnackbar } from '@/store/ui-store/actions';
-import { useUiStoreReducer } from '@/store/ui-store/selectors';
+import {
+  removeSnackbar,
+  useSnackbarSelector,
+} from '@/store/slices/snackbar-slice';
 import { SnackbarSeverity } from '@/types/snackbar';
 import { Tooltip } from '@nextui-org/react';
 import Ui from './ui';
@@ -44,9 +48,9 @@ type Props = {
 const SnackbarStack: React.FC<Props> = ({
   maxPlaceholders = 4,
 }): JSX.Element => {
-  const { snackbarStack } = useUiStoreReducer();
+  const { snackbarStack } = useSnackbarSelector();
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+  const t = useTranslations();
 
   const closeSnackbar = (id: string): void => {
     dispatch(removeSnackbar({ id }));

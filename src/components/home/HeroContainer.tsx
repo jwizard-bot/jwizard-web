@@ -2,30 +2,24 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { useTranslation } from 'react-i18next';
+import { getTranslations } from 'next-intl/server';
+import NextLink from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
 import { RxExternalLink } from 'react-icons/rx';
-import { Link as ReactLink } from 'react-router-dom';
 import { Button, Link } from '@nextui-org/react';
+import MeshBackgroundImage from '../MeshBackgroundImage';
 import Ui from '../ui';
 
-const HeroContainer: React.FC = (): JSX.Element => {
-  const { t } = useTranslation(['homePage']);
-
+const HeroContainer: React.FC = async (): Promise<JSX.Element> => {
+  const t = await getTranslations();
   return (
     <Ui.SafetyContainer className="relative">
-      <img
-        src="/bg/mesh.png"
-        className="absolute top-20 sm:top-0 right-[50%] translate-x-[50%] w-full sm:w-[900px] opacity-15 -z-[1]"
-      />
+      <MeshBackgroundImage />
       <Ui.FlexContainer col fullWidth align="center" className="my-48">
         <Ui.ContentHeader size="xl" className="sm:mb-2">
           JWizard
         </Ui.ContentHeader>
-        <Ui.Paragraph
-          i18nText="heroDescription"
-          i18nTranslations={['homePage']}
-        />
+        <Ui.Paragraph i18nText="heroDescription" />
         <Ui.FlexContainer
           gap
           toColOnSmallDevices
@@ -41,8 +35,8 @@ const HeroContainer: React.FC = (): JSX.Element => {
             {t('addToDiscord')}
           </Button>
           <Button
-            as={ReactLink}
-            to="/commands"
+            as={NextLink}
+            href="/commands"
             size="md"
             variant="bordered"
             endContent={<GoArrowRight size={20} />}

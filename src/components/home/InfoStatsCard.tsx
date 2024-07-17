@@ -1,11 +1,13 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { useEffect, useRef } from 'react';
 import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
 import { useCountUp } from 'react-countup';
-import { useTranslation } from 'react-i18next';
 import { Card, CardBody } from '@nextui-org/react';
 import Ui from '../ui';
 
@@ -15,7 +17,7 @@ type Props = {
 };
 
 const InfoStatsCard: React.FC<Props> = ({ i18nText, value }): JSX.Element => {
-  const { t } = useTranslation(['homePage']);
+  const t = useTranslations();
   const countUpRef = useRef<HTMLParagraphElement>(null);
 
   const { start } = useCountUp({
@@ -29,7 +31,7 @@ const InfoStatsCard: React.FC<Props> = ({ i18nText, value }): JSX.Element => {
     if (value > 0) {
       start();
     }
-  }, [value]);
+  }, [value, start]);
 
   return (
     <Card

@@ -4,24 +4,18 @@
  */
 import { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
-import { useTranslation } from 'react-i18next';
-import { TranslationSources } from '@/i18n';
+import { useTranslations } from 'next-intl';
 
 type Size = 'md' | 'xl';
 
 type Props = {
   i18nText?: string;
-  i18nTranslations?: TranslationSources[];
   size?: Size;
 } & HTMLAttributes<HTMLParagraphElement>;
 
 const Paragraph = forwardRef<HTMLParagraphElement, Props>(
-  (
-    { i18nText, i18nTranslations, size = 'xl', children, className, ...rest },
-    ref
-  ) => {
-    const { t } = useTranslation(i18nTranslations);
-
+  ({ i18nText, size = 'xl', children, className, ...rest }, ref) => {
+    const t = useTranslations();
     return (
       <p
         ref={ref}

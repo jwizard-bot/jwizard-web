@@ -4,12 +4,12 @@
  */
 
 const config = {
-  isProdMode: import.meta.env.MODE === 'production',
-  apiUrl: import.meta.env.VITE_API_URL,
-  signalApiUrl: import.meta.env.VITE_SIGNAL_API_URL,
-  orgLink: import.meta.env.VITE_ORG_LINK,
-  buildVersion: import.meta.env.VITE_BUILD_VERSION || 'DEVELOPMENT',
-  prereleaseMode: import.meta.env.VITE_PRERELEASE_MODE,
+  isProdMode: process.env.NODE_ENV === 'production',
+  apiUrl: process.env.NEXT_PUBLIC_API_URL,
+  signalApiUrl: process.env.NEXT_PUBLIC_SIGNAL_API_URL,
+  orgLink: process.env.NEXT_PUBLIC_ORG_LINK,
+  buildVersion: process.env.NEXT_PUBLIC_BUILD_VERSION || 'DEVELOPMENT',
+  prereleaseMode: process.env.NEXT_PUBLIC_PRERELEASE_MODE || 'alpha',
 };
 
 export default config;

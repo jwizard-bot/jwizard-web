@@ -1,3 +1,5 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
@@ -5,11 +7,11 @@
 import { Provider } from 'react-redux';
 import config from '@/config';
 import { configureStore } from '@reduxjs/toolkit';
-import uiStoreReducer from './ui-store/reducer';
+import snackbarSlice from './slices/snackbar-slice';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    uiStoreReducer,
+    snackbarSlice,
   },
   devTools: !config.isProdMode,
 });

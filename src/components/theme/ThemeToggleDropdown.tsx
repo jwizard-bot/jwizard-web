@@ -1,55 +1,53 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { GoChevronDown, GoChevronUp } from 'react-icons/go';
-import { Mode, useDarkMode } from '@/context/DarkModeProvider';
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-} from '@nextui-org/react';
-import { iconProps } from '../componentData';
-import { IconElement, dropdownItems } from './data';
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
+import { DropdownItem, Skeleton } from '@nextui-org/react';
+import SingleSelectDropdown from '../SingleSelectDropdown';
+import { IconElement, dropdownItems } from './themeData';
 
 type Props = {
-  className: string;
+  className?: string;
 };
 
-const ThemeToggleDropdown: React.FC<Props> = ({ className }): JSX.Element => {
-  const { mode, setMode } = useDarkMode();
-  const { t } = useTranslation();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const ThemeToggleDropdown: React.FC<Props> = ({
+  className = '',
+}): JSX.Element => {
+  const t = useTranslations();
+  const { theme, setTheme } = useTheme();
 
-  const GetChevronIconVariant = isDropdownOpen ? GoChevronUp : GoChevronDown;
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted || !theme) {
+    return (
+      <Skeleton className={clsx('rounded-lg w-[121px] h-[32px]', className)} />
+    );
+  }
 
   return (
-    <Dropdown isOpen={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
-      <DropdownTrigger>
-        <Button
-          size="sm"
-          color="primary"
-          startContent={IconElement(mode)}
-          className={className}
-          endContent={<GetChevronIconVariant {...iconProps} />}>
-          {t(mode)}
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu
-        onAction={key => setMode(key as Mode)}
-        selectionMode="single"
-        selectedKeys={[mode]}>
-        {Object.keys(dropdownItems).map(text => (
-          <DropdownItem key={text} startContent={IconElement(text)}>
-            {t(text)}
-          </DropdownItem>
-        ))}
-      </DropdownMenu>
-    </Dropdown>
+    <SingleSelectDropdown
+      placement="top-start"
+      button={{ text: t(`themes.${theme}`), variant: 'bordered' }}
+      startContent={IconElement(theme)}
+      classNames={className}
+      selectedKey={theme}
+      onChangeKey={theme => setTheme(theme)}>
+      {Object.keys(dropdownItems).map(text => (
+        <DropdownItem key={text} startContent={IconElement(text)}>
+          {t(`themes.${text}`)}
+        </DropdownItem>
+      ))}
+    </SingleSelectDropdown>
   );
 };
 

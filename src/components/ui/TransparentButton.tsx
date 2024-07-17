@@ -10,21 +10,18 @@ import { ReactRef } from '@nextui-org/react-utils';
 const TransparentButton = forwardRef<
   typeof Button,
   ButtonProps & { to?: string }
->((props, ref) => {
-  const { children, className, ...rest } = props;
-  return (
-    <Button
-      ref={ref as ReactRef<HTMLButtonElement | null>}
-      disableRipple
-      className={clsx(
-        className,
-        'bg-transparent data-[hover=true]:bg-transparent'
-      )}
-      {...rest}>
-      {children}
-    </Button>
-  );
-});
+>(({ children, className, ...rest }, ref) => (
+  <Button
+    ref={ref as ReactRef<HTMLButtonElement | null>}
+    disableRipple
+    className={clsx(
+      className,
+      'bg-transparent data-[hover=true]:bg-transparent'
+    )}
+    {...rest}>
+    {children}
+  </Button>
+));
 
 TransparentButton.displayName = 'TransparentButton';
 

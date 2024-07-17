@@ -1,0 +1,27 @@
+{
+  "title": {
+    "commands": "Komendy",
+    "contribute": "Kontrybucja",
+    "errorCodes": "Kody błędów",
+    "privacyPolicy": "Polityka prywatności",
+    "radioStations": "Stacje radiowe",
+    "termsOfService": "Warunki usługi",
+    "notFound": "Nie znaleziono"
+  },
+  "description": "JWizard to wielofunkcyjny bot muzyczny dla Discord. Zapewnia odtwarzacz audio, umożliwiający odtwarzanie dźwięku z wielu różnych źródeł. Dostarcza autorski system playlist do zapisywania i odtwarzania ich w wybranej gildii.",
+  "addToDiscord": "Dodaj do Discorda",
+  "login": "Zaloguj",
+  "goToGithubRepository": "Przejdź do repozytorium Github",
+  "returnToHome": "Powrót do strony głównej",
+  "close": "Zamknij",
+  "home": "Start",
+  "themes": {
+    "light": "Jasny",
+    "dark": "Ciemny",
+    "system": "System"
+  },
+  "featuresDropdown": "Funkcje",
+  "commandsDescription": "Lista wszystkich dostępnych komend ze wszystkich modułów.",
+  "radioStationsDescription": "Lista wszystkich dostępnych stacji radiowych.",
+  "errorCodesDescription": "Lista wszystkich kodów błędów z dodatkowymi objaśnieniami."
+}

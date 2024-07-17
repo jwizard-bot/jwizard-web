@@ -11,13 +11,13 @@ import SafetyContainer from './SafetyContainer';
 import TransparentButton from './TransparentButton';
 
 const Ui = {
+  ContentHeader,
   FlexContainer,
+  FloatingContainer,
+  GridContainer,
   SafetyContainer,
   TransparentButton,
-  GridContainer,
-  ContentHeader,
   Paragraph,
-  FloatingContainer,
 };
 
 export default Ui;
