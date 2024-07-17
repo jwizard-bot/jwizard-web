@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 
 type HeaderSize = 'sm' | 'md' | 'lg' | 'xl';
 
-type HeadingVariant = 'h1' | 'h2' | 'h3';
+type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type Props = {
   headingVariant?: HeadingVariant;
