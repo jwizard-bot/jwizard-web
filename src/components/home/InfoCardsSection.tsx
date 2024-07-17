@@ -2,41 +2,24 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { getTranslations } from 'next-intl/server';
+import NextLink from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
-import { Link as ReactLink } from 'react-router-dom';
-import { useAxiosInstance } from '@/query';
-import { StatsInfoResDto } from '@/query/types/util/stats';
 import { Button } from '@nextui-org/react';
-import { useQuery } from '@tanstack/react-query';
 import PurifiedRenderer from '../PurifierRenderer';
 import Ui from '../ui';
 import InfoStatsCard from './InfoStatsCard';
 
-const InfoCardsContainer: React.FC = (): JSX.Element => {
-  const { t } = useTranslation(['homePage']);
-  const { utilFetchApi } = useAxiosInstance();
+const InfoCardsSection: React.FC = async (): Promise<JSX.Element> => {
+  const t = await getTranslations();
 
-  const {
-    data = { modules: 0, commands: 0, radioStations: 0, audioSources: 0 },
-    isError,
-  } = useQuery({
-    queryKey: ['stats'],
-    queryFn: async () => await utilFetchApi.getStats(),
-  });
-
-  const wrappedPropertiesWithStrong = Object.entries(data).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      [key]: `<strong>${value}</strong>`,
-    }),
-    {}
-  );
-
-  useEffect(() => {
-    // TODO: add error snackbar
-  }, [isError]);
+  // load from api
+  const data = {
+    modules: 50,
+    commands: 30,
+    radioStations: 3,
+    audioSources: 14,
+  };
 
   return (
     <Ui.SafetyContainer className="mb-8 sm:mb-32">
@@ -48,20 +31,19 @@ const InfoCardsContainer: React.FC = (): JSX.Element => {
           <Ui.ContentHeader
             headingVariant="h2"
             i18nText="motivationSlogan"
-            translationSources={['homePage']}
             size="md"
             className="max-w-[80%]"
           />
           <PurifiedRenderer
-            dangerousText={t('motivationDescription', {
-              ...wrappedPropertiesWithStrong,
-              interpolation: { escapeValue: false },
+            dangerousText={t.markup('motivationDescription', {
+              imp: chunks =>
+                `<strong>${data[chunks as keyof typeof data]}</strong>`,
             })}
-            className="text-default-500 text-xl"
+            Component={Ui.Paragraph}
           />
           <Button
-            as={ReactLink}
-            to="/commands"
+            as={NextLink}
+            href="/commands"
             size="md"
             color="primary"
             className="text-lg sm:text-xl w-full sm:w-fit"
@@ -77,7 +59,7 @@ const InfoCardsContainer: React.FC = (): JSX.Element => {
             <InfoStatsCard
               key={key}
               i18nText={key}
-              value={data[key as keyof StatsInfoResDto]}
+              value={data[key as keyof typeof data]}
             />
           ))}
         </Ui.GridContainer>
@@ -86,4 +68,4 @@ const InfoCardsContainer: React.FC = (): JSX.Element => {
   );
 };
 
-export default InfoCardsContainer;
+export default InfoCardsSection;

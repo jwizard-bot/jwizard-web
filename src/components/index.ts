@@ -8,7 +8,6 @@ import MainHeader from './MainHeader';
 import MeshBackgroundImage from './MeshBackgroundImage';
 import SnackbarStack from './SnackbarStack';
 import { MainFooter } from './footer';
-import HeroContainer from './home/HeroContainer';
 
 const Layout = {
   MainLayout,
@@ -16,7 +15,6 @@ const Layout = {
 
 export {
   BackgroundGradient,
-  HeroContainer,
   Layout,
   MainFooter,
   MainHeader,

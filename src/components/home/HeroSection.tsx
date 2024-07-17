@@ -10,7 +10,7 @@ import { Button, Link } from '@nextui-org/react';
 import MeshBackgroundImage from '../MeshBackgroundImage';
 import Ui from '../ui';
 
-const HeroContainer: React.FC = async (): Promise<JSX.Element> => {
+const HeroSection: React.FC = async (): Promise<JSX.Element> => {
   const t = await getTranslations();
   return (
     <Ui.SafetyContainer className="relative">
@@ -49,4 +49,4 @@ const HeroContainer: React.FC = async (): Promise<JSX.Element> => {
   );
 };
 
-export default HeroContainer;
+export default HeroSection;

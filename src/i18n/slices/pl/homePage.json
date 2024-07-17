@@ -3,7 +3,7 @@
   "addToDiscord": "Dodaj do Discorda",
   "exploreCommands": "Przeglądaj komendy",
   "motivationSlogan": "Dołącz, odtwarzaj i streamuj audio!",
-  "motivationDescription": "Odkrywaj i korzystaj spośród {{- modules}} modułów i {{- commands}} komend. Masz do dyspozycji {{- radioStations}} stacji radiowych oraz {{- audioSources}} źródeł dźwięku z których możesz odtwarzać lub streamować audio.",
+  "motivationDescription": "Odkrywaj i korzystaj spośród <imp>modules</imp> modułów i <imp>commands</imp> komend. Masz do dyspozycji <imp>radioStations</imp> stacji radiowych oraz <imp>audioSources</imp> źródeł dźwięku z których możesz odtwarzać lub streamować audio.",
   "modules": "Ilość dostępnych modułów",
   "commands": "Ilość dostępnych komend",
   "radioStations": "Ilość dostępnych stacji radiowych",

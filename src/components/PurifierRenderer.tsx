@@ -3,18 +3,19 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { HTMLAttributes, forwardRef } from 'react';
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 import ReactHtmlParser from 'react-html-parser';
 
 type Props = {
   dangerousText: string;
+  Component?: React.ElementType;
 } & HTMLAttributes<HTMLParagraphElement>;
 
 const PurifiedRenderer = forwardRef<HTMLParagraphElement, Props>(
-  ({ dangerousText, ...rest }, ref) => (
-    <p ref={ref} {...rest}>
+  ({ dangerousText, Component = 'p', ...rest }, ref) => (
+    <Component ref={ref} {...rest}>
       {ReactHtmlParser(DOMPurify.sanitize(dangerousText))}
-    </p>
+    </Component>
   )
 );
 

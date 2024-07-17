@@ -45,7 +45,9 @@ const InfoStatsCard: React.FC<Props> = ({ i18nText, value }): JSX.Element => {
       }}>
       <CardBody>
         <Ui.FlexContainer col centerContent>
-          <p ref={countUpRef} className="font-logo text-4xl sm:text-6xl mb-3" />
+          <p ref={countUpRef} className="font-logo text-4xl sm:text-6xl mb-3">
+            0
+          </p>
           <p className="text-default-500 leading-[18px] sm:max-w-[80%] text-center">
             {t(i18nText)}
           </p>
