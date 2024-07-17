@@ -12,5 +12,7 @@
   "upcoming": "Upcoming",
   "upcomingTooltip": "Functionality expected to be implemented in the near future or in the process of implementation.",
   "active": "Active",
-  "activeTooltip": "Functionality implemented and active."
+  "activeTooltip": "Functionality implemented and active.",
+  "contributeSlogan": "If you are familiar with programming and have a bit of desire then you can try your hand as a contributor to this project.",
+  "findMore": "Find more"
 }
