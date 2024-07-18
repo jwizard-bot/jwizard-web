@@ -85,7 +85,9 @@ const MainFooter: React.FC = (): JSX.Element => {
               {t('title.termsOfService')}
             </NextLink>
           </CopyrightSection>
-          <CopyrightSection>&copy; {currentYear} by JWizard</CopyrightSection>
+          <CopyrightSection>
+            &copy; {currentYear} by {config.appName}
+          </CopyrightSection>
           <CopyrightSection alignment="end">
             Build: {config.buildVersion}
           </CopyrightSection>

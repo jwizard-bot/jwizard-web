@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server';
 import NextLink from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
 import { RxExternalLink } from 'react-icons/rx';
+import config from '@/config';
 import { Button, Link } from '@nextui-org/react';
 import MeshBackgroundImage from '../MeshBackgroundImage';
 import Ui from '../ui';
@@ -17,7 +18,7 @@ const HeroSection: React.FC = async (): Promise<JSX.Element> => {
       <MeshBackgroundImage />
       <Ui.FlexContainer col fullWidth align="center" className="my-48">
         <Ui.ContentHeader size="xl" className="sm:mb-2">
-          JWizard
+          {config.appName}
         </Ui.ContentHeader>
         <Ui.Paragraph i18nText="heroDescription" />
         <Ui.FlexContainer

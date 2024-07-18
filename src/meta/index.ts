@@ -4,6 +4,7 @@
  */
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
+import config from '@/config';
 
 type PageTitle =
   | 'commands'
@@ -29,8 +30,8 @@ export const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations({ locale });
   return {
     title: {
-      template: '%s | JWizard',
-      default: 'JWizard',
+      template: `%s | ${config.appName}`,
+      default: config.appName,
     },
     description: t('description'),
   };

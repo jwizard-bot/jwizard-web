@@ -48,7 +48,7 @@ const BrandLogo: React.FC<Props> = ({
       ))}
       <div className="ms-1 relative">
         <h1 className={clsx('font-logo', classNames?.text ?? 'text-2xl')}>
-          JWizard
+          {config.appName}
         </h1>
         {config.prereleaseMode !== 'none' && (
           <p
