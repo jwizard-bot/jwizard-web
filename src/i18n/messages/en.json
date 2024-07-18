@@ -23,5 +23,9 @@
   "featuresDropdown": "Features",
   "commandsDescription": "List of all available bot commands from all modules.",
   "radioStationsDescription": "List of all available radio stations.",
-  "errorCodesDescription": "List of all error codes with additional description."
+  "errorCodesDescription": "List of all error codes with additional description.",
+  "globalErrorTitle": "Something clearly went wrong.",
+  "globalErrorDescription": "Reload page or return to home. If error continues to occur, write to <mail>info@jwizard.pl</mail>.",
+  "globalErrorDigest": "Digest code",
+  "refresh": "Refresh"
 }
