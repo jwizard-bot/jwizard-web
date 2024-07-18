@@ -5,10 +5,7 @@
 import { MetadataRoute } from 'next';
 import { getTranslations } from 'next-intl/server';
 import config from '@/config';
-
-const iconSizesPx: number[] = [
-  48, 72, 96, 128, 144, 152, 192, 384, 512,
-] as const;
+import { iconSizesPx } from '@/meta';
 
 async function manifest(): Promise<MetadataRoute.Manifest> {
   const t = await getTranslations();

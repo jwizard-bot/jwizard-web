@@ -33,6 +33,7 @@ const BackgroundGradient: React.FC = (): JSX.Element => (
           src={image}
           className="shadow-black/5 shadow-none rounded-large"
           alt=""
+          priority
         />
       </div>
     ))}

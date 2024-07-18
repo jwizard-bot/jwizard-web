@@ -10,6 +10,7 @@ const MeshBackgroundImage: React.FC = (): JSX.Element => (
     src={meshBgGradient}
     className="absolute top-20 sm:top-0 right-[50%] translate-x-[50%] w-full sm:w-[900px] opacity-15 -z-[1]"
     alt=""
+    priority
   />
 );
 
