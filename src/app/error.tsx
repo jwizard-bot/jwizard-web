@@ -37,7 +37,7 @@ const ErrorPage: React.FC<Props> = ({ error, reset }): JSX.Element => {
         <Ui.FlexContainer col centerContent fullWidth fillScreenSpace gap>
           <Ui.ContentHeader
             size="xl"
-            className="sm:mb-4 max-w-[1000px] text-center">
+            className="sm:mb-4 max-w-[1200px] text-center">
             {t('globalErrorTitle')}
           </Ui.ContentHeader>
           <PurifiedRenderer
@@ -46,7 +46,7 @@ const ErrorPage: React.FC<Props> = ({ error, reset }): JSX.Element => {
                 `<a href="mailto:${chunks}" class="font-bold">${chunks}</a>`,
             })}
             Component={Ui.Paragraph}
-            className="max-w-[1000px] text-center"
+            className="max-w-[700px] text-center"
           />
           <Ui.FlexContainer
             gap

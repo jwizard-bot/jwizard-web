@@ -24,7 +24,7 @@
   "commandsDescription": "Lista wszystkich dostępnych komend ze wszystkich modułów.",
   "radioStationsDescription": "Lista wszystkich dostępnych stacji radiowych.",
   "errorCodesDescription": "Lista wszystkich kodów błędów z dodatkowymi objaśnieniami.",
-  "globalErrorTitle": "Coś ewidentnie poszło nie tak.",
+  "globalErrorTitle": "Coś poszło ewidentnie nie tak.",
   "globalErrorDescription": "Odśwież stronę lub powróć do strony głównej. Jeśli błąd będzie dalej występował, napisz na <mail>info@jwizard.pl</mail>.",
   "globalErrorDigest": "Kod błędu",
   "refresh": "Odśwież"

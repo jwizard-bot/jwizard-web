@@ -1,5 +1,6 @@
 {
   "all": "Wszyscy",
   "core": "Core",
-  "api": "API"
+  "api": "API",
+  "front": "Web UI"
 }
