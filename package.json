@@ -34,6 +34,7 @@
   "dependencies": {
     "@nextui-org/react": "^2.4.2",
     "@reduxjs/toolkit": "^2.2.6",
+    "axios": "^1.7.2",
     "change-case": "^5.4.4",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.4",

@@ -8,12 +8,20 @@ import { BsGithub } from 'react-icons/bs';
 import { GoArrowRight } from 'react-icons/go';
 import { RxExternalLink } from 'react-icons/rx';
 import config from '@/config';
+import { getServerQuery } from '@/query/server';
+import { ContributorsDataResDto } from '@/query/server/types/contributors';
 import { Button, Link } from '@nextui-org/react';
 import { ContributorProfiles } from '../contributors';
 import Ui from '../ui';
 
 const ContributeSection: React.FC = async (): Promise<JSX.Element> => {
   const t = await getTranslations();
+
+  const { data: contributors } = await getServerQuery<ContributorsDataResDto>({
+    queryString: '/api/v1/contributor/all',
+    errorMessage: 'Unable to fetch contributors in home page section',
+  });
+
   return (
     <Ui.SafetyContainer className="mb-8 sm:mb-32">
       <Ui.FlexContainer col className="sm:items-center">
@@ -52,7 +60,7 @@ const ContributeSection: React.FC = async (): Promise<JSX.Element> => {
           </Button>
         </Ui.FlexContainer>
       </Ui.FlexContainer>
-      <ContributorProfiles />
+      <ContributorProfiles data={contributors} />
     </Ui.SafetyContainer>
   );
 };
