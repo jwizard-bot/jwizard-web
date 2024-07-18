@@ -24,7 +24,7 @@ const gradientElements: GradientElement[] = [
 ];
 
 const BackgroundGradient: React.FC = (): JSX.Element => (
-  <>
+  <div>
     {gradientElements.map(({ image, styles }) => (
       <div
         key={image.src}
@@ -36,7 +36,7 @@ const BackgroundGradient: React.FC = (): JSX.Element => (
         />
       </div>
     ))}
-  </>
+  </div>
 );
 
 export default BackgroundGradient;

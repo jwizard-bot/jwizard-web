@@ -5,6 +5,7 @@
 import { Metadata } from 'next';
 import { Layout } from '@/components';
 import Ui from '@/components/ui';
+import { MarkdownRenderer } from '@/markdown';
 import { generateSubPageMetadata } from '@/meta';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,7 +16,7 @@ const Page: React.FC = async (): Promise<JSX.Element> => (
   <Layout.MainLayout>
     <Ui.SafetyContainer className="sm:mt-8 sm:mb-32">
       <Ui.ContentHeader i18nText="title.privacyPolicy" size="md" />
-      markdown renderer
+      <MarkdownRenderer file="privacy-policy" />
     </Ui.SafetyContainer>
   </Layout.MainLayout>
 );

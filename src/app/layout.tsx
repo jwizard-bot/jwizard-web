@@ -24,11 +24,11 @@ type Props = {
 const RootLayout: React.FC<Readonly<Props>> = async ({
   children,
 }): Promise<JSX.Element> => {
-  const locale = await getLocale();
+  const language = await getLocale();
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={language} suppressHydrationWarning>
       <body className={clsx(variableNames, 'font-sans min-h-screen')}>
         <NextIntlClientProvider messages={messages}>
           <ReduxStoreWrapper>

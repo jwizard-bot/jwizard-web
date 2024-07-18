@@ -60,7 +60,6 @@ const MainFooter: React.FC = (): JSX.Element => {
             </Ui.TransparentButton>
           </Ui.FlexContainer>
           <Ui.FlexContainer gap className="w-full sm:w-fit">
-            <ThemeToggleDropdown className="basis-[50%] sm:basis-auto" />
             <Button
               href="/"
               isExternal
@@ -70,6 +69,7 @@ const MainFooter: React.FC = (): JSX.Element => {
               className="basis-[50%] sm:basis-auto">
               {t('addToDiscord')}
             </Button>
+            <ThemeToggleDropdown className="basis-[50%] sm:basis-auto" />
           </Ui.FlexContainer>
         </Ui.FlexContainer>
         <Divider className="my-6" />

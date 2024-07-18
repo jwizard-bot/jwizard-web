@@ -5,10 +5,9 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { useEffect, useState } from 'react';
-import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { DropdownItem, Skeleton } from '@nextui-org/react';
+import { DropdownItem } from '@nextui-org/react';
 import SingleSelectDropdown from '../SingleSelectDropdown';
 import { IconElement, dropdownItems } from './themeData';
 
@@ -18,7 +17,7 @@ type Props = {
 
 const ThemeToggleDropdown: React.FC<Props> = ({
   className = '',
-}): JSX.Element => {
+}): JSX.Element | null => {
   const t = useTranslations();
   const { theme, setTheme } = useTheme();
 
@@ -29,9 +28,7 @@ const ThemeToggleDropdown: React.FC<Props> = ({
   }, []);
 
   if (!isMounted || !theme) {
-    return (
-      <Skeleton className={clsx('rounded-lg w-[121px] h-[32px]', className)} />
-    );
+    return null;
   }
 
   return (

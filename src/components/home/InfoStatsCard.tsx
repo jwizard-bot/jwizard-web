@@ -6,18 +6,19 @@
  */
 import { useEffect, useRef } from 'react';
 import clsx from 'clsx';
-import { useTranslations } from 'next-intl';
 import { useCountUp } from 'react-countup';
 import { Card, CardBody } from '@nextui-org/react';
 import Ui from '../ui';
 
 type Props = {
-  i18nText: string;
+  bottomDescription: string;
   value: number;
 };
 
-const InfoStatsCard: React.FC<Props> = ({ i18nText, value }): JSX.Element => {
-  const t = useTranslations();
+const InfoStatsCard: React.FC<Props> = ({
+  bottomDescription,
+  value,
+}): JSX.Element => {
   const countUpRef = useRef<HTMLParagraphElement>(null);
 
   const { start } = useCountUp({
@@ -49,7 +50,7 @@ const InfoStatsCard: React.FC<Props> = ({ i18nText, value }): JSX.Element => {
             0
           </p>
           <p className="text-default-500 leading-[18px] sm:max-w-[80%] text-center">
-            {t(i18nText)}
+            {bottomDescription}
           </p>
         </Ui.FlexContainer>
       </CardBody>

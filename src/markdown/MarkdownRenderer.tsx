@@ -2,13 +2,16 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import React, { HTMLAttributes, useEffect, useState } from 'react';
-import axios from 'axios';
-import { useTranslation } from 'react-i18next';
+import { HTMLAttributes } from 'react';
+import { getLocale } from 'next-intl/server';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Spinner } from '@nextui-org/react';
-import Ui from './ui';
+
+type MarkdownFile = 'privacy-policy' | 'terms-of-service';
+
+type Props = {
+  file: MarkdownFile;
+};
 
 const rendererComponents = {
   h2: (props: HTMLAttributes<HTMLHeadingElement>) => (
@@ -28,36 +31,16 @@ const rendererComponents = {
   ),
 };
 
-type MarkdownFile = 'privacy-policy' | 'terms-of-service';
+const MarkdownRenderer: React.FC<Props> = async ({
+  file,
+}): Promise<JSX.Element> => {
+  const language = await getLocale();
 
-type Props = {
-  file: MarkdownFile;
-};
-
-const MarkdownRenderer: React.FC<Props> = ({ file }): JSX.Element => {
-  const { i18n } = useTranslation();
-  const [content, setContent] = useState('');
-
-  useEffect(() => {
-    const fetchMarkdownContent = async () => {
-      let markdownRawContent;
-      try {
-        const { data } = await axios.get(`/md/${i18n.language}/${file}.md`);
-        markdownRawContent = data;
-      } catch (e) {
-        markdownRawContent = '';
-      }
-      setContent(markdownRawContent);
-    };
-    fetchMarkdownContent();
-  }, [i18n.language]);
-
-  if (!content) {
-    return (
-      <Ui.FlexContainer justify="center" className="mt-8">
-        <Spinner />
-      </Ui.FlexContainer>
-    );
+  let content = '';
+  try {
+    content = (await import(`./${language}/${file}.md`)).default;
+  } catch (e) {
+    content = '';
   }
 
   return (

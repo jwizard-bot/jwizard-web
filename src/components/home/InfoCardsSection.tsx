@@ -58,7 +58,7 @@ const InfoCardsSection: React.FC = async (): Promise<JSX.Element> => {
           {Object.keys(data).map(key => (
             <InfoStatsCard
               key={key}
-              i18nText={key}
+              bottomDescription={t(key)}
               value={data[key as keyof typeof data]}
             />
           ))}
