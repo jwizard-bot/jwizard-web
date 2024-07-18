@@ -21,7 +21,7 @@ const NotFound: React.FC = async (): Promise<JSX.Element> => {
     <Layout.MainLayout>
       <MeshBackgroundImage />
       <Ui.SafetyContainer>
-        <Ui.FlexContainer col centerContent className="h-[calc(100vh-4rem)]">
+        <Ui.FlexContainer col centerContent fullWidth fillScreenSpace>
           <Ui.ContentHeader size="xl" className="sm:mb-4">
             404
           </Ui.ContentHeader>

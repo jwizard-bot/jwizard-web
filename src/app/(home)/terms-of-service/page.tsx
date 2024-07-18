@@ -3,7 +3,6 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { Metadata } from 'next';
-import { Layout } from '@/components';
 import Ui from '@/components/ui';
 import { MarkdownRenderer } from '@/markdown';
 import { generateSubPageMetadata } from '@/meta';
@@ -13,12 +12,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const Page: React.FC = (): JSX.Element => (
-  <Layout.MainLayout>
-    <Ui.SafetyContainer className="sm:mt-8 sm:mb-32">
-      <Ui.ContentHeader i18nText="title.termsOfService" size="md" />
-      <MarkdownRenderer file="terms-of-service" />
-    </Ui.SafetyContainer>
-  </Layout.MainLayout>
+  <Ui.SafetyContainer className="sm:mt-8 sm:mb-32">
+    <Ui.ContentHeader i18nText="title.termsOfService" size="md" />
+    <MarkdownRenderer file="terms-of-service" />
+  </Ui.SafetyContainer>
 );
 
 export default Page;
