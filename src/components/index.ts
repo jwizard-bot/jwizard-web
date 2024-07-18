@@ -6,6 +6,7 @@ import MainLayout from '@/components/layouts/MainLayout';
 import BackgroundGradient from './BackgroundGradient';
 import MainHeader from './MainHeader';
 import MeshBackgroundImage from './MeshBackgroundImage';
+import PurifiedRenderer from './PurifierRenderer';
 import SnackbarStack from './SnackbarStack';
 import { MainFooter } from './footer';
 
@@ -19,5 +20,6 @@ export {
   MainFooter,
   MainHeader,
   MeshBackgroundImage,
+  PurifiedRenderer,
   SnackbarStack,
 };

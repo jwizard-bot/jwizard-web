@@ -6,7 +6,7 @@ import { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 
-type Size = 'md' | 'xl';
+type Size = 'sm' | 'md' | 'xl';
 
 type Props = {
   i18nText?: string;
@@ -22,6 +22,7 @@ const Paragraph = forwardRef<HTMLParagraphElement, Props>(
         className={clsx(
           'text-default-500',
           {
+            'text-sm': size === 'sm',
             'text-xl': size === 'xl',
             'text-md': size === 'md',
           },

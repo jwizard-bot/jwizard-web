@@ -10,7 +10,7 @@ import { languages } from '@/i18n/config';
 type PageTitle =
   | 'commands'
   | 'contribute'
-  | 'error-codes'
+  | 'errorCodes'
   | 'privacyPolicy'
   | 'radioStations'
   | 'termsOfService'

@@ -18,6 +18,7 @@ type Props = {
   fullHeight?: boolean;
   centerContent?: boolean;
   toColOnSmallDevices?: boolean;
+  fillScreenSpace?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 const FlexContainer = forwardRef<HTMLDivElement, Props>(
@@ -32,6 +33,7 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
       fullHeight = false,
       centerContent = false,
       toColOnSmallDevices = false,
+      fillScreenSpace = false,
       className,
       children,
       ...rest
@@ -56,7 +58,8 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
           'h-full': fullHeight,
           'flex-col items-center gap-y-2 sm:gap-y-0 sm:flex-row sm:items-start':
             toColOnSmallDevices,
-          'justify-center items-center w-full h-full': centerContent,
+          'justify-center items-center': centerContent,
+          'h-[calc(100vh-4rem)]': fillScreenSpace,
         },
         className
       )}
