@@ -54,12 +54,12 @@ jobs:
 
       - name: Remove previous compilation files
         run: |
-          rm -rf /var/www/jwizard/*
-          rm -rf /var/www/jwizard/.* 2> /dev/null
+          sudo rm -rf /var/www/jwizard/*
+          sudo rm -rf /var/www/jwizard/.* 2> /dev/null
 
       - name: Move to /var/www directory
         run: |
-          cp -rT /build /var/www/jwizard
+          sudo cp -rT build /var/www/jwizard
 
       - name: Init process
         run: |
