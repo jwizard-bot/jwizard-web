@@ -8,7 +8,7 @@
     "start": "next start",
     "lint:check": "npx eslint src/**/*.{js,cjs,mjs,jsx,ts,tsx}",
     "lint:fix": "npx eslint src/**/*.{js,cjs,mjs,jsx,ts,tsx} --fix",
-    "types:check": "npx tsc --noEmit --incremental",
+    "types:check": "npx tsc --noEmit",
     "format": "npx prettier . --write",
     "husky:add-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "husky:add-pre-push": "npx husky add .husky/pre-push \"yarn run types:check\"",
