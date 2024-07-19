@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { ContributorsDataResDto } from '@/query/server/types/contributors';
 import { Tab, Tabs } from '@nextui-org/react';
-import SuspenseSpinner from '../SuspenseSpinner';
+import { ContentSuspenseSpinner } from '../suspense';
 import Ui from '../ui';
 import ContributorProfile from './ContributorProfile';
 
@@ -31,7 +31,7 @@ const ContributorProfiles: React.FC<Props> = ({ data }): JSX.Element => {
   }, []);
 
   if (!isMounted) {
-    return <SuspenseSpinner />;
+    return <ContentSuspenseSpinner />;
   }
 
   return (

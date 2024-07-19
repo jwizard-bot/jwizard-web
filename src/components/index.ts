@@ -9,6 +9,7 @@ import MeshBackgroundImage from './MeshBackgroundImage';
 import PurifiedRenderer from './PurifierRenderer';
 import SnackbarStack from './SnackbarStack';
 import { MainFooter } from './footer';
+import { ContentSuspenseSpinner, PageSuspenseSpinner } from './suspense';
 
 const Layout = {
   MainLayout,
@@ -16,10 +17,12 @@ const Layout = {
 
 export {
   BackgroundGradient,
+  ContentSuspenseSpinner,
   Layout,
   MainFooter,
   MainHeader,
   MeshBackgroundImage,
+  PageSuspenseSpinner,
   PurifiedRenderer,
   SnackbarStack,
 };
