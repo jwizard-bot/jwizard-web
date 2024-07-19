@@ -59,7 +59,7 @@ jobs:
 
       - name: Move to /var/www directory
         run: |
-          sudo cp -rT build /var/www/jwizard
+          sudo cp -rT public /var/www/jwizard
 
       - name: Init process
         run: |
