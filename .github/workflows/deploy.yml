@@ -20,27 +20,27 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # - uses: jongwooo/next-cache@v1
+      - uses: jongwooo/next-cache@v1
 
-      # - name: Add yarn
-      #   run: |
-      #     npm i -g yarn
+      - name: Add yarn
+        run: |
+          npm i -g yarn
 
-      # - name: Install dependencies
-      #   run: |
-      #     yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
 
-      # - name: Determinate build version
-      #   id: vars
-      #   run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - name: Determinate build version
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-      # - name: Export variables and build
-      #   run: |
-      #     export NEXT_PUBLIC_PRERELEASE_MODE="${{ vars.GH_PRERELEASE_MODE }}"
-      #     export NEXT_PUBLIC_BUILD_VERSION="${{ steps.vars.outputs.sha_short }}_${{ github.run_number }}"
-      #     yarn run build:std
-      #     unset NEXT_PUBLIC_PRERELEASE_MODE
-      #     unset NEXT_PUBLIC_BUILD_VERSION
+      - name: Export variables and build
+        run: |
+          export NEXT_PUBLIC_PRERELEASE_MODE="${{ vars.GH_PRERELEASE_MODE }}"
+          export NEXT_PUBLIC_BUILD_VERSION="${{ steps.vars.outputs.sha_short }}_${{ github.run_number }}"
+          yarn run build:std
+          unset NEXT_PUBLIC_PRERELEASE_MODE
+          unset NEXT_PUBLIC_BUILD_VERSION
 
   deploy:
     runs-on: self-hosted
@@ -59,7 +59,7 @@ jobs:
 
       - name: Move to /var/www directory
         run: |
-          sudo cp -rT public /var/www/jwizard
+          sudo cp -rT build /var/www/jwizard
 
       - name: Init process
         run: |
