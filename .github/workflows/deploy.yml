@@ -51,7 +51,9 @@ jobs:
 
     steps:
       - name: Move to www directory
-        run: cp -r build/* /var/www/jwizard/
+        run: |
+          rm -rf /var/www/jwizard/*
+          cp -r build/* /var/www/jwizard/
 
       - name: Restart process
         run: |
