@@ -8,14 +8,15 @@ import {
   InfoCardsSection,
   KeyFeaturesSection,
 } from '@/components/home';
+import { IntlPageSlicesProvider } from '@/i18n/server';
 
-const Page: React.FC = (): JSX.Element => (
-  <>
+const Page: React.FC = async (): Promise<JSX.Element> => (
+  <IntlPageSlicesProvider>
     <HeroSection />
     <InfoCardsSection />
     <KeyFeaturesSection />
     <ContributeSection />
-  </>
+  </IntlPageSlicesProvider>
 );
 
 export default Page;

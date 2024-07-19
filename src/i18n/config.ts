@@ -18,6 +18,8 @@ type SliceMap = {
   slices: string[];
 };
 
+export const ROOT_KEY = 'common';
+
 export const sliceMappings: SliceMap[] = [
   {
     pattern: /^\/$/,

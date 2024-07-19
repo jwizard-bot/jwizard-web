@@ -3,9 +3,10 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { Metadata } from 'next';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 import config from '@/config';
 import { languages } from '@/i18n/config';
+import { getRootTranslations } from '@/i18n/server';
 
 type PageTitle =
   | 'commands'
@@ -25,8 +26,8 @@ export const faviconSizesPx: number[] = [32, 64] as const;
 export const generateSubPageMetadata = async (
   i18nTitleKey: PageTitle
 ): Promise<Metadata> => {
-  const locale = await getLocale();
-  const t = await getTranslations({ locale, namespace: 'title' });
+  const language = await getLocale();
+  const t = await getRootTranslations(language, 'title');
   return {
     title: t(i18nTitleKey),
   };
@@ -34,7 +35,7 @@ export const generateSubPageMetadata = async (
 
 export const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const language = await getLocale();
-  const t = await getTranslations({ locale: language });
+  const t = await getRootTranslations(language);
   return {
     title: {
       template: `%s | ${config.appName}`,

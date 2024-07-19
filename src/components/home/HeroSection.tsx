@@ -20,7 +20,7 @@ const HeroSection: React.FC = async (): Promise<JSX.Element> => {
         <Ui.ContentHeader size="xl" className="sm:mb-2">
           {config.appName}
         </Ui.ContentHeader>
-        <Ui.Paragraph i18nText="heroDescription" />
+        <Ui.Paragraph>{t('heroDescription')}</Ui.Paragraph>
         <Ui.FlexContainer
           gap
           toColOnSmallDevices

@@ -4,7 +4,6 @@
  */
 import React, { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
-import { useTranslations } from 'next-intl';
 
 type HeaderSize = 'sm' | 'md' | 'lg' | 'xl';
 
@@ -12,7 +11,6 @@ type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type Props = {
   headingVariant?: HeadingVariant;
-  i18nText?: string;
   isCentered?: boolean;
   size?: HeaderSize;
 } & HTMLAttributes<HTMLHeadingElement>;
@@ -21,7 +19,6 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
   (
     {
       headingVariant = 'h1',
-      i18nText,
       isCentered = false,
       size = 'sm',
       className,
@@ -29,9 +26,8 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
       ...rest
     },
     ref
-  ) => {
-    const t = useTranslations();
-    return React.createElement(
+  ) =>
+    React.createElement(
       headingVariant,
       {
         ref,
@@ -46,9 +42,8 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
         ),
         ...rest,
       },
-      i18nText ? t(i18nText) : children
-    );
-  }
+      children
+    )
 );
 
 ContentHeader.displayName = 'ContentHeader';

@@ -29,10 +29,10 @@ const InfoCardsSection: React.FC = async (): Promise<JSX.Element> => {
           className="col-span-12 sm:col-span-8 md:col-span-4 lg:col-span-7 gap-y-8">
           <Ui.ContentHeader
             headingVariant="h2"
-            i18nText="motivationSlogan"
             size="md"
-            className="max-w-[80%]"
-          />
+            className="max-w-[80%]">
+            {t('motivationSlogan')}
+          </Ui.ContentHeader>
           <PurifiedRenderer
             dangerousText={t.markup('motivationDescription', {
               imp: chunks =>

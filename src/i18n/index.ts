@@ -2,11 +2,17 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import _ from 'lodash';
+import { merge } from 'lodash';
 import { AbstractIntlMessages } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 import { headers } from 'next/headers';
-import { DEFAULT_LANGUAGE, Language, languages, sliceMappings } from './config';
+import {
+  DEFAULT_LANGUAGE,
+  Language,
+  ROOT_KEY,
+  languages,
+  sliceMappings,
+} from './config';
 import { readCookieLanguage } from './cookie';
 
 const importDynamic = async (path: string) => {
@@ -38,8 +44,6 @@ const extractAndDetectSlices = async (
   const i18nKey = headersList.get('X-i18n-key');
 
   const baseMessages = await importDynamic(`./messages/${language}.json`);
-  let messages = baseMessages;
-
   const sliceMapping = sliceMappings.find(({ pattern }) =>
     !i18nKey ? false : pattern.test(i18nKey)
   );
@@ -47,12 +51,14 @@ const extractAndDetectSlices = async (
     const importedSlices = sliceMapping.slices.map(
       async slice => await importDynamic(`./slices/${language}/${slice}.json`)
     );
-    messages = _.merge(
+    return merge(
       {},
-      ...[baseMessages, ...(await Promise.all(importedSlices))]
+      ...[{ [ROOT_KEY]: baseMessages }, ...(await Promise.all(importedSlices))]
     );
   }
-  return messages;
+  return {
+    [ROOT_KEY]: baseMessages,
+  };
 };
 
 export default getRequestConfig(async () => {

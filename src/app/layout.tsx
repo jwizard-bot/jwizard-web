@@ -4,10 +4,10 @@
  */
 import { Metadata } from 'next';
 import clsx from 'clsx';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { getLocale } from 'next-intl/server';
 import { SnackbarStack } from '@/components';
 import { variableNames } from '@/font';
+import { IntlRootProvider } from '@/i18n/server';
 import { generateRootLayoutMetadata } from '@/meta';
 import { ReduxStoreWrapper } from '@/store';
 import '@/styles/globals.css';
@@ -25,19 +25,17 @@ const RootLayout: React.FC<Readonly<Props>> = async ({
   children,
 }): Promise<JSX.Element> => {
   const language = await getLocale();
-  const messages = await getMessages();
-
   return (
     <html lang={language} suppressHydrationWarning>
       <body className={clsx(variableNames, 'font-sans min-h-screen')}>
-        <NextIntlClientProvider messages={messages}>
+        <IntlRootProvider>
           <ReduxStoreWrapper>
             <ThemeContextProvider>
               <SnackbarStack />
               {children}
             </ThemeContextProvider>
           </ReduxStoreWrapper>
-        </NextIntlClientProvider>
+        </IntlRootProvider>
       </body>
     </html>
   );

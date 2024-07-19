@@ -25,15 +25,12 @@ const ContributeSection: React.FC = async (): Promise<JSX.Element> => {
   return (
     <Ui.SafetyContainer className="mb-8 sm:mb-32">
       <Ui.FlexContainer col className="sm:items-center">
-        <Ui.ContentHeader
-          headingVariant="h2"
-          i18nText="title.contribute"
-          size="md"
-        />
-        <Ui.Paragraph
-          i18nText="contributeSlogan"
-          className="md:max-w-[60%] sm:text-center"
-        />
+        <Ui.ContentHeader headingVariant="h2" size="md">
+          {t('contributeHeader')}
+        </Ui.ContentHeader>
+        <Ui.Paragraph className="md:max-w-[60%] sm:text-center">
+          {t('contributeSlogan')}
+        </Ui.Paragraph>
         <Ui.FlexContainer
           gap
           toColOnSmallDevices

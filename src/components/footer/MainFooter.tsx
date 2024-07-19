@@ -33,10 +33,10 @@ const MainFooter: React.FC = (): JSX.Element => {
           justify="between"
           className="my-10 flex-col-reverse">
           <Ui.Paragraph
-            i18nText="description"
             size="md"
-            className="sm:me-16 text-center sm:text-start"
-          />
+            className="sm:me-16 text-center sm:text-start">
+            {t('description')}
+          </Ui.Paragraph>
           <BrandLogo
             sizePx={50}
             classNames={{

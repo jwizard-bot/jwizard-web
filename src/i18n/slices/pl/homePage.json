@@ -13,6 +13,7 @@
   "upcomingTooltip": "Funkcjonalność przewidywana do wdrożenia w najbliższym czasie lub w trakcie implementacji.",
   "active": "Aktywna",
   "activeTooltip": "Funkcjonalność wdrożona i aktywna.",
+  "contributeHeader": "Kontrybucja",
   "contributeSlogan": "Jeśli znasz się dobrze na programowaniu i masz odrobinę chęci to możesz spróbować swoich sił jako kontrybutor tego projektu.",
   "findMore": "Dowiedz się więcej"
 }

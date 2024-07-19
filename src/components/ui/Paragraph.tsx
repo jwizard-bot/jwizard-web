@@ -4,35 +4,30 @@
  */
 import { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
-import { useTranslations } from 'next-intl';
 
 type Size = 'sm' | 'md' | 'xl';
 
 type Props = {
-  i18nText?: string;
   size?: Size;
 } & HTMLAttributes<HTMLParagraphElement>;
 
 const Paragraph = forwardRef<HTMLParagraphElement, Props>(
-  ({ i18nText, size = 'xl', children, className, ...rest }, ref) => {
-    const t = useTranslations();
-    return (
-      <p
-        ref={ref}
-        className={clsx(
-          'text-default-500',
-          {
-            'text-sm': size === 'sm',
-            'text-xl': size === 'xl',
-            'text-md': size === 'md',
-          },
-          className
-        )}
-        {...rest}>
-        {i18nText ? t(i18nText) : children}
-      </p>
-    );
-  }
+  ({ size = 'xl', children, className, ...rest }, ref) => (
+    <p
+      ref={ref}
+      className={clsx(
+        'text-default-500',
+        {
+          'text-sm': size === 'sm',
+          'text-xl': size === 'xl',
+          'text-md': size === 'md',
+        },
+        className
+      )}
+      {...rest}>
+      {children}
+    </p>
+  )
 );
 
 Paragraph.displayName = 'Paragraph';

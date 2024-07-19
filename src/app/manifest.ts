@@ -3,12 +3,12 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { MetadataRoute } from 'next';
-import { getTranslations } from 'next-intl/server';
 import config from '@/config';
+import { getRootTranslations } from '@/i18n/server';
 import { iconSizesPx } from '@/meta';
 
 async function manifest(): Promise<MetadataRoute.Manifest> {
-  const t = await getTranslations();
+  const t = await getRootTranslations();
   return {
     name: config.appName,
     short_name: config.appName,

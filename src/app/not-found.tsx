@@ -3,11 +3,11 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import NextLink from 'next/link';
 import { GoArrowLeft } from 'react-icons/go';
 import { Layout, MeshBackgroundImage } from '@/components';
 import Ui from '@/components/ui';
+import { getRootTranslations } from '@/i18n/server';
 import { generateSubPageMetadata } from '@/meta';
 import { Button } from '@nextui-org/react';
 
@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const NotFound: React.FC = async (): Promise<JSX.Element> => {
-  const t = await getTranslations();
+  const t = await getRootTranslations();
   return (
     <Layout.MainLayout>
       <MeshBackgroundImage />
@@ -25,7 +25,7 @@ const NotFound: React.FC = async (): Promise<JSX.Element> => {
           <Ui.ContentHeader size="xl" className="sm:mb-4">
             404
           </Ui.ContentHeader>
-          <Ui.Paragraph i18nText="title.notFound" className="mb-4" />
+          <Ui.Paragraph className="mb-4">{t('title.notFound')}</Ui.Paragraph>
           <Button
             as={NextLink}
             href="/"
