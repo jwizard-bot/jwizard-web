@@ -17,7 +17,9 @@
     "LICENSE",
     "package.json",
     "README.md",
-    "yarn.lock"
+    "yarn.lock",
+    "post-build.cjs",
+    "build/"
   ],
   "extends": [
     "next",
