@@ -52,10 +52,14 @@ jobs:
           pm2 stop /root/ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
           pm2 save
 
+      - name: Remove previous compilation files
+        run: |
+          rm -rf /var/www/jwizard/*
+          rm -rf /var/www/jwizard/.* 2> /dev/null
+
       - name: Move to /var/www directory
         run: |
-          rm -rf /var/www/jwizard/.* 2> /dev/null
-          cp -r build/. /var/www/jwizard/
+          cp -rT /build /var/www/jwizard
 
       - name: Init process
         run: |
