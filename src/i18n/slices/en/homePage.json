@@ -1,0 +1,19 @@
+{
+  "heroDescription": "Multi-purpose Discord music bot",
+  "addToDiscord": "Add to Discord",
+  "exploreCommands": "Explore commands",
+  "motivationSlogan": "Join, play and stream audio!",
+  "motivationDescription": "Explore and use among <imp>modules</imp> modules and <imp>commands</imp> commands. You have <imp>radioStations</imp> radio stations and <imp>audioSources</imp> audio sources from which to play or stream audio.",
+  "modules": "Count of available modules",
+  "commands": "Count of available commands",
+  "radioStations": "Count of available radio stations",
+  "audioSources": "Count of available audio sources",
+  "keyFeatures": "Key features",
+  "upcoming": "Upcoming",
+  "upcomingTooltip": "Functionality expected to be implemented in the near future or in the process of implementation.",
+  "active": "Active",
+  "activeTooltip": "Functionality implemented and active.",
+  "contributeHeader": "Contribute",
+  "contributeSlogan": "If you are familiar with programming and have a bit of desire then you can try your hand as a contributor to this project.",
+  "findMore": "Find more"
+}

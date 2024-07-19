@@ -1,11 +1,11 @@
-name: Deploy to VPS
+name: Deploy Web UI
 
 on:
   push:
     branches: ['master']
 
 jobs:
-  build:
+  pre-build:
     runs-on: self-hosted
 
     strategy:
@@ -20,26 +20,42 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Determinate build version
-        id: vars
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
       - name: Add yarn
         run: |
           npm i -g yarn
 
-      - name: Install
+      - name: Install dependencies
         run: |
           yarn install
 
+  build:
+    runs-on: self-hosted
+    needs: pre-build
+
+    steps:
+      - name: Determinate build version
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
       - name: Export variables and build
         run: |
-          export VITE_API_URL="${{ secrets.GH_API_URL }}"
-          export VITE_SIGNAL_API_URL="${{ secrets.GH_SIGNAL_API_URL }}"
-          export VITE_ORG_LINK="${{ vars.GH_ORG_LINK }}"
-          export VITE_PRERELEASE_MODE="${{ vars.GH_PRERELEASE_MODE }}"
-          export VITE_BUILD_VERSION="${{ steps.vars.outputs.sha_short }}_${{ github.run_number }}"
-          yarn run build
+          export NEXT_PUBLIC_PRERELEASE_MODE="${{ vars.GH_PRERELEASE_MODE }}"
+          export NEXT_PUBLIC_BUILD_VERSION="${{ steps.vars.outputs.sha_short }}_${{ github.run_number }}"
+          yarn run build:std
+          unset NEXT_PUBLIC_PRERELEASE_MODE
+          unset NEXT_PUBLIC_BUILD_VERSION
 
-      - name: Deploy
-        run: cp -r dist/* /var/www/jwizard/
+  deploy:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      - name: Move to www directory
+        run: |
+          rm -rf /var/www/jwizard/*
+          cp -r build/* /var/www/jwizard/
+
+      - name: Restart process
+        run: |
+          pm2 restart ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
+          pm2 save

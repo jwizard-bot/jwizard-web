@@ -2,18 +2,18 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { useTranslation } from 'react-i18next';
-import { Mode, useDarkMode } from '@/context/DarkModeProvider';
+import { useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 import { Button } from '@nextui-org/react';
-import { IconElement } from './data';
+import { DropdownItems, IconElement } from './themeData';
 
 const ThemeToggleButton: React.FC = (): JSX.Element => {
-  const { mode, setMode } = useDarkMode();
-  const { t } = useTranslation();
+  const { theme, setTheme } = useTheme();
+  const t = useTranslations();
 
   const handleToggleTheme = (): void => {
-    let nextMode: Mode = 'system';
-    switch (mode) {
+    let nextMode: keyof DropdownItems = 'system';
+    switch (theme) {
       case 'dark':
         nextMode = 'system';
         break;
@@ -24,16 +24,16 @@ const ThemeToggleButton: React.FC = (): JSX.Element => {
         nextMode = 'light';
         break;
     }
-    setMode(nextMode);
+    setTheme(nextMode);
   };
 
   return (
     <Button
       color="primary"
       fullWidth
-      startContent={IconElement(mode)}
+      startContent={IconElement(theme as keyof DropdownItems)}
       onClick={handleToggleTheme}>
-      {t(mode)}
+      {t(`themes.${theme}`)}
     </Button>
   );
 };

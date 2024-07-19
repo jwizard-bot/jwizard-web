@@ -1,26 +1,28 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
+import NextLink from 'next/link';
 import { GoDotFill } from 'react-icons/go';
-import { Link as ReactLink } from 'react-router-dom';
-import { useMediaQuery } from 'usehooks-ts';
 import config from '@/config';
-import { Divider } from '@nextui-org/divider';
-import { Button, Link } from '@nextui-org/react';
+import { useNavigationDropdownData } from '@/context';
+import { useSmallScreen } from '@/hooks';
+import { Button, Divider, Link } from '@nextui-org/react';
 import BrandLogo from '../BrandLogo';
-import DropdownWithIcons from '../dropdown/DropdownWithIcons';
-import { featuresDropdownElements } from '../dropdown/dropdownData';
+import DropdownWithIcons from '../DropdownWithIcons';
+import { ThemeToggleDropdown } from '../theme';
 import Ui from '../ui';
 import CopyrightSection from './CopyrightSection';
-import LanguageToggleDropdown from './LanguageToggleDropdown';
 
-const MainFooter: React.FC = () => {
-  const { t } = useTranslation();
-  const isSmallScreen = useMediaQuery('(max-width: 640px)');
+const MainFooter: React.FC = (): JSX.Element => {
+  const t = useTranslations();
+  const isSmallScreen = useSmallScreen();
+  const { features } = useNavigationDropdownData();
 
-  const year = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
   return (
     <Ui.SafetyContainer as="footer" className="bg-transparent">
@@ -31,10 +33,10 @@ const MainFooter: React.FC = () => {
           justify="between"
           className="my-10 flex-col-reverse">
           <Ui.Paragraph
-            i18nText="description"
             size="md"
-            className="sm:me-16 text-center sm:text-start"
-          />
+            className="sm:me-16 text-center sm:text-start">
+            {t('description')}
+          </Ui.Paragraph>
           <BrandLogo
             sizePx={50}
             classNames={{
@@ -47,14 +49,14 @@ const MainFooter: React.FC = () => {
           <Ui.FlexContainer gap>
             <DropdownWithIcons
               i18nKey="featuresDropdown"
-              elements={featuresDropdownElements}
+              elements={features}
               placement={isSmallScreen ? 'top' : 'top-start'}
             />
             <Ui.TransparentButton
-              as={ReactLink}
-              to="/contribute"
+              as={NextLink}
+              href="/contribute"
               className="p-0">
-              {t('contribute')}
+              {t('title.contribute')}
             </Ui.TransparentButton>
           </Ui.FlexContainer>
           <Ui.FlexContainer gap className="w-full sm:w-fit">
@@ -67,7 +69,7 @@ const MainFooter: React.FC = () => {
               className="basis-[50%] sm:basis-auto">
               {t('addToDiscord')}
             </Button>
-            <LanguageToggleDropdown />
+            <ThemeToggleDropdown className="basis-[50%] sm:basis-auto" />
           </Ui.FlexContainer>
         </Ui.FlexContainer>
         <Divider className="my-6" />
@@ -75,15 +77,17 @@ const MainFooter: React.FC = () => {
           responsive
           className="w-full text-sm text-default-400 mb-4">
           <CopyrightSection alignment="start">
-            <ReactLink to="/privacy-policy" className="hover:underline">
-              {t('privacyPolicy')}
-            </ReactLink>
+            <NextLink href="/privacy-policy" className="hover:underline">
+              {t('title.privacyPolicy')}
+            </NextLink>
             <GoDotFill size={10} />
-            <ReactLink to="/terms-of-service" className="hover:underline">
-              {t('termsOfService')}
-            </ReactLink>
+            <NextLink href="/terms-of-service" className="hover:underline">
+              {t('title.termsOfService')}
+            </NextLink>
           </CopyrightSection>
-          <CopyrightSection>&copy; {year} by JWizard</CopyrightSection>
+          <CopyrightSection>
+            &copy; {currentYear} by {config.appName}
+          </CopyrightSection>
           <CopyrightSection alignment="end">
             Build: {config.buildVersion}
           </CopyrightSection>

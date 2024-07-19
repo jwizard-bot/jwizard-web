@@ -1,41 +1,37 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useAxiosInstance } from '@/query';
-import { Spinner, Tab, Tabs } from '@nextui-org/react';
-import { useQuery } from '@tanstack/react-query';
+import { useTranslations } from 'next-intl';
+import { ContributorsDataResDto } from '@/query/server/types/contributors';
+import { Tab, Tabs } from '@nextui-org/react';
+import { ContentSuspenseSpinner } from '../suspense';
 import Ui from '../ui';
 import ContributorProfile from './ContributorProfile';
 
-const ContributorProfiles: React.FC = (): JSX.Element => {
-  const { t } = useTranslation();
-  const { utilFetchApi } = useAxiosInstance();
+type Props = {
+  data: ContributorsDataResDto;
+};
+
+const ContributorProfiles: React.FC<Props> = ({ data }): JSX.Element => {
+  const t = useTranslations();
+
   const [selectedVariant, setSelectedVariant] = useState<string>();
-
-  const { data, isError } = useQuery({
-    queryKey: ['contributors'],
-    queryFn: async () => await utilFetchApi.getContributors(),
-  });
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // TODO: add error snackbar
-  }, [isError]);
-
-  useEffect(() => {
-    if (data?.initVariant) {
-      setSelectedVariant(data.initVariant);
+    const { initVariant } = data;
+    if (initVariant) {
+      setSelectedVariant(initVariant);
     }
-  }, [data]);
+    setIsMounted(true);
+  }, []);
 
-  if (!data || !selectedVariant) {
-    return (
-      <Ui.FlexContainer justify="center" className="mt-16">
-        <Spinner />
-      </Ui.FlexContainer>
-    );
+  if (!isMounted) {
+    return <ContentSuspenseSpinner />;
   }
 
   return (

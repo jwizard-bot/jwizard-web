@@ -4,17 +4,13 @@
  */
 import React, { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
-import { useTranslation } from 'react-i18next';
-import { TranslationSources } from '@/i18n';
 
 type HeaderSize = 'sm' | 'md' | 'lg' | 'xl';
 
-type HeadingVariant = 'h1' | 'h2' | 'h3';
+type HeadingVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type Props = {
   headingVariant?: HeadingVariant;
-  i18nText?: string;
-  translationSources?: TranslationSources[];
   isCentered?: boolean;
   size?: HeaderSize;
 } & HTMLAttributes<HTMLHeadingElement>;
@@ -23,8 +19,6 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
   (
     {
       headingVariant = 'h1',
-      i18nText,
-      translationSources,
       isCentered = false,
       size = 'sm',
       className,
@@ -32,9 +26,8 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
       ...rest
     },
     ref
-  ) => {
-    const { t } = useTranslation(translationSources);
-    return React.createElement(
+  ) =>
+    React.createElement(
       headingVariant,
       {
         ref,
@@ -49,9 +42,8 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
         ),
         ...rest,
       },
-      i18nText ? t(i18nText) : children
-    );
-  }
+      children
+    )
 );
 
 ContentHeader.displayName = 'ContentHeader';

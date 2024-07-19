@@ -1,15 +1,19 @@
+'use client';
+
 /*
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { useEffect, useState } from 'react';
 import * as changeCase from 'change-case';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { RxExternalLink } from 'react-icons/rx';
-import { Link as ReactLink, useLocation } from 'react-router-dom';
-import { useMediaQuery } from 'usehooks-ts';
 import config from '@/config';
+import { useNavigationDropdownData } from '@/context';
+import { useSmallScreen } from '@/hooks';
 import {
   Button,
   Link,
@@ -22,28 +26,28 @@ import {
   Tooltip,
 } from '@nextui-org/react';
 import BrandLogo from './BrandLogo';
-import DropdownWithIcons from './dropdown/DropdownWithIcons';
-import { featuresDropdownElements } from './dropdown/dropdownData';
-import ThemeToggleButton from './theme/ThemeToggleButton';
-import ThemeToggleDropdown from './theme/ThemeToggleDropdown';
+import DropdownWithIcons from './DropdownWithIcons';
+import { LanguageToggleDropdown } from './language';
+import { ThemeToggleButton } from './theme';
 import Ui from './ui';
 
 const menuTopSectionElements: string[] = [
   'commands',
   'error-codes',
   'contribute',
-];
+] as const;
 
-const MainHeader: React.FC = () => {
-  const { t } = useTranslation();
-  const location = useLocation();
-  const isSmallScreen = useMediaQuery('(max-width: 640px)');
+const MainHeader: React.FC = (): JSX.Element => {
+  const t = useTranslations();
+  const pathname = usePathname();
+  const isSmallScreen = useSmallScreen();
+  const { features } = useNavigationDropdownData();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <Navbar
@@ -61,17 +65,28 @@ const MainHeader: React.FC = () => {
         <DropdownWithIcons
           i18nKey="featuresDropdown"
           ComponentWrapper={NavbarItem}
-          elements={featuresDropdownElements}
+          elements={features}
           placement="bottom-start"
         />
         <NavbarItem>
-          <Ui.TransparentButton as={ReactLink} to="/contribute" className="p-0">
-            {t('contribute')}
+          <Ui.TransparentButton
+            as={NextLink}
+            href="/contribute"
+            className="p-0">
+            {t('title.contribute')}
           </Ui.TransparentButton>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end" className="gap-2">
-        <ThemeToggleDropdown className="hidden md:flex" />
+        <Button
+          href="/"
+          isExternal
+          size="sm"
+          color="primary"
+          as={Link}
+          className="hidden md:flex">
+          {t('addToDiscord')}
+        </Button>
         <Tooltip content={t('goToGithubRepository')}>
           <Button
             href={config.orgLink}
@@ -84,15 +99,7 @@ const MainHeader: React.FC = () => {
             className="hidden md:flex"
           />
         </Tooltip>
-        <Button
-          href="/"
-          isExternal
-          size="sm"
-          variant="bordered"
-          as={Link}
-          className="hidden md:flex">
-          {t('addToDiscord')}
-        </Button>
+        <LanguageToggleDropdown />
         <Button href="/" size="sm" color="primary" as={Link}>
           {t('login')}
         </Button>
@@ -103,11 +110,11 @@ const MainHeader: React.FC = () => {
             {menuTopSectionElements.map(link => (
               <Link
                 key={link}
-                as={ReactLink}
+                as={NextLink}
                 size="lg"
-                to={`/${link}`}
+                href={`/${link}`}
                 className="w-full justify-start">
-                {t(changeCase.camelCase(link))}
+                {t(`title.${changeCase.camelCase(link)}`)}
               </Link>
             ))}
           </Ui.FlexContainer>

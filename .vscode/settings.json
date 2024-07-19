@@ -1,9 +1,4 @@
 {
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#291f4d",
-    "titleBar.activeBackground": "#291f4d",
-    "titleBar.inactiveBackground": "#291f4d"
-  },
   "editor.rulers": [120],
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
@@ -16,14 +11,13 @@
   "explorer.compactFolders": false,
   "files.insertFinalNewline": true,
   "psi-header.config": {
-    "forceToTop": true,
     "blankLinesAfter": 1
   },
   "psi-header.changes-tracking": {
     "isActive": true,
     "autoHeader": "autoSave",
-    "include": ["javascript", "typescript", "typescriptreact", "css"],
-    "exclude": ["json", "jsonl", "jsonc"],
+    "include": ["javascript", "typescript", "typescriptreact", "tailwindcss"],
+    "exclude": ["json"],
     "excludeGlob": [".husky/**/*"],
     "enforceHeader": true
   },

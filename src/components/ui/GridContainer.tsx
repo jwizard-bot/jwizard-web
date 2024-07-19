@@ -5,7 +5,7 @@
 import { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
 
-const gridCols: Record<number, string> = {
+const gridColumns: Record<number, string> = {
   1: 'grid-cols-1',
   2: 'grid-cols-2',
   3: 'grid-cols-3',
@@ -27,7 +27,7 @@ const gridGap: Record<number, string> = {
 };
 
 type Props = {
-  cols?: keyof typeof gridCols;
+  cols?: keyof typeof gridColumns;
   gap?: keyof typeof gridGap;
   responsive?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
@@ -41,7 +41,7 @@ const GridContainer = forwardRef<HTMLDivElement, Props>(
       ref={ref}
       className={clsx(
         'grid',
-        responsive ? gridCols[12] : gridCols[cols],
+        responsive ? gridColumns[12] : gridColumns[cols],
         gap && gridGap[gap],
         responsive &&
           'grid-cols-1 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-12',

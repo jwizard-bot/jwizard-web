@@ -16,6 +16,7 @@
     "@trivago/prettier-plugin-sort-imports"
   ],
   "importOrder": [
+    "^(next)$",
     "^(react*)$",
     "^([a-zA-Z].*)$",
     "^@(.*)$",

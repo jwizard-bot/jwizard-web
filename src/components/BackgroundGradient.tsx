@@ -3,36 +3,41 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import clsx from 'clsx';
+import Image, { StaticImageData } from 'next/image';
+import leftBgGradient from '@/assets/bg/left.png';
+import rightBgGradient from '@/assets/bg/right.png';
 
 type GradientElement = {
-  fileName: string;
+  image: StaticImageData;
   styles: string;
 };
 
 const gradientElements: GradientElement[] = [
   {
-    fileName: 'left.png',
+    image: leftBgGradient,
     styles: '-bottom-[30%] -left-[20%]',
   },
   {
-    fileName: 'right.png',
+    image: rightBgGradient,
     styles: '-top-[60%] -right-[45%] rotate-12',
   },
 ];
 
 const BackgroundGradient: React.FC = (): JSX.Element => (
-  <>
-    {gradientElements.map(({ fileName, styles }) => (
+  <div>
+    {gradientElements.map(({ image, styles }) => (
       <div
-        key={fileName}
+        key={image.src}
         className={clsx('fixed opacity-30 dark:opacity-60', styles)}>
-        <img
-          src={`/bg/${fileName}`}
+        <Image
+          src={image}
           className="shadow-black/5 shadow-none rounded-large"
+          alt=""
+          priority
         />
       </div>
     ))}
-  </>
+  </div>
 );
 
 export default BackgroundGradient;
