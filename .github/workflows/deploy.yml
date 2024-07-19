@@ -52,5 +52,5 @@ jobs:
 
       - name: Restart process
         run: |
-          pm2 restart ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
+          pm2 restart /root/ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
           pm2 save
