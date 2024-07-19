@@ -20,13 +20,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - uses: jongwooo/next-cache@v1
+
       - name: Add yarn
         run: |
           npm i -g yarn
 
       - name: Install dependencies
         run: |
-          yarn install
+          yarn install --frozen-lockfile
 
       - name: Determinate build version
         id: vars
@@ -45,12 +47,17 @@ jobs:
     needs: build
 
     steps:
-      - name: Move to www directory
+      - name: Stop existing process
+        run: |
+          pm2 stop /root/ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
+          pm2 save
+
+      - name: Move to /var/www directory
         run: |
           rm -rf /var/www/jwizard/.* 2> /dev/null
-          cp -r build/{*,.[!.]*,..?*} /var/www/jwizard/
+          cp -r build/. /var/www/jwizard/
 
-      - name: Restart process
+      - name: Init process
         run: |
-          pm2 restart /root/ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
+          pm2 start /root/ecosystem.config.js --only ${{ vars.PM2_WEB_UI_NAME }} --silent
           pm2 save
