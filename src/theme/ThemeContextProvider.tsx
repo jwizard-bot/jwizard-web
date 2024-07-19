@@ -6,7 +6,6 @@
  */
 import { ThemeProvider } from 'next-themes';
 import { NextUIProvider } from '@nextui-org/react';
-import SnackbarProvider from './SnackbarProvider';
 
 type Props = {
   children: React.ReactNode;
@@ -19,9 +18,7 @@ const ThemeContextProvider: React.FC<Props> = ({ children }): JSX.Element => (
     enableSystem
     disableTransitionOnChange
     storageKey="jwizard-theme">
-    <NextUIProvider>
-      <SnackbarProvider>{children}</SnackbarProvider>
-    </NextUIProvider>
+    <NextUIProvider>{children}</NextUIProvider>
   </ThemeProvider>
 );
 

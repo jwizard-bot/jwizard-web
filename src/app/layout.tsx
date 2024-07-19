@@ -6,6 +6,7 @@ import { Metadata } from 'next';
 import clsx from 'clsx';
 import { getLocale } from 'next-intl/server';
 import { SnackbarStack } from '@/components';
+import { SnackbarProvider } from '@/context';
 import { variableNames } from '@/font';
 import { IntlRootProvider } from '@/i18n/server';
 import { generateRootLayoutMetadata } from '@/meta';
@@ -31,8 +32,10 @@ const RootLayout: React.FC<Readonly<Props>> = async ({
         <IntlRootProvider>
           <ReduxStoreWrapper>
             <ThemeContextProvider>
-              <SnackbarStack />
-              {children}
+              <SnackbarProvider>
+                <SnackbarStack />
+                {children}
+              </SnackbarProvider>
             </ThemeContextProvider>
           </ReduxStoreWrapper>
         </IntlRootProvider>

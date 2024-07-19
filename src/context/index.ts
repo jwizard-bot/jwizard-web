@@ -4,6 +4,12 @@
  */
 import NavigationDropdownProvider, {
   useNavigationDropdownData,
-} from '@/context/NavigationDropdownProvider';
+} from './NavigationDropdownProvider';
+import SnackbarProvider, { useSnackbar } from './SnackbarProvider';
 
-export { NavigationDropdownProvider, useNavigationDropdownData };
+export {
+  NavigationDropdownProvider,
+  SnackbarProvider,
+  useNavigationDropdownData,
+  useSnackbar,
+};
