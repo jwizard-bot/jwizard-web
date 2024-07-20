@@ -15,7 +15,6 @@ import config from '@/config';
 import { useNavigationDropdownData } from '@/context';
 import { useSmallScreen } from '@/hooks';
 import {
-  Button,
   Link,
   Navbar,
   NavbarContent,
@@ -78,21 +77,13 @@ const MainHeader: React.FC = (): JSX.Element => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end" className="gap-2">
-        <Button
-          href="/"
-          isExternal
-          size="sm"
-          color="primary"
-          as={Link}
-          className="hidden md:flex">
+        <Ui.Button href="/" isExternal as={Link} className="hidden md:flex">
           {t('addToDiscord')}
-        </Button>
+        </Ui.Button>
         <Tooltip content={t('goToGithubRepository')}>
-          <Button
+          <Ui.Button
             href={config.orgLink}
             isExternal
-            size="sm"
-            color="primary"
             as={Link}
             startContent={<BsGithub />}
             isIconOnly
@@ -100,9 +91,9 @@ const MainHeader: React.FC = (): JSX.Element => {
           />
         </Tooltip>
         <LanguageToggleDropdown />
-        <Button href="/" size="sm" color="primary" as={Link}>
+        <Ui.Button href="/" as={Link}>
           {t('login')}
-        </Button>
+        </Ui.Button>
       </NavbarContent>
       <NavbarMenu className="py-8 justify-between">
         <NavbarMenuItem>
@@ -122,20 +113,22 @@ const MainHeader: React.FC = (): JSX.Element => {
         <NavbarMenuItem>
           <Ui.FlexContainer col gap className="mt-4">
             <ThemeToggleButton />
-            <Button
+            <Ui.Button
               variant="bordered"
+              size="lg"
               fullWidth
               startContent={<BsGithub size={18} />}
               endContent={<RxExternalLink size={18} />}>
               {t('goToGithubRepository')}
-            </Button>
-            <Button
-              fullWidth
+            </Ui.Button>
+            <Ui.Button
               variant="bordered"
+              size="lg"
+              fullWidth
               startContent={<BsDiscord size={18} />}
               endContent={<RxExternalLink size={18} />}>
               {t('addToDiscord')}
-            </Button>
+            </Ui.Button>
           </Ui.FlexContainer>
         </NavbarMenuItem>
       </NavbarMenu>

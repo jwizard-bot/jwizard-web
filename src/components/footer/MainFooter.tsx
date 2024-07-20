@@ -10,7 +10,7 @@ import { GoDotFill } from 'react-icons/go';
 import config from '@/config';
 import { useNavigationDropdownData } from '@/context';
 import { useSmallScreen } from '@/hooks';
-import { Button, Divider, Link } from '@nextui-org/react';
+import { Divider, Link } from '@nextui-org/react';
 import BrandLogo from '../BrandLogo';
 import DropdownWithIcons from '../DropdownWithIcons';
 import { ThemeToggleDropdown } from '../theme';
@@ -60,15 +60,13 @@ const MainFooter: React.FC = (): JSX.Element => {
             </Ui.TransparentButton>
           </Ui.FlexContainer>
           <Ui.FlexContainer gap className="w-full sm:w-fit">
-            <Button
+            <Ui.Button
               href="/"
               isExternal
-              size="sm"
-              color="primary"
               as={Link}
               className="basis-[50%] sm:basis-auto">
               {t('addToDiscord')}
-            </Button>
+            </Ui.Button>
             <ThemeToggleDropdown className="basis-[50%] sm:basis-auto" />
           </Ui.FlexContainer>
         </Ui.FlexContainer>

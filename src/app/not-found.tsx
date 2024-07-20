@@ -9,7 +9,6 @@ import { Layout, MeshBackgroundImage } from '@/components';
 import Ui from '@/components/ui';
 import { getRootTranslations } from '@/i18n/server';
 import { generateSubPageMetadata } from '@/meta';
-import { Button } from '@nextui-org/react';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateSubPageMetadata('notFound');
@@ -26,15 +25,14 @@ const NotFound: React.FC = async (): Promise<JSX.Element> => {
             404
           </Ui.ContentHeader>
           <Ui.Paragraph className="mb-4">{t('title.notFound')}</Ui.Paragraph>
-          <Button
+          <Ui.Button
             as={NextLink}
             href="/"
             size="md"
-            color="primary"
-            startContent={<GoArrowLeft />}
-            className="text-lg sm:text-xl w-full sm:w-fit">
+            fullWithOnSmallDevices
+            startContent={<GoArrowLeft />}>
             {t('returnToHome')}
-          </Button>
+          </Ui.Button>
         </Ui.FlexContainer>
       </Ui.SafetyContainer>
     </Layout.MainLayout>

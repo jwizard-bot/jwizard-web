@@ -7,7 +7,6 @@ import NextLink from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
 import { getServerQuery } from '@/query/server';
 import { StatsInfoResDto } from '@/query/server/types/stats';
-import { Button } from '@nextui-org/react';
 import PurifiedRenderer from '../PurifierRenderer';
 import Ui from '../ui';
 import InfoStatsCard from './InfoStatsCard';
@@ -40,15 +39,14 @@ const InfoCardsSection: React.FC = async (): Promise<JSX.Element> => {
             })}
             Component={Ui.Paragraph}
           />
-          <Button
+          <Ui.Button
             as={NextLink}
             href="/commands"
             size="md"
-            color="primary"
-            className="text-lg sm:text-xl w-full sm:w-fit"
+            fullWithOnSmallDevices
             endContent={<GoArrowRight />}>
             {t('exploreCommands')}
-          </Button>
+          </Ui.Button>
         </Ui.FlexContainer>
         <Ui.GridContainer
           cols={2}

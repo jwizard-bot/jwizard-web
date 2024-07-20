@@ -4,7 +4,7 @@
  */
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { Button } from '@nextui-org/react';
+import Ui from '../ui';
 import { DropdownItems, IconElement } from './themeData';
 
 const ThemeToggleButton: React.FC = (): JSX.Element => {
@@ -28,13 +28,13 @@ const ThemeToggleButton: React.FC = (): JSX.Element => {
   };
 
   return (
-    <Button
-      color="primary"
+    <Ui.Button
       fullWidth
+      size="lg"
       startContent={IconElement(theme as keyof DropdownItems)}
       onClick={handleToggleTheme}>
       {t(`themes.${theme}`)}
-    </Button>
+    </Ui.Button>
   );
 };
 
