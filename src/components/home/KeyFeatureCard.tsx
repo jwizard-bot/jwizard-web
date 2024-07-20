@@ -4,7 +4,8 @@
  */
 import clsx from 'clsx';
 import { getTranslations } from 'next-intl/server';
-import { Card, CardBody, CardFooter, Chip, Tooltip } from '@nextui-org/react';
+import { CardBody, CardFooter, Chip, Tooltip } from '@nextui-org/react';
+import Ui from '../ui';
 
 type Props = {
   title?: string;
@@ -19,23 +20,15 @@ const KeyFeatureCard: React.FC<Props> = async ({
 }): Promise<JSX.Element> => {
   const t = await getTranslations();
   return (
-    <Card
-      isBlurred
-      radius="md"
-      classNames={{
-        base: clsx([
-          'text-default-500 p-2 backdrop-blur',
-          'dark:border dark:border-default-100',
-          'col-span-12 md:col-span-4',
-          { 'opacity-40': !isActive },
-        ]),
-        footer: 'justify-end',
-      }}>
+    <Ui.CardContainer
+      isDimmed={!isActive}
+      baseStyles="col-span-12 md:col-span-4"
+      footerStyles="justify-end">
       <CardBody>
         <h1 className="text-primary leading-[18px] mb-3 font-semibold">
           {title}
         </h1>
-        <p className="leading-[18px] text-sm">{children}</p>
+        <p className="leading-[18px] text-sm text-default-500">{children}</p>
       </CardBody>
       <CardFooter>
         <Tooltip
@@ -48,7 +41,7 @@ const KeyFeatureCard: React.FC<Props> = async ({
           </Chip>
         </Tooltip>
       </CardFooter>
-    </Card>
+    </Ui.CardContainer>
   );
 };
 
