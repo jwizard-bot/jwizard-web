@@ -5,7 +5,7 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import clsx from 'clsx';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { IoMdClose } from 'react-icons/io';
 import { useDispatch } from 'react-redux';
@@ -15,13 +15,8 @@ import {
 } from '@/store/slices/snackbar-slice';
 import { SnackbarSeverity } from '@/types/snackbar';
 import { Tooltip } from '@nextui-org/react';
+import Motion from './motion';
 import Ui from './ui';
-
-const initAnimationState = {
-  opacity: 0,
-  y: 50,
-  x: '-50%',
-};
 
 const snackbarStyle: Record<SnackbarSeverity, string> = {
   success: clsx(
@@ -60,21 +55,15 @@ const SnackbarStack: React.FC<Props> = ({
     <Ui.FloatingContainer
       mode="fixed"
       centered="x"
-      className="bottom-0 z-[100]">
+      alignmentY="bottom"
+      zIndex={100}>
       <AnimatePresence>
         {snackbarStack.map(({ id, text, severity }, i) => (
-          <motion.div
+          <Motion.SlideMotionElement
             key={id}
-            initial={initAnimationState}
-            animate={{
-              ...initAnimationState,
-              opacity: 1,
-              y: (i > maxPlaceholders ? maxPlaceholders : i) * 10,
-              scale: 1 - i * 0.1,
-            }}
-            exit={initAnimationState}
-            transition={{ duration: 0.3 }}
-            style={{ zIndex: 100 - i }}
+            animate={(i > maxPlaceholders - 1 ? maxPlaceholders - 1 : i) * 10}
+            immutableProperties={{ x: '-50%' }}
+            mutableProperties={{ scale: 1 - i * 0.1 }}
             className={clsx(
               'absolute',
               'bottom-8',
@@ -87,7 +76,8 @@ const SnackbarStack: React.FC<Props> = ({
               'shadow-sm',
               'dark:shadow-md',
               snackbarStyle[severity]
-            )}>
+            )}
+            style={{ zIndex: 100 - i }}>
             <div className="text-center">{text}</div>
             <Ui.FloatingContainer
               mode="absolute"
@@ -101,7 +91,7 @@ const SnackbarStack: React.FC<Props> = ({
                 </Tooltip>
               </Ui.FlexContainer>
             </Ui.FloatingContainer>
-          </motion.div>
+          </Motion.SlideMotionElement>
         ))}
       </AnimatePresence>
     </Ui.FloatingContainer>
