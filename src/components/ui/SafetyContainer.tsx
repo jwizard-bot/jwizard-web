@@ -2,12 +2,12 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { HTMLAttributes, forwardRef } from 'react';
+import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
 
 type Props = {
   as?: 'div' | 'main' | 'header' | 'footer';
-} & HTMLAttributes<HTMLDivElement>;
+} & HTMLProps<HTMLDivElement>;
 
 const SafetyContainer = forwardRef<HTMLDivElement, Props>(
   (

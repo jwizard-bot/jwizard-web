@@ -2,7 +2,7 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { HTMLAttributes, forwardRef } from 'react';
+import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
 
 type FlexAdjustments = 'start' | 'center' | 'end';
@@ -18,8 +18,9 @@ type Props = {
   fullHeight?: boolean;
   centerContent?: boolean;
   toColOnSmallDevices?: boolean;
+  fullWithOnSmallDevices?: boolean;
   fillScreenSpace?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+} & HTMLProps<HTMLDivElement>;
 
 const FlexContainer = forwardRef<HTMLDivElement, Props>(
   (
@@ -33,6 +34,7 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
       fullHeight = false,
       centerContent = false,
       toColOnSmallDevices = false,
+      fullWithOnSmallDevices = false,
       fillScreenSpace = false,
       className,
       children,
@@ -60,6 +62,7 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
             toColOnSmallDevices,
           'justify-center items-center': centerContent,
           'h-[calc(100vh-4rem)]': fillScreenSpace,
+          'w-full sm:w-fit': fullWithOnSmallDevices,
         },
         className
       )}

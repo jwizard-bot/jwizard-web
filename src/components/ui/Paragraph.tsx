@@ -2,14 +2,14 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { HTMLAttributes, forwardRef } from 'react';
+import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
 
 type Size = 'sm' | 'md' | 'xl';
 
 type Props = {
   size?: Size;
-} & HTMLAttributes<HTMLParagraphElement>;
+} & Omit<HTMLProps<HTMLParagraphElement>, 'size'>;
 
 const Paragraph = forwardRef<HTMLParagraphElement, Props>(
   ({ size = 'xl', children, className, ...rest }, ref) => (

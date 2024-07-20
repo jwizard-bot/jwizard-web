@@ -2,7 +2,7 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import React, { HTMLAttributes, forwardRef } from 'react';
+import React, { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
 
 type HeaderSize = 'sm' | 'md' | 'lg' | 'xl';
@@ -13,7 +13,7 @@ type Props = {
   headingVariant?: HeadingVariant;
   isCentered?: boolean;
   size?: HeaderSize;
-} & HTMLAttributes<HTMLHeadingElement>;
+} & Omit<HTMLProps<HTMLHeadingElement>, 'size'>;
 
 const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
   (
