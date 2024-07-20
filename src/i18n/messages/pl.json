@@ -27,5 +27,8 @@
   "globalErrorTitle": "Coś poszło ewidentnie nie tak.",
   "globalErrorDescription": "Odśwież stronę lub powróć do strony głównej. Jeśli błąd będzie dalej występował, napisz na <mail>info@jwizard.pl</mail>.",
   "globalErrorDigest": "Kod błędu",
-  "refresh": "Odśwież"
+  "refresh": "Odśwież",
+  "cookiesHeader": "Pliki cookie",
+  "cookiesDescription": "Ta strona używa plików cookie, aby zapewnić lepsze wrażenia z korzystania z witryny, analizować ruch oraz dostosowywać treści. Kontynuując przeglądanie, zgadzasz się na używanie plików cookie. Możesz zarządzać ustawieniami plików cookie w ustawieniach przeglądarki.",
+  "cookiesAccept": "Akceptuję"
 }

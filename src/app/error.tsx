@@ -12,7 +12,6 @@ import { BsArrowRepeat } from 'react-icons/bs';
 import { GoArrowLeft } from 'react-icons/go';
 import { Layout, MeshBackgroundImage, PurifiedRenderer } from '@/components';
 import Ui from '@/components/ui';
-import { Button } from '@nextui-org/react';
 
 type Props = {
   error: Error & { digest?: string };
@@ -51,24 +50,26 @@ const ErrorPage: React.FC<Props> = ({ error, reset }): JSX.Element => {
           <Ui.FlexContainer
             gap
             toColOnSmallDevices
-            className="mt-8 w-full sm:w-fit">
-            <Button
+            fullWithOnSmallDevices
+            className="mt-8">
+            <Ui.Button
               as={NextLink}
               href="/"
               size="md"
               variant="bordered"
+              fullWithOnSmallDevices
               startContent={<GoArrowLeft size={20} />}
-              className="text-lg sm:text-xl flex-shrink-0 w-full sm:w-fit bg-primary-foreground">
+              className="flex-shrink-0">
               {t('returnToHome')}
-            </Button>
-            <Button
+            </Ui.Button>
+            <Ui.Button
               size="md"
-              color="primary"
+              fullWithOnSmallDevices
               endContent={<BsArrowRepeat size={20} />}
               onClick={refreshAndReset}
-              className="text-lg sm:text-xl flex-shrink-0 w-full sm:w-fit">
+              className="flex-shrink-0">
               {t('refresh')}
-            </Button>
+            </Ui.Button>
           </Ui.FlexContainer>
           <Ui.Paragraph size="sm">
             {t('globalErrorDigest')}: {error.digest}

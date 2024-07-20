@@ -10,7 +10,7 @@ import { RxExternalLink } from 'react-icons/rx';
 import config from '@/config';
 import { getServerQuery } from '@/query/server';
 import { ContributorsDataResDto } from '@/query/server/types/contributors';
-import { Button, Link } from '@nextui-org/react';
+import { Link } from '@nextui-org/react';
 import { ContributorProfiles } from '../contributors';
 import Ui from '../ui';
 
@@ -34,27 +34,29 @@ const ContributeSection: React.FC = async (): Promise<JSX.Element> => {
         <Ui.FlexContainer
           gap
           toColOnSmallDevices
-          className="w-full sm:w-fit mt-6">
-          <Button
+          fullWithOnSmallDevices
+          className="mt-6">
+          <Ui.Button
             as={NextLink}
             href="/contribute"
             size="md"
-            color="primary"
-            className="text-lg sm:text-xl flex-shrink-0 w-full sm:w-fit"
+            fullWithOnSmallDevices
+            className="flex-shrink-0"
             endContent={<GoArrowRight />}>
             {t('findMore')}
-          </Button>
-          <Button
+          </Ui.Button>
+          <Ui.Button
             as={Link}
             href={config.orgLink}
             isExternal
+            fullWithOnSmallDevices
             size="md"
             variant="bordered"
             startContent={<BsGithub />}
             endContent={<RxExternalLink size={20} />}
-            className="text-lg sm:text-xl flex-shrink-0 w-full sm:w-fit">
+            className="flex-shrink-0">
             Github
-          </Button>
+          </Ui.Button>
         </Ui.FlexContainer>
       </Ui.FlexContainer>
       <ContributorProfiles data={contributors} />

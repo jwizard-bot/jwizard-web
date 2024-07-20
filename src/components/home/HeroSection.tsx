@@ -7,7 +7,7 @@ import NextLink from 'next/link';
 import { GoArrowRight } from 'react-icons/go';
 import { RxExternalLink } from 'react-icons/rx';
 import config from '@/config';
-import { Button, Link } from '@nextui-org/react';
+import { Link } from '@nextui-org/react';
 import MeshBackgroundImage from '../MeshBackgroundImage';
 import Ui from '../ui';
 
@@ -24,26 +24,28 @@ const HeroSection: React.FC = async (): Promise<JSX.Element> => {
         <Ui.FlexContainer
           gap
           toColOnSmallDevices
-          className="mt-8 w-full sm:w-fit">
-          <Button
+          fullWithOnSmallDevices
+          className="mt-8">
+          <Ui.Button
             as={Link}
             href="/"
             isExternal
             size="md"
-            color="primary"
+            variant="bordered"
+            fullWithOnSmallDevices
             endContent={<RxExternalLink size={20} />}
-            className="text-lg sm:text-xl flex-shrink-0 w-full sm:w-fit">
+            className="flex-shrink-0">
             {t('addToDiscord')}
-          </Button>
-          <Button
+          </Ui.Button>
+          <Ui.Button
             as={NextLink}
             href="/commands"
             size="md"
-            variant="bordered"
+            fullWithOnSmallDevices
             endContent={<GoArrowRight size={20} />}
-            className="text-lg sm:text-xl flex-shrink-0 w-full sm:w-fit bg-primary-foreground">
+            className="flex-shrink-0">
             {t('exploreCommands')}
-          </Button>
+          </Ui.Button>
         </Ui.FlexContainer>
       </Ui.FlexContainer>
     </Ui.SafetyContainer>

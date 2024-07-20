@@ -5,7 +5,7 @@
 import { Metadata } from 'next';
 import clsx from 'clsx';
 import { getLocale } from 'next-intl/server';
-import { SnackbarStack } from '@/components';
+import { CookieConsent, SnackbarStack } from '@/components';
 import { SnackbarProvider } from '@/context';
 import { variableNames } from '@/font';
 import { IntlRootProvider } from '@/i18n/server';
@@ -34,6 +34,7 @@ const RootLayout: React.FC<Readonly<Props>> = async ({
             <ThemeContextProvider>
               <SnackbarProvider>
                 <SnackbarStack />
+                <CookieConsent />
                 {children}
               </SnackbarProvider>
             </ThemeContextProvider>

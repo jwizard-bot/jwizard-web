@@ -8,21 +8,14 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { useDropdownIcon } from '@/hooks';
 import { OverlayPlacement } from '@nextui-org/aria-utils';
-import {
-  Button,
-  Dropdown,
-  DropdownMenu,
-  DropdownTrigger,
-} from '@nextui-org/react';
-
-type Variant = 'solid' | 'bordered';
-type Color = 'default' | 'primary';
+import { Dropdown, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
+import Ui from './ui';
+import { Variant } from './ui/Button';
 
 type Props = {
   button: {
     text: string;
     variant?: Variant;
-    color?: Color;
     disabled?: boolean;
     hideTextOnSmallDevices?: boolean;
   };
@@ -46,7 +39,6 @@ const SingleSelectDropdown: React.FC<Props> = ({
   const {
     text,
     variant = 'solid',
-    color = 'default',
     disabled = false,
     hideTextOnSmallDevices = false,
   } = button;
@@ -60,9 +52,7 @@ const SingleSelectDropdown: React.FC<Props> = ({
       isOpen={isDropdownOpen}
       onOpenChange={setIsDropdownOpen}>
       <DropdownTrigger>
-        <Button
-          size="sm"
-          color={color}
+        <Ui.Button
           variant={variant}
           className={clsx(classNames)}
           disabled={disabled}
@@ -72,7 +62,7 @@ const SingleSelectDropdown: React.FC<Props> = ({
             className={clsx({ 'hidden sm:inline': hideTextOnSmallDevices })}>
             {text}
           </span>
-        </Button>
+        </Ui.Button>
       </DropdownTrigger>
       <DropdownMenu
         onAction={key => onChangeKey(key as string)}

@@ -4,6 +4,7 @@
  */
 import MainLayout from '@/components/layouts/MainLayout';
 import BackgroundGradient from './BackgroundGradient';
+import CookieConsent from './CookieConsent';
 import MainHeader from './MainHeader';
 import MeshBackgroundImage from './MeshBackgroundImage';
 import PurifiedRenderer from './PurifierRenderer';
@@ -18,6 +19,7 @@ const Layout = {
 export {
   BackgroundGradient,
   ContentSuspenseSpinner,
+  CookieConsent,
   Layout,
   MainFooter,
   MainHeader,

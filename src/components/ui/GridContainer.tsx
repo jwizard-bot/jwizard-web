@@ -2,7 +2,7 @@
  * Copyright (c) 2024 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
-import { HTMLAttributes, forwardRef } from 'react';
+import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
 
 const gridColumns: Record<number, string> = {
@@ -30,7 +30,7 @@ type Props = {
   cols?: keyof typeof gridColumns;
   gap?: keyof typeof gridGap;
   responsive?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+} & HTMLProps<HTMLDivElement>;
 
 const GridContainer = forwardRef<HTMLDivElement, Props>(
   (

@@ -5,9 +5,8 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import { useEffect, useRef } from 'react';
-import clsx from 'clsx';
 import { useCountUp } from 'react-countup';
-import { Card, CardBody } from '@nextui-org/react';
+import { CardBody } from '@nextui-org/react';
 import Ui from '../ui';
 
 type Props = {
@@ -35,18 +34,12 @@ const InfoStatsCard: React.FC<Props> = ({
   }, [value, start]);
 
   return (
-    <Card
-      isBlurred
-      radius="md"
-      classNames={{
-        base: clsx(
-          'p-1 backdrop-blur aspect-square',
-          'dark:border dark:border-default-100'
-        ),
-      }}>
+    <Ui.CardContainer baseStyles="aspect-square">
       <CardBody>
         <Ui.FlexContainer col centerContent fullWidth fullHeight>
-          <p ref={countUpRef} className="font-logo text-4xl sm:text-6xl mb-3">
+          <p
+            ref={countUpRef}
+            className="font-logo text-4xl sm:text-6xl mb-3 text-primary">
             0
           </p>
           <p className="text-default-500 leading-[18px] sm:max-w-[80%] text-center">
@@ -54,7 +47,7 @@ const InfoStatsCard: React.FC<Props> = ({
           </p>
         </Ui.FlexContainer>
       </CardBody>
-    </Card>
+    </Ui.CardContainer>
   );
 };
 
