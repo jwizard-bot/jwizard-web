@@ -5,6 +5,7 @@
 import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
 import { Card, CardProps } from '@nextui-org/react';
+import { generateName } from './helper';
 
 type Props = {
   isOpaque?: boolean;
@@ -35,6 +36,6 @@ const CardContainer = forwardRef<HTMLDivElement, Props>(
   )
 );
 
-CardContainer.displayName = 'CardContainer';
+CardContainer.displayName = generateName('CardContainer');
 
 export default CardContainer;

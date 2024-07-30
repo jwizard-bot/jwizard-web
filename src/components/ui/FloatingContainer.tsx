@@ -4,6 +4,7 @@
  */
 import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
+import { generateName } from './helper';
 
 type FloatingMode = 'absolute' | 'fixed';
 
@@ -51,6 +52,6 @@ const FloatingContainer = forwardRef<HTMLDivElement, Props>(
   )
 );
 
-FloatingContainer.displayName = 'FloatingContainer';
+FloatingContainer.displayName = generateName('FloatingContainer');
 
 export default FloatingContainer;

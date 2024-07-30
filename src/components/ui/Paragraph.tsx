@@ -4,6 +4,7 @@
  */
 import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
+import { generateName } from './helper';
 
 type Size = 'sm' | 'md' | 'xl';
 
@@ -30,6 +31,6 @@ const Paragraph = forwardRef<HTMLParagraphElement, Props>(
   )
 );
 
-Paragraph.displayName = 'Paragraph';
+Paragraph.displayName = generateName('Paragraph');
 
 export default Paragraph;

@@ -4,6 +4,7 @@
  */
 import React, { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
+import { generateName } from './helper';
 
 type HeaderSize = 'sm' | 'md' | 'lg' | 'xl';
 
@@ -46,6 +47,6 @@ const ContentHeader = forwardRef<HTMLHeadingElement, Props>(
     )
 );
 
-ContentHeader.displayName = 'ContentHeader';
+ContentHeader.displayName = generateName('ContentHeader');
 
 export default ContentHeader;

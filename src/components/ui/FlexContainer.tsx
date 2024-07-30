@@ -4,6 +4,7 @@
  */
 import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
+import { generateName } from './helper';
 
 type FlexAdjustments = 'start' | 'center' | 'end';
 type FlexJustify = FlexAdjustments | 'between';
@@ -72,6 +73,6 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
   )
 );
 
-FlexContainer.displayName = 'FlexContainer';
+FlexContainer.displayName = generateName('FlexContainer');
 
 export default FlexContainer;

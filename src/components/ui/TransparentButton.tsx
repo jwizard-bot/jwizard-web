@@ -6,6 +6,7 @@ import { forwardRef } from 'react';
 import clsx from 'clsx';
 import { Button, ButtonProps } from '@nextui-org/react';
 import { ReactRef } from '@nextui-org/react-utils';
+import { generateName } from './helper';
 
 const TransparentButton = forwardRef<
   typeof Button,
@@ -23,6 +24,6 @@ const TransparentButton = forwardRef<
   </Button>
 ));
 
-TransparentButton.displayName = 'TransparentButton';
+TransparentButton.displayName = generateName('TransparentButton');
 
 export default TransparentButton;

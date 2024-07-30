@@ -4,6 +4,7 @@
  */
 import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
+import { generateName } from './helper';
 
 type Props = {
   as?: 'div' | 'main' | 'header' | 'footer';
@@ -27,6 +28,6 @@ const SafetyContainer = forwardRef<HTMLDivElement, Props>(
   )
 );
 
-SafetyContainer.displayName = 'SafetyContainer';
+SafetyContainer.displayName = generateName('SafetyContainer');
 
 export default SafetyContainer;

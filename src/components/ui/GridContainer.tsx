@@ -4,6 +4,7 @@
  */
 import { HTMLProps, forwardRef } from 'react';
 import clsx from 'clsx';
+import { generateName } from './helper';
 
 const gridColumns: Record<number, string> = {
   1: 'grid-cols-1',
@@ -53,6 +54,6 @@ const GridContainer = forwardRef<HTMLDivElement, Props>(
   )
 );
 
-GridContainer.displayName = 'GridContainer';
+GridContainer.displayName = generateName('GridContainer');
 
 export default GridContainer;

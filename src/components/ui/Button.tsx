@@ -6,6 +6,7 @@ import { forwardRef } from 'react';
 import clsx from 'clsx';
 import { ButtonProps, Button as NextUiButton } from '@nextui-org/react';
 import { ReactRef } from '@nextui-org/react-utils';
+import { generateName } from './helper';
 
 export type Variant = 'solid' | 'bordered';
 
@@ -49,6 +50,6 @@ const Button = forwardRef<typeof NextUiButton, Props>(
   )
 );
 
-Button.displayName = 'Button';
+Button.displayName = generateName('Button');
 
 export default Button;
