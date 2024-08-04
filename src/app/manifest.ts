@@ -9,16 +9,17 @@ import { iconSizesPx } from '@/meta';
 
 async function manifest(): Promise<MetadataRoute.Manifest> {
   const t = await getRootTranslations();
+  const { appName, frontResServer } = config;
   return {
-    name: config.appName,
-    short_name: config.appName,
+    name: appName,
+    short_name: appName,
     description: t('description'),
     start_url: './',
     display: 'standalone',
     background_color: '#000000',
     theme_color: '#ffffff',
     icons: iconSizesPx.map(sizePx => ({
-      src: `pwa/icon-${sizePx}x${sizePx}.png`,
+      src: `${frontResServer}/pwa/icon-${sizePx}x${sizePx}.png`,
       sizes: `${sizePx}x${sizePx}`,
       type: 'image/png',
     })),

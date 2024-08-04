@@ -36,47 +36,49 @@ export const generateSubPageMetadata = async (
 export const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const language = await getLocale();
   const t = await getRootTranslations(language);
+  const { appName, selfReferUrl, frontResServer, agnosticFrontResServer } =
+    config;
   return {
     title: {
-      template: `%s | ${config.appName}`,
-      default: config.appName,
+      template: `%s | ${appName}`,
+      default: appName,
     },
     description: t('description'),
-    applicationName: config.appName,
+    applicationName: appName,
     generator: 'Next.js',
-    creator: `${config.appName} Team`,
+    creator: `${appName} Team`,
     openGraph: {
       type: 'website',
-      url: config.selfReferUrl,
-      title: config.appName,
+      url: selfReferUrl,
+      title: appName,
       description: t('description'),
-      siteName: config.appName,
+      siteName: appName,
       images: {
-        url: `${config.selfReferUrl}/og/og-banner-${language}.png`,
+        url: `${agnosticFrontResServer}/og/og-banner-${language}.png`,
       },
       locale: language,
       alternateLocale: Object.keys(languages).filter(lang => lang !== language),
       countryName: 'Poland',
     },
     twitter: {
-      title: config.appName,
+      title: appName,
       description: t('description'),
       card: 'summary_large_image',
-      site: config.selfReferUrl,
-      images: `${config.selfReferUrl}/og/og-banner-${language}.png`,
+      site: selfReferUrl,
+      images: `${agnosticFrontResServer}/og/og-banner-${language}.png`,
     },
     icons: [
       ...faviconSizesPx.map(sizePx => ({
         rel: 'icon',
         type: 'image/x-icon',
         sizes: `${sizePx}x${sizePx}`,
-        url: `/favicon/favicon-${sizePx}x${sizePx}.ico`,
+        url: `${frontResServer}/favicon/favicon-${sizePx}x${sizePx}.ico`,
       })),
       ...iconSizesPx.map(sizePx => ({
         rel: 'apple-touch-icon',
         type: 'image/png',
         sizes: `${sizePx}x${sizePx}`,
-        url: `/pwa/icon-${sizePx}x${sizePx}.png`,
+        url: `${frontResServer}/pwa/icon-${sizePx}x${sizePx}.png`,
       })),
     ],
   };

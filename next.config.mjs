@@ -7,13 +7,17 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/index.ts');
+const isProd = process.env.NODE_ENV === 'production';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: isProd,
   },
+  assetPrefix: isProd
+    ? `${process.env.NEXT_PUBLIC_S3_PROXY_SERVER}/front`
+    : undefined,
   webpack: config => {
     config.module.rules.push({
       test: /\.md$/,

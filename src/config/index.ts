@@ -3,10 +3,20 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 
+const isProdMode = process.env.NODE_ENV === 'production';
+
+const selfReferUrl = process.env.NEXT_PUBLIC_SELF_REFER;
+
+const frontResServer = process.env.NEXT_PUBLIC_S3_PROXY_SERVER
+  ? `${process.env.NEXT_PUBLIC_S3_PROXY_SERVER}/front`
+  : '';
+
 const config = {
-  isProdMode: process.env.NODE_ENV === 'production',
+  isProdMode,
   appName: process.env.NEXT_PUBLIC_APP_NAME || 'JWizard',
-  selfReferUrl: process.env.NEXT_PUBLIC_SELF_REFER,
+  selfReferUrl,
+  frontResServer,
+  agnosticFrontResServer: isProdMode ? frontResServer : selfReferUrl,
   apiUrl: process.env.NEXT_PUBLIC_API_URL,
   signalApiUrl: process.env.NEXT_PUBLIC_SIGNAL_API_URL,
   orgLink: process.env.NEXT_PUBLIC_ORG_LINK,
