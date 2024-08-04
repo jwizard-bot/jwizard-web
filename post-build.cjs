@@ -10,7 +10,7 @@ const readDir = require('recursive-readdir');
 const mime = require('mime-types');
 const AWS = require("@aws-sdk/client-s3");
 
-const BUCKET_NAME = 's3.jwizard.pl';
+const BUCKET_NAME = 'cdn.jwizard.pl';
 const PRE_BUILD_DIR = '.next';
 const PUBLIC_DIR = 'public';
 const OUTPUT_DIR = 'build';
