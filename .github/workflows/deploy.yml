@@ -34,7 +34,7 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Build and persist static content in AWS S3
+      - name: Build and persist static content in S3 CDN
         run: |
           NEXT_PUBLIC_PRERELEASE_MODE="${{ vars.GH_PRERELEASE_MODE }}" \
           NEXT_PUBLIC_BUILD_VERSION="${{ steps.vars.outputs.sha_short }}_${{ github.run_number }}" \
