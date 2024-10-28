@@ -15,9 +15,6 @@ const nextConfig = {
   compiler: {
     removeConsole: isProd,
   },
-  assetPrefix: isProd
-    ? `${process.env.NEXT_PUBLIC_S3_PROXY_SERVER}/front`
-    : undefined,
   webpack: config => {
     config.module.rules.push({
       test: /\.md$/,

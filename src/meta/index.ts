@@ -36,8 +36,7 @@ export const generateSubPageMetadata = async (
 export const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const language = await getLocale();
   const t = await getRootTranslations(language);
-  const { appName, selfReferUrl, frontResServer, agnosticFrontResServer } =
-    config;
+  const { appName, selfReferUrl } = config;
   return {
     title: {
       template: `%s | ${appName}`,
@@ -54,7 +53,7 @@ export const generateRootLayoutMetadata = async (): Promise<Metadata> => {
       description: t('description'),
       siteName: appName,
       images: {
-        url: `${agnosticFrontResServer}/og/og-banner-${language}.png`,
+        url: `${config.selfReferUrl}/og/og-banner-${language}.png`,
       },
       locale: language,
       alternateLocale: Object.keys(languages).filter(lang => lang !== language),
@@ -65,20 +64,20 @@ export const generateRootLayoutMetadata = async (): Promise<Metadata> => {
       description: t('description'),
       card: 'summary_large_image',
       site: selfReferUrl,
-      images: `${agnosticFrontResServer}/og/og-banner-${language}.png`,
+      images: `${config.selfReferUrl}/og/og-banner-${language}.png`,
     },
     icons: [
       ...faviconSizesPx.map(sizePx => ({
         rel: 'icon',
         type: 'image/x-icon',
         sizes: `${sizePx}x${sizePx}`,
-        url: `${frontResServer}/favicon/favicon-${sizePx}x${sizePx}.ico`,
+        url: `/favicon/favicon-${sizePx}x${sizePx}.ico`,
       })),
       ...iconSizesPx.map(sizePx => ({
         rel: 'apple-touch-icon',
         type: 'image/png',
         sizes: `${sizePx}x${sizePx}`,
-        url: `${frontResServer}/pwa/icon-${sizePx}x${sizePx}.png`,
+        url: `/pwa/icon-${sizePx}x${sizePx}.png`,
       })),
     ],
   };
