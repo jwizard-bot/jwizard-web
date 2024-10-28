@@ -17,9 +17,6 @@ jobs:
         with:
           node-version: "20.x"
 
-      - name: Configure next cache
-        uses: jongwooo/next-cache@v1
-
       - name: Install Yarn
         run: npm install -g yarn
 
