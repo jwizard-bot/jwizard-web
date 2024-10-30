@@ -17,6 +17,7 @@ on:
       - "tailwind.config.ts"
       - "tsconfig.json"
       - "yarn.lock"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -95,7 +96,6 @@ jobs:
           target: ${{ env.SERVER_OUTPUT }}
           rm: true
           strip_components: 1
-          debug: true
 
       - name: Start process
         uses: appleboy/ssh-action@v1.1.0
