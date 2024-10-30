@@ -2,7 +2,21 @@ name: Build and deploy Web UI
 
 on:
   push:
-    branches: ['master']
+    branches:
+      - master
+    paths:
+      - ".github/workflows/**"
+      - "public/**"
+      - "src/**"
+      - ".env"
+      - ".env.production"
+      - "next.config.mjs"
+      - "package.json"
+      - "post-build.cjs"
+      - "postcss.config.mjs"
+      - "tailwind.config.ts"
+      - "tsconfig.json"
+      - "yarn.lock"
 
 jobs:
   build:
