@@ -10,7 +10,8 @@ const config = {
   apiUrl: process.env.NEXT_PUBLIC_API_URL,
   signalApiUrl: process.env.NEXT_PUBLIC_SIGNAL_API_URL,
   orgLink: process.env.NEXT_PUBLIC_ORG_LINK,
-  buildVersion: process.env.NEXT_PUBLIC_BUILD_VERSION || 'DEVELOPMENT',
+  repositoryName: process.env.NEXT_PUBLIC_REPOSITORY_NAME,
+  buildVersion: process.env.NEXT_PUBLIC_BUILD_VERSION,
   prereleaseMode: process.env.NEXT_PUBLIC_PRERELEASE_MODE || 'alpha',
 };
 

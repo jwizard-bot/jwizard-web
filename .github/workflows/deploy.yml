@@ -40,13 +40,13 @@ jobs:
 
       - name: Determinate build version
         id: build
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Build
         run: yarn run build:std
         env:
           NEXT_PUBLIC_PRERELEASE_MODE: ${{ vars.GH_PRERELEASE_MODE }}
-          NEXT_PUBLIC_BUILD_VERSION: '${{ steps.build.outputs.sha_short }}_${{ github.run_number }}'
+          NEXT_PUBLIC_BUILD_VERSION: '${{ steps.build.outputs.sha }}'
 
       - name: Upload generated build files
         uses: actions/upload-artifact@v4
