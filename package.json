@@ -59,7 +59,6 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "^3.623.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/lodash": "^4.17.7",
     "@types/luxon": "^3.4.2",
