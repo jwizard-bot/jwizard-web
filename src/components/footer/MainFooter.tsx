@@ -25,7 +25,7 @@ const MainFooter: React.FC = (): JSX.Element => {
   const currentYear = new Date().getFullYear();
 
   const shortSHA = config.buildVersion?.substring(0, 7) || 'UNKNOWN';
-  const vcsLink = `${config.orgLink}/${config.repositoryName}/${config.buildVersion}`;
+  const vcsLink = `${config.orgLink}/${config.repositoryName}/tree/${config.buildVersion}`;
 
   return (
     <Ui.SafetyContainer as="footer" className="bg-transparent">
@@ -93,7 +93,10 @@ const MainFooter: React.FC = (): JSX.Element => {
             <span>
               Build:{' '}
               {config.buildVersion ? (
-                <NextLink href={vcsLink} className="hover:underline">
+                <NextLink
+                  href={vcsLink}
+                  className="hover:underline"
+                  target="_blank">
                   {shortSHA}
                 </NextLink>
               ) : (
