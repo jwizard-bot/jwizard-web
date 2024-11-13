@@ -18,7 +18,7 @@ const ContributeSection: React.FC = async (): Promise<JSX.Element> => {
   const t = await getTranslations();
 
   const { data: contributors } = await getServerQuery<ContributorsDataResDto>({
-    queryString: '/api/v1/contributor/all',
+    queryString: '/v1/contributor/all',
     errorMessage: 'Unable to fetch contributors in home page section',
   });
 

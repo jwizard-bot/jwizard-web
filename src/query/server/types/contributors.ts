@@ -13,6 +13,6 @@ export type ContributorData = {
 
 export type ContributorsDataResDto = {
   contributors: ContributorData[];
-  allVariants: string[];
+  variants: string[];
   initVariant: string;
 };

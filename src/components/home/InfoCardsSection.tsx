@@ -15,7 +15,7 @@ const InfoCardsSection: React.FC = async (): Promise<JSX.Element> => {
   const t = await getTranslations();
 
   const { data: stats } = await getServerQuery<StatsInfoResDto>({
-    queryString: '/api/v1/home/stats',
+    queryString: '/v1/home/statistics',
     errorMessage: 'Unable to fetch bot statistics on home page',
   });
 

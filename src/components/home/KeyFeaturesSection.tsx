@@ -13,9 +13,9 @@ import KeyFeatureCard from './KeyFeatureCard';
 const KeyFeaturesSection: React.FC = async (): Promise<JSX.Element> => {
   const t = await getTranslations();
 
-  const { data: keyFeatures } = await getServerQuery<KeyFeatureResDto[]>({
-    queryString: '/api/v1/home/key-features',
-    errorMessage: 'Unable to fetch key features on home page',
+  const { data: features } = await getServerQuery<KeyFeatureResDto[]>({
+    queryString: '/v1/home/features',
+    errorMessage: 'Unable to fetch features on home page',
   });
 
   return (
@@ -24,7 +24,7 @@ const KeyFeaturesSection: React.FC = async (): Promise<JSX.Element> => {
         {t('keyFeatures')}
       </Ui.ContentHeader>
       <Ui.GridContainer gap={6} responsive>
-        {keyFeatures.map(({ name, description, isActive }) => (
+        {features.map(({ name, description, isActive }) => (
           <KeyFeatureCard key={name} title={name} isActive={isActive}>
             {description}
           </KeyFeatureCard>

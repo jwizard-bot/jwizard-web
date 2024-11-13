@@ -41,7 +41,7 @@ const ContributorProfiles: React.FC<Props> = ({ data }): JSX.Element => {
         color="primary"
         selectedKey={selectedVariant}
         onSelectionChange={key => setSelectedVariant(key as string)}>
-        {data.allVariants.map(variant => (
+        {data.variants.map(variant => (
           <Tab key={variant} title={t(variant)}>
             <Ui.FlexContainer justify="center" className="flex-wrap mt-4 gap-4">
               {data.contributors

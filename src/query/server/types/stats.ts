@@ -7,5 +7,5 @@ export type StatsInfoResDto = {
   modules: number;
   commands: number;
   radioStations: number;
-  audioSources: number;
+  openSourceLibraries: number;
 };

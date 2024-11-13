@@ -1,6 +1,7 @@
 {
   "all": "Wszyscy",
-  "core": "Core",
-  "api": "API",
-  "front": "Web UI"
+  "jwizard-core": "Core",
+  "jwizard-api": "API",
+  "jwizard-web": "Web UI",
+  "jwizard-tools": "Tools"
 }
