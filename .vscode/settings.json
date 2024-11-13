@@ -9,6 +9,7 @@
   "editor.renderWhitespace": "all",
   "explorer.autoReveal": false,
   "explorer.compactFolders": false,
+  "cSpell.language": "en,pl",
   "files.insertFinalNewline": true,
   "psi-header.config": {
     "blankLinesAfter": 1
