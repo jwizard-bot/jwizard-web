@@ -6,6 +6,7 @@
  */
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useSmallScreen } from '@/hooks';
 import { ContributorsDataResDto } from '@/query/server/types/contributors';
 import { Tab, Tabs } from '@nextui-org/react';
 import { ContentSuspenseSpinner } from '../suspense';
@@ -21,6 +22,7 @@ const ContributorProfiles: React.FC<Props> = ({ data }): JSX.Element => {
 
   const [selectedVariant, setSelectedVariant] = useState<string>();
   const [isMounted, setIsMounted] = useState(false);
+  const isSmallScreen = useSmallScreen();
 
   useEffect(() => {
     const { initVariant } = data;
@@ -40,6 +42,7 @@ const ContributorProfiles: React.FC<Props> = ({ data }): JSX.Element => {
         variant="bordered"
         color="primary"
         selectedKey={selectedVariant}
+        fullWidth={isSmallScreen}
         onSelectionChange={key => setSelectedVariant(key as string)}>
         {data.variants.map(variant => (
           <Tab key={variant} title={t(variant)}>

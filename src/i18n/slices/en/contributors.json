@@ -2,6 +2,7 @@
   "all": "All",
   "jwizard-core": "Core",
   "jwizard-api": "API",
+  "jwizard-audio-client": "Audio client",
   "jwizard-web": "Web UI",
   "jwizard-tools": "Tools"
 }
