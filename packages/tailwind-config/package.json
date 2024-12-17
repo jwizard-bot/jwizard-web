@@ -1,0 +1,24 @@
+{
+  "name": "@jwizard-web/tailwind-config",
+  "version": "0.0.0",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "JWizard",
+    "email": "info@jwizard.pl",
+    "url": "https://jwizard.pl"
+  },
+  "exports": {
+    "./tailwind": "./tailwind.config.ts",
+    "./postcss": "./postcss.config.cjs",
+    "./globalcss": "./styles/index.css",
+    "./font/*": "./font/*"
+  },
+  "devDependencies": {
+    "@jwizard-web/eslint-config": "*",
+    "@jwizard-web/prettier-config": "*",
+    "@jwizard-web/typescript-config": "*",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

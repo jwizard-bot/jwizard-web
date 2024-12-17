@@ -1,0 +1,13 @@
+{
+  "extends": "@jwizard-web/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": [
+    "tailwind.config.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}
