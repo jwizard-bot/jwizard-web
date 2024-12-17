@@ -1,0 +1,104 @@
+name: Build and deploy landing page
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/deploy-landing-page.yml'
+      - 'apps/landing-page/**'
+      - 'packages/assets/**'
+      - 'i18n-translations/common/**'
+      - 'i18n-translations/landing-page/**'
+      - 'packages/lib/**'
+      - 'packages/tailwind-config/**'
+      - 'packages/ui/**'
+      - 'package.json'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Determinate build version
+        id: build
+        run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Build
+        run: yarn run landing-page:build
+        env:
+          NEXT_PUBLIC_BUILD_VERSION: '${{ steps.build.outputs.sha }}'
+
+      - name: Upload generated build files
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: apps/landing-page/build/
+          include-hidden-files: true
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      PM2_WEB_UI_NAME: 'JWizardUI'
+      SERVER_OUTPUT: '/var/www/jwizard-landing-page'
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
+
+    steps:
+      - name: Download generated build files
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: build
+
+      - name: Stop existing process
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USERNAME }}
+          port: ${{ env.SSH_PORT }}
+          key: ${{ env.SSH_KEY }}
+          passphrase: ${{ env.SSH_PASSPHRASE }}
+          script: ~/exec/process stop ${{ env.PM2_WEB_UI_NAME }}
+
+      - name: Move files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USERNAME }}
+          port: ${{ env.SSH_PORT }}
+          key: ${{ env.SSH_KEY }}
+          passphrase: ${{ env.SSH_PASSPHRASE }}
+          source: 'build/*'
+          target: ${{ env.SERVER_OUTPUT }}
+          rm: true
+          strip_components: 1
+
+      - name: Start process
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ env.SSH_HOST }}
+          username: ${{ env.SSH_USERNAME }}
+          port: ${{ env.SSH_PORT }}
+          key: ${{ env.SSH_KEY }}
+          passphrase: ${{ env.SSH_PASSPHRASE }}
+          script: ~/exec/process start ${{ env.PM2_WEB_UI_NAME }}
