@@ -1,0 +1,26 @@
+{
+  "title": {
+    "about": "About",
+    "commands": "Commands",
+    "errorCodes": "Error codes",
+    "join": "Add to Discord",
+    "privacyPolicy": "Privacy policy",
+    "radioStations": "Radio stations",
+    "termsOfService": "Terms of service",
+    "notFound": "Not found"
+  },
+  "addToDiscord": "Add to Discord",
+  "login": "Log in",
+  "goToGithubRepository": "Go to Github repository",
+  "returnToHome": "Return to home page",
+  "close": "Close",
+  "home": "Home",
+  "featuresDropdown": "Features",
+  "commandsDescription": "List of all available bot commands from all modules.",
+  "radioStationsDescription": "List of all available radio stations.",
+  "errorCodesDescription": "List of all error codes with additional description.",
+  "globalErrorTitle": "Something clearly went wrong.",
+  "globalErrorDescription": "Reload page or return to home. If error continues to occur, write to <mail>info@jwizard.pl</mail>.",
+  "globalErrorDigest": "Digest code",
+  "refresh": "Refresh"
+}

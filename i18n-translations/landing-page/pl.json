@@ -1,0 +1,26 @@
+{
+  "title": {
+    "about": "O projekcie",
+    "commands": "Komendy",
+    "errorCodes": "Kody błędów",
+    "join": "Dodaj do Discorda",
+    "privacyPolicy": "Polityka prywatności",
+    "radioStations": "Stacje radiowe",
+    "termsOfService": "Warunki usługi",
+    "notFound": "Nie znaleziono"
+  },
+  "addToDiscord": "Dodaj do Discorda",
+  "login": "Zaloguj",
+  "goToGithubRepository": "Przejdź do repozytorium Github",
+  "returnToHome": "Powrót do strony głównej",
+  "close": "Zamknij",
+  "home": "Start",
+  "featuresDropdown": "Funkcje",
+  "commandsDescription": "Lista wszystkich dostępnych komend ze wszystkich modułów.",
+  "radioStationsDescription": "Lista wszystkich dostępnych stacji radiowych.",
+  "errorCodesDescription": "Lista wszystkich kodów błędów z dodatkowymi objaśnieniami.",
+  "globalErrorTitle": "Coś poszło ewidentnie nie tak.",
+  "globalErrorDescription": "Odśwież stronę lub powróć do strony głównej. Jeśli błąd będzie dalej występował, napisz na <mail>info@jwizard.pl</mail>.",
+  "globalErrorDigest": "Kod błędu",
+  "refresh": "Odśwież"
+}

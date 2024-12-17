@@ -1,0 +1,27 @@
+{
+  "heroDescription": "Wielofunkcyjny bot muzyczny",
+  "addToDiscord": "Dodaj do Discorda",
+  "exploreCommands": "Przeglądaj komendy",
+  "motivationSlogan": "Dodaj, odtwarzaj i strumieniuj audio!",
+  "motivationDescription": "Odkrywaj i korzystaj spośród <imp>modules</imp> modułów, <imp>commands</imp> komend i <imp>radioStations</imp> stacji radiowych. Napędzany przez <imp>openSourceLibraries</imp> bibliotek open source.",
+  "modules": "dostępnych modułów",
+  "commands": "dostępnych komend",
+  "radioStations": "dostępnych stacji radiowych",
+  "openSourceLibraries": "używanych bibliotek OpenSource",
+  "keyFeatures": "Kluczowe funkcje",
+  "upcoming": "Przewidywane",
+  "upcomingTooltip": "Funkcjonalność przewidywana do wdrożenia w najbliższym czasie lub w trakcie implementacji.",
+  "active": "Aktywne",
+  "activeTooltip": "Funkcjonalność wdrożona i aktywna.",
+  "contributeHeader": "Kontrybucja",
+  "contributeSlogan": "Jeśli znasz się dobrze na programowaniu i masz odrobinę chęci to możesz spróbować swoich sił jako kontrybutor tego projektu.",
+  "findMore": "Dowiedz się więcej",
+  "project": {
+    "all": "Wszyscy",
+    "jwizard-core": "Core",
+    "jwizard-api": "API",
+    "jwizard-audio-client": "Klient audio",
+    "jwizard-web": "Web UI",
+    "jwizard-tools": "Tools"
+  }
+}
