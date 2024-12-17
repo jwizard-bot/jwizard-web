@@ -1,0 +1,13 @@
+{
+  "name": "@jwizard-web/typescript-config",
+  "version": "0.0.0",
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "JWizard",
+    "email": "info@jwizard.pl",
+    "url": "https://jwizard.pl"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
