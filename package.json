@@ -1,92 +1,41 @@
 {
   "name": "jwizard-web",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "next dev -p 8764",
-    "build": "next build",
-    "build:std": "yarn run build && node post-build.cjs",
-    "start": "next start",
-    "lint:check": "npx eslint src/**/*.{js,cjs,mjs,jsx,ts,tsx}",
-    "lint:fix": "npx eslint src/**/*.{js,cjs,mjs,jsx,ts,tsx} --fix",
-    "types:check": "npx tsc --noEmit",
-    "format": "npx prettier . --write",
-    "husky:add-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
-    "husky:add-pre-push": "npx husky add .husky/pre-push \"yarn run types:check\"",
-    "configure:husky": "npx husky install && yarn run husky:add-pre-commit && yarn run husky:add-pre-push"
-  },
   "private": true,
+  "license": "AGPL-3.0-only",
   "author": {
     "name": "JWizard",
     "email": "info@jwizard.pl",
     "url": "https://jwizard.pl"
   },
-  "license": "Apache 2.0",
-  "lint-staged": {
-    "src/**/*.{js,cjs,mjs,jsx,ts,tsx}": [
-      "yarn run lint:fix"
-    ]
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dashboard:dev": "yarn workspace dashboard dev",
+    "dashboard:build": "yarn workspace dashboard build",
+    "dashboard:lint": "yarn workspace dashboard lint",
+    "dashboard:tsc": "yarn workspace dashboard tsc",
+    "landing-page:dev": "yarn workspace landing-page dev",
+    "landing-page:build": "yarn workspace landing-page build",
+    "landing-page:lint": "yarn workspace landing-page lint",
+    "landing-page:tsc": "yarn workspace landing-page tsc",
+    "lint": "yarn run dashboard:lint && yarn run landing-page:lint",
+    "tsc": "yarn run dashboard:tsc && yarn run landing-page:tsc",
+    "husky:add-pre-commit": "npx husky add .husky/pre-commit \"yarn run tsc\"",
+    "husky:add-pre-push": "npx husky add .husky/pre-push \"yarn run lint\"",
+    "configure:husky": "npx husky install && yarn run husky:add-pre-commit && yarn run husky:add-pre-push"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run types:check"
+      "pre-commit": "yarn run tsc",
+      "pre-push": "yarn run lint"
     }
-  },
-  "dependencies": {
-    "@nextui-org/react": "^2.4.6",
-    "@reduxjs/toolkit": "^2.2.6",
-    "axios": "^1.7.2",
-    "change-case": "^5.4.4",
-    "clsx": "^2.1.1",
-    "framer-motion": "^11.3.4",
-    "isomorphic-dompurify": "^2.13.0",
-    "lodash": "^4.17.21",
-    "luxon": "^3.4.4",
-    "next": "14.2.5",
-    "next-intl": "^3.17.1",
-    "next-themes": "^0.3.0",
-    "ramda": "^0.30.1",
-    "react": "^18",
-    "react-countup": "^6.5.3",
-    "react-dom": "^18",
-    "react-html-parser": "^2.0.2",
-    "react-icons": "^5.2.1",
-    "react-markdown": "^9.0.1",
-    "react-redux": "^9.1.2",
-    "remark-gfm": "^4.0.0",
-    "sharp": "^0.32",
-    "usehooks-ts": "^3.1.0",
-    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/lodash": "^4.17.7",
-    "@types/luxon": "^3.4.2",
-    "@types/node": "^20",
-    "@types/ramda": "^0.30.1",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@types/react-html-parser": "^2.0.6",
-    "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.16.1",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-react": "^7.34.4",
-    "fs-extra": "^11.2.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "postcss": "^8",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "raw-loader": "^4.0.2",
-    "recursive-readdir": "^2.2.3",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "typescript-eslint": "^7.16.1"
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.6.9"
   }
 }
