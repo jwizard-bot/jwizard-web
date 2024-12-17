@@ -1,0 +1,14 @@
+{
+  "description": "JWizard is a multi-purpose Discord music bot. It provides an audio player that allows playback from a wide variety of sources. Supplied an original playlists system for saving and playing them on any guild.",
+  "themes": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "cookies": {
+    "header": "Cookies",
+    "description": "This website uses cookies to enhance your browsing experience, analyze traffic, and personalize content. By continuing to use this site, you consent to the use of cookies. You can manage your cookie settings in your browser preferences.",
+    "privacyPolicy": "Privacy policy",
+    "accept": "Accept"
+  }
+}
