@@ -1,0 +1,14 @@
+{
+  "name": "@jwizard-web/prettier-config",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "JWizard",
+    "email": "info@jwizard.pl",
+    "url": "https://jwizard.pl"
+  },
+  "exports": {
+    "./prettier": "./prettier.cjs"
+  }
+}

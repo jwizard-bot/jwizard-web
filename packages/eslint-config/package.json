@@ -1,0 +1,31 @@
+{
+  "name": "@jwizard-web/eslint-config",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "JWizard",
+    "email": "info@jwizard.pl",
+    "url": "https://jwizard.pl"
+  },
+  "exports": {
+    "./base": "./src/base.cjs",
+    "./next": "./src/next.cjs",
+    "./react": "./src/react.cjs"
+  },
+  "devDependencies": {
+    "@jwizard-web/prettier-config": "*",
+    "@eslint/js": "^9.16.0",
+    "@next/eslint-plugin-next": "^15",
+    "@typescript-eslint/eslint-plugin": "^8.15.0",
+    "@typescript-eslint/parser": "^8.15.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.12.0",
+    "typescript": "5.5.4",
+    "typescript-eslint": "^8.15.0"
+  }
+}
