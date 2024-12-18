@@ -7,7 +7,55 @@
     "privacyPolicy": "Privacy policy",
     "radioStations": "Radio stations",
     "termsOfService": "Terms of service",
-    "notFound": "Not found"
+    "notFound": "Not found",
+    "servicesStatus": "Services status",
+    "thirdPartySoftware": "Third party software",
+    "githubRepositories": "GitHub Repositories",
+    "docs": "Documentation"
+  },
+  "mainMenu": {
+    "gettingStarted": {
+      "header": "Getting started",
+      "content": {
+        "about": {
+          "header": "About",
+          "description": "Idea, architecture, solutions, and technologies."
+        },
+        "servicesStatus": {
+          "header": "Services status",
+          "description": "Status of shards and other JWizard services. Powered by BetterStack™."
+        },
+        "thirdPartySoftware": {
+          "header": "Third party software",
+          "description": "A list of the tools and libraries used in the JWizard infrastructure."
+        },
+        "githubRepositories": {
+          "header": "GitHub Repositories",
+          "description": "Links to project repositories on GitHub."
+        },
+        "docs": {
+          "header": "Documentation",
+          "description": "Links to external documentation (KDoc)."
+        }
+      }
+    },
+    "features": {
+      "header": "Features",
+      "content": {
+        "commands": {
+          "header": "Commands",
+          "description": "List of all available bot commands from all modules."
+        },
+        "radioStations": {
+          "header": "Radio stations",
+          "description": "List of all available radio stations."
+        },
+        "errorCodes": {
+          "header": "Error codes",
+          "description": "List of all error codes with additional description."
+        }
+      }
+    }
   },
   "addToDiscord": "Add to Discord",
   "login": "Log in",

@@ -7,7 +7,55 @@
     "privacyPolicy": "Polityka prywatności",
     "radioStations": "Stacje radiowe",
     "termsOfService": "Warunki usługi",
-    "notFound": "Nie znaleziono"
+    "notFound": "Nie znaleziono",
+    "servicesStatus": "Status usług",
+    "thirdPartySoftware": "Oprogramowanie firm trzecich",
+    "githubRepositories": "Repozytorium GitHub",
+    "docs": "Dokumentacja"
+  },
+  "mainMenu": {
+    "gettingStarted": {
+      "header": "Pierwsze kroki",
+      "content": {
+        "about": {
+          "header": "O projekcie",
+          "description": "Pomysł, architektura, rozwiązania i technologie."
+        },
+        "servicesStatus": {
+          "header": "Status usług",
+          "description": "Status fragmentów i innych usług JWizard. Napędzane przez BetterStack™."
+        },
+        "thirdPartySoftware": {
+          "header": "Oprogramowanie firm trzecich",
+          "description": "Lista używanych narzędzi i bibliotek używanych w infrastrukturze JWizard."
+        },
+        "githubRepositories": {
+          "header": "Repozytorium GitHub",
+          "description": "Linki do repozytoriów projektu na GitHubie."
+        },
+        "docs": {
+          "header": "Dokumentacja",
+          "description": "Odnośniki do dokumentacji zewnętrznej (KDoc)."
+        }
+      }
+    },
+    "features": {
+      "header": "Funkcje",
+      "content": {
+        "commands": {
+          "header": "Komendy",
+          "description": "Lista wszystkich dostępnych komend ze wszystkich modułów."
+        },
+        "radioStations": {
+          "header": "Stacje radiowe",
+          "description": "Lista wszystkich dostępnych stacji radiowych."
+        },
+        "errorCodes": {
+          "header": "Kody błędów",
+          "description": "Lista wszystkich kodów błędów z dodatkowymi objaśnieniami."
+        }
+      }
+    }
   },
   "addToDiscord": "Dodaj do Discorda",
   "login": "Zaloguj",
