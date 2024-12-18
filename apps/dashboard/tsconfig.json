@@ -1,0 +1,21 @@
+{
+  "extends": "@jwizard-web/typescript-config/react.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": false,
+    "declarationMap": false,
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "index.d.ts",
+    "tailwind.config.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
