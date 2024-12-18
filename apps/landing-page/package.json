@@ -1,0 +1,58 @@
+{
+  "name": "landing-page",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "author": {
+    "name": "JWizard",
+    "email": "info@jwizard.pl",
+    "url": "https://jwizard.pl"
+  },
+  "scripts": {
+    "dev": "next dev -p 8763",
+    "build": "next build && node post-build.cjs",
+    "start": "next start",
+    "lint": "next lint --max-warnings 0",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@jwizard-web/ui": "*",
+    "@jwizard-web/lib": "*",
+    "@jwizard-web/assets": "*",
+    "@custom-react-hooks/use-lock-body-scroll": "^1.5.1",
+    "axios": "^1.7.2",
+    "class-variance-authority": "^0.7.1",
+    "next": "^15.0.4",
+    "next-intl": "^3.26.1",
+    "next-themes": "^0.3.0",
+    "isomorphic-dompurify": "^2.13.0",
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.468.0",
+    "luxon": "^3.4.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-countup": "^6.5.3",
+    "react-icons": "^5.2.1",
+    "react-html-parser": "^2.0.2",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@jwizard-web/eslint-config": "*",
+    "@jwizard-web/tailwind-config": "*",
+    "@jwizard-web/typescript-config": "*",
+    "@jwizard-web/prettier-config": "*",
+    "@types/lodash": "^4.17.7",
+    "@types/luxon": "^3.4.2",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@types/react-html-parser": "^2.0.6",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "raw-loader": "^4.0.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "5.5.4"
+  }
+}
