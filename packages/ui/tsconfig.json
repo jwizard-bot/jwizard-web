@@ -1,0 +1,15 @@
+{
+  "extends": "@jwizard-web/typescript-config/react.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": [
+    "src",
+    "index.d.ts",
+    "tailwind.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
