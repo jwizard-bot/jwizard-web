@@ -15,13 +15,5 @@
   "activeTooltip": "Funkcjonalność wdrożona i aktywna.",
   "contributeHeader": "Kontrybucja",
   "contributeSlogan": "Jeśli znasz się dobrze na programowaniu i masz odrobinę chęci to możesz spróbować swoich sił jako kontrybutor tego projektu.",
-  "findMore": "Dowiedz się więcej",
-  "project": {
-    "all": "Wszyscy",
-    "jwizard-core": "Core",
-    "jwizard-api": "API",
-    "jwizard-audio-client": "Klient audio",
-    "jwizard-web": "Web UI",
-    "jwizard-tools": "Tools"
-  }
+  "findMore": "Dowiedz się więcej"
 }

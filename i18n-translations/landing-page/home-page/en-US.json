@@ -15,13 +15,5 @@
   "activeTooltip": "Functionality implemented and active.",
   "contributeHeader": "Contribute",
   "contributeSlogan": "If you are familiar with programming and have a bit of desire then you can try your hand as a contributor to this project.",
-  "findMore": "Find more",
-  "project": {
-    "all": "All",
-    "jwizard-core": "Core",
-    "jwizard-api": "API",
-    "jwizard-audio-client": "Audio client",
-    "jwizard-web": "Web UI",
-    "jwizard-tools": "Tools"
-  }
+  "findMore": "Find more"
 }
