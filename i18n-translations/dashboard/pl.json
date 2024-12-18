@@ -1,2 +1,7 @@
 {
+  "title": {
+    "dashboard": "Panel główny",
+    "login": "Logowanie",
+    "notFound": "Nie znaleziono"
+  }
 }

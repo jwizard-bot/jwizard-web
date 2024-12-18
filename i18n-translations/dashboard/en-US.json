@@ -1,2 +1,7 @@
 {
+  "title": {
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "notFound": "Not found"
+  }
 }
