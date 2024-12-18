@@ -59,9 +59,9 @@
     --shadow-small: 0px 0px 5px 0px rgb(0 0 0 / 0.02), 0px 2px 10px 0px rgb(0 0 0 / 0.06), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
     --shadow-medium: 0px 0px 15px 0px rgb(0 0 0 / 0.03), 0px 2px 30px 0px rgb(0 0 0 / 0.08), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
     --shadow-large: 0px 0px 30px 0px rgb(0 0 0 / 0.04), 0px 30px 60px 0px rgb(0 0 0 / 0.12), 0px 0px 1px 0px rgb(0 0 0 / 0.3);
-    --snackbar-success: 134, 39%, 87%;
-    --snackbar-warning: 35, 96%, 90%;
-    --snackbar-danger: 342, 87%, 89%;
+    --primary-success: 142.1 70.6% 45.3%;
+    --primary-warning: 24.6 95% 53.1%;
+    --primary-danger: 0 84.2% 60.2%;
   }
 
   .dark {
@@ -100,9 +100,9 @@
     --shadow-small: 0px 0px 5px 0px rgb(0 0 0 / 0.05), 0px 2px 10px 0px rgb(0 0 0 / 0.2), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
     --shadow-medium: 0px 0px 15px 0px rgb(0 0 0 / 0.06), 0px 2px 30px 0px rgb(0 0 0 / 0.22), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
     --shadow-large: 0px 0px 30px 0px rgb(0 0 0 / 0.07), 0px 30px 60px 0px rgb(0 0 0 / 0.26), inset 0px 0px 1px 0px rgb(255 255 255 / 0.15);
-    --snackbar-success: 134, 27%, 14%;
-    --snackbar-warning: 38, 55%, 12%;
-    --snackbar-danger: 346, 68%, 12%;
+    --primary-success: 142.1 76.2% 36.3%;
+    --primary-warning: 20.5 90.2% 48.2%;
+    --primary-danger: 0 72.2% 50.6%;
   }
 }
 

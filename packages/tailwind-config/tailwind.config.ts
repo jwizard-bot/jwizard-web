@@ -25,6 +25,9 @@ export const baseConfig: Omit<Config, 'content'> = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          success: 'hsl(var(--primary-success))',
+          warning: 'hsl(var(--primary-warning))',
+          danger: 'hsl(var(--primary-danger))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -49,11 +52,6 @@ export const baseConfig: Omit<Config, 'content'> = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
-        },
-        snackbar: {
-          success: 'hsl(var(--snackbar-success))',
-          warning: 'hsl(var(--snackbar-warning))',
-          danger: 'hsl(var(--snackbar-danger))',
         },
       },
       borderRadius: {
