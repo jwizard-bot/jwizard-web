@@ -26,7 +26,8 @@ const loadEnvVariables = isProd => {
   };
   const envVariables = {};
   for (const k in mergedConfig) {
-    envVariables[`process.env.${k}`] = JSON.stringify(mergedConfig[k]);
+    const envSource = k in process.env ? process.env : mergedConfig;
+    envVariables[`process.env.${k}`] = envSource[k];
   }
   return envVariables;
 };
