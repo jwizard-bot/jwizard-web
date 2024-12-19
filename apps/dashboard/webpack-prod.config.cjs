@@ -31,6 +31,7 @@ module.exports = merge(webpackCommonConfig(true), {
         },
       }),
       new TerserPlugin({
+        parallel: 4,
         terserOptions: {
           output: {
             comments: false,
@@ -39,5 +40,5 @@ module.exports = merge(webpackCommonConfig(true), {
       }),
     ],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [new CleanWebpackPlugin({ verbose: true })],
 });

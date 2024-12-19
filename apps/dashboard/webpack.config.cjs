@@ -4,7 +4,6 @@
  */
 const dotenv = require('dotenv');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const crypto = require('crypto');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -27,10 +26,12 @@ const loadEnvVariables = isProd => {
   const envVariables = {};
   for (const k in mergedConfig) {
     const envSource = k in process.env ? process.env : mergedConfig;
-    envVariables[`process.env.${k}`] = envSource[k];
+    envVariables[`process.env.${k}`] = JSON.stringify(envSource[k]);
   }
   return envVariables;
 };
+
+const parseHash = isProd => (isProd ? 'contenthash:10' : 'name');
 
 module.exports = isProd => ({
   entry: {
@@ -38,8 +39,8 @@ module.exports = isProd => ({
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: `js/jw-[${isProd ? 'contenthash:10' : 'name'}]-bundle.js`,
-    chunkFilename: `js/jw-[${isProd ? 'contenthash:10' : 'name'}]-chunk.js`,
+    filename: `js/jw-[${parseHash(isProd)}]-bundle.js`,
+    chunkFilename: `js/jw-[${parseHash(isProd)}]-chunk.js`,
     publicPath: '/',
     clean: true,
   },
@@ -86,14 +87,14 @@ module.exports = isProd => ({
         test: /\.ttf$/,
         type: 'asset/resource',
         generator: {
-          filename: `fonts/jw-[${isProd ? 'contenthash:10' : 'name'}][ext]`,
+          filename: `fonts/jw-[${parseHash(isProd)}][ext]`,
         },
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
         generator: {
-          filename: `assets/jw-[${isProd ? 'contenthash:10' : 'name'}][ext]`,
+          filename: `assets/jw-[${parseHash(isProd)}][ext]`,
         },
       },
     ],
@@ -101,19 +102,33 @@ module.exports = isProd => ({
   optimization: {
     minimize: isProd,
     splitChunks: {
-      chunks: 'all',
-      maxAsyncRequests: Infinity,
-      minSize: 0,
+      minSize: 17000,
+      minRemainingSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '_',
+      enforceSizeThreshold: 30000,
       cacheGroups: {
-        defaultVendors: {
+        common: {
           test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            const name = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-            if (isProd) {
-              return crypto.createHash('md5').update(name).digest('hex').slice(0, 10);
-            }
-            return name.replace(/[^a-zA-Z-]/g, '');
-          },
+          priority: -5,
+          reuseExistingChunk: true,
+          chunks: 'initial',
+          name: 'common_app',
+          minSize: 0,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+        defaultVendors: false,
+        reactPackage: {
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router|react-router-dom)[\\/]/,
+          name: 'vendor_react',
+          chunks: 'all',
+          priority: 10,
         },
       },
     },
@@ -132,8 +147,8 @@ module.exports = isProd => ({
       },
     }),
     new MiniCssExtractPlugin({
-      filename: `css/jw-[${isProd ? 'contenthash:10' : 'name'}]-bundle.css`,
-      chunkFilename: `css/jw-[${isProd ? 'contenthash:10' : 'name'}]-chunk.css`,
+      filename: `css/jw-[${parseHash(isProd)}]-bundle.css`,
+      chunkFilename: `css/jw-[${parseHash(isProd)}]-chunk.css`,
     }),
     new CopyWebpackPlugin({
       patterns: [
