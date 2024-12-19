@@ -16,9 +16,9 @@ front-end applications with shared configuration and components library.
 |----------------------------|----------------------------------------------------------------------------|
 | apps/dashboard             | React SPA application for managing guilds.                                 |
 | apps/landing-page          | Next.js SSR application for root JWizard page.                             |
+| i18n-translations          | I18n translations content shared between apps.                             |
 | packages/assets            | Static resources (images, fonts) shared between apps.                      |
 | packages/eslint-config     | Eslint configurations shared between apps and packages.                    |
-| packages/i18n-translations | I18n translations content shared between apps.                             |
 | packages/lib               | Typescript shared library (excluding React stuff).                         |
 | packages/prettier-config   | Prettier configuration shared between apps and packages.                   |
 | packages/tailwind-config   | Tailwind configuration shared between apps.                                |
