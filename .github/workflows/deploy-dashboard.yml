@@ -50,6 +50,7 @@ jobs:
           name: dist-output
           path: apps/dashboard/dist/
           include-hidden-files: true
+          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest

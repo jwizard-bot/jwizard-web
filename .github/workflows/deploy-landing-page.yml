@@ -50,6 +50,7 @@ jobs:
           name: build-output
           path: apps/landing-page/build/
           include-hidden-files: true
+          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
