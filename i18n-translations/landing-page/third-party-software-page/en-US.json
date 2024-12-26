@@ -1,3 +1,4 @@
 {
-  "title": "Third party software"
+  "title": "Third party software",
+  "currentlyUsed": "Currently using: {count} libraries"
 }
