@@ -60,7 +60,7 @@ const flexVariants = cva(cn('flex'), {
 });
 
 type Props = {
-  as?: 'div' | 'main';
+  as?: 'div' | 'main' | 'span';
 } & HTMLProps<HTMLDivElement> &
   VariantProps<typeof flexVariants>;
 
