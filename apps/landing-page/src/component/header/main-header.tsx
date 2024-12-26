@@ -61,14 +61,7 @@ const MainHeader: React.FC = (): React.ReactElement => {
         fullWidth
         justify="center"
         align="center"
-        className={cn(
-          'sticky',
-          'z-40',
-          'top-0',
-          'backdrop-blur-lg',
-          'backdrop-saturate-150',
-          'bg-background/70'
-        )}>
+        className={cn('sticky', 'z-40', 'top-0', 'bg-background')}>
         <SafetyContainer as="header">
           <FlexContainer justify="between" align="center">
             <FlexContainer align="center" gap>
