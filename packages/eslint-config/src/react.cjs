@@ -3,16 +3,12 @@
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 const baseConfig = require('./base.cjs');
-const eslintConfigPrettier = require('eslint-config-prettier');
 const globals = require('globals');
-const js = require('@eslint/js');
 const pluginReact = require('eslint-plugin-react');
 const pluginReactHooks = require('eslint-plugin-react-hooks');
 
 module.exports = [
   ...baseConfig,
-  js.configs.recommended,
-  eslintConfigPrettier,
   pluginReact.configs.flat.recommended,
   {
     languageOptions: {

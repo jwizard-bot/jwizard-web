@@ -9,8 +9,8 @@ const onlyWarn = require('eslint-plugin-only-warn');
 const tsEslint = require('typescript-eslint');
 
 module.exports = [
-  js.configs.recommended,
   eslintConfigPrettier,
+  js.configs.recommended,
   ...tsEslint.configs.recommended,
   {
     languageOptions: {
