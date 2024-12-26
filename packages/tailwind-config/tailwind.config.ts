@@ -15,6 +15,7 @@ export const baseConfig: Omit<Config, 'content'> = {
       fontFamily: {
         sans: ['var(--font-body)'],
         logo: ['var(--font-logo)'],
+        pixelated: ['var(--font-pixelated)'],
       },
       colors: {
         border: 'hsl(var(--border))',

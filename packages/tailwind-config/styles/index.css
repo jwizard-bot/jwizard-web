@@ -17,12 +17,18 @@
     font-family: 'JWLogo';
     src: url('../../../packages/assets/font/paytone.ttf') format('truetype');
   }
+
+  @font-face {
+    font-family: 'JWPixelated';
+    src: url('../../assets/font/pixelated.ttf') format('truetype');
+  }
 }
 
 @layer base {
   :root {
     --font-body: JWSans, system-ui, sans-serif;
     --font-logo: JWLogo, system-ui, sans-serif;
+    --font-pixelated: JWPixelated, system-ui, sans-serif;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
