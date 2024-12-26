@@ -10,17 +10,23 @@ import { type VariantProps, cva } from 'class-variance-authority';
 const safetyVariants = cva(cn('max-w-[1280px]', 'mx-auto', 'px-4', 'sm:px-6'), {
   variants: {
     spaceUp: {
+      none: 'mt-0',
       normal: 'mt-3',
       large: cn('mt-8', 'sm:mt-16'),
     },
     spaceBelow: {
+      none: 'mb-0',
       normal: 'mb-3',
       large: cn('mb-8', 'sm:mb-32'),
+    },
+    fullSizeChild: {
+      true: cn('w-full', 'h-full'),
     },
   },
   defaultVariants: {
     spaceUp: 'normal',
     spaceBelow: 'normal',
+    fullSizeChild: false,
   },
 });
 
@@ -31,11 +37,11 @@ type Props = {
 
 const SafetyContainer = forwardRef<HTMLDivElement, Props>(
   (
-    { as: Component = 'div', spaceUp, spaceBelow, children, className, ...rest },
+    { as: Component = 'div', spaceUp, spaceBelow, fullSizeChild, children, className, ...rest },
     ref
   ): React.ReactElement => (
     <Component ref={ref} className={cn('w-full', className)}>
-      <div className={safetyVariants({ spaceUp, spaceBelow })} {...rest}>
+      <div className={safetyVariants({ spaceUp, spaceBelow, fullSizeChild })} {...rest}>
         {children}
       </div>
     </Component>
