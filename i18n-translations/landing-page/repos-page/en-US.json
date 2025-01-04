@@ -1,3 +1,6 @@
 {
-  "title": "GitHub repositories"
+  "title": "GitHub repositories",
+  "latestBuild": "Latest build",
+  "lastUpdate": "Last update",
+  "timeZoneInfo": "All update dates are in UTC standard."
 }
