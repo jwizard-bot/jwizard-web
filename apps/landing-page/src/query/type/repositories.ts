@@ -21,5 +21,4 @@ export type RepositoryResDto = {
   link: string;
   primaryLanguage: PrimaryLanguage;
   lastUpdate: LastUpdate;
-  license: string;
 };
