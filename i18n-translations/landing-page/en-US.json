@@ -59,5 +59,8 @@
   "globalErrorTitle": "Something clearly went wrong.",
   "globalErrorDescription": "Reload page or return to home. If error continues to occur, write to <mail>info@jwizard.pl</mail>.",
   "globalErrorDigest": "Digest code",
-  "refresh": "Refresh"
+  "refresh": "Refresh",
+  "contributeHeader": "Contribute",
+  "contributeSlogan": "If you are familiar with programming and have a bit of desire then you can try your hand as a contributor to this project.",
+  "findMore": "Find more"
 }

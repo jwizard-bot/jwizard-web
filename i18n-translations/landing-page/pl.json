@@ -59,5 +59,8 @@
   "globalErrorTitle": "Coś poszło ewidentnie nie tak.",
   "globalErrorDescription": "Odśwież stronę lub powróć do strony głównej. Jeśli błąd będzie dalej występował, napisz na <mail>info@jwizard.pl</mail>.",
   "globalErrorDigest": "Kod błędu",
-  "refresh": "Odśwież"
+  "refresh": "Odśwież",
+  "contributeHeader": "Kontrybucja",
+  "contributeSlogan": "Jeśli znasz się dobrze na programowaniu i masz odrobinę chęci to możesz spróbować swoich sił jako kontrybutor tego projektu.",
+  "findMore": "Dowiedz się więcej"
 }

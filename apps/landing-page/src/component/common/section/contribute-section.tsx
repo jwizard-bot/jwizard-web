@@ -1,13 +1,13 @@
 /*
- * Copyright (c) 2024 by JWizard
+ * Copyright (c) 2025 by JWizard
  * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
  */
 import * as React from 'react';
 import { BsGithub } from 'react-icons/bs';
-import { getTranslations } from 'next-intl/server';
 import NextLink from 'next/link';
-import { ContributorProfiles } from '@/component/home/contributor-profiles';
+import { ContributorProfiles } from '@/component/common/contributor-profiles';
 import config from '@/config';
+import { getRootTranslations } from '@/i18n/server';
 import { getServerQuery } from '@/query';
 import { ContributorsDataResDto } from '@/query/type';
 import { FlexContainer, SafetyContainer } from '@jwizard-web/ui/container';
@@ -18,7 +18,7 @@ import { Paragraph } from '@jwizard-web/ui/widget/paragraph';
 import { ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
 
 const ContributeSection: React.FC = async (): Promise<React.ReactElement> => {
-  const t = await getTranslations();
+  const t = await getRootTranslations();
 
   const { data: contributors } = await getServerQuery<ContributorsDataResDto>({
     queryString: '/v1/contributor/all',
