@@ -29,8 +29,8 @@ const KeyFeaturesSection: React.FC = async (): Promise<React.ReactElement> => {
     <SafetyContainer className="mb-16 sm:mb-32">
       <Header headingVariant="h2">{t('keyFeatures')}</Header>
       <GridContainer gap={6} responsive>
-        {features.map(({ name, description, isActive }) => (
-          <Card isBlurred isDimmed={!isActive} className="col-span-12 md:col-span-4" key={name}>
+        {features.map(({ name, description, active }) => (
+          <Card isBlurred isDimmed={!active} className="col-span-12 md:col-span-4" key={name}>
             <CardContent>
               <h1 className="text-primary leading-[18px] mb-3 font-semibold">{name}</h1>
               <p className="leading-[18px] text-sm text-muted-foreground">{description}</p>
@@ -39,13 +39,11 @@ const KeyFeaturesSection: React.FC = async (): Promise<React.ReactElement> => {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant={isActive ? 'default' : 'outline'}>
-                      {t(isActive ? 'active' : 'upcoming')}
+                    <Badge variant={active ? 'default' : 'outline'}>
+                      {t(active ? 'active' : 'upcoming')}
                     </Badge>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    {t(isActive ? 'activeTooltip' : 'upcomingTooltip')}
-                  </TooltipContent>
+                  <TooltipContent>{t(active ? 'activeTooltip' : 'upcomingTooltip')}</TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </CardFooter>
