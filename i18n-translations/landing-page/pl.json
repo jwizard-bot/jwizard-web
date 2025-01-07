@@ -16,7 +16,7 @@
           "description": "Lista używanych narzędzi i bibliotek używanych w infrastrukturze JWizard."
         },
         "githubRepositories": {
-          "header": "Repozytorium GitHub",
+          "header": "Repozytoria GitHub",
           "description": "Linki do repozytoriów projektu na GitHubie."
         },
         "docs": {
@@ -46,7 +46,7 @@
   "notFound": "Nie znaleziono",
   "privacyPolicy": "Polityka prywatności",
   "termsOfService": "Warunki usługi",
-  "addToDiscord": "Dodaj do Discorda",
+  "addToDiscord": "Dodaj do Discord",
   "login": "Zaloguj",
   "goToGithubRepository": "Przejdź do repozytorium Github",
   "returnToHome": "Powrót do strony głównej",
