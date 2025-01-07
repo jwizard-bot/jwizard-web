@@ -1,3 +1,5 @@
 {
-  "title": "Documentation"
+  "title": "Documentation",
+  "availableDocs": "Available documentations",
+  "docsInfo": "All documentations are for the latest versions of the selected project. The Javadoc documentation generator is in beta and the documentation generated using it may contain minor errors/unfinished functionalities."
 }

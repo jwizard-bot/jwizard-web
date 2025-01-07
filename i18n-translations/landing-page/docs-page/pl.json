@@ -1,3 +1,5 @@
 {
-  "title": "Dokumentacja"
+  "title": "Dokumentacja",
+  "availableDocs": "Dostępne dokumentacje",
+  "docsInfo": "Wszystkie dokumentacje są dla najnowszych wersji projektów. Generator dokumentacji Javadoc jest w wersji beta i dokumentacje wygenerowane przy jego pomocy mogą zawierać drobne błędy/niedokończone funkcjonalności."
 }
