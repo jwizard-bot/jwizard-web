@@ -4,12 +4,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - '.github/workflows/**'
-      - 'apps/**'
-      - 'packages/**'
-      - 'package.json'
-      - 'yarn.lock'
 
 jobs:
   update-version:
