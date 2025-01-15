@@ -18,8 +18,7 @@ const cardVariants = cva(
     'outline-none',
     'bg-card',
     'text-card-foreground',
-    'dark:border',
-    'p-5'
+    'dark:border'
   ),
   {
     variants: {
@@ -43,12 +42,16 @@ const cardVariants = cva(
       isSquared: {
         true: 'aspect-square',
       },
+      roundGap: {
+        true: 'p-5',
+      },
     },
     defaultVariants: {
       radius: 'lg',
       shadow: 'md',
       isBlurred: false,
       isSquared: false,
+      roundGap: true,
     },
   }
 );
@@ -56,10 +59,18 @@ const cardVariants = cva(
 type CardProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>;
 
 const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ shadow, radius, isBlurred, isDimmed, isSquared, className, ...props }, ref) => (
+  ({ shadow, radius, isBlurred, isDimmed, isSquared, roundGap, className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cardVariants({ shadow, radius, isBlurred, isDimmed, isSquared, className })}
+      className={cardVariants({
+        shadow,
+        radius,
+        isBlurred,
+        isDimmed,
+        isSquared,
+        roundGap,
+        className,
+      })}
       {...props}
     />
   )
