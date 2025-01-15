@@ -7,7 +7,7 @@ import { JoinHelpAccordion } from '@/component/join/join-help-accordion';
 import { JoinInstanceCard } from '@/component/join/join-instance-card';
 import { getServerQuery } from '@/query';
 import { JoinInstance } from '@/query/type/join-instance';
-import { FlexContainer, SafetyContainer } from '@jwizard-web/ui/container';
+import { GridContainer, SafetyContainer } from '@jwizard-web/ui/container';
 
 const JoinBotInstancesSection: React.FC = async (): Promise<React.ReactElement> => {
   const { data: joinBotInstances } = await getServerQuery<JoinInstance[]>({
@@ -22,11 +22,11 @@ const JoinBotInstancesSection: React.FC = async (): Promise<React.ReactElement> 
 
   return (
     <SafetyContainer>
-      <FlexContainer toColOnSmallDevices gap className="mb-8 sm:mb-16">
+      <GridContainer cols={1} gap={6} className="md:grid-cols-2 mb-8 sm:mb-16">
         {joinBotInstances.map(instance => (
           <JoinInstanceCard key={instance.link} joinInstance={instance} />
         ))}
-      </FlexContainer>
+      </GridContainer>
       <JoinHelpAccordion permissions={permissions} />
     </SafetyContainer>
   );
