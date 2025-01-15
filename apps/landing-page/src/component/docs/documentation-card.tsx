@@ -32,7 +32,7 @@ const DocumentationCard: React.FC<Props> = async ({
             {t('availableDocs')} *:
           </Paragraph>
           {types.map(({ name, link }) => (
-            <OuterLink key={name} to={link} className="flex items-center underline font-bold">
+            <OuterLink key={name} to={link} underlined className="flex items-center">
               <Dot />
               {name}
               <SquareArrowOutUpRight size={15} className="ms-2" />

@@ -63,11 +63,11 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
         <Separator className="my-8" />
         <GridContainer responsive className="w-full text-sm text-muted-foreground mb-4">
           <CopyrightSection alignment="start">
-            <NextLink href="/privacy-policy" className="hover:underline">
+            <NextLink href="/privacy-policy" className="underline hover:no-underline">
               {t('privacyPolicy')}
             </NextLink>
             <Dot size={20} />
-            <NextLink href="/terms-of-service" className="hover:underline">
+            <NextLink href="/terms-of-service" className="underline hover:no-underline">
               {t('termsOfService')}
             </NextLink>
           </CopyrightSection>
@@ -77,7 +77,7 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
           <CopyrightSection alignment="end">
             <span>
               Build:{' '}
-              <OuterLink to={vcsLink} className="hover:underline">
+              <OuterLink to={vcsLink} underlined>
                 {shortSHA}
               </OuterLink>
             </span>

@@ -35,7 +35,7 @@ const JoinHelpAccordion: React.FC<Props> = ({ permissions }): React.ReactElement
           <AccordionTrigger>{t('permissionsFaqHeader')}</AccordionTrigger>
           <AccordionContent>
             {t('permissionsFaqDescriptionTop')}
-            <ul className="list-disc pl-5 my-2 font-bold text-primary">
+            <ul className="list-disc pl-5 my-2 font-medium text-primary">
               {permissions.map(permission => (
                 <li key={permission}>{permission}</li>
               ))}
@@ -44,7 +44,8 @@ const JoinHelpAccordion: React.FC<Props> = ({ permissions }): React.ReactElement
             <br />
             <OuterLink
               to="https://discord.com/developers/docs/topics/permissions"
-              className="underline text-primary font-bold">
+              underlined
+              className="text-primary">
               {t('moreAboutPermissions')}
             </OuterLink>
           </AccordionContent>

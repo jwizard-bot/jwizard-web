@@ -37,7 +37,7 @@ const RepositoryCard: React.FC<Props> = async ({
         <FlexContainer col>
           <Paragraph size="sm">
             {t('latestBuild')}:
-            <OuterLink to={lastUpdate.link} className="ms-1 text-primary font-semibold underline">
+            <OuterLink to={lastUpdate.link} underlined className="ms-1 text-primary">
               {lastUpdate.buildSha}
             </OuterLink>
           </Paragraph>
