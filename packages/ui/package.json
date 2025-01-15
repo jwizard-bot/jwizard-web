@@ -17,6 +17,7 @@
       "./src/hook/*.ts",
       "./src/hook/*.tsx"
     ],
+    "./resolved-config": "./src/resolved-config.ts",
     "./container": "./src/container/index.ts"
   },
   "dependencies": {

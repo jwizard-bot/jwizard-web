@@ -1,3 +1,9 @@
 {
-  "title": "Add to Discord"
+  "title": "Add to Discord",
+  "whichBotFaqHeader": "Which bot should I add?",
+  "whichBotFaqDescription": "A basic music bot is a bot without any numbers (1, 2, etc.). Additional music bots with numbers after the name are exact copies of the basic music bot, handling the same commands. Add extra bots if you want to play audio content on multiple channels at the same time.",
+  "permissionsFaqHeader": "What permissions does the JWizard bot require?",
+  "permissionsFaqDescriptionTop": "For proper functioning, the JWizard bot requires the following permissions:",
+  "permissionsFaqDescriptionBottom": "Each permission can be disabled when adding a bot to a Discord server, but doing so may cause some or all functionalities to stop working.",
+  "moreAboutPermissions": "More about Discord permissions."
 }

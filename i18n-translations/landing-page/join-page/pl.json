@@ -1,3 +1,9 @@
 {
-  "title": "Dodaj do Discorda"
+  "title": "Dodaj do Discord",
+  "whichBotFaqHeader": "Którego bota JWizard mam dodać?",
+  "whichBotFaqDescription": "Podstawowy bot muzyczny to bot bez żadnych liczb (1, 2, itp.). Dodatkowe boty muzyczne z liczbami po nazwie to dokładne kopie podstawowego bota muzycznego obsługujące te same komendy. Dodaj dodatkowe boty, jeśli chcesz odtwarzać treści audio na wielu kanałach w tym samym czasie.",
+  "permissionsFaqHeader": "Jakie uprawnienia wymaga bot JWizard?",
+  "permissionsFaqDescriptionTop": "Do poprawnego działania bot JWizard wymaga następujących uprawnień:",
+  "permissionsFaqDescriptionBottom": "Każde uprawnienie podczas dodawania bota na serwer Discord można wyłączyć, lecz spowoduje to brak działania części lub wszystkich funkcjonalności.",
+  "moreAboutPermissions": "Więcej na temat uprawnień Discord."
 }
