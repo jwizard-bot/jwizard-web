@@ -37,7 +37,7 @@ const MobileHeader: React.FC = (): React.ReactElement => {
           <FlexContainer col gap fullWidth>
             {menuElements.map(({ triggerI18nKey, elements }) => (
               <FlexContainer key={triggerI18nKey} col gap fullWidth className="mb-4">
-                <Header withoutMargin className="text-primary">
+                <Header margin="none" className="text-primary">
                   {t(`mainMenu.${triggerI18nKey}.header`)}
                 </Header>
                 {elements.map(({ link, insideRouter, i18nKey }) => (

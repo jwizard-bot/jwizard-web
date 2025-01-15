@@ -17,13 +17,15 @@ const headerVariants = cva(cn('font-logo'), {
     isCentered: {
       true: 'text-center',
     },
-    withoutMargin: {
-      false: cn('mb-4', 'sm:mb-8'),
+    margin: {
+      sm: cn('mb-2', 'sm:mb-4'),
+      md: cn('mb-4', 'sm:mb-8'),
+      none: '',
     },
   },
   defaultVariants: {
     size: 'sm',
-    withoutMargin: false,
+    margin: 'md',
   },
 });
 
@@ -33,12 +35,12 @@ type Props = {
   VariantProps<typeof headerVariants>;
 
 const Header = forwardRef<HTMLHeadingElement, Props>(
-  ({ headingVariant = 'h1', size, isCentered, withoutMargin, className, children, ...rest }, ref) =>
+  ({ headingVariant = 'h1', size, isCentered, margin, className, children, ...rest }, ref) =>
     React.createElement(
       headingVariant,
       {
         ref,
-        className: headerVariants({ size, isCentered, withoutMargin, className }),
+        className: headerVariants({ size, isCentered, margin, className }),
         ...rest,
       },
       children
