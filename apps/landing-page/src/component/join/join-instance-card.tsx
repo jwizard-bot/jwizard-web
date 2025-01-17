@@ -11,7 +11,7 @@ import { FlexContainer } from '@jwizard-web/ui/container';
 import fullConfig from '@jwizard-web/ui/resolved-config';
 import { Card } from '@jwizard-web/ui/widget/card';
 import { OuterLink } from '@jwizard-web/ui/widget/outside-link';
-import { SquareArrowOutUpRight } from 'lucide-react';
+import { UserRoundPlus } from 'lucide-react';
 
 const { white, black } = fullConfig.theme.colors;
 
@@ -37,7 +37,7 @@ const JoinInstanceCard: React.FC<Props> = ({
             <img src={themedLogos[textColor]} width={30} height={30} alt="logo" />
             <h2 className="font-bold text-xl">{name}</h2>
           </FlexContainer>
-          <SquareArrowOutUpRight size={20} className="me-2" />
+          <UserRoundPlus size={20} className="me-2" />
         </FlexContainer>
       </OuterLink>
     </Card>
