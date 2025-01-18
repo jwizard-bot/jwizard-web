@@ -1,0 +1,9 @@
+FROM caddy:latest
+
+ENV BUILD_DIR=/docker/dashboard
+ENV ENTRY_DIR=/app/jww-d
+
+COPY $BUILD_DIR/dist/ $ENTRY_DIR
+COPY $BUILD_DIR/Caddyfile /etc/caddy/Caddyfile
+
+EXPOSE 8764

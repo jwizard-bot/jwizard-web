@@ -1,0 +1,6 @@
+:8764 {
+  root * /app/jww-d
+  file_server
+  encode gzip zstd
+  try_files {path} /index.html
+}
