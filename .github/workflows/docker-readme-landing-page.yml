@@ -1,0 +1,26 @@
+name: Update docker landing page description file
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - ".github/workflows/docker-readme-landing-page.yml"
+      - "docker/README.md"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: milosz08/jwizard-landing-page
+          readme-filepath: ./docker/landing-page/README.md
+          short-description: "Next.js application (SSR and SSG) generating and rendering pages for JWizard landing page."
