@@ -4,6 +4,16 @@ JWizard is an open-source Discord music bot handling audio content from various 
 with innovative web player. This repository contains monorepo with landing page and dashboard
 front-end applications with shared configuration and components library.
 
+[[About project](https://jwizard.pl/about)]
+
+Landing page:
+[[Docker image](https://hub.docker.com/r/milosz08/jwizard-landing-page)]
+| [[Docker installation](./docker/landing-page/README.md)]
+<br>
+Dashboard:
+[[Docker image](https://hub.docker.com/r/milosz08/jwizard-dashboard)]
+| [[Docker installation](./docker/dashboard/README.md)]
+
 ## Table of content
 
 * [Project modules](#project-modules)
