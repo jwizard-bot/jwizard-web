@@ -37,5 +37,7 @@ COPY --from=build $BUILD_DIR/build/ $ENTRY_DIR
 
 WORKDIR $ENTRY_DIR
 
+LABEL maintainer="JWizard <info@jwizard.pl>"
+
 EXPOSE $PORT
 ENTRYPOINT [ "node", "server.js" ]

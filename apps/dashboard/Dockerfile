@@ -30,4 +30,6 @@ ENV ENTRY_DIR=/app/jww-d
 COPY --from=build $BUILD_DIR/dist/ $ENTRY_DIR
 COPY /docker/dashboard/Caddyfile /etc/caddy/Caddyfile
 
+LABEL maintainer="JWizard <info@jwizard.pl>"
+
 EXPOSE 8764

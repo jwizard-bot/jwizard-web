@@ -6,4 +6,6 @@ ENV ENTRY_DIR=/app/jww-d
 COPY $BUILD_DIR/dist/ $ENTRY_DIR
 COPY $BUILD_DIR/Caddyfile /etc/caddy/Caddyfile
 
+LABEL maintainer="JWizard <info@jwizard.pl>"
+
 EXPOSE 8764
