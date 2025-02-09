@@ -6,9 +6,10 @@ import React, { HTMLProps, forwardRef } from 'react';
 import { cn } from '@jwizard-web/lib/util';
 import { type VariantProps, cva } from 'class-variance-authority';
 
-const headerVariants = cva(cn('font-logo'), {
+const headerVariants = cva('', {
   variants: {
     size: {
+      xs: cn('text-lg', 'sm:text-xl'),
       sm: cn('text-3xl', 'sm:text-4xl'),
       md: cn('text-4xl', 'sm:text-5xl'),
       lg: cn('text-5xl', 'sm:text-6xl'),
@@ -22,10 +23,15 @@ const headerVariants = cva(cn('font-logo'), {
       md: cn('mb-4', 'sm:mb-8'),
       none: '',
     },
+    font: {
+      basic: cn('font-sans', 'font-bold'),
+      logo: 'font-logo',
+    },
   },
   defaultVariants: {
     size: 'sm',
     margin: 'md',
+    font: 'logo',
   },
 });
 
@@ -35,12 +41,12 @@ type Props = {
   VariantProps<typeof headerVariants>;
 
 const Header = forwardRef<HTMLHeadingElement, Props>(
-  ({ headingVariant = 'h1', size, isCentered, margin, className, children, ...rest }, ref) =>
+  ({ headingVariant = 'h1', size, isCentered, margin, font, className, children, ...rest }, ref) =>
     React.createElement(
       headingVariant,
       {
         ref,
-        className: headerVariants({ size, isCentered, margin, className }),
+        className: headerVariants({ size, isCentered, margin, font, className }),
         ...rest,
       },
       children
