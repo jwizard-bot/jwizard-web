@@ -28,6 +28,7 @@ const flexVariants = cva(cn('flex'), {
       small: 'gap-1',
       normal: 'gap-3',
       large: 'gap-4',
+      huge: 'gap-4 sm:gap-8',
     },
     fullWidth: {
       true: 'w-full',
