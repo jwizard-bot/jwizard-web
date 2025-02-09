@@ -7,6 +7,7 @@
 import * as React from 'react';
 import { cn } from '@jwizard-web/lib/util';
 import * as SelectPrimitive from '@radix-ui/react-select';
+import { type VariantProps, cva } from 'class-variance-authority';
 import clsx from 'clsx';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -31,37 +32,53 @@ const SelectValue = React.forwardRef<
   </SelectPrimitive.Value>
 ));
 
+const selectTriggerVariants = cva(
+  cn(
+    'flex',
+    'h-8',
+    'w-full',
+    'items-center',
+    'justify-between',
+    'whitespace-nowrap',
+    'rounded-md',
+    'border',
+    'border-input',
+    'px-3',
+    'py-2',
+    'text-sm',
+    'shadow-sm',
+    'ring-offset-background',
+    'placeholder:text-muted-foreground',
+    'focus:outline-none',
+    'focus:ring-1',
+    'focus:ring-ring',
+    'disabled:cursor-not-allowed',
+    'disabled:opacity-50',
+    '[&>span]:line-clamp-1'
+  ),
+  {
+    variants: {
+      opaque: {
+        true: cn('bg-white dark:bg-black'),
+        false: cn('bg-transparent'),
+      },
+    },
+    defaultVariants: {
+      opaque: false,
+    },
+  }
+);
+
+type SelectTriggerProps = React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> &
+  VariantProps<typeof selectTriggerVariants>;
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
+  SelectTriggerProps
+>(({ opaque, className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
-    className={cn(
-      'flex',
-      'h-8',
-      'w-full',
-      'items-center',
-      'justify-between',
-      'whitespace-nowrap',
-      'rounded-md',
-      'border',
-      'border-input',
-      'bg-transparent',
-      'px-3',
-      'py-2',
-      'text-sm',
-      'shadow-sm',
-      'ring-offset-background',
-      'placeholder:text-muted-foreground',
-      'focus:outline-none',
-      'focus:ring-1',
-      'focus:ring-ring',
-      'disabled:cursor-not-allowed',
-      'disabled:opacity-50',
-      '[&>span]:line-clamp-1',
-      className
-    )}
+    className={selectTriggerVariants({ opaque, className })}
     {...props}>
     {children}
     <SelectPrimitive.Icon asChild>
