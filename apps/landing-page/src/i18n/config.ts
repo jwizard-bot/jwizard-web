@@ -26,6 +26,10 @@ export const sliceMappings: SliceMap[] = [
     slices: ['commands-page'],
   },
   {
+    pattern: /^\/commands.*$/,
+    slices: ['command-page'],
+  },
+  {
     pattern: /^\/docs$/,
     slices: ['docs-page'],
   },
