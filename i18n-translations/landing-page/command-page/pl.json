@@ -1,14 +1,13 @@
 {
-  "title": "Komendy",
-  "searchCommand": "Wyszukaj komendy...",
+  "title": "Komenda",
   "copyCommandName": "Skopiuj nazwę komendy",
   "availableAsInteraction": "Dostępna jako komenda interakcji",
-  "couldNotFindAnyCommand": "Nie znaleziono żadnej komendy na podstawie szukanych parametrów.",
+  "returnToAllCommands": "Powrót do wszystkich komend",
+  "couldNotFoundCommand": "Nie znaleziono komendy {commandName}.",
   "arguments": "Argumenty",
   "required": "wymagany",
   "optional": "opcjonalny",
   "exampleUsage": "Przykładowe użycie",
-  "commandDetails": "Szczegóły",
   "copyCommandSyntax": "Skopiuj składnię komendy",
   "slashCommandToggle": "Polecenie interakcji"
 }

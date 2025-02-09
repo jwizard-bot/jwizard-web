@@ -1,14 +1,13 @@
 {
-  "title": "Commands",
-  "searchCommand": "Search command...",
+  "title": "Command",
   "copyCommandName": "Copy command name",
   "availableAsInteraction": "Available as interaction command",
-  "couldNotFindAnyCommand": "Could not find any command based passed parameters.",
+  "returnToAllCommands": "Return to all commands",
+  "couldNotFoundCommand": "Could not found command {commandName}.",
   "arguments": "Arguments",
   "required": "required",
   "optional": "optional",
   "exampleUsage": "Example usage",
-  "commandDetails": "Details",
   "copyCommandSyntax": "Copy command syntax",
   "slashCommandToggle": "Interaction command"
 }
