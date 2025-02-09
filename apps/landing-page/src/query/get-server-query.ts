@@ -11,16 +11,19 @@ type ServerQueryProps = {
   queryString: string;
   queryParams?: Record<string, string | number>;
   errorMessage: string;
+  silent?: boolean;
 };
 
 type ServerQueryResponse<T> = {
   data: T;
+  isError: boolean;
 };
 
 const getServerQuery = async <T>({
   queryString,
   queryParams,
   errorMessage,
+  silent = false,
 }: ServerQueryProps): Promise<ServerQueryResponse<T>> => {
   const language = await getLocale();
   let data: T;
@@ -31,10 +34,17 @@ const getServerQuery = async <T>({
     });
     data = response.data;
   } catch (_) {
+    if (silent) {
+      return {
+        data: {} as T,
+        isError: true,
+      };
+    }
     throw new Error(errorMessage);
   }
   return {
     data,
+    isError: false,
   };
 };
 
