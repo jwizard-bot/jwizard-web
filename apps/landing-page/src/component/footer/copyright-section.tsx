@@ -18,7 +18,7 @@ const CopyrightSection: React.FC<Props> = ({
   alignment = 'center',
 }): React.ReactElement => (
   <FlexContainer
-    gap
+    gap="normal"
     justify="center"
     align="center"
     className={clsx('col-span-12 lg:col-span-4 mb-2 lg:mb-0', {

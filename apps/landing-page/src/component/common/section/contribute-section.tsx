@@ -32,7 +32,7 @@ const ContributeSection: React.FC = async (): Promise<React.ReactElement> => {
           {t('contributeHeader')}
         </Header>
         <Paragraph className="md:max-w-[60%] sm:text-center">{t('contributeSlogan')}</Paragraph>
-        <FlexContainer gap toColOnSmallDevices fullWidthOnSmallDevices className="mt-6">
+        <FlexContainer gap="normal" toColOnSmallDevices fullWidthOnSmallDevices className="mt-6">
           <Button asChild size="lg" fluid>
             <NextLink href="/about" className="w-full">
               {t('findMore')}

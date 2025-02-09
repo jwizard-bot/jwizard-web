@@ -64,7 +64,7 @@ const MainHeader: React.FC = (): React.ReactElement => {
         className={cn('sticky', 'z-40', 'top-0', 'bg-background')}>
         <SafetyContainer as="header">
           <FlexContainer justify="between" align="center">
-            <FlexContainer align="center" gap>
+            <FlexContainer align="center" gap="normal">
               <Hamburger
                 opened={isMenuOpen}
                 onClick={() => setIsMenuOpen(prevState => !prevState)}
@@ -77,7 +77,7 @@ const MainHeader: React.FC = (): React.ReactElement => {
                 <HeaderNavigation />
               </FlexContainer>
             </FlexContainer>
-            <FlexContainer align="center" gap>
+            <FlexContainer align="center" gap="normal">
               <Button asChild className="hidden lg:flex">
                 <NextLink href="/join">{t('addToDiscord')}</NextLink>
               </Button>

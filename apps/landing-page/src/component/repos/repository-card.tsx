@@ -24,9 +24,9 @@ const RepositoryCard: React.FC<Props> = async ({
 
   return (
     <Card isBlurred>
-      <FlexContainer col fullWidth fullHeight gap>
+      <FlexContainer col fullWidth fullHeight gap="normal">
         <OuterLink to={link}>
-          <FlexContainer col gap>
+          <FlexContainer col gap="normal">
             <FlexContainer justify="between" align="center" fullWidth>
               <h2 className="font-bold text-xl">{name}</h2>
               <SquareArrowOutUpRight size={15} className="me-2" />
@@ -46,7 +46,7 @@ const RepositoryCard: React.FC<Props> = async ({
             <span className="text-primary font-medium ms-1">{format(lastUpdate.buildDate)}*</span>
           </Paragraph>
         </FlexContainer>
-        <FlexContainer align="center" gap>
+        <FlexContainer align="center" gap="normal">
           <div
             className="w-3 h-3 rounded-full shadow-sm"
             style={{ backgroundColor: primaryLanguage.color || '#ffffff' }}

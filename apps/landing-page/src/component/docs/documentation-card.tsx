@@ -22,8 +22,8 @@ const DocumentationCard: React.FC<Props> = async ({
 
   return (
     <Card isBlurred>
-      <FlexContainer col fullWidth fullHeight gap>
-        <FlexContainer col gap>
+      <FlexContainer col fullWidth fullHeight gap="normal">
+        <FlexContainer col gap="normal">
           <h2 className="font-bold text-xl">{name}</h2>
           <Paragraph size="sm">{description}</Paragraph>
         </FlexContainer>

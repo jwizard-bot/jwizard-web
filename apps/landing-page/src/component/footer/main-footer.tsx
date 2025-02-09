@@ -48,10 +48,10 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
           </NextLink>
         </FlexContainer>
         <FlexContainer fullWidth toColOnSmallDevices justify="between" align="center">
-          <FlexContainer gap className="my-8 sm:my-0">
+          <FlexContainer gap="normal" className="my-8 sm:my-0">
             <StatusBadge />
           </FlexContainer>
-          <FlexContainer gap className="w-full sm:w-fit">
+          <FlexContainer gap="normal" className="w-full sm:w-fit">
             <FlexContainer className="basis-[50%] sm:basis-auto">
               <ThemeSwitch />
             </FlexContainer>

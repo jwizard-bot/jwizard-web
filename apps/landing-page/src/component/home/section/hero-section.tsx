@@ -23,7 +23,7 @@ const HeroSection: React.FC = async (): Promise<React.ReactElement> => {
           {config.appName}
         </Header>
         <Paragraph>{t('heroDescription')}</Paragraph>
-        <FlexContainer gap toColOnSmallDevices fullWidthOnSmallDevices className="mt-8">
+        <FlexContainer gap="normal" toColOnSmallDevices fullWidthOnSmallDevices className="mt-8">
           <Button asChild size="lg" variant="outline" fluid>
             <NextLink href="/join" className="w-full">
               {t('addToDiscord')}

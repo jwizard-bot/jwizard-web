@@ -37,7 +37,7 @@ const ErrorPage: React.FC<Props> = ({ error, reset }): React.ReactElement => {
     <MainLayout>
       <MeshBackgroundImage />
       <SafetyContainer>
-        <FlexContainer col centerContent fullWidth fillScreenSpace gap>
+        <FlexContainer col centerContent fullWidth fillScreenSpace gap="normal">
           <Header size="xl" className="sm:mb-4 max-w-[1200px] text-center">
             {t('globalErrorTitle')}
           </Header>
@@ -48,7 +48,7 @@ const ErrorPage: React.FC<Props> = ({ error, reset }): React.ReactElement => {
             Component={Paragraph}
             className="max-w-[700px] text-center"
           />
-          <FlexContainer gap toColOnSmallDevices fullWidthOnSmallDevices className="mt-8">
+          <FlexContainer gap="normal" toColOnSmallDevices fullWidthOnSmallDevices className="mt-8">
             <Button asChild fluid size="lg" variant="outline">
               <NextLink href="/">
                 <ArrowLeft />

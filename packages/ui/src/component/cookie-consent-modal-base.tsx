@@ -40,14 +40,18 @@ const CookieConsentModalBase: React.FC<Props> = ({
             <SafetyContainer>
               <Card className="sm:m-4">
                 <CardContent>
-                  <FlexContainer toColOnSmallDevices gap justify="between">
+                  <FlexContainer toColOnSmallDevices gap="normal" justify="between">
                     <FlexContainer col>
                       <Paragraph size="sm" className="text-primary font-semibold mb-1">
                         {onTranslate('cookies.header')}
                       </Paragraph>
                       <Paragraph size="sm">{onTranslate('cookies.description')}</Paragraph>
                     </FlexContainer>
-                    <FlexContainer col fullWidthOnSmallDevices className="gap-1 min-w-[180px]">
+                    <FlexContainer
+                      col
+                      gap="small"
+                      fullWidthOnSmallDevices
+                      className="min-w-[180px]">
                       <Button asChild className="w-full">
                         {children}
                       </Button>

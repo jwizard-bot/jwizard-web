@@ -53,7 +53,7 @@ const StatusBadge: React.FC = async (): Promise<React.ReactElement> => {
 
   return (
     <OuterLink to={sourceUrl}>
-      <FlexContainer align="center" gap className="text-sm">
+      <FlexContainer align="center" gap="normal" className="text-sm">
         <div
           className={badgeVariants({
             success: operational,

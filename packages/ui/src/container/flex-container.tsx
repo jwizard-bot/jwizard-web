@@ -24,7 +24,10 @@ const flexVariants = cva(cn('flex'), {
       end: 'items-end',
     },
     gap: {
-      true: 'gap-3',
+      none: 'gap-0',
+      small: 'gap-1',
+      normal: 'gap-3',
+      large: 'gap-4',
     },
     fullWidth: {
       true: 'w-full',
@@ -49,7 +52,7 @@ const flexVariants = cva(cn('flex'), {
     col: false,
     justify: 'start',
     align: 'start',
-    gap: false,
+    gap: 'none',
     fullWidth: false,
     fullHeight: false,
     centerContent: false,

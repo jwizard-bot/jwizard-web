@@ -33,7 +33,7 @@ const JoinInstanceCard: React.FC<Props> = ({
     <Card roundGap={false} className="w-full" style={{ backgroundColor: color, color: textColor }}>
       <OuterLink to={link} className="p-5">
         <FlexContainer justify="between" align="center">
-          <FlexContainer gap>
+          <FlexContainer gap="normal">
             <img src={themedLogos[textColor]} width={30} height={30} alt="logo" />
             <h2 className="font-bold text-xl">{name}</h2>
           </FlexContainer>

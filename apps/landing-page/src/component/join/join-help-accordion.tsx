@@ -24,7 +24,7 @@ const JoinHelpAccordion: React.FC<Props> = ({ permissions }): React.ReactElement
   const t = useTranslations();
 
   return (
-    <FlexContainer col gap>
+    <FlexContainer col gap="normal">
       <Header margin="none">FAQ</Header>
       <Accordion type="single" collapsible className="w-full" defaultValue="which-bot">
         <AccordionItem value="which-bot">

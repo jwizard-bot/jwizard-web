@@ -33,10 +33,10 @@ const MobileHeader: React.FC = (): React.ReactElement => {
       className="w-full h-screen bg-background pt-0"
       zIndex={30}>
       <ScrollArea className="w-full h-[calc(100%-theme(space.20))] mt-20 p-3">
-        <FlexContainer gap fullHeight col justify="between">
-          <FlexContainer col gap fullWidth>
+        <FlexContainer gap="normal" fullHeight col justify="between">
+          <FlexContainer col gap="normal" fullWidth>
             {menuElements.map(({ triggerI18nKey, elements }) => (
-              <FlexContainer key={triggerI18nKey} col gap fullWidth className="mb-4">
+              <FlexContainer key={triggerI18nKey} col gap="normal" fullWidth className="mb-4">
                 <Header margin="none" className="text-primary">
                   {t(`mainMenu.${triggerI18nKey}.header`)}
                 </Header>
@@ -55,7 +55,7 @@ const MobileHeader: React.FC = (): React.ReactElement => {
               </FlexContainer>
             ))}
           </FlexContainer>
-          <FlexContainer col gap fullWidth>
+          <FlexContainer col gap="normal" fullWidth>
             <Separator />
             <Button className="w-full" size="md" onClick={() => setTheme(toggleTheme(theme))}>
               {availableThemes[theme as ThemeKey]}
