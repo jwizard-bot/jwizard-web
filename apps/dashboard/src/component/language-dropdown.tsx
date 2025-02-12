@@ -17,7 +17,15 @@ const LanguageDropdown: React.FC = (): React.ReactElement => {
     i18n.changeLanguage(langId as string).then(r => r);
   };
 
-  return <LangSelect lang={language} onChangeLang={handleChangeLanguage} disabled={false} />;
+  return (
+    <LangSelect
+      lang={language}
+      onChangeLang={handleChangeLanguage}
+      disabled={false}
+      hideTextOnSm={false}
+      opaque={true}
+    />
+  );
 };
 
 export { LanguageDropdown };

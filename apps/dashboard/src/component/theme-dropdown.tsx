@@ -11,7 +11,14 @@ const ThemeDropdown: React.FC = (): React.ReactElement => {
   const { t } = usePageTranslations();
   const { mode, setMode } = useDarkMode();
 
-  return <ThemeSelect theme={mode} onChangeTheme={setMode} onTranslate={i18nKey => t(i18nKey)} />;
+  return (
+    <ThemeSelect
+      theme={mode}
+      opaque={true}
+      onChangeTheme={setMode}
+      onTranslate={i18nKey => t(i18nKey)}
+    />
+  );
 };
 
 export { ThemeDropdown };
