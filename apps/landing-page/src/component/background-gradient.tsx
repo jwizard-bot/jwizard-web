@@ -15,19 +15,19 @@ type GradientElement = {
 const gradientElements: GradientElement[] = [
   {
     image: leftBgGradient,
-    styles: '-bottom-[30%] -left-[20%]',
+    styles: cn('-bottom-[30%]', '-left-[20%]'),
   },
   {
     image: rightBgGradient,
-    styles: '-top-[60%] -right-[45%] rotate-12',
+    styles: cn('-top-[60%]', '-right-[45%]', 'rotate-12'),
   },
 ];
 
 const BackgroundGradient: React.FC = (): React.ReactElement => (
   <div>
     {gradientElements.map(({ image, styles }) => (
-      <div key={image} className={cn('fixed opacity-30 dark:opacity-60', styles)}>
-        <img src={image} className="shadow-black/5 shadow-none rounded-large" alt="" />
+      <div key={image} className={cn('fixed', 'opacity-30', 'dark:opacity-60', styles)}>
+        <img src={image} className={cn('shadow-black/5', 'shadow-none', 'rounded-large')} alt="" />
       </div>
     ))}
   </div>
