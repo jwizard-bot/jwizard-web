@@ -48,6 +48,9 @@ const flexVariants = cva(cn('flex'), {
     fillScreenSpace: {
       true: 'h-[calc(100vh-4rem)]',
     },
+    grow: {
+      true: 'flex-grow',
+    },
   },
   defaultVariants: {
     col: false,
@@ -60,6 +63,7 @@ const flexVariants = cva(cn('flex'), {
     toColOnSmallDevices: false,
     fullWidthOnSmallDevices: false,
     fillScreenSpace: false,
+    grow: false,
   },
 });
 
@@ -82,6 +86,7 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
       toColOnSmallDevices,
       fullWidthOnSmallDevices,
       fillScreenSpace,
+      grow,
       className,
       children,
       ...rest
@@ -101,6 +106,7 @@ const FlexContainer = forwardRef<HTMLDivElement, Props>(
         toColOnSmallDevices,
         fullWidthOnSmallDevices,
         fillScreenSpace,
+        grow,
         className,
       })}
       {...rest}>
