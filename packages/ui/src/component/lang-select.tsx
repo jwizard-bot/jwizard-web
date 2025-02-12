@@ -19,12 +19,16 @@ type Props = {
   lang: Language;
   onChangeLang: (lang: Language) => void;
   disabled: boolean;
+  hideTextOnSm?: boolean;
+  opaque?: boolean;
 };
 
 const LangSelect: React.FC<Props> = ({
   lang,
   onChangeLang,
   disabled,
+  hideTextOnSm = true,
+  opaque = false,
 }): React.ReactElement | null => {
   const generateImage = (lang: Language): React.ReactNode => (
     <img src={flagImages[lang]} width={20} height={13} alt={lang} />
@@ -32,8 +36,8 @@ const LangSelect: React.FC<Props> = ({
 
   return (
     <Select value={lang} onValueChange={onChangeLang} disabled={disabled}>
-      <SelectTrigger>
-        <SelectValue iconStart={generateImage(lang)} hideTextOnSm={true}>
+      <SelectTrigger opaque={opaque}>
+        <SelectValue iconStart={generateImage(lang)} hideTextOnSm={hideTextOnSm}>
           {languages[lang]}
         </SelectValue>
       </SelectTrigger>
