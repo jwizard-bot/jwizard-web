@@ -1,3 +1,9 @@
 {
-  "title": "Logowanie"
+  "title": "Logowanie",
+  "welcomeTitle": "Witaj w",
+  "welcomeParagraph": "Aby rozpocząć zarządzanie botem, zaloguj się przy użyciu swojego konta Discord.",
+  "loginViaDiscord": "Zaloguj się z kontem Discord",
+  "agreeStatement": "Klikając zaloguj się, wyrażasz zgodę na nasze",
+  "termsOfService": "Warunki usługi",
+  "privacyPolicy": "Politykę prywatności"
 }

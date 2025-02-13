@@ -1,3 +1,9 @@
 {
-  "title": "Login"
+  "title": "Login",
+  "welcomeTitle": "Welcome to",
+  "welcomeParagraph": "To start managing bot, log in using your Discord account.",
+  "loginViaDiscord": "Log in via Discord account",
+  "agreeStatement": "By clicking log in, you agree to our",
+  "termsOfService": "Terms of service",
+  "privacyPolicy": "Privacy policy"
 }
