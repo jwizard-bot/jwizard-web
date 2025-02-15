@@ -24,27 +24,29 @@ const RepositoryCard: React.FC<Props> = async ({
 
   return (
     <Card isBlurred>
-      <FlexContainer col fullWidth fullHeight gap="normal">
-        <OuterLink to={link}>
-          <FlexContainer col gap="normal">
-            <FlexContainer justify="between" align="center" fullWidth>
-              <h2 className="font-bold text-xl">{name}</h2>
-              <SquareArrowOutUpRight size={15} className="me-2" />
+      <FlexContainer col fullWidth fullHeight gap="normal" justify="between">
+        <FlexContainer col fullWidth gap="normal">
+          <OuterLink to={link}>
+            <FlexContainer col gap="normal">
+              <FlexContainer justify="between" align="center" fullWidth>
+                <h2 className="font-bold text-xl">{name}</h2>
+                <SquareArrowOutUpRight size={15} className="me-2" />
+              </FlexContainer>
+              <Paragraph size="sm">{description}</Paragraph>
             </FlexContainer>
-            <Paragraph size="sm">{description}</Paragraph>
+          </OuterLink>
+          <FlexContainer col>
+            <Paragraph size="sm">
+              {t('latestBuild')}:
+              <OuterLink to={lastUpdate.link} underlined className="ms-1 text-primary">
+                {lastUpdate.buildSha}
+              </OuterLink>
+            </Paragraph>
+            <Paragraph size="sm">
+              {t('lastUpdate')}:
+              <span className="text-primary font-medium ms-1">{format(lastUpdate.buildDate)}*</span>
+            </Paragraph>
           </FlexContainer>
-        </OuterLink>
-        <FlexContainer col>
-          <Paragraph size="sm">
-            {t('latestBuild')}:
-            <OuterLink to={lastUpdate.link} underlined className="ms-1 text-primary">
-              {lastUpdate.buildSha}
-            </OuterLink>
-          </Paragraph>
-          <Paragraph size="sm">
-            {t('lastUpdate')}:
-            <span className="text-primary font-medium ms-1">{format(lastUpdate.buildDate)}*</span>
-          </Paragraph>
         </FlexContainer>
         <FlexContainer align="center" gap="normal">
           <div
