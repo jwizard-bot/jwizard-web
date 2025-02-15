@@ -32,10 +32,6 @@ const menuElements: MenuElement[] = [
         link: '/repos',
         i18nKey: 'githubRepositories',
       },
-      {
-        link: '/docs',
-        i18nKey: 'docs',
-      },
     ],
   },
   {

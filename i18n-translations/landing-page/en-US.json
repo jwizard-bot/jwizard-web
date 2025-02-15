@@ -18,10 +18,6 @@
         "githubRepositories": {
           "header": "GitHub Repositories",
           "description": "Links to project repositories on GitHub."
-        },
-        "docs": {
-          "header": "Documentation",
-          "description": "Links to external documentation (KDoc)."
         }
       }
     },

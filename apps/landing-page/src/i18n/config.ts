@@ -30,10 +30,6 @@ export const sliceMappings: SliceMap[] = [
     slices: ['command-page'],
   },
   {
-    pattern: /^\/docs$/,
-    slices: ['docs-page'],
-  },
-  {
     pattern: /^\/error-codes$/,
     slices: ['error-codes-page'],
   },

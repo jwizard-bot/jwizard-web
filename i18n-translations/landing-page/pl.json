@@ -18,10 +18,6 @@
         "githubRepositories": {
           "header": "Repozytoria GitHub",
           "description": "Linki do repozytoriów projektu na GitHubie."
-        },
-        "docs": {
-          "header": "Dokumentacja",
-          "description": "Odnośniki do dokumentacji zewnętrznej (KDoc)."
         }
       }
     },
