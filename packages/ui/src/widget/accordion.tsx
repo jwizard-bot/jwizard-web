@@ -1,9 +1,5 @@
 'use client';
 
-/*
- * Copyright (c) 2025 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { cn } from '@jwizard-web/lib/util';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';

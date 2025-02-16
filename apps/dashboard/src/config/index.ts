@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
-
 const config = {
   isProdMode: process.env.NODE_ENV === 'production',
   appName: process.env.WEBPACK_APP_NAME || 'JWizard',

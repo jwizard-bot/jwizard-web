@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2025 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { JoinInstance } from '@/query/type/join-instance';
 import logoBlack from '@jwizard-web/assets/logo/logo-black.svg';

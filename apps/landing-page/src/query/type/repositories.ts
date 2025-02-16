@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2025 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
-
 type LastUpdate = {
   buildSha: string;
   buildDate: string;

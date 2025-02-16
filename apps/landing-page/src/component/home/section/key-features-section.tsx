@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { getTranslations } from 'next-intl/server';
 import { getServerQuery } from '@/query';

@@ -1,9 +1,5 @@
 'use server';
 
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import { cookies } from 'next/headers';
 import { Language } from '@jwizard-web/lib/i18n';
 import { DateTime } from 'luxon';

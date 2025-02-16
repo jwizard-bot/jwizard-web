@@ -1,9 +1,5 @@
 'use client';
 
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { BsDiscord, BsGithub } from 'react-icons/bs';
 import { useTranslations } from 'next-intl';

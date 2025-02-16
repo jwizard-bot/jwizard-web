@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 const baseConfig = require('./base.cjs');
 const globals = require('globals');
 const pluginReact = require('eslint-plugin-react');

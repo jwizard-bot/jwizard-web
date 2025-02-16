@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 const eslintConfigPrettier = require('eslint-config-prettier');
 const globals = require('globals');
 const js = require('@eslint/js');

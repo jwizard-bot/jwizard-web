@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import leftBgGradient from '@jwizard-web/assets/bg/left.png';
 import rightBgGradient from '@jwizard-web/assets/bg/right.png';

@@ -1,9 +1,5 @@
 'use client';
 
-/*
- * Copyright (c) 2025 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { CommandDetailsCard } from '@/component/commands/command-details-card';

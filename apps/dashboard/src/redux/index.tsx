@@ -1,14 +1,12 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import config from '@/config';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    // TODO here add reducers
+  },
   devTools: !config.isProdMode,
 });
 

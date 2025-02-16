@@ -1,11 +1,7 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { HTMLAttributes, forwardRef } from 'react';
-import DOMPurify from 'isomorphic-dompurify';
 import ReactHtmlParser from 'react-html-parser';
+import DOMPurify from 'isomorphic-dompurify';
 
 type Props = {
   dangerousText: string;

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2025 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import { getFormatter } from 'next-intl/server';
 
 type AsyncCallback = Promise<(rawDate: string) => string>;

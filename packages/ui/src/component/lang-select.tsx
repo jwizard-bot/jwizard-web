@@ -1,9 +1,5 @@
 'use client';
 
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import enUsFlag from '@jwizard-web/assets/flag/en-US.png';
 import plFlag from '@jwizard-web/assets/flag/pl.png';

@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2025 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import { LoginBgGradient } from '@/component/login/login-bg-gradient';
 import config from '@/config';

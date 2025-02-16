@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import { useTranslation } from 'react-i18next';
 import { DEFAULT_NAMESPACE, PageNamespace, ROOT_NAMESPACE } from '@/i18n';
 

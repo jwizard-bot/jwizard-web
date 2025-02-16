@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2024 by JWizard
- * Originally developed by Miłosz Gilga <https://miloszgilga.pl>
- */
 import * as React from 'react';
 import logoBlack from '@jwizard-web/assets/logo/logo-black.svg';
 import logoWhite from '@jwizard-web/assets/logo/logo-white.svg';
