@@ -1,4 +1,4 @@
-name: Update version cache
+name: Update version cache and run project analysis
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  update-version:
+  update-version-and-project-analysis:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,3 +32,10 @@ jobs:
         run: exec/run-with-config cache_version \
           "${{ secrets.CONFIG_FILE_CONTENT }}" \
           --repo ${{ github.repository }}
+
+      - name: Run project analyzer
+        run: exec/run-with-config project_analyzer \
+          "${{ secrets.CONFIG_FILE_CONTENT }}" \
+          --repo ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
