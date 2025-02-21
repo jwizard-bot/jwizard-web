@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Metadata } from 'next';
-import { ContributeSection } from '@/component/common';
+import { ContributeSection, SomethingNotWorkingSection } from '@/component/common';
 import { HeroSection, InfoStatsSection, KeyFeaturesSection } from '@/component/home';
 import { IntlPageSlicesProvider } from '@/i18n/server';
 import { generateSubPageMetadata } from '@/meta';
@@ -13,6 +13,7 @@ const Page: React.FC = async (): Promise<React.ReactElement> => (
   <IntlPageSlicesProvider>
     <HeroSection />
     <InfoStatsSection />
+    <SomethingNotWorkingSection />
     <KeyFeaturesSection />
     <ContributeSection />
   </IntlPageSlicesProvider>

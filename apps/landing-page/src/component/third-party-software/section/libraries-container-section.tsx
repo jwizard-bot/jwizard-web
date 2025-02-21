@@ -20,7 +20,7 @@ const LibrariesContainerSection: React.FC = async (): Promise<React.ReactElement
     <FlexContainer
       fullWidth
       justify="center"
-      className={cn('bg-slate-950', 'text-slate-200', 'font-pixelated')}>
+      className={cn('bg-slate-950', 'text-slate-200', 'font-pixelated', 'mb-32')}>
       <SafetyContainer
         spaceUp="none"
         spaceBelow="none"

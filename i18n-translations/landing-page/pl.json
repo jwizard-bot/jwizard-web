@@ -58,5 +58,9 @@
   "refresh": "Odśwież",
   "contributeHeader": "Kontrybucja",
   "contributeSlogan": "Jeśli znasz się dobrze na programowaniu i masz odrobinę chęci to możesz spróbować swoich sił jako kontrybutor tego projektu.",
-  "findMore": "Dowiedz się więcej"
+  "findMore": "Dowiedz się więcej",
+  "somethingNotWorkingHeader": "Coś nie działa?",
+  "somethingNotWorkingDescription": "Jeśli napotkałeś problemy z działaniem usług, sprawdź ich status, aby dowiedzieć się, czy nie sa obecnie niedostępne. Możesz również sprawdzić dostępność usługi na wybranym serwerze Discord.",
+  "checkServicesStatus": "Sprawdź status usług",
+  "checkAvailability": "Sprawdź dostępność"
 }

@@ -58,5 +58,9 @@
   "refresh": "Refresh",
   "contributeHeader": "Contribute",
   "contributeSlogan": "If you are familiar with programming and have a bit of desire then you can try your hand as a contributor to this project.",
-  "findMore": "Find more"
+  "findMore": "Find more",
+  "somethingNotWorkingHeader": "Something not working?",
+  "somethingNotWorkingDescription": "If you're experiencing issues with the services, check their status to see if they're currently unavailable. You can also check the availability of the service on the selected Discord server.",
+  "checkServicesStatus": "Check services status",
+  "checkAvailability": "Check availability"
 }
