@@ -7,7 +7,7 @@ import { GridContainer, SafetyContainer } from '@jwizard-web/ui/container';
 
 const JoinBotInstancesSection: React.FC = async (): Promise<React.ReactElement> => {
   const { data: joinBotInstances } = await getServerQuery<JoinInstance[]>({
-    queryString: '/v1/join/instance/all',
+    queryString: '/v1/join/instance/all?avatarSize=40',
     errorMessage: 'Unable to fetch join bot instances on join page',
   });
 
