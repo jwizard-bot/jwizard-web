@@ -7,17 +7,25 @@
           "header": "About",
           "description": "Idea, architecture, solutions, and technologies."
         },
+        "githubRepositories": {
+          "header": "GitHub Repositories",
+          "description": "Links to project repositories on GitHub."
+        },
         "servicesStatus": {
           "header": "Services status",
-          "description": "Status of shards and other JWizard services. Powered by BetterStack™."
+          "description": "Status of shards and other JWizard services."
+        },
+        "audioStatus": {
+          "header": "Audio service status",
+          "description": "Status of Lavalink servers used by JWizard bots."
+        },
+        "checkServiceAvailability": {
+          "header": "Check service availability",
+          "description": "Check, if service is available on selected Discord server."
         },
         "thirdPartySoftware": {
           "header": "Third party software",
           "description": "A list of the tools and libraries used in the JWizard infrastructure."
-        },
-        "githubRepositories": {
-          "header": "GitHub Repositories",
-          "description": "Links to project repositories on GitHub."
         }
       }
     },
