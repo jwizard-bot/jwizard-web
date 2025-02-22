@@ -49,8 +49,16 @@ export const sliceMappings: SliceMap[] = [
     slices: ['repos-page'],
   },
   {
-    pattern: /^\/status$/,
-    slices: ['status-page'],
+    pattern: /^\/status\/audio$/,
+    slices: ['status-audio-page'],
+  },
+  {
+    pattern: /^\/status\/bot.*$/,
+    slices: ['status-bot-page'],
+  },
+  {
+    pattern: /^\/status\/check.*$/,
+    slices: ['status-check-page'],
   },
   {
     pattern: /^\/terms-of-service$/,

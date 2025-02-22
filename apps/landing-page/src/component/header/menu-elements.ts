@@ -16,16 +16,24 @@ const menuElements: MenuElement[] = [
         i18nKey: 'about',
       },
       {
-        link: '/status',
+        link: '/repos',
+        i18nKey: 'githubRepositories',
+      },
+      {
+        link: '/status/bot',
         i18nKey: 'servicesStatus',
+      },
+      {
+        link: '/status/audio',
+        i18nKey: 'audioStatus',
+      },
+      {
+        link: '/status/check',
+        i18nKey: 'checkServiceAvailability',
       },
       {
         link: '/third-party-software',
         i18nKey: 'thirdPartySoftware',
-      },
-      {
-        link: '/repos',
-        i18nKey: 'githubRepositories',
       },
     ],
   },
