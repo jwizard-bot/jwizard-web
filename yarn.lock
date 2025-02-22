@@ -1951,6 +1951,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/is-number@^7.0.5":
+  version "7.0.5"
+  resolved "https://registry.yarnpkg.com/@types/is-number/-/is-number-7.0.5.tgz#0e5942c2754661c25237f411fe6299523b04c818"
+  integrity sha512-NGmRpXeZg9qDX+AlmBeq4Xk9ruTMj0KfzspDCxTLAcpbts2EjojAvY6A1eumKHInMwGY4xHM8ILA9CHRHfUUWA==
+
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.6.tgz#7739c232a1fee9b4d3ce8985f314c0c6d33549d7"
