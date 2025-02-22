@@ -19,7 +19,7 @@ const JoinInstanceCard: React.FC<Props> = ({
   const textColor = createContrastingTextColor(color, white, black);
 
   return (
-    <Card roundGap={false} className="w-full" style={{ backgroundColor: color, color: textColor }}>
+    <Card roundGap="none" className="w-full" style={{ backgroundColor: color, color: textColor }}>
       <OuterLink to={link} className="p-4">
         <FlexContainer justify="between" align="center">
           <FlexContainer gap="normal" align="center">

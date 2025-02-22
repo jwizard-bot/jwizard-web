@@ -39,7 +39,8 @@ const cardVariants = cva(
         true: 'aspect-square',
       },
       roundGap: {
-        true: 'p-5',
+        lg: 'p-5',
+        none: '',
       },
     },
     defaultVariants: {
@@ -47,7 +48,7 @@ const cardVariants = cva(
       shadow: 'md',
       isBlurred: false,
       isSquared: false,
-      roundGap: true,
+      roundGap: 'lg',
     },
   }
 );
