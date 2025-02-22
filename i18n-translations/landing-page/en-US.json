@@ -70,5 +70,8 @@
   "somethingNotWorkingHeader": "Something not working?",
   "somethingNotWorkingDescription": "If you're experiencing issues with the services, check their status to see if they're currently unavailable. You can also check the availability of the service on the selected Discord server.",
   "checkServicesStatus": "Check services status",
-  "checkAvailability": "Check availability"
+  "checkAvailability": "Check availability",
+  "globalOperational": "All services are operational",
+  "globalDown": "Some services are unavailable",
+  "globalUnknown": "Unknown services status"
 }
