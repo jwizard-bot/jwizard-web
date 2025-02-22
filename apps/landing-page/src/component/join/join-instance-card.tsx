@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { JoinInstance } from '@/query/type/join-instance';
-import { createContrastingTextColor } from '@jwizard-web/lib/color';
+import { createContrastingColor } from '@jwizard-web/lib/color';
 import { FlexContainer } from '@jwizard-web/ui/container';
-import fullConfig from '@jwizard-web/ui/resolved-config';
+import { colors } from '@jwizard-web/ui/resolved-config';
 import { Card } from '@jwizard-web/ui/widget/card';
 import { OuterLink } from '@jwizard-web/ui/widget/outside-link';
 import { UserRoundPlus } from 'lucide-react';
-
-const { white, black } = fullConfig.theme.colors;
 
 type Props = {
   joinInstance: JoinInstance;
@@ -16,7 +14,7 @@ type Props = {
 const JoinInstanceCard: React.FC<Props> = ({
   joinInstance: { name, color, link, avatarUrl },
 }): React.ReactElement => {
-  const textColor = createContrastingTextColor(color, white, black);
+  const textColor = createContrastingColor(color, colors.white, colors.black);
 
   return (
     <Card roundGap="none" className="w-full" style={{ backgroundColor: color, color: textColor }}>

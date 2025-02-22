@@ -5,6 +5,7 @@ import { forwardRef } from 'react';
 import { cn } from '@jwizard-web/lib/util';
 import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps, cva } from 'class-variance-authority';
+import { Spinner } from './spinner';
 
 const buttonVariants = cva(
   cn(
@@ -71,14 +72,31 @@ const buttonVariants = cva(
 
 type ButtonProps = {
   asChild?: boolean;
+  spinner?: boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fluid, asChild = false, ...props }, ref) => {
+  (
+    { children, className, variant, size, fluid, asChild = false, spinner = false, ...props },
+    ref
+  ) => {
     const Comp = asChild ? Slot : 'button';
+    const cssClasses = buttonVariants({ variant, size, fluid, className });
+
+    if (asChild) {
+      return (
+        <Comp ref={ref} className={cssClasses} {...props}>
+          {children}
+        </Comp>
+      );
+    }
+
     return (
-      <Comp ref={ref} className={buttonVariants({ variant, size, fluid, className })} {...props} />
+      <Comp ref={ref} className={cssClasses} {...props} disabled={spinner}>
+        {!asChild && children}
+        {spinner && <Spinner variant="small" color="foreground" />}
+      </Comp>
     );
   }
 );
