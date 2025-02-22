@@ -1,8 +1,4 @@
-const createContrastingTextColor = (
-  backgroundColor: string,
-  light: string,
-  dark: string
-): string => {
+const createContrastingColor = (backgroundColor: string, light: string, dark: string): string => {
   const hex = backgroundColor.replace('#', '');
 
   const r = parseInt(hex.substring(0, 2), 16);
@@ -13,4 +9,4 @@ const createContrastingTextColor = (
   return luminance > 0.5 ? dark : light;
 };
 
-export { createContrastingTextColor };
+export { createContrastingColor };

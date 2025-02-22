@@ -4,6 +4,7 @@ import StatusBadge from '@/component/footer/status-badge';
 import { ThemeSwitch } from '@/component/footer/theme-switch';
 import config from '@/config';
 import { getRootTranslations } from '@/i18n/server';
+import { cn } from '@jwizard-web/lib/util';
 import { Logo } from '@jwizard-web/ui/component/logo';
 import { FlexContainer, GridContainer, SafetyContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
