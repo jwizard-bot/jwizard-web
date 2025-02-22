@@ -27,19 +27,26 @@ const gridVariants = cva(cn('grid'), {
       4: 'gap-4',
       6: 'gap-6',
     },
+    fullWidth: {
+      true: 'w-full',
+    },
   },
   defaultVariants: {
     responsive: false,
     cols: 12,
     gap: 0,
+    fullWidth: false,
   },
 });
 
 type Props = HTMLProps<HTMLDivElement> & VariantProps<typeof gridVariants>;
 
 const GridContainer = forwardRef<HTMLDivElement, Props>(
-  ({ cols, gap, responsive, className, children, ...rest }, ref) => (
-    <div ref={ref} className={gridVariants({ cols, gap, responsive, className })} {...rest}>
+  ({ cols, gap, fullWidth, responsive, className, children, ...rest }, ref) => (
+    <div
+      ref={ref}
+      className={gridVariants({ cols, gap, fullWidth, responsive, className })}
+      {...rest}>
       {children}
     </div>
   )

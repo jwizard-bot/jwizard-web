@@ -57,7 +57,10 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
           </FlexContainer>
         </FlexContainer>
         <Separator className="my-8" />
-        <GridContainer responsive className="w-full text-sm text-muted-foreground mb-4">
+        <GridContainer
+          responsive
+          fullWidth
+          className={cn('text-sm', 'text-muted-foreground', 'mb-4')}>
           <CopyrightSection alignment="start">
             <NextLink href="/privacy-policy" className="underline hover:no-underline">
               {t('privacyPolicy')}
