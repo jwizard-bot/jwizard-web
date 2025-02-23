@@ -30,7 +30,7 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
           toColOnSmallDevices
           justify="between"
           className="mt-10 sm:my-10 flex-col-reverse">
-          <Paragraph size="md" className="sm:me-16 text-center sm:text-start">
+          <Paragraph size="md" centered className="sm:me-16 sm:text-start">
             {t('description')}
           </Paragraph>
           <NextLink href="/" className="flex-shrink-0">

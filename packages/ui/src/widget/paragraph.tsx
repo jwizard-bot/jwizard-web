@@ -9,17 +9,21 @@ const paragraphVariants = cva(cn('text-muted-foreground'), {
       md: 'text-md',
       xl: 'text-xl',
     },
+    centered: {
+      true: 'text-center',
+    },
   },
   defaultVariants: {
     size: 'xl',
+    centered: false,
   },
 });
 
 type Props = Omit<HTMLProps<HTMLParagraphElement>, 'size'> & VariantProps<typeof paragraphVariants>;
 
 const Paragraph = forwardRef<HTMLParagraphElement, Props>(
-  ({ size, children, className, ...rest }, ref) => (
-    <p ref={ref} className={cn(paragraphVariants({ size, className }))} {...rest}>
+  ({ size, centered, children, className, ...rest }, ref) => (
+    <p ref={ref} className={cn(paragraphVariants({ size, centered, className }))} {...rest}>
       {children}
     </p>
   )
