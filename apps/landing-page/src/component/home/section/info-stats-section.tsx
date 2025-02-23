@@ -2,7 +2,7 @@ import * as React from 'react';
 import { getTranslations } from 'next-intl/server';
 import NextLink from 'next/link';
 import { PurifiedRenderer } from '@/component';
-import { InfoStatsCard } from '@/component/home/info-stats-card';
+import { CountableStatsCard } from '@/component/countable-stats-card';
 import { getServerQuery } from '@/query';
 import { StatsInfoResDto } from '@/query/type';
 import { FlexContainer, GridContainer, SafetyContainer } from '@jwizard-web/ui/container';
@@ -47,10 +47,11 @@ const InfoStatsSection: React.FC = async (): Promise<React.ReactElement> => {
           gap={6}
           className="col-span-12 sm:col-span-8 md:col-span-4 lg:col-span-5">
           {Object.keys(stats).map(key => (
-            <InfoStatsCard
+            <CountableStatsCard
               key={key}
-              bottomDescription={t(key)}
-              value={stats[key as keyof StatsInfoResDto]}
+              countableValue={stats[key as keyof StatsInfoResDto]}
+              i18nDescription={key}
+              isSquared={true}
             />
           ))}
         </GridContainer>
