@@ -29,20 +29,18 @@ const GlobalStatusHero: React.FC<Props> = ({
     <FlexContainer col className="sm:items-center">
       <FlexContainer col align="center" gap="normal">
         <StatusBadgeIcon operational={up} size="lg" iconSize={25} />
-        <Header headingVariant="h1" margin="none" className="text-center">
+        <Header headingVariant="h1" margin="none" className="text-center" size="md">
           {headerContent}
         </Header>
-        <Paragraph size="md" className="md:max-w-[60%] sm:text-center">
-          {t('description')}
-        </Paragraph>
+        <Paragraph className="md:max-w-[60%] sm:text-center">{t('description')}</Paragraph>
       </FlexContainer>
       <FlexContainer gap="normal" toColOnSmallDevices fullWidthOnSmallDevices className="mt-6">
-        <Button asChild>
+        <Button asChild size="lg">
           <NextLink href={otherDomesticServicesUrl} className="w-full" scroll={false}>
             {t(otherDomesticServicesStatusI18n)}
           </NextLink>
         </Button>
-        <Button asChild variant="outline">
+        <Button asChild variant="outline" size="lg">
           <OuterLink to={externalServicesWebsiteUrl} className="w-full">
             {t('checkOtherServicesStatus')}
             <SquareArrowOutUpRight />
