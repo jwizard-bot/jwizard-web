@@ -9,6 +9,7 @@
   "commands": "available commands",
   "radioStations": "available radio stations",
   "openSourceLibraries": "used open source libraries",
+  "findMode": "Find more",
   "keyFeatures": "Key features",
   "upcoming": "Upcoming",
   "upcomingTooltip": "Functionality expected to be implemented in the near future or in the process of implementation.",

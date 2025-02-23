@@ -36,8 +36,8 @@ const InfoStatsSection: React.FC = async (): Promise<React.ReactElement> => {
             Component={Paragraph}
           />
           <Button asChild size="lg" fluid>
-            <NextLink href="/commands">
-              {t('exploreCommands')}
+            <NextLink href="/about">
+              {t('findMode')}
               <ArrowRight />
             </NextLink>
           </Button>
