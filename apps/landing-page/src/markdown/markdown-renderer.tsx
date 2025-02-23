@@ -5,7 +5,7 @@ import { getLocale } from 'next-intl/server';
 import remarkGfm from 'remark-gfm';
 
 type Props = {
-  file: 'privacy-policy' | 'terms-of-service';
+  file: 'privacy-policy' | 'terms-of-service' | 'about-1';
 };
 
 const rendererComponents = {
