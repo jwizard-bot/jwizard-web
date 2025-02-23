@@ -6,7 +6,7 @@ import { Button } from '@jwizard-web/ui/widget/button';
 import { Header } from '@jwizard-web/ui/widget/header';
 import { OuterLink } from '@jwizard-web/ui/widget/outside-link';
 import { Paragraph } from '@jwizard-web/ui/widget/paragraph';
-import { SquareArrowOutUpRight } from 'lucide-react';
+import { ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
 
 type Props = {
   up: boolean | null;
@@ -38,6 +38,7 @@ const GlobalStatusHero: React.FC<Props> = ({
         <Button asChild size="lg">
           <NextLink href={otherDomesticServicesUrl} className="w-full" scroll={false}>
             {t(otherDomesticServicesStatusI18n)}
+            <ArrowRight />
           </NextLink>
         </Button>
         <Button asChild variant="outline" size="lg">
