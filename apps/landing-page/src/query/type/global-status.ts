@@ -1,5 +1,4 @@
 export type GlobalStatusResDto = {
-  operational?: boolean;
-  description: string;
-  sourceUrl: string;
+  globalUp: boolean | null;
+  externalServicesWebsiteUrl: string;
 };
