@@ -11,5 +11,6 @@
     "privacyPolicy": "Polityka prywatności",
     "accept": "Akceptuję"
   },
-  "and": "i"
+  "and": "i",
+  "unknownServerException": "Nieznany błąd serwera."
 }

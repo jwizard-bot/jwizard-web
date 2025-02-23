@@ -1,0 +1,9 @@
+{
+  "title": "Check service availability",
+  "description": "To check the availability of the service, enter the Discord server ID or its name in the field below (case-insensitive). The default setting searches for all bots offered by the application. To narrow down the results, select one of the JWizard applications from the list.",
+  "disclaimerInfo": "If the feedback message shows that the service is available on the selected server but is still not working, please report it to the following address:",
+  "inputPlaceholder": "Guild ID or name",
+  "check": "Check",
+  "isAvailable": "Service in searched Discord guild is available.",
+  "isUnavailable": "Service is searched Discord guild is unavailable."
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Audio services status",
+  "reloadStatus": "Reload status",
+  "allAudioServersAreOperational": "All audio nodes are operational",
+  "someAudioServersAreDown": "Some audio nodes are unavailable",
+  "noAudioServers": "No audio nodes",
+  "description": "Below, you will find the statistics of the Lavalink sound servers. Additional services, as well as the status of JWizard processes and fragments, can be found by clicking the buttons below.",
+  "checkFragmentsStatus": "Check shards status",
+  "checkOtherServicesStatus": "Check other services status",
+  "audioServersHeader": "Audio nodes",
+  "notFoundAnyAudioServers": "Unable to find any audio nodes.",
+  "audioNodeIsAvailable": "Audio node is available.",
+  "audioNodeIsUnavailable": "Audio node is unavailable.",
+  "nodePool": "Node pool",
+  "region": "Region",
+  "version": "Version",
+  "lavaplayerVersion": "Lavaplayer version",
+  "players": "Players",
+  "playingPlayers": "Playing players",
+  "uptime": "Uptime",
+  "responseTime": "Response time"
+}

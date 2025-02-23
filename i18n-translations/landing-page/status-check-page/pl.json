@@ -1,0 +1,9 @@
+{
+  "title": "Sprawdź dostępność usługi",
+  "description": "W celu sprawdzenia dostępności usługi wprowadź w poniższe pole ID serwera Discord lub jego nazwę (wielkość liter nie jest rozróżnialna). Domyślne ustawienie szuka wszystkich botów oferowanych przez aplikację. W celu zawężenia wyników wybierz z listy jedną z aplikacji JWizard.",
+  "disclaimerInfo": "Jeśli wiadomość zwrotna pokazuje, że usługa jest dostępna na wybranym serwerze, ale mimo to nie działa, zgłoś to na adres:",
+  "inputPlaceholder": "ID gildii lub nazwa",
+  "check": "Sprawdź",
+  "isAvailable": "Usługa w szukanej gildii Discord jest dostępna.",
+  "isUnavailable": "Usługa w szukanej gildii Discord jest niedostępna."
+}

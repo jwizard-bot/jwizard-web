@@ -11,5 +11,6 @@
     "privacyPolicy": "Privacy policy",
     "accept": "Accept"
   },
-  "and": "and"
+  "and": "and",
+  "unknownServerException": "Unknown server exception."
 }

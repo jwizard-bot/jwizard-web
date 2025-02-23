@@ -1,0 +1,22 @@
+{
+  "title": "Status usług dźwięku",
+  "reloadStatus": "Odśwież status",
+  "allAudioServersAreOperational": "Wszystkie serwery dźwięku są sprawne",
+  "someAudioServersAreDown": "Niektóre serwery dźwięku nie są dostępne",
+  "noAudioServers": "Brak serwerów dźwięku",
+  "description": "Poniżej znajdziesz statystyki serwerów dźwięku Lavalink. Pozostałe usługi oraz status procesów i fragmentów JWizard znajdziesz klikając w przyciski poniżej.",
+  "checkFragmentsStatus": "Sprawdź status fragmentów",
+  "checkOtherServicesStatus": "Sprawdź status innych usług",
+  "audioServersHeader": "Serwery dźwięku",
+  "notFoundAnyAudioServers": "Nie znaleziono żadnych serwerów dźwięku.",
+  "audioNodeIsAvailable": "Serwer dźwięku jest dostępny.",
+  "audioNodeIsUnavailable": "Serwer dźwięku jest niedostępny.",
+  "nodePool": "Grupa węzłów",
+  "region": "Region",
+  "version": "Wersja",
+  "lavaplayerVersion": "Wersja Lavaplayer",
+  "players": "Odtwarzacze",
+  "playingPlayers": "Aktywne odtwarzacze",
+  "uptime": "Czas działania",
+  "responseTime": "Czas odpowiedzi"
+}
