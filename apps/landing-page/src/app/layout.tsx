@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import { CookieConsentModal } from '@/component/cookie-consent-modal';
 import { IntlRootProvider } from '@/i18n/server';
+import { MainLayout } from '@/layout';
 import { generateRootLayoutMetadata } from '@/meta';
 import { ThemeContextProvider } from '@/theme';
 import { cn } from '@jwizard-web/lib/util';
@@ -24,7 +25,7 @@ const RootLayout: React.FC<Props> = async ({ children }): Promise<React.ReactEle
         <IntlRootProvider>
           <ThemeContextProvider>
             <CookieConsentModal />
-            {children}
+            <MainLayout>{children}</MainLayout>
           </ThemeContextProvider>
         </IntlRootProvider>
       </body>
