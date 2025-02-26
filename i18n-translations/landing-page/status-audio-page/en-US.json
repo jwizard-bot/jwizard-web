@@ -18,5 +18,6 @@
   "players": "Players",
   "playingPlayers": "Playing players",
   "uptime": "Uptime",
-  "responseTime": "Response time"
+  "responseTime": "Response time",
+  "audioNode": "Audio node"
 }

@@ -18,5 +18,6 @@
   "players": "Odtwarzacze",
   "playingPlayers": "Aktywne odtwarzacze",
   "uptime": "Czas działania",
-  "responseTime": "Czas odpowiedzi"
+  "responseTime": "Czas odpowiedzi",
+  "audioNode": "Serwer dźwięku"
 }

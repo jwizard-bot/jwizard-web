@@ -55,7 +55,7 @@ const AudioStatusSection: React.FC<Props> = async ({ audioNodes }): Promise<Reac
               <FlexContainer col gap="normal">
                 <FlexContainer justify="between" align="center" fullWidth>
                   <Paragraph size="sm">
-                    Audio node [{id + 1}/{audioNodes.length}]
+                    {t('audioNode')} [{id + 1}/{audioNodes.length}]
                   </Paragraph>
                   <TooltipProvider>
                     <Tooltip>
