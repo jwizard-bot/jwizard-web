@@ -91,7 +91,7 @@ jobs:
     needs: build
     env:
       PM2_WEB_UI_NAME: 'JWizardUI'
-      SERVER_OUTPUT: '/var/www/jwizard-landing-page'
+      SERVER_OUTPUT: '/opt/public/jwizard-landing-page'
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
       SSH_PORT: ${{ secrets.SSH_PORT }}
