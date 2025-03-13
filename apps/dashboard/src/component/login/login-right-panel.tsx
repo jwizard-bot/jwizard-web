@@ -40,7 +40,7 @@ const LoginRightPanel: React.FC = (): React.ReactElement => {
             {t('welcomeParagraph')}
           </Paragraph>
           <Button asChild className="w-full">
-            <OuterLink to={config.apiUrl + '/oauth/login'} newPage={false}>
+            <OuterLink to={config.apiUrl + '/oauth/discord/login'} newPage={false}>
               <FaDiscord />
               {t('loginViaDiscord')}
             </OuterLink>
