@@ -82,6 +82,11 @@ By default, applications will be listening at:
 
 > NOTE: Alternatively you can run selected project via prepared Webstorm run configuration.
 
+## Contributing
+
+We welcome contributions from the community! Please read our [CONTRIBUTING](./CONTRIBUTING.md) file for
+guidelines on how to get involved.
+
 ## License
 
 This project is licensed under the AGPL-3.0 License - see the LICENSE file for details.
