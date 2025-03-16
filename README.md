@@ -82,7 +82,7 @@ By default, applications will be listening at:
 | dashboard    | 8764 | [localhost:8764](http://localhost:8764) |
 
 > [!TIP]
-> Alternatively you can run selected project via prepared Webstorm run configuration.
+> Alternatively you can run selected project via prepared Intellij Idea run configuration.
 
 ## Contributing
 
