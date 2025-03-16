@@ -63,7 +63,8 @@ $ git clone https://github.com/jwizard-bot/jwizard-web
 $ yarn install --frozen-lockfile
 ```
 
-> NOTE: If you don't have yarn yet, install via: `npm i -g yarn`.
+> [!TIP]
+> If you don't have yarn yet, install via: `npm i -g yarn`.
 
 6. To run selected app from monorepo, type:
 
@@ -80,7 +81,8 @@ By default, applications will be listening at:
 | landing-page | 8763 | [localhost:8763](http://localhost:8763) |
 | dashboard    | 8764 | [localhost:8764](http://localhost:8764) |
 
-> NOTE: Alternatively you can run selected project via prepared Webstorm run configuration.
+> [!TIP]
+> Alternatively you can run selected project via prepared Webstorm run configuration.
 
 ## Contributing
 
