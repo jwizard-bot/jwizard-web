@@ -115,7 +115,7 @@ jobs:
       - name: Grand permissions
         run: chmod +x exec/run-with-config
 
-      - name: Run packages grabber
+      - name: Run remote invoker
         run: exec/run-with-config remote_invoker \
           "${{ secrets.CONFIG_FILE_CONTENT }}" \
           --name landing-page  \
