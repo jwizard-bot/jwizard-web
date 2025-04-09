@@ -1,6 +1,7 @@
 {
   "title": "Status usług dźwięku",
   "reloadStatus": "Odśwież status",
+  "reloadStatusResponse": "Pomyślnie odświeżono status usług dźwięku.",
   "allAudioServersAreOperational": "Wszystkie serwery dźwięku są sprawne",
   "someAudioServersAreDown": "Niektóre serwery dźwięku nie są dostępne",
   "noAudioServers": "Brak serwerów dźwięku",

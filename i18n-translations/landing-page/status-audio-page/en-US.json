@@ -1,6 +1,7 @@
 {
   "title": "Audio services status",
   "reloadStatus": "Reload status",
+  "reloadStatusResponse": "Successfully reload audio services status.",
   "allAudioServersAreOperational": "All audio nodes are operational",
   "someAudioServersAreDown": "Some audio nodes are unavailable",
   "noAudioServers": "No audio nodes",

@@ -1,6 +1,7 @@
 {
   "title": "Services status",
   "reloadStatus": "Reload status",
+  "reloadStatusResponse": "Successfully reload services status.",
   "description": "Additional services and the status of Lavalink sound servers can be found by clicking the buttons below.",
   "checkAudioServersStatus": "Audio servers status",
   "checkOtherServicesStatus": "Other services",

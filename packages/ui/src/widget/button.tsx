@@ -56,10 +56,11 @@ const buttonVariants = cva(
         link: cn('text-primary', 'underline-offset-4', 'hover:underline'),
       },
       size: {
-        default: 'h-8 px-3 py-2 text-sm',
-        md: 'h-10 rounded-md px-6 text-[1rem]',
-        lg: 'h-10 rounded-md px-6 text-xl',
-        icon: 'h-9 w-9',
+        default: cn('h-8', 'px-3', 'py-2', 'text-sm'),
+        md: cn('h-10', 'rounded-md', 'px-6', 'text-[1rem]'),
+        lg: cn('h-10', 'rounded-md', 'px-6 text-xl'),
+        icon: cn('h-9', 'w-9'),
+        notch: cn('h-3', 'w-3', 'p-3'),
       },
       fluid: {
         true: cn('flex-shrink-0', 'w-full', 'sm:w-fit'),

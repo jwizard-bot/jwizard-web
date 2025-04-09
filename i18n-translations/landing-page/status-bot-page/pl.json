@@ -1,6 +1,7 @@
 {
   "title": "Status usług",
   "reloadStatus": "Odśwież status",
+  "reloadStatusResponse": "Pomyślnie odświeżono status usług.",
   "description": "Poniżej znajdziesz statystki botów JWizard oraz fragmenty każdego procesu JWizard. Pozostałe usługi oraz status serwerów dźwięku Lavalink znajdziesz klikając w przyciski poniżej.",
   "checkAudioServersStatus": "Status serwerów dźwięku",
   "checkOtherServicesStatus": "Inne usługi",
