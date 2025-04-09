@@ -33,8 +33,7 @@ i18n
     react: {
       useSuspense: true,
     },
-  })
-  .then(r => r);
+  });
 
 i18n.on('languageChanged', event => {
   document.documentElement.lang = event;
@@ -48,4 +47,8 @@ const I18nContextProvider: React.FC<Props> = ({ children }): React.ReactElement 
   <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
 );
 
-export { type PageNamespace, DEFAULT_NAMESPACE, ROOT_NAMESPACE, I18nContextProvider };
+const tRoot = (key: string | undefined) => i18n.t(key as string, { ns: ROOT_NAMESPACE });
+
+export { type PageNamespace, DEFAULT_NAMESPACE, ROOT_NAMESPACE, I18nContextProvider, tRoot };
+
+export default i18n;

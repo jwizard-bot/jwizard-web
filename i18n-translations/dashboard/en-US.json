@@ -1,3 +1,10 @@
 {
-  "notFound": "Not found"
+  "notFound": "Not found",
+  "successfullyLogout": "Successfully logout from the system.",
+  "error.badRequestError": "Bad request",
+  "error.noSessionError": "Following request required authentication.",
+  "error.badPermissionError": "You don't have permission to perform this action.",
+  "error.notFoundError": "Resource not found.",
+  "error.unknownServerError": "Unknown server error.",
+  "error.sessionExpiredError": "Session expired, please log in again."
 }

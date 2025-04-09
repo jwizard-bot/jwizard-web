@@ -1,3 +1,10 @@
 {
-  "notFound": "Nie znaleziono"
+  "notFound": "Nie znaleziono",
+  "successfullyLogout": "Pomyślnie wylogowano z systemu.",
+  "error.badRequestError": "Nieprawidłowe żądanie.",
+  "error.noSessionError": "Żądanie wymaga autoryzacji.",
+  "error.badPermissionError": "Brak uprawnień do wykonania tej operacji.",
+  "error.notFoundError": "Nie znaleziono zasobu.",
+  "error.unknownServerError": "Nieznany błąd serwera.",
+  "error.sessionExpiredError": "Sesja wygasła, zaloguj się ponownie."
 }

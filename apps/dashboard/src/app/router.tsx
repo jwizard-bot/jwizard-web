@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { DashboardLayout } from '@/app/page/dashboard/layout';
 import { RootLayout } from '@/app/root-layout';
+import { RouteProtector } from '@/app/route-protector';
 
 const Login = lazy(() => import('@/app/page/login'));
 const Dashboard = lazy(() => import('@/app/page/dashboard'));
@@ -13,11 +14,25 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     children: [
-      { path: '/login', element: <Login /> },
+      {
+        path: '/login',
+        element: (
+          <RouteProtector
+            transformFc={loggedIn => !loggedIn}
+            redirectTo="/"
+            PageComponent={Login}
+          />
+        ),
+      },
       {
         path: '/',
-        element: <DashboardLayout />,
-        children: [{ path: '/', element: <Dashboard /> }],
+        element: <RouteProtector PageComponent={DashboardLayout} />,
+        children: [
+          {
+            path: '/',
+            element: <Dashboard />,
+          },
+        ],
       },
       { path: '*', element: <NotFound /> },
     ],
