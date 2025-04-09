@@ -8,6 +8,7 @@ import { generateRootLayoutMetadata } from '@/meta';
 import { ThemeContextProvider } from '@/theme';
 import { cn } from '@jwizard-web/lib/util';
 import '@jwizard-web/tailwind-config/globalcss';
+import { ToastContainer } from '@jwizard-web/ui/widget/toast-notification';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateRootLayoutMetadata();
@@ -24,6 +25,7 @@ const RootLayout: React.FC<Props> = async ({ children }): Promise<React.ReactEle
       <body className={cn('font-sans', 'min-h-screen')}>
         <IntlRootProvider>
           <ThemeContextProvider>
+            <ToastContainer />
             <CookieConsentModal />
             <MainLayout>{children}</MainLayout>
           </ThemeContextProvider>
