@@ -22,7 +22,7 @@ const gradientElements: GradientElement[] = [
 const BackgroundGradient: React.FC = (): React.ReactElement => (
   <div>
     {gradientElements.map(({ image, styles }) => (
-      <div key={image} className={cn('fixed', 'opacity-30', 'dark:opacity-60', styles)}>
+      <div key={image} className={cn('fixed', 'opacity-30', styles)}>
         <img src={image} className={cn('shadow-black/5', 'shadow-none', 'rounded-large')} alt="" />
       </div>
     ))}
