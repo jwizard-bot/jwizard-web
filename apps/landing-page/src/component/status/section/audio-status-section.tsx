@@ -68,7 +68,7 @@ const AudioStatusSection: React.FC<Props> = async ({ audioNodes }): Promise<Reac
                     </Tooltip>
                   </TooltipProvider>
                 </FlexContainer>
-                <Header size="tiny" font="basic" margin="none">
+                <Header size="tn" font="basic" margin="none">
                   {name}
                 </Header>
                 <PropertyParagraphContextProvider color={null}>

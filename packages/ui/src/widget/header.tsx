@@ -5,7 +5,8 @@ import { type VariantProps, cva } from 'class-variance-authority';
 const headerVariants = cva('', {
   variants: {
     size: {
-      tiny: cn('text-md', 'sm:text-md'),
+      xt: cn('text-sm', 'sm:text-sm'),
+      tn: cn('text-md', 'sm:text-md'),
       xs: cn('text-lg', 'sm:text-xl'),
       sm: cn('text-3xl', 'sm:text-4xl'),
       md: cn('text-4xl', 'sm:text-5xl'),

@@ -55,7 +55,7 @@ const InstancesListSection: React.FC<Props> = ({ instances }): React.ReactElemen
                 <FlexContainer justify="between" align="center" className={cn('px-4', 'py-3')}>
                   <FlexContainer gap="normal" align="center">
                     <img src={avatarUrl} width={32} height={32} alt="logo" className="rounded-md" />
-                    <Header headingVariant="h3" size="tiny" font="basic" margin="none">
+                    <Header headingVariant="h3" size="tn" font="basic" margin="none">
                       {name}
                     </Header>
                   </FlexContainer>

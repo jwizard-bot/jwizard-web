@@ -83,7 +83,7 @@ const InstanceStatusCard: React.FC<Props> = ({
           </FlexContainer>
         </FlexContainer>
         <FlexContainer col gap="normal">
-          <Header size="tiny" font="basic" margin="none">
+          <Header size="tn" font="basic" margin="none">
             {t('botStatistics')}:
           </Header>
           <PropertyParagraphContextProvider color={color}>

@@ -93,7 +93,7 @@ const ShardSearchBox: React.FC<Props> = ({ shardsStatus }): React.ReactElement =
                     </Tooltip>
                   </TooltipProvider>
                 </FlexContainer>
-                <Header size="tiny" font="basic" margin="none">
+                <Header size="tn" font="basic" margin="none">
                   {t('shardStatistics')}:
                 </Header>
                 <PropertyParagraphContextProvider color={null}>
