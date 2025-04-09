@@ -1,6 +1,6 @@
 import * as React from 'react';
 import NextLink from 'next/link';
-import { StatusBadgeIcon } from '@/component/status-badge-icon';
+import { SeverityIcon } from '@jwizard-web/ui/component/severity-icon';
 import { FlexContainer, SafetyContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
 import { Header } from '@jwizard-web/ui/widget/header';
@@ -28,7 +28,7 @@ const GlobalStatusHero: React.FC<Props> = ({
   <SafetyContainer spaceUp="large" spaceBelow="large">
     <FlexContainer col className="sm:items-center">
       <FlexContainer col align="center" gap="normal">
-        <StatusBadgeIcon operational={up} size="lg" iconSize={25} />
+        <SeverityIcon allGood={up} size="lg" iconSize={25} />
         <Header headingVariant="h1" margin="none" className="text-center" size="md">
           {headerContent}
         </Header>

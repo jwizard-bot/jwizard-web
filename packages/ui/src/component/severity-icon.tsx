@@ -4,8 +4,9 @@ import { IconBaseProps } from 'react-icons';
 import { BsCheck, BsExclamation } from 'react-icons/bs';
 import { cn } from '@jwizard-web/lib/util';
 import { type VariantProps, cva } from 'class-variance-authority';
+import { FlexContainer } from '../container';
 
-const badgeVariants = cva(cn('rounded-full', 'flex', 'justify-center', 'items-center', 'ring-2'), {
+const badgeVariants = cva(cn('rounded-full', 'ring-2'), {
   variants: {
     success: {
       true: cn('bg-primary-success', 'ring-primary-success/30'),
@@ -17,6 +18,7 @@ const badgeVariants = cva(cn('rounded-full', 'flex', 'justify-center', 'items-ce
       true: cn('bg-primary-danger', 'ring-primary-danger/30'),
     },
     size: {
+      tn: cn('w-4', 'h-4'),
       sm: cn('w-5', 'h-5'),
       lg: cn('w-8', 'h-8'),
     },
@@ -30,14 +32,14 @@ const badgeVariants = cva(cn('rounded-full', 'flex', 'justify-center', 'items-ce
 });
 
 type Props = {
-  // false -> critical, null -> not able to get some statuses, true -> fully operational
-  operational: boolean | null;
+  // false -> danger, null -> warning, true -> success
+  allGood: boolean | null;
   iconSize?: number;
 } & HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof badgeVariants>;
 
-const StatusBadgeIcon: React.FC<Props> = ({
-  operational,
+const SeverityIcon: React.FC<Props> = ({
+  allGood,
   size,
   iconSize = 16,
   className,
@@ -45,25 +47,26 @@ const StatusBadgeIcon: React.FC<Props> = ({
 }): React.ReactElement => {
   const renderIcon = (): React.FunctionComponentElement<IconBaseProps> => {
     let icon = BsCheck;
-    if (!operational) {
+    if (!allGood) {
       icon = BsExclamation;
     }
     return React.createElement(icon, { size: iconSize, className: 'text-white' });
   };
 
   return (
-    <div
+    <FlexContainer
+      centerContent
       className={badgeVariants({
-        success: operational,
-        warning: operational === null,
-        danger: operational === false,
+        success: allGood,
+        warning: allGood === null,
+        danger: allGood === false,
         size,
         className,
       })}
       {...rest}>
       {renderIcon()}
-    </div>
+    </FlexContainer>
   );
 };
 
-export { StatusBadgeIcon };
+export { SeverityIcon };

@@ -3,11 +3,11 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { StatusBadgeIcon } from '@/component/status-badge-icon';
 import { PropertyParagraph } from '@/component/status/property-paragraph';
 import { PropertyParagraphContextProvider } from '@/component/status/property-paragraph-context';
 import { ShardStatusResDto } from '@/query/type/shard-status';
 import { cn } from '@jwizard-web/lib/util';
+import { SeverityIcon } from '@jwizard-web/ui/component/severity-icon';
 import { FlexContainer, GridContainer } from '@jwizard-web/ui/container';
 import { Alert } from '@jwizard-web/ui/widget/alert';
 import { Button } from '@jwizard-web/ui/widget/button';
@@ -85,7 +85,7 @@ const ShardSearchBox: React.FC<Props> = ({ shardsStatus }): React.ReactElement =
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger className="cursor-help">
-                        <StatusBadgeIcon operational={up} />
+                        <SeverityIcon allGood={up} />
                       </TooltipTrigger>
                       <TooltipContent>
                         {t(up ? 'shardIsAvailable' : 'shardIsUnavailable')}

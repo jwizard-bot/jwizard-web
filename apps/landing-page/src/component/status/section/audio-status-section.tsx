@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { getTranslations } from 'next-intl/server';
-import { StatusBadgeIcon } from '@/component/status-badge-icon';
 import { PropertyParagraph } from '@/component/status/property-paragraph';
 import { PropertyParagraphContextProvider } from '@/component/status/property-paragraph-context';
 import { AudioNodeStatus } from '@/query/type/audio-nodes-status';
 import { cn } from '@jwizard-web/lib/util';
+import { SeverityIcon } from '@jwizard-web/ui/component/severity-icon';
 import { FlexContainer, GridContainer, SafetyContainer } from '@jwizard-web/ui/container';
 import { Alert } from '@jwizard-web/ui/widget/alert';
 import { Card } from '@jwizard-web/ui/widget/card';
@@ -60,7 +60,7 @@ const AudioStatusSection: React.FC<Props> = async ({ audioNodes }): Promise<Reac
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger className="cursor-help">
-                        <StatusBadgeIcon operational={up} />
+                        <SeverityIcon allGood={up} />
                       </TooltipTrigger>
                       <TooltipContent>
                         {t(up ? 'audioNodeIsAvailable' : 'audioNodeIsUnavailable')}

@@ -3,10 +3,10 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { StatusBadgeIcon } from '@/component/status-badge-icon';
 import { PropertyParagraph } from '@/component/status/property-paragraph';
 import { InstanceStatusResDto } from '@/query/type/instance-status';
 import { createContrastingColor } from '@jwizard-web/lib/color';
+import { SeverityIcon } from '@jwizard-web/ui/component/severity-icon';
 import { FlexContainer } from '@jwizard-web/ui/container';
 import { colors } from '@jwizard-web/ui/resolved-config';
 import { Card } from '@jwizard-web/ui/widget/card';
@@ -75,7 +75,7 @@ const InstanceStatusCard: React.FC<Props> = ({
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger className="cursor-help">
-                  <StatusBadgeIcon operational={instanceState.status} className="me-2" />
+                  <SeverityIcon allGood={instanceState.status} className="me-2" />
                 </TooltipTrigger>
                 <TooltipContent>{instanceState.message}</TooltipContent>
               </Tooltip>
