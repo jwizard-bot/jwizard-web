@@ -5,10 +5,13 @@ import { forwardRef } from 'react';
 import { cn } from '@jwizard-web/lib/util';
 import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps, cva } from 'class-variance-authority';
+import clsx from 'clsx';
+import { FlexContainer, FloatingContainer } from '../container';
 import { Spinner } from './spinner';
 
 const buttonVariants = cva(
   cn(
+    'relative',
     'inline-flex',
     'items-center',
     'justify-center',
@@ -94,8 +97,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp ref={ref} className={cssClasses} {...props} disabled={spinner}>
-        {!asChild && children}
-        {spinner && <Spinner variant="small" color="foreground" />}
+        {!asChild && (
+          <FlexContainer
+            gap="normal"
+            centerContent
+            className={clsx({ visible: !spinner, invisible: spinner })}>
+            {children}
+          </FlexContainer>
+        )}
+        {spinner && (
+          <FloatingContainer fullWidth zIndex={10}>
+            <FlexContainer centerContent>
+              <Spinner variant="small" color="foreground" />
+            </FlexContainer>
+          </FloatingContainer>
+        )}
       </Comp>
     );
   }
