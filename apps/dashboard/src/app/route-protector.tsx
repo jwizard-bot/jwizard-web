@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useMainSlice } from '@/redux/slice/main-slice';
+import { PageSpinner } from '@jwizard-web/ui/component/page-spinner';
 
 type Props = {
   redirectTo?: string;
@@ -15,7 +16,12 @@ const RouteProtector: React.FC<Props> = ({
 }): React.ReactElement => {
   const { loggedIn, initialized } = useMainSlice();
 
-  if (!initialized || transformFc(loggedIn)) {
+  // show page spinner, if is not yet initialized
+  if (!initialized) {
+    return <PageSpinner />;
+  }
+
+  if (transformFc(loggedIn)) {
     return <PageComponent />;
   }
 
