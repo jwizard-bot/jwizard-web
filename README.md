@@ -41,10 +41,11 @@ Dashboard:
 2. Go to [jwizard-lib](https://github.com/jwizard-bot/jwizard-lib), configure and run all necessary
    containers defined in `README.md` file in this repository. You must have up these containers:
 
-| Name             | Port(s) | Description                  |
-|------------------|---------|------------------------------|
-| jwizard-vault    | 8761    | Secret keys storage service. |
-| jwizard-mysql-db | 8762    | MySQL database.              |
+| Name             | Port(s)    | Description                           |
+|------------------|------------|---------------------------------------|
+| jwizard-vault    | 8761       | Secret keys storage service.          |
+| jwizard-mysql-db | 8762       | MySQL database.                       |
+| jwizard-rabbitmq | 8771, 8772 | RabbitMQ server and management panel. |
 
 3. Prepare and run JWizard API and Core projects. For more details, please visit this readme files:
 
