@@ -16,7 +16,6 @@ const errorI18nMessages: Record<number, string> = {
 listenerMiddleware.startListening({
   matcher: isRejectedWithValue,
   effect: async action => {
-    console.log('action');
     const error = action.payload as {
       status: number;
     };
