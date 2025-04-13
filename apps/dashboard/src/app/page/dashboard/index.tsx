@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ThemeDropdown } from '@/component';
 import { usePageTitle } from '@/hooks/use-page-title';
-import { useLogoutMutation } from '@/redux/api/slice/session-api-slice';
-import { useMainSlice } from '@/redux/slice/main-slice';
+import { useLogoutMutation } from '@/redux/api/session/slice';
+import { useMainSlice } from '@/redux/store/main-slice';
 import { Button } from '@jwizard-web/ui/widget/button';
 
 const Page: React.FC = (): React.ReactElement => {

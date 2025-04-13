@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import config from '@/config';
-import { sessionApiSlice } from '@/redux/api/slice/session-api-slice';
+import { sessionApiSlice } from '@/redux/api/session/slice';
 import { listenerMiddleware } from '@/redux/listener-middleware';
-import { mainSlice } from '@/redux/slice/main-slice';
+import { mainSlice } from '@/redux/store/main-slice';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRevalidateSessionQuery } from '@/redux/api/slice/session-api-slice';
+import { useRevalidateSessionQuery } from '@/redux/api/session/slice';
 import { PageSpinner } from '@jwizard-web/ui/component/page-spinner';
 
 // insert here all one-time loaders (at application startup)

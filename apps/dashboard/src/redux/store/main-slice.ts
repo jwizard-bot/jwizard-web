@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux';
-import { CsrfResDto } from '@/redux/api/type/csrf';
+import { CsrfResDto } from '@/redux/api/session/type';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type InitialState = {

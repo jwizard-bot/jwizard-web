@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useMainSlice } from '@/redux/slice/main-slice';
+import { useMainSlice } from '@/redux/store/main-slice';
 import { PageSpinner } from '@jwizard-web/ui/component/page-spinner';
 
 type Props = {

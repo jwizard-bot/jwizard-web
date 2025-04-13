@@ -1,9 +1,8 @@
 import { tRoot } from '@/i18n';
 import { baseQuery } from '@/redux/api/base-query';
-import { CsrfResDto } from '@/redux/api/type/csrf';
-import { RevalidateResDto } from '@/redux/api/type/revalidate';
+import { CsrfResDto, RevalidateResDto } from '@/redux/api/session/type';
 import { listenerMiddleware } from '@/redux/listener-middleware';
-import { setCsrf, setInitialized, setLoggedIn } from '@/redux/slice/main-slice';
+import { setCsrf, setInitialized, setLoggedIn } from '@/redux/store/main-slice';
 import { showToast } from '@jwizard-web/ui/widget/toast-notification';
 import { createApi } from '@reduxjs/toolkit/query/react';
 
