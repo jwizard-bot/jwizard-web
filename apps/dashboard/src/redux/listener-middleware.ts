@@ -4,12 +4,13 @@ import { createListenerMiddleware, isRejectedWithValue } from '@reduxjs/toolkit'
 
 const listenerMiddleware = createListenerMiddleware();
 
-const errorI18nMessages: Record<number, string> = {
-  400: 'error.badRequestError',
-  401: 'error.noSessionError',
-  403: 'error.badPermissionError',
-  404: 'error.notFoundError',
-  500: 'error.unknownServerError',
+const errorI18nMessages: Record<string, string> = {
+  // typical
+  BAD_REQUEST: 'error.badRequestError',
+  UNAUTHORIZED: 'error.noSessionError',
+  FORBIDDEN: 'error.badPermissionError',
+  NOT_FOUND: 'error.notFoundError',
+  INTERNAL_SERVER_ERROR: 'error.unknownServerError',
 };
 
 // global error handler
@@ -17,16 +18,21 @@ listenerMiddleware.startListening({
   matcher: isRejectedWithValue,
   effect: async action => {
     const error = action.payload as {
-      status: number;
+      data: {
+        key: string;
+      };
     };
-    if (!error || !('status' in error)) {
+    if (!error) {
       return; // skip if no error
     }
-    let i18nKey = errorI18nMessages[500];
-    if (error.status in errorI18nMessages) {
-      i18nKey = errorI18nMessages[error.status];
+    let i18nKeyMessage = 'INTERNAL_SERVER_ERROR';
+    if ('data' in error && 'key' in error.data) {
+      // if error is defined by backend
+      if (Object.keys(errorI18nMessages).includes(error.data.key)) {
+        i18nKeyMessage = error.data.key;
+      }
     }
-    showToast({ title: tRoot(i18nKey), severity: 'danger' });
+    showToast({ title: tRoot(errorI18nMessages[i18nKeyMessage]), severity: 'danger' });
   },
 });
 
