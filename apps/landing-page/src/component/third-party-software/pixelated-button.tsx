@@ -31,7 +31,9 @@ const PixelatedButton: React.FC<Props> = ({
         'px-5',
         'text-2xl',
         'bg-slate-600',
+        'dark:bg-slate-500',
         'text-slate-300',
+        'dark:text-slate-200',
         'bg-gradient-to-t',
         'hover:-translate-y-1'
       )}
@@ -41,7 +43,7 @@ const PixelatedButton: React.FC<Props> = ({
         <FloatingContainer
           key={top}
           centered="x"
-          className={cn('bg-slate-600', 'z-0')}
+          className={cn('bg-slate-600', 'dark:bg-slate-500', 'z-0')}
           style={{
             top: `${top}px`,
             width: `calc(100% + ${offset}px)`,

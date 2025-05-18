@@ -35,11 +35,11 @@ const InteractiveLibraries: React.FC<Props> = ({ children }): React.ReactElement
       className={cn(
         'relative',
         'w-full',
-        'my-3',
-        'h-[calc(100%-theme(space.6))]',
+        'h-full',
         '[&::-webkit-scrollbar]:w-2',
         '[&::-webkit-scrollbar-thumb]:rounded-lg',
         '[&::-webkit-scrollbar-thumb]:bg-slate-300',
+        'dark:[&::-webkit-scrollbar-thumb]:bg-slate-400',
         'overflow-y-scroll'
       )}>
       <FloatingContainer alignmentY="top" alignmentX="left">
@@ -53,7 +53,8 @@ const InteractiveLibraries: React.FC<Props> = ({ children }): React.ReactElement
             'gap-x-5',
             'gap-y-0.5',
             'px-2',
-            'bg-slate-950'
+            'bg-slate-950',
+            'dark:bg-slate-900'
           )}>
           {children}
         </ul>

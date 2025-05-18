@@ -23,7 +23,14 @@ const MirrorSeparator: React.FC<Props> = ({ symmetricLength, mirror }): React.Re
     <FlexContainer
       as="span"
       justify="center"
-      className={cn('text-4xl', 'gap-x-5', 'mt-24', 'mb-10')}>
+      className={cn(
+        'text-4xl',
+        'gap-x-5',
+        'mt-24',
+        'mb-10',
+        'text-slate-600',
+        'dark:text-slate-500'
+      )}>
       <p>{leftElements}</p>
       <p>{rightElements}</p>
     </FlexContainer>

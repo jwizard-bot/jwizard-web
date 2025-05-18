@@ -4,7 +4,7 @@ import { FloatingContainer } from '@jwizard-web/ui/container';
 import { type VariantProps, cva } from 'class-variance-authority';
 
 const overflowGradientVariants = cva(
-  cn('w-[calc(100%-14px)]', 'h-[100px]', 'from-slate-950', 'to-100%'),
+  cn('w-[calc(100%-14px)]', 'h-[100px]', 'from-slate-950', 'dark:from-slate-900', 'to-100%'),
   {
     variants: {
       position: {

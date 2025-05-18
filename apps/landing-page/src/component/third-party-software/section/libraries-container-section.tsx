@@ -20,13 +20,21 @@ const LibrariesContainerSection: React.FC = async (): Promise<React.ReactElement
     <FlexContainer
       fullWidth
       justify="center"
-      className={cn('bg-slate-950', 'text-slate-200', 'font-pixelated', 'mb-32')}>
+      className={cn('bg-slate-950', 'dark:bg-slate-900', 'font-pixelated', 'mb-32')}>
       <SafetyContainer
         spaceUp="none"
         spaceBelow="none"
         fullSizeChild
-        className={cn('h-[800px]', 'overflow-hidden')}>
-        <div className={cn('relative', 'top-0', 'w-full', 'h-full', 'text-slate-600')}>
+        className={cn('h-[800px]', 'overflow-hidden', 'py-3')}>
+        <div
+          className={cn(
+            'relative',
+            'top-0',
+            'w-full',
+            'h-full',
+            'text-slate-600',
+            'dark:text-slate-800'
+          )}>
           <OverflowGradient position="top" />
           <FloatingContainer
             alignmentX="left"
@@ -46,14 +54,24 @@ const LibrariesContainerSection: React.FC = async (): Promise<React.ReactElement
               'top-[10px]',
               'w-[0.09rem]',
               'h-[calc(100%-20px)]',
-              'bg-slate-900'
+              'bg-slate-900',
+              'dark:bg-slate-800'
             )}
             zIndex={0}
           />
           <InteractiveLibraries>
             {projectPackages.map(({ name, link }) => (
               <li key={name} className={cn('flex', 'sm:odd:justify-end', 'sm:even:justify-start')}>
-                <OuterLink to={link} className={cn('truncate', 'hover:text-slate-300', 'text-xl')}>
+                <OuterLink
+                  to={link}
+                  className={cn(
+                    'truncate',
+                    'text-slate-600',
+                    'dark:text-slate-500',
+                    'hover:text-slate-300',
+                    'dark:hover:text-slate-200',
+                    'text-xl'
+                  )}>
                   {name}
                 </OuterLink>
               </li>
