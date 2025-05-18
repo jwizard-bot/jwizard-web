@@ -33,7 +33,7 @@ const LoginRightPanel: React.FC = (): React.ReactElement => {
           align="center"
           gap="small"
           className={cn('max-w-[300px]', 'text-center', 'my-8')}>
-          <Header font="basic" size="xs" margin="none">
+          <Header size="xs" margin="none">
             {t('welcomeTitle')} {config.appName}!
           </Header>
           <Paragraph size="sm" className="mb-8">
