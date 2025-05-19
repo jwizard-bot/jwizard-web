@@ -82,7 +82,7 @@ const NavigationMenuTrigger = forwardRef<
     <ChevronDown
       className={cn(
         'relative',
-        'top-[1px]',
+        '-top-[1px]',
         'ml-1',
         'h-3',
         'w-3',

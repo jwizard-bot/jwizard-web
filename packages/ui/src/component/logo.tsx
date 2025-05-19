@@ -50,8 +50,8 @@ const Logo: React.FC<Props> = ({
         <p
           className={cn(
             'absolute',
-            '-top-[3px]',
-            'right-[12px]',
+            '-top-[4px]',
+            'right-[10px]',
             'text-[10px]',
             'font-semibold',
             'text-muted-foreground',

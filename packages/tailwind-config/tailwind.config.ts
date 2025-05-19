@@ -1,61 +1,18 @@
 import type { Config } from 'tailwindcss';
 import tailwindcssAnimate from 'tailwindcss-animate';
+import plugin from 'tailwindcss/plugin';
+import { colors } from './styles/colors';
+import { twFontDeclarations, twFontFamily } from './styles/fonts';
+import { cssVariables, darkCssVariables, mapToCssProperties } from './styles/variables';
 
-export const baseContent = ['./src/**/*.{ts,tsx}', '../../packages/ui/src/**/*.{js,ts,jsx,tsx}'];
+const baseContent = ['./src/**/*.{ts,tsx}', '../../packages/ui/src/**/*.{js,ts,jsx,tsx}'];
 
-export const colors = {
-  white: 'hsl(var(--white))',
-  black: 'hsl(var(--black))',
-  border: 'hsl(var(--border))',
-  input: 'hsl(var(--input))',
-  ring: 'hsl(var(--ring))',
-  background: 'hsl(var(--background))',
-  foreground: 'hsl(var(--foreground))',
-  primary: {
-    DEFAULT: 'hsl(var(--primary))',
-    foreground: 'hsl(var(--primary-foreground))',
-    success: 'hsl(var(--primary-success))',
-    warning: 'hsl(var(--primary-warning))',
-    danger: 'hsl(var(--primary-danger))',
-  },
-  secondary: {
-    DEFAULT: 'hsl(var(--secondary))',
-    foreground: 'hsl(var(--secondary-foreground))',
-  },
-  destructive: {
-    DEFAULT: 'hsl(var(--destructive))',
-    foreground: 'hsl(var(--destructive-foreground))',
-  },
-  muted: {
-    DEFAULT: 'hsl(var(--muted))',
-    foreground: 'hsl(var(--muted-foreground))',
-    'light-foreground': 'hsl(var(--muted-light-foreground))',
-    'dark-foreground': 'hsl(var(--muted-dark-foreground))',
-  },
-  accent: {
-    DEFAULT: 'hsl(var(--accent))',
-    foreground: 'hsl(var(--accent-foreground))',
-  },
-  popover: {
-    DEFAULT: 'hsl(var(--popover))',
-    foreground: 'hsl(var(--popover-foreground))',
-  },
-  card: {
-    DEFAULT: 'hsl(var(--card))',
-    foreground: 'hsl(var(--card-foreground))',
-  },
-} as const;
-
-export const baseConfig: Omit<Config, 'content'> = {
+const baseConfig: Omit<Config, 'content'> = {
   darkMode: ['class'],
   safelist: ['dark'],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['var(--font-body)'],
-        logo: ['var(--font-logo)'],
-        pixelated: ['var(--font-pixelated)'],
-      },
+      fontFamily: twFontFamily,
       colors,
       borderRadius: {
         lg: 'var(--radius)',
@@ -83,5 +40,31 @@ export const baseConfig: Omit<Config, 'content'> = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    plugin(({ addBase }) => {
+      twFontDeclarations.forEach(addBase);
+      addBase({
+        ':root': mapToCssProperties(cssVariables),
+        '.dark': mapToCssProperties(darkCssVariables),
+        '*': {
+          borderColor: 'hsl(var(--border))',
+        },
+        html: {
+          scrollBehavior: 'smooth',
+        },
+        'body[data-scroll-locked]': {
+          '--removed-body-scroll-bar-size': '0 !important',
+          marginRight: '0 !important',
+        },
+        body: {
+          overscrollBehavior: 'none',
+          backgroundColor: 'hsl(var(--background))',
+          color: 'hsl(var(--foreground))',
+        },
+      });
+    }),
+    tailwindcssAnimate,
+  ],
 };
+
+export { baseContent, baseConfig, colors };

@@ -18,6 +18,7 @@
     "@jwizard-web/eslint-config": "*",
     "@jwizard-web/prettier-config": "*",
     "@jwizard-web/typescript-config": "*",
+    "change-case": "^5.4.4",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7"
   }
