@@ -1,14 +1,8 @@
 import * as React from 'react';
-import logoBlack from '@jwizard-web/assets/logo/logo-black.svg';
-import logoWhite from '@jwizard-web/assets/logo/logo-white.svg';
+import { themedLogos } from '@jwizard-web/lib/image';
 import { cn } from '@jwizard-web/lib/util';
 import clsx from 'clsx';
 import { FlexContainer } from '../container';
-
-const themedLogos = {
-  light: { image: logoWhite, className: 'hidden dark:block' },
-  dark: { image: logoBlack, className: 'block dark:hidden' },
-};
 
 type Props = {
   appName: string;
@@ -64,4 +58,4 @@ const Logo: React.FC<Props> = ({
   );
 };
 
-export { Logo, themedLogos };
+export { Logo };

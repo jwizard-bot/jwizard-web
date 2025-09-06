@@ -10,11 +10,12 @@
   },
   "exports": {
     "./util": "./src/util/index.ts",
-    "./logo": "./src/logo/logo-white.svg",
     "./i18n": "./src/i18n.ts",
-    "./color": "./src/color.ts"
+    "./color": "./src/color.ts",
+    "./image": "./src/image.ts"
   },
   "devDependencies": {
+    "@jwizard-web/assets": "*",
     "@jwizard-web/eslint-config": "*",
     "@jwizard-web/typescript-config": "*",
     "@jwizard-web/prettier-config": "*",

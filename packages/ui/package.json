@@ -10,15 +10,14 @@
     "url": "https://jwizard.pl"
   },
   "exports": {
-    "./assets/*": "./src/assets/*",
-    "./widget/*": "./src/widget/*.tsx",
     "./component/*": "./src/component/*.tsx",
+    "./container": "./src/container/index.ts",
     "./hook/*": [
       "./src/hook/*.ts",
       "./src/hook/*.tsx"
     ],
-    "./resolved-config": "./src/resolved-config.ts",
-    "./container": "./src/container/index.ts"
+    "./widget/*": "./src/widget/*.tsx",
+    "./resolved-config": "./src/resolved-config.ts"
   },
   "dependencies": {
     "@jwizard-web/lib": "*",

@@ -6,6 +6,7 @@ import { LoginBgGradient } from '@/component/login/login-bg-gradient';
 import config from '@/config';
 import { usePageTranslations } from '@/hooks/use-page-translations';
 import { cn } from '@jwizard-web/lib/util';
+import { FloatingLogoOnly } from '@jwizard-web/ui/component/floating-logo-only';
 import { FlexContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
 import { Header } from '@jwizard-web/ui/widget/header';
@@ -13,12 +14,14 @@ import { OuterLink } from '@jwizard-web/ui/widget/outside-link';
 import { Paragraph } from '@jwizard-web/ui/widget/paragraph';
 import { Separator } from '@jwizard-web/ui/widget/separator';
 
-const LoginRightPanel: React.FC = (): React.ReactElement => {
+const LoginPanel: React.FC = (): React.ReactElement => {
   const { t } = usePageTranslations('login');
 
   return (
     <FlexContainer col grow className={cn('basis-1', 'sm:basis-1/2', 'min-h-full', 'min-h-screen')}>
+      <LoginBgGradient side="left" />
       <LoginBgGradient side="right" />
+      <FloatingLogoOnly to={config.landingPageUrl} classNames={cn('hidden', 'sm:block')} />
       <FlexContainer fullWidth justify="end" className={cn('p-5', 'w-full')} gap="normal">
         <FlexContainer fullWidthOnSmallDevices>
           <ThemeDropdown />
@@ -58,4 +61,4 @@ const LoginRightPanel: React.FC = (): React.ReactElement => {
   );
 };
 
-export { LoginRightPanel };
+export { LoginPanel };
