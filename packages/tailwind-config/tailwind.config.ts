@@ -5,7 +5,11 @@ import { colors } from './styles/colors';
 import { twFontDeclarations, twFontFamily } from './styles/fonts';
 import { cssVariables, darkCssVariables, mapToCssProperties } from './styles/variables';
 
-const baseContent = ['./src/**/*.{ts,tsx}', '../../packages/ui/src/**/*.{js,ts,jsx,tsx}'];
+const baseContent = [
+  './src/**/*.{ts,tsx}',
+  '../../packages/ui/src/**/*.{ts,tsx}',
+  '../../packages/lib/src/**/*.{ts,tsx}',
+];
 
 const baseConfig: Omit<Config, 'content'> = {
   darkMode: ['class'],
