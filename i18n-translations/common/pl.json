@@ -12,5 +12,6 @@
     "accept": "Akceptuję"
   },
   "and": "i",
-  "unknownServerException": "Nieznany błąd serwera."
+  "unknownServerException": "Nieznany błąd serwera.",
+  "buildVersion": "Wersja"
 }

@@ -12,5 +12,6 @@
     "accept": "Accept"
   },
   "and": "and",
-  "unknownServerException": "Unknown server exception."
+  "unknownServerException": "Unknown server exception.",
+  "buildVersion": "Version"
 }

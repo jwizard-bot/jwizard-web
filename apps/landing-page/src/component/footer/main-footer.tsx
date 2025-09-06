@@ -4,7 +4,7 @@ import StatusBadge from '@/component/footer/status-badge';
 import { ThemeSwitch } from '@/component/footer/theme-switch';
 import config from '@/config';
 import { getRootTranslations } from '@/i18n/server';
-import { cn } from '@jwizard-web/lib/util';
+import { cn, getBuildVersion } from '@jwizard-web/lib/util';
 import { Logo } from '@jwizard-web/ui/component/logo';
 import { FlexContainer, GridContainer, SafetyContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
@@ -18,9 +18,7 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
   const t = await getRootTranslations();
 
   const currentYear = new Date().getFullYear();
-
-  const shortSHA = config.buildVersion?.substring(0, 7) || 'UNKNOWN';
-  const vcsLink = `${config.orgLink}/${config.repositoryName}/tree/${config.buildVersion}`;
+  const { shortSHA, vcsLink } = getBuildVersion(config);
 
   return (
     <SafetyContainer as="footer" className="bg-transparent">
@@ -76,7 +74,7 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
           </CopyrightSection>
           <CopyrightSection alignment="end">
             <span>
-              Build:{' '}
+              {t('buildVersion')}:{' '}
               <OuterLink to={vcsLink} underlined>
                 {shortSHA}
               </OuterLink>

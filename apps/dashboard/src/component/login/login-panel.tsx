@@ -5,7 +5,7 @@ import { FooterOuterLink } from '@/component/login/footer-outer-link';
 import { LoginBgGradient } from '@/component/login/login-bg-gradient';
 import config from '@/config';
 import { usePageTranslations } from '@/hooks/use-page-translations';
-import { cn } from '@jwizard-web/lib/util';
+import { cn, getBuildVersion } from '@jwizard-web/lib/util';
 import { LogoOnly } from '@jwizard-web/ui/component/logo-only';
 import { FlexContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
@@ -17,8 +17,10 @@ import { Separator } from '@jwizard-web/ui/widget/separator';
 const LoginPanel: React.FC = (): React.ReactElement => {
   const { t } = usePageTranslations('login');
 
+  const { shortSHA, vcsLink } = getBuildVersion(config);
+
   return (
-    <FlexContainer col grow className={cn('basis-1', 'sm:basis-1/2', 'min-h-full', 'min-h-screen')}>
+    <FlexContainer col grow className={cn('min-h-full', 'min-h-screen')}>
       <LoginBgGradient side="left" />
       <LoginBgGradient side="right" />
       <OuterLink to={config.landingPageUrl} newPage={false} className={cn('hidden', 'sm:block')}>
@@ -58,6 +60,15 @@ const LoginPanel: React.FC = (): React.ReactElement => {
             <FooterOuterLink urlSuffix="/privacy-policy" i18nTextContent="privacyPolicy" />.
           </Paragraph>
         </FlexContainer>
+      </FlexContainer>
+      <FlexContainer justify="center" fullWidth className="mb-10">
+        <Paragraph size="sm" className="text-center">
+          {t('buildVersion')}:{' '}
+          <OuterLink to={vcsLink} underlined>
+            {shortSHA}
+          </OuterLink>
+          {}
+        </Paragraph>
       </FlexContainer>
     </FlexContainer>
   );

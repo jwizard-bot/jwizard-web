@@ -1,4 +1,11 @@
-const config = {
+import { AppConfigType } from '@jwizard-web/lib/@types';
+
+type LandingPageAppConfigType = {
+  dashboardUrl?: string;
+  packagesRootPath?: string;
+};
+
+const config: AppConfigType & LandingPageAppConfigType = {
   isProdMode: process.env.NODE_ENV === 'production',
   appName: process.env.NEXT_PUBLIC_APP_NAME || 'JWizard',
   selfReferUrl: process.env.NEXT_PUBLIC_SELF_REFER,
