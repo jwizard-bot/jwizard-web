@@ -12,8 +12,7 @@
     "dev": "npx webpack-dev-server --progress --config webpack-dev.config.cjs",
     "build": "npx webpack --progress --config webpack-prod.config.cjs",
     "lint": "eslint **/*.{cjs,js,ts,tsx}",
-    "tsc": "tsc --noEmit",
-    "preview": "vite preview --port 8764"
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@jwizard-web/ui": "*",
