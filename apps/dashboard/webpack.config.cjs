@@ -80,7 +80,7 @@ module.exports = isProd => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
       {
-        test: /\.ttf$/,
+        test: /\.woff2$/,
         type: 'asset/resource',
         generator: {
           filename: `fonts/jw-[${parseHash(isProd)}][ext]`,
