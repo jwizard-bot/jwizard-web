@@ -1,4 +1,4 @@
-FROM caddy:latest
+FROM caddy:2.10
 
 ENV BUILD_DIR=/docker/dashboard
 ENV ENTRY_DIR=/app/jww-d
