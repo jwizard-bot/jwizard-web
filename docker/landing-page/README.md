@@ -12,7 +12,7 @@ player. This image contains Next.js application (SSR and SSG) generating and ren
 ```bash
 docker build \
  -f ./apps/landing-page/Dockerfile \
- --build-arg NEXT_BUILD_VERSION=<build version (sha)> \
+ --build-arg JWIZARD_BUILD_VERSION=<build version (sha)> \
  -t milosz08/jwizard-landing-page .
 ```
 
@@ -24,9 +24,10 @@ docker build \
 docker run -d \
   --name jwizard-landing-page \
   -p 8080:8080 \
-  -e NEXT_CANONICAL_URL=<canonical url> \
-  -e NEXT_API_URL=<api url> \
-  -e NEXT_DASHBOARD_URL=<dashboard url> \
+  -e JWIZARD_CANONICAL_URL=<canonical url> \
+  -e JWIZARD_API_URL=<api url> \
+  -e JWIZARD_DASHBOARD_URL=<dashboard url> \
+  -e JWIZARD_PROXY_VERIFICATION_TOKEN=<CF proxy verification token (WAF)> \
   milosz08/jwizard-landing-page:latest
 ```
 
@@ -40,9 +41,10 @@ services:
     ports:
       - '8080:8080'
     environment:
-      NEXT_CANONICAL_URL: <canonical url>
-      NEXT_API_URL: <api url>
-      NEXT_DASHBOARD_URL: <dashboard url>
+      JWIZARD_CANONICAL_URL: <canonical url>
+      JWIZARD_API_URL: <api url>
+      JWIZARD_DASHBOARD_URL: <dashboard url>
+      JWIZARD_PROXY_VERIFICATION_TOKEN: <CF proxy verification token (WAF)>
     networks:
       - jwizard-network
 

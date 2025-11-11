@@ -43,7 +43,7 @@ jobs:
       - name: Build
         run: yarn run dashboard:build
         env:
-          WEBPACK_BUILD_VERSION: '${{ steps.build.outputs.sha }}'
+          JWIZARD_BUILD_VERSION: '${{ steps.build.outputs.sha }}'
 
       - name: Upload generated dist files
         uses: actions/upload-artifact@v4

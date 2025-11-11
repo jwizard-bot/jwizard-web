@@ -12,7 +12,7 @@ player. This image contains React SPA for managing guilds, playlists and control
 ```bash
 docker build \
  -f ./apps/dashboard/Dockerfile \
- --build-arg WEBPACK_BUILD_VERSION=<build version (sha)> \
+ --build-arg JWIZARD_BUILD_VERSION=<build version (sha)> \
  -t milosz08/jwizard-dashboard .
 ```
 
@@ -24,8 +24,9 @@ docker build \
 docker run -d \
   --name jwizard-dashboard \
   -p 8080:8080 \
-  -e WEBPACK_API_URL=<api url> \
-  -e WEBPACK_LANDING_PAGE_URL=<landing page url> \
+  -e JWIZARD_API_URL=<api url> \
+  -e JWIZARD_LANDING_PAGE_URL=<landing page url> \
+  -e JWIZARD_PROXY_VERIFICATION_TOKEN=<CF proxy verification token (WAF)> \
   milosz08/jwizard-dashboard:latest
 ```
 
@@ -39,8 +40,9 @@ services:
     ports:
       - '8080:8080'
     environment:
-      WEBPACK_API_URL: <api url>
-      WEBPACK_LANDING_PAGE_URL: <landing page url>
+      JWIZARD_API_URL: <api url>
+      JWIZARD_LANDING_PAGE_URL: <landing page url>
+      JWIZARD_PROXY_VERIFICATION_TOKEN: <CF proxy verification token (WAF)>
     networks:
       - jwizard-network
 
