@@ -6,7 +6,7 @@ ENV ENTRY_DIR=/app/jww-lp
 # next.js stuff
 # hostname must be set to any address, localhost or 127.0.0.1 not working
 ENV HOSTNAME=0.0.0.0
-ENV PORT=8763
+ENV PORT=8080
 ENV NEXT_SHARP_PATH=node_modules/sharp
 
 COPY $BUILD_DIR/build/ $ENTRY_DIR

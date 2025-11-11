@@ -1,5 +1,7 @@
 FROM node:20-alpine AS build
 
+ARG NEXT_BUILD_VERSION="UNKNOWN"
+
 ENV BUILD_DIR=/build/jww-lp
 ENV ENTRY_DIR=/app/jww-lp
 
@@ -20,7 +22,7 @@ COPY /docker/landing-page $BUILD_DIR/docker/landing-page/
 COPY /i18n-translations/common $BUILD_DIR/i18n-translations/common/
 COPY /i18n-translations/landing-page $BUILD_DIR/i18n-translations/landing-page/
 
-RUN yarn run landing-page:build
+RUN NEXT_BUILD_VERSION=$NEXT_BUILD_VERSION yarn run landing-page:build
 
 FROM node:20-alpine
 
@@ -30,7 +32,7 @@ ENV ENTRY_DIR=/app/jww-lp
 # next.js stuff
 # hostname must be set to any address, localhost or 127.0.0.1 not working
 ENV HOSTNAME=0.0.0.0
-ENV PORT=8763
+ENV PORT=8080
 ENV NEXT_SHARP_PATH=node_modules/sharp
 
 COPY --from=build $BUILD_DIR/build/ $ENTRY_DIR

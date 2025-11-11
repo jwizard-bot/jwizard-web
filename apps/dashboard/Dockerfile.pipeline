@@ -8,4 +8,4 @@ COPY $BUILD_DIR/Caddyfile /etc/caddy/Caddyfile
 
 LABEL maintainer="JWizard <info@jwizard.pl>"
 
-EXPOSE 8764
+EXPOSE 8080

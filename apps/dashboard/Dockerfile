@@ -1,5 +1,7 @@
 FROM node:20-alpine AS build
 
+ARG WEBPACK_BUILD_VERSION="UNKNOWN"
+
 ENV BUILD_DIR=/build/jww-d
 ENV ENTRY_DIR=/app/jww-d
 
@@ -20,7 +22,7 @@ COPY /docker/dashboard $BUILD_DIR/docker/dashboard/
 COPY /i18n-translations/common $BUILD_DIR/i18n-translations/common/
 COPY /i18n-translations/dashboard $BUILD_DIR/i18n-translations/dashboard/
 
-RUN yarn run dashboard:build
+RUN WEBPACK_BUILD_VERSION=$WEBPACK_BUILD_VERSION yarn run dashboard:build
 
 FROM caddy:latest
 
@@ -32,4 +34,4 @@ COPY /docker/dashboard/Caddyfile /etc/caddy/Caddyfile
 
 LABEL maintainer="JWizard <info@jwizard.pl>"
 
-EXPOSE 8764
+EXPOSE 8080
