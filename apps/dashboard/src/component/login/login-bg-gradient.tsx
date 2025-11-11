@@ -10,7 +10,7 @@ const gradientElements: Record<string, string> = {
   right: rightBgGradient,
 };
 
-const loginBgGradientVariants = cva(cn('fixed', 'opacity-30', 'dark:opacity-60'), {
+const loginBgGradientVariants = cva(cn('fixed', 'opacity-30', 'dark:opacity-60', '-z-10'), {
   variants: {
     side: {
       left: cn('-bottom-[30%]', '-left-[20%]'),
