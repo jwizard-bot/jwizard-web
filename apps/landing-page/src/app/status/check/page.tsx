@@ -19,7 +19,7 @@ const Page: React.FC = async (): Promise<React.ReactElement> => {
   });
 
   return (
-    <IntlPageSlicesProvider>
+    <IntlPageSlicesProvider withCommon>
       <PageRootHeader />
       <CheckShardAvailabilitySection instanceOptions={instanceOptions} />
     </IntlPageSlicesProvider>

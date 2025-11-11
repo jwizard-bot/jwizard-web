@@ -5,15 +5,19 @@ import { omit } from 'lodash';
 import { ROOT_KEY } from '../config';
 
 type Props = {
+  withCommon?: boolean;
   children: React.ReactNode;
 };
 
 const IntlPageSlicesProvider: React.FC<Props> = async ({
+  withCommon = false,
   children,
 }): Promise<React.ReactElement> => {
   const messages = await getMessages();
   return (
-    <NextIntlClientProvider messages={omit(messages, ROOT_KEY)}>{children}</NextIntlClientProvider>
+    <NextIntlClientProvider messages={withCommon ? messages : omit(messages, ROOT_KEY)}>
+      {children}
+    </NextIntlClientProvider>
   );
 };
 

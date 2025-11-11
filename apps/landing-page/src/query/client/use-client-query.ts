@@ -71,7 +71,7 @@ const useClientQuery = <RQ, RS>(method: Method = 'get'): HookResponse<RQ, RS> =>
       const { data } = await axiosInstance.request<RS>(extendedOptions);
       responseData = data;
     } catch (error) {
-      setError(error.response?.data.message || t('unknownServerException'));
+      setError(error.response?.data?.message || t('unknownServerException'));
     } finally {
       setRunning(false);
     }
