@@ -1,7 +1,7 @@
 {
   "name": "@jwizard-web/typescript-config",
   "version": "0.0.0",
-  "license": "AGPL-3.0-only",
+  "license": "Apache-2.0",
   "author": {
     "name": "JWizard",
     "email": "info@jwizard.pl",

@@ -2,7 +2,7 @@
   "name": "@jwizard-web/lib",
   "version": "0.0.0",
   "type": "module",
-  "license": "AGPL-3.0-only",
+  "license": "Apache-2.0",
   "author": {
     "name": "JWizard",
     "email": "info@jwizard.pl",
