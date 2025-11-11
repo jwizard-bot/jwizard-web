@@ -1,11 +1,11 @@
-name: Build and deploy dashboard
+name: Build and create docker image of JWizard Dashboard
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/deploy-dashboard.yml'
+      - '.github/workflows/docker-image-dashboard.yml'
       - 'apps/dashboard/**'
       - 'packages/assets/**'
       - 'i18n-translations/common/**'
@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
+          cache: "yarn"
 
       - name: Install Yarn
         run: npm install -g yarn
@@ -82,48 +83,7 @@ jobs:
           file: ./apps/dashboard/Dockerfile.pipeline
           push: true
           tags: milosz08/jwizard-dashboard:latest
+          platforms: linux/amd64,linux/arm64
 
       - name: Logout from Docker Hub
         run: docker logout
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
-      - name: Checkout tools repository
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository_owner }}/jwizard-tools
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Download generated dist files
-        uses: actions/download-artifact@v4
-        with:
-          name: dist-output
-          path: dist
-
-      - name: Setup Python environment
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-          cache: 'pip'
-
-      - name: Install requirements
-        run: pip install -r requirements.txt
-
-      - name: Grand permissions
-        run: chmod +x exec/run-with-config
-
-      - name: Run remote invoker
-        run: exec/run-with-config remote_invoker \
-          "${{ secrets.CONFIG_FILE_CONTENT }}" \
-          --name dashboard  \
-          --inputDir ${{ github.workspace }}/dist
-        env:
-          JWIZARD_SSH_HOST: ${{ secrets.SSH_HOST }}
-          JWIZARD_SSH_PORT: ${{ secrets.SSH_PORT }}
-          JWIZARD_SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          JWIZARD_SSH_KEY: ${{ secrets.SSH_KEY }}
-          JWIZARD_SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
-          JWIZARD_SSH_OUTPUT_PATH_PREFIX: ${{ secrets.SSH_OUTPUT_PATH_PREFIX }}
