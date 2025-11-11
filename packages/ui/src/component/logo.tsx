@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import { FlexContainer } from '../container';
 
 type Props = {
-  appName: string;
   sizePx?: number;
   color?: keyof typeof themedLogos | 'theme';
   classNames?: {
@@ -15,7 +14,6 @@ type Props = {
 };
 
 const Logo: React.FC<Props> = ({
-  appName,
   sizePx = 40,
   color = 'theme',
   classNames,
@@ -39,7 +37,7 @@ const Logo: React.FC<Props> = ({
             },
             classNames?.text ?? 'text-2xl'
           )}>
-          {appName}
+          JWizard
         </h1>
         <p
           className={cn(

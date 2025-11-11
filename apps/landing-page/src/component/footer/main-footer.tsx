@@ -33,7 +33,6 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
           </Paragraph>
           <NextLink href="/" className="flex-shrink-0">
             <Logo
-              appName={config.appName}
               sizePx={50}
               classNames={{
                 root: 'mb-6 sm:mb-0',
@@ -69,9 +68,7 @@ const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
               {t('termsOfService')}
             </NextLink>
           </CopyrightSection>
-          <CopyrightSection>
-            &copy; {currentYear} by {config.appName}
-          </CopyrightSection>
+          <CopyrightSection>&copy; {currentYear} by JWizard</CopyrightSection>
           <CopyrightSection alignment="end">
             <span>
               {t('buildVersion')}:{' '}

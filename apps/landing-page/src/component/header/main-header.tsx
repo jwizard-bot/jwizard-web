@@ -67,7 +67,7 @@ const MainHeader: React.FC = (): React.ReactElement => {
                 className="lg:hidden"
               />
               <NextLink href="/">
-                <Logo appName={config.appName} />
+                <Logo />
               </NextLink>
               <FlexContainer className="hidden lg:flex">
                 <HeaderNavigation />

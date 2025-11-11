@@ -2,7 +2,6 @@ import * as React from 'react';
 import { getTranslations } from 'next-intl/server';
 import NextLink from 'next/link';
 import { MeshBackgroundImage } from '@/component';
-import config from '@/config';
 import { FlexContainer, SafetyContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
 import { Header } from '@jwizard-web/ui/widget/header';
@@ -16,7 +15,7 @@ const HeroSection: React.FC = async (): Promise<React.ReactElement> => {
       <MeshBackgroundImage />
       <FlexContainer col fullWidth align="center" className="my-48">
         <Header size="xl" className="sm:mb-2">
-          {config.appName}
+          JWizard
         </Header>
         <Paragraph>{t('heroDescription')}</Paragraph>
         <FlexContainer gap="normal" toColOnSmallDevices fullWidthOnSmallDevices className="mt-8">

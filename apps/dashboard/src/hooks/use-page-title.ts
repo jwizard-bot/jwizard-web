@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import config from '@/config';
 import { usePageTranslations } from '@/hooks/use-page-translations';
 import { PageNamespace } from '@/i18n';
 
@@ -13,9 +12,9 @@ const usePageTitle = ({
   const { t, i18n, exist } = usePageTranslations(i18nNamespace);
 
   useEffect(() => {
-    let title = config.appName;
+    let title = 'JWizard';
     if (exist(i18nTitleKey)) {
-      title = `${t(i18nTitleKey)} | ${config.appName}`;
+      title = `${t(i18nTitleKey)} | JWizard`;
     }
     document.title = title;
   }, [i18n.language]);

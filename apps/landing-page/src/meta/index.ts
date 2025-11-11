@@ -37,19 +37,19 @@ const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const { appName, selfReferUrl } = config;
   return {
     title: {
-      template: `%s | ${appName}`,
-      default: appName,
+      template: `%s | JWizard`,
+      default: 'JWizard',
     },
     description: t('description'),
-    applicationName: appName,
+    applicationName: 'JWizard',
     generator: 'Next.js',
-    creator: `${appName} Team`,
+    creator: `JWizard Team`,
     openGraph: {
       type: 'website',
       url: selfReferUrl,
       title: appName,
       description: t('description'),
-      siteName: appName,
+      siteName: 'JWizard',
       images: {
         url: `${config.selfReferUrl}/og/og-banner-${language}.png`,
       },
@@ -58,7 +58,7 @@ const generateRootLayoutMetadata = async (): Promise<Metadata> => {
       countryName: 'Poland',
     },
     twitter: {
-      title: appName,
+      title: 'JWizard',
       description: t('description'),
       card: 'summary_large_image',
       site: selfReferUrl,

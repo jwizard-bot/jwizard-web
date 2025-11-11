@@ -41,7 +41,7 @@ const LoginPanel: React.FC = (): React.ReactElement => {
           gap="small"
           className={cn('max-w-[300px]', 'text-center', 'my-8')}>
           <Header size="xs" margin="none">
-            {t('welcomeTitle')} {config.appName}!
+            {t('welcomeTitle')} JWizard!
           </Header>
           <Paragraph size="sm" className="mb-8">
             {t('welcomeParagraph')}
