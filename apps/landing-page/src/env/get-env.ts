@@ -1,5 +1,5 @@
-import { environment } from '@/env/environment';
+import { Environment, environment } from '@/env/environment';
 
-const getEnv = () => environment;
+const getEnv = (): Environment => environment;
 
 export { getEnv };
