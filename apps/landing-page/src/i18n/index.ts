@@ -1,18 +1,18 @@
 import { AbstractIntlMessages } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 import { headers } from 'next/headers';
-import config from '@/config';
+import { getEnv } from '@/env';
 import { DEFAULT_LANGUAGE, Language, languages } from '@jwizard-web/lib/i18n';
 import { readFile } from 'fs/promises';
 import { merge } from 'lodash';
 import { ROOT_KEY, sliceMappings } from './config';
 import { readCookieLanguage } from './cookie';
 
+const { packagesRootPath } = getEnv();
+
 const importDynamic = async (filePath: string): Promise<object> => {
   const nodePath = await import('path').then(mod => mod.default);
-  const resolvedPath = nodePath.resolve(
-    `${config.packagesRootPath}/i18n-translations/${filePath}.json`
-  );
+  const resolvedPath = nodePath.resolve(`${packagesRootPath}/i18n-translations/${filePath}.json`);
   const fileContent = await readFile(resolvedPath, 'utf-8');
   return JSON.parse(fileContent);
 };

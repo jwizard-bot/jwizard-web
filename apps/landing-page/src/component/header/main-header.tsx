@@ -8,7 +8,7 @@ import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { HeaderNavigation } from '@/component/header/header-navigation';
 import { MobileHeader } from '@/component/header/mobile-header';
-import config from '@/config';
+import { useEnv } from '@/env';
 import { saveCookieLanguage } from '@/i18n/cookie';
 import { useLockBodyScroll } from '@custom-react-hooks/use-lock-body-scroll';
 import { Language } from '@jwizard-web/lib/i18n';
@@ -33,6 +33,10 @@ const MainHeader: React.FC = (): React.ReactElement => {
   const currentLanguage = useLocale();
   const [isPending, startTransition] = useTransition();
   const isSmallScreen = useSmallScreen();
+  const {
+    git: { organizationUrl },
+    url: { dashboard },
+  } = useEnv();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   useLockBodyScroll(isMenuOpen);
@@ -81,7 +85,7 @@ const MainHeader: React.FC = (): React.ReactElement => {
                 <Tooltip>
                   <TooltipTrigger>
                     <Button asChild className="hidden lg:flex">
-                      <OuterLink to={config.orgLink}>
+                      <OuterLink to={organizationUrl}>
                         <BsGithub />
                       </OuterLink>
                     </Button>
@@ -95,7 +99,7 @@ const MainHeader: React.FC = (): React.ReactElement => {
                 disabled={isPending}
               />
               <Button asChild>
-                <OuterLink to={config.dashboardUrl + '/login'}>{t('login')}</OuterLink>
+                <OuterLink to={dashboard + '/login'}>{t('login')}</OuterLink>
               </Button>
             </FlexContainer>
           </FlexContainer>

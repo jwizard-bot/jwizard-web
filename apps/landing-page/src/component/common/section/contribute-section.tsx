@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BsGithub } from 'react-icons/bs';
 import NextLink from 'next/link';
 import { ContributorProfiles } from '@/component/common/contributor-profiles';
-import config from '@/config';
+import { getEnv } from '@/env';
 import { getRootTranslations } from '@/i18n/server';
 import { getServerQuery } from '@/query';
 import { ContributorsDataResDto } from '@/query/type';
@@ -15,6 +15,9 @@ import { ArrowRight, SquareArrowOutUpRight } from 'lucide-react';
 
 const ContributeSection: React.FC = async (): Promise<React.ReactElement> => {
   const t = await getRootTranslations();
+  const {
+    git: { organizationUrl },
+  } = getEnv();
 
   const { data: contributors } = await getServerQuery<ContributorsDataResDto>({
     queryString: '/v1/contributor/all',
@@ -36,7 +39,7 @@ const ContributeSection: React.FC = async (): Promise<React.ReactElement> => {
             </NextLink>
           </Button>
           <Button asChild size="lg" variant="outline" fluid>
-            <OuterLink to={config.orgLink} className="w-full">
+            <OuterLink to={organizationUrl} className="w-full">
               <BsGithub />
               Github
               <SquareArrowOutUpRight />

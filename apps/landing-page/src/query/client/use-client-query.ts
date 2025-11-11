@@ -1,9 +1,10 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
-import { Method } from 'axios';
-import axiosInstance from '../axios-instance';
+import { useLocale } from 'next-intl';
+import { useEnv } from '@/env';
+import { useCommonTranslations } from '@/i18n/client';
+import axios, { Method } from 'axios';
 
 type PerformActionProps<T> = {
   queryString: string;
@@ -23,8 +24,19 @@ type HookResponse<RQ, RS> = {
 };
 
 const useClientQuery = <RQ, RS>(method: Method = 'get'): HookResponse<RQ, RS> => {
-  const t = useTranslations();
+  const t = useCommonTranslations();
+  const {
+    url: { api },
+  } = useEnv();
   const locale = useLocale();
+  const axiosInstance = useMemo(
+    () =>
+      axios.create({
+        baseURL: api,
+        headers: { 'Content-Type': 'application/json' },
+      }),
+    []
+  );
 
   const [running, setRunning] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);

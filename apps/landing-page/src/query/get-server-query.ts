@@ -1,7 +1,8 @@
 'use server';
 
 import { getLocale } from 'next-intl/server';
-import axiosInstance from './axios-instance';
+import { getEnv } from '@/env';
+import axios from 'axios';
 
 type ServerQueryProps = {
   queryString: string;
@@ -14,6 +15,15 @@ type ServerQueryResponse<T> = {
   data: T;
   isError: boolean;
 };
+
+const {
+  url: { api },
+} = getEnv();
+
+const axiosInstance = axios.create({
+  baseURL: api,
+  headers: { 'Content-Type': 'application/json' },
+});
 
 const getServerQuery = async <T>({
   queryString,

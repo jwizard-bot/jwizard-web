@@ -2,7 +2,7 @@ import * as React from 'react';
 import NextLink from 'next/link';
 import StatusBadge from '@/component/footer/status-badge';
 import { ThemeSwitch } from '@/component/footer/theme-switch';
-import config from '@/config';
+import { getEnv } from '@/env';
 import { getRootTranslations } from '@/i18n/server';
 import { cn, getBuildVersion } from '@jwizard-web/lib/util';
 import { Logo } from '@jwizard-web/ui/component/logo';
@@ -16,9 +16,12 @@ import { CopyrightSection } from './copyright-section';
 
 const MainFooter: React.FC = async (): Promise<React.ReactElement> => {
   const t = await getRootTranslations();
+  const {
+    git: { organizationUrl, repositoryName, buildVersion },
+  } = getEnv();
 
   const currentYear = new Date().getFullYear();
-  const { shortSHA, vcsLink } = getBuildVersion(config);
+  const { shortSHA, vcsLink } = getBuildVersion(buildVersion, repositoryName, organizationUrl);
 
   return (
     <SafetyContainer as="footer" className="bg-transparent">

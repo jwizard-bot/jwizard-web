@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
-import config from '@/config';
+import { getEnv } from '@/env';
 import { ROOT_KEY } from '@/i18n/config';
 import { getRootTranslations } from '@/i18n/server';
 import { languages } from '@jwizard-web/lib/i18n';
@@ -34,7 +34,9 @@ const generateSubPageMetadata = async ({
 const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const language = await getLocale();
   const t = await getRootTranslations(language);
-  const { appName, selfReferUrl } = config;
+  const {
+    url: { canonical },
+  } = getEnv();
   return {
     title: {
       template: `%s | JWizard`,
@@ -46,12 +48,12 @@ const generateRootLayoutMetadata = async (): Promise<Metadata> => {
     creator: `JWizard Team`,
     openGraph: {
       type: 'website',
-      url: selfReferUrl,
-      title: appName,
+      url: canonical,
+      title: 'JWizard',
       description: t('description'),
       siteName: 'JWizard',
       images: {
-        url: `${config.selfReferUrl}/og/og-banner-${language}.png`,
+        url: `${canonical}/og/og-banner-${language}.png`,
       },
       locale: language,
       alternateLocale: Object.keys(languages).filter(lang => lang !== language),
@@ -61,8 +63,8 @@ const generateRootLayoutMetadata = async (): Promise<Metadata> => {
       title: 'JWizard',
       description: t('description'),
       card: 'summary_large_image',
-      site: selfReferUrl,
-      images: `${config.selfReferUrl}/og/og-banner-${language}.png`,
+      site: canonical,
+      images: `${canonical}/og/og-banner-${language}.png`,
     },
     icons: [
       ...faviconSizesPx.map(sizePx => ({

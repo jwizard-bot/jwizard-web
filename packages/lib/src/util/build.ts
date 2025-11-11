@@ -1,8 +1,9 @@
-import { AppConfigType } from '../@types';
-
-const getBuildVersion = (config: AppConfigType) => {
-  const shortSHA = config.buildVersion?.substring(0, 7) || 'UNKNOWN';
-  const vcsLink = `${config.orgLink}/${config.repositoryName}/tree/${config.buildVersion}`;
+const getBuildVersion = (buildVersion?: string, repoName?: string, orgUrl?: string) => {
+  const shortSHA = buildVersion?.substring(0, 7) || 'UNKNOWN';
+  let vcsLink = '';
+  if (buildVersion && repoName && orgUrl) {
+    vcsLink = `${orgUrl}/${repoName}/tree/${buildVersion}`;
+  }
   return { shortSHA, vcsLink };
 };
 

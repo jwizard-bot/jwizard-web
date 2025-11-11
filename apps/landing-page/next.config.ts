@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
   images: {
     disableStaticImages: true,
   },
+  // burning out variables, cannot change directly from docker container
+  env: {
+    JW_BURNED_PACKAGES_ROOT_PATH: isProd ? './' : '../../',
+    JW_BURNED_BUILD_VERSION: process.env.NEXT_BUILD_VERSION || 'UNKNOWN',
+  },
   webpack: config => {
     config.module.rules.push({
       test: /\.md$/,

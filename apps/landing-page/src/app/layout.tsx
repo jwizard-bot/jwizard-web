@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import { CookieConsentModal } from '@/component/cookie-consent-modal';
+import { WithEnvironment } from '@/env/with-environment';
 import { IntlRootProvider } from '@/i18n/server';
 import { MainLayout } from '@/layout';
 import { generateRootLayoutMetadata } from '@/meta';
@@ -23,13 +24,15 @@ const RootLayout: React.FC<Props> = async ({ children }): Promise<React.ReactEle
   return (
     <html lang={language} suppressHydrationWarning>
       <body className={cn('font-sans', 'min-h-screen')}>
-        <IntlRootProvider>
-          <ThemeContextProvider>
-            <ToastContainer />
-            <CookieConsentModal />
-            <MainLayout>{children}</MainLayout>
-          </ThemeContextProvider>
-        </IntlRootProvider>
+        <WithEnvironment>
+          <IntlRootProvider>
+            <ThemeContextProvider>
+              <ToastContainer />
+              <CookieConsentModal />
+              <MainLayout>{children}</MainLayout>
+            </ThemeContextProvider>
+          </IntlRootProvider>
+        </WithEnvironment>
       </body>
     </html>
   );

@@ -7,7 +7,7 @@ import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 import { menuElements } from '@/component/header/menu-elements';
 import { LinkWrapper } from '@/component/link-wrapper';
-import config from '@/config';
+import { useEnv } from '@/env';
 import { toggleTheme } from '@/theme/toggle-theme';
 import { ThemeKey, availableThemes } from '@jwizard-web/ui/component/theme-select';
 import { FlexContainer, FloatingContainer } from '@jwizard-web/ui/container';
@@ -21,6 +21,9 @@ import { SquareArrowOutUpRight } from 'lucide-react';
 const MobileHeader: React.FC = (): React.ReactElement => {
   const t = useTranslations();
   const { theme, setTheme } = useTheme();
+  const {
+    git: { organizationUrl },
+  } = useEnv();
 
   return (
     <FloatingContainer
@@ -58,7 +61,7 @@ const MobileHeader: React.FC = (): React.ReactElement => {
               {t(`themes.${theme}`)}
             </Button>
             <Button asChild variant="outline" size="md" className="w-full">
-              <OuterLink to={config.orgLink}>
+              <OuterLink to={organizationUrl}>
                 <BsGithub />
                 {t('goToGithubRepository')}
                 <SquareArrowOutUpRight />
