@@ -1,10 +1,12 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import config from '@/config';
+import { environment } from '@/env';
 import { sessionApiSlice } from '@/redux/api/session/slice';
 import { listenerMiddleware } from '@/redux/listener-middleware';
 import { mainSlice } from '@/redux/store/main-slice';
 import { configureStore } from '@reduxjs/toolkit';
+
+const { isProd } = environment;
 
 const store = configureStore({
   reducer: {
@@ -13,7 +15,7 @@ const store = configureStore({
     // regular reducers
     [mainSlice.reducerPath]: mainSlice.reducer,
   },
-  devTools: !config.isProdMode,
+  devTools: !isProd,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware()
       .prepend(listenerMiddleware.middleware)

@@ -1,31 +1,8 @@
-const dotenv = require('dotenv');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { DefinePlugin } = require('webpack');
-
-const loadFileContent = filePath => {
-  const envFilePath = path.resolve(__dirname, filePath);
-  if (fs.existsSync(envFilePath)) {
-    return dotenv.parse(fs.readFileSync(envFilePath));
-  }
-  return {};
-};
-
-const loadEnvVariables = isProd => {
-  const mergedConfig = {
-    ...loadFileContent('.env'),
-    ...loadFileContent(`.env.${isProd ? 'production' : 'development'}`),
-  };
-  const envVariables = {};
-  for (const k in mergedConfig) {
-    const envSource = k in process.env ? process.env : mergedConfig;
-    envVariables[`process.env.${k}`] = JSON.stringify(envSource[k]);
-  }
-  return envVariables;
-};
 
 const parseHash = isProd => (isProd ? 'contenthash:10' : 'name');
 
@@ -131,8 +108,10 @@ module.exports = isProd => ({
   },
   plugins: [
     new DefinePlugin({
-      ...loadEnvVariables(isProd),
-      'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development'),
+      'process.env.JWIZARD_IS_PROD': JSON.stringify(isProd),
+      'process.env.JWIZARD_BUILD_VERSION': JSON.stringify(
+        process.env.JWIZARD_BUILD_VERSION || 'UNKNOWN'
+      ),
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src', 'index.html'),

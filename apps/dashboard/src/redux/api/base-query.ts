@@ -1,11 +1,10 @@
-import config from '@/config';
 import i18n from '@/i18n';
 import { RootState } from '@/redux';
 import { mainSlice } from '@/redux/store/main-slice';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: config.apiUrl,
+  baseUrl: '/api',
   credentials: 'include',
   prepareHeaders: (headers: Headers, { getState }) => {
     const state = getState() as RootState;

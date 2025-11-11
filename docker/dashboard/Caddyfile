@@ -1,6 +1,28 @@
 :8080 {
   root * /app/jww-d
-  file_server
   encode gzip zstd
-  try_files {path} /index.html
+
+  handle /globals.js {
+    templates
+    respond "window.globals = { \
+      JWIZARD_CANONICAL_URL: '{$JWIZARD_CANONICAL_URL}', \
+      JWIZARD_LANDING_PAGE_URL: '{$JWIZARD_LANDING_PAGE_URL}', \
+    };" 200 {
+      headers {
+        Content-Type "application/javascript"
+        Cache-Control "no-store, no-cache, must-revalidate"
+      }
+    }
+  }
+
+  handle /api/* {
+    reverse_proxy {$JWIZARD_API_URL} {
+      header_up x-cloudflare-verify-proxy {$JWIZARD_PROXY_VERIFICATION_TOKEN}
+    }
+  }
+
+  handle {
+    file_server
+    try_files {path} /index.html
+  }
 }

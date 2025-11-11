@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { I18nextProvider } from 'react-i18next';
-import config from '@/config';
+import { environment } from '@/env';
 import { DEFAULT_LANGUAGE, languages } from '@jwizard-web/lib/i18n';
 import i18n from 'i18next';
 import I18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
@@ -9,13 +9,15 @@ import HttpApi from 'i18next-http-backend';
 const DEFAULT_NAMESPACE = 'common';
 const ROOT_NAMESPACE = 'dashboard';
 
+const { isProd } = environment;
+
 type PageNamespace = 'dashboard' | 'login';
 
 i18n
   .use(HttpApi)
   .use(I18nextBrowserLanguageDetector)
   .init({
-    debug: !config.isProdMode,
+    debug: !isProd,
     fallbackLng: DEFAULT_LANGUAGE,
     supportedLngs: Object.keys(languages),
     ns: [],
@@ -33,7 +35,8 @@ i18n
     react: {
       useSuspense: true,
     },
-  });
+  })
+  .then(r => r);
 
 i18n.on('languageChanged', event => {
   document.documentElement.lang = event;
