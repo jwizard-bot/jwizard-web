@@ -1,6 +1,6 @@
 import * as React from 'react';
 import NextLink from 'next/link';
-import StatusBadge from '@/component/footer/status-badge';
+import { StatusBadge } from '@/component/footer/status-badge';
 import { ThemeSwitch } from '@/component/footer/theme-switch';
 import { getEnv } from '@/env';
 import { getRootTranslations } from '@/i18n/server';

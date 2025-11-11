@@ -29,4 +29,4 @@ const StatusBadge: React.FC = async (): Promise<React.ReactElement> => {
   );
 };
 
-export default StatusBadge;
+export { StatusBadge };
