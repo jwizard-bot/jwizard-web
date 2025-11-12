@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - ".github/workflows/docker-readme-dashboard.yml"
-      - "docker/README.md"
+      - "docker/dashboard/README.md"
 
 jobs:
   update:

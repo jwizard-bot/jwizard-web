@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - ".github/workflows/docker-readme-landing-page.yml"
-      - "docker/README.md"
+      - "docker/landing-page/README.md"
 
 jobs:
   update:
