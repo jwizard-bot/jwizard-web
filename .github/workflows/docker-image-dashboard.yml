@@ -5,15 +5,17 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/docker-image-dashboard.yml'
-      - 'apps/dashboard/**'
-      - 'packages/assets/**'
-      - 'i18n-translations/common/**'
-      - 'i18n-translations/dashboard/**'
-      - 'packages/lib/**'
-      - 'packages/tailwind-config/**'
-      - 'packages/ui/**'
-      - 'package.json'
+      - ".github/workflows/docker-image-dashboard.yml"
+      - "docker/dashboard/**"
+      - "!docker/dashboard/*.md"
+      - "apps/dashboard/**"
+      - "packages/assets/**"
+      - "i18n-translations/common/**"
+      - "i18n-translations/dashboard/**"
+      - "packages/lib/**"
+      - "packages/tailwind-config/**"
+      - "packages/ui/**"
+      - "package.json"
   workflow_dispatch:
 
 jobs:

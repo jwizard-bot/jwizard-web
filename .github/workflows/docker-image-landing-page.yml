@@ -1,19 +1,21 @@
-name: Build and deploy landing page
+name: Build and create docker image of JWizard Landing Page
 
 on:
   push:
     branches:
       - master
     paths:
-      - '.github/workflows/docker-image-landing-page.yml'
-      - 'apps/landing-page/**'
-      - 'packages/assets/**'
-      - 'i18n-translations/common/**'
-      - 'i18n-translations/landing-page/**'
-      - 'packages/lib/**'
-      - 'packages/tailwind-config/**'
-      - 'packages/ui/**'
-      - 'package.json'
+      - ".github/workflows/docker-image-landing-page.yml"
+      - "docker/landing-page/**"
+      - "!docker/landing-page/*.md"
+      - "apps/landing-page/**"
+      - "packages/assets/**"
+      - "i18n-translations/common/**"
+      - "i18n-translations/landing-page/**"
+      - "packages/lib/**"
+      - "packages/tailwind-config/**"
+      - "packages/ui/**"
+      - "package.json"
   workflow_dispatch:
 
 jobs:
