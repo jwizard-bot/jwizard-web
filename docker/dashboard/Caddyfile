@@ -14,7 +14,7 @@
     };" 200
   }
 
-  handle /api/* {
+  handle_path /api/* {
     reverse_proxy {$JWIZARD_API_URL}
   }
 
