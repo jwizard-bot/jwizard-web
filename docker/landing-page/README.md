@@ -27,7 +27,6 @@ docker run -d \
   -e JWIZARD_CANONICAL_URL=<canonical url> \
   -e JWIZARD_API_URL=<api url> \
   -e JWIZARD_DASHBOARD_URL=<dashboard url> \
-  -e JWIZARD_PROXY_VERIFICATION_TOKEN=<CF proxy verification token (WAF)> \
   milosz08/jwizard-landing-page:latest
 ```
 
@@ -44,7 +43,6 @@ services:
       JWIZARD_CANONICAL_URL: <canonical url>
       JWIZARD_API_URL: <api url>
       JWIZARD_DASHBOARD_URL: <dashboard url>
-      JWIZARD_PROXY_VERIFICATION_TOKEN: <CF proxy verification token (WAF)>
     networks:
       - jwizard-network
 

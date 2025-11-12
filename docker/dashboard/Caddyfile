@@ -16,9 +16,7 @@
   }
 
   handle /api/* {
-    reverse_proxy {$JWIZARD_API_URL} {
-      header_up x-cloudflare-verify-proxy {$JWIZARD_PROXY_VERIFICATION_TOKEN}
-    }
+    reverse_proxy {$JWIZARD_API_URL}
   }
 
   handle {
