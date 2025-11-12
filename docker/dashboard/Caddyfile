@@ -6,7 +6,7 @@
     header Content-Type "application/javascript"
     header Cache-Control "no-store, no-cache, must-revalidate"
 
-    respond "window.globals = {
+    respond "window.jw = {
       JWIZARD_CANONICAL_URL: \"{$JWIZARD_CANONICAL_URL}\",
       JWIZARD_LANDING_PAGE_URL: \"{$JWIZARD_LANDING_PAGE_URL}\",
       JWIZARD_ANALYTICS_UMAMI_URL: \"{$JWIZARD_ANALYTICS_UMAMI_URL}\",
