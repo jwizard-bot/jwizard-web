@@ -1,14 +1,14 @@
 import { AbstractIntlMessages } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 import { headers } from 'next/headers';
-import { getEnv } from '@/env';
+import { getServerEnv } from '@/env';
 import { DEFAULT_LANGUAGE, Language, languages } from '@jwizard-web/lib/i18n';
 import { readFile } from 'fs/promises';
 import { merge } from 'lodash';
 import { ROOT_KEY, sliceMappings } from './config';
 import { readCookieLanguage } from './cookie';
 
-const { packagesRootPath } = getEnv();
+const { packagesRootPath } = getServerEnv();
 
 const importDynamic = async (filePath: string): Promise<object> => {
   const nodePath = await import('path').then(mod => mod.default);
