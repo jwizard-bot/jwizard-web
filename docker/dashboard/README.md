@@ -24,6 +24,7 @@ docker build \
 docker run -d \
   --name jwizard-dashboard \
   -p 8080:8080 \
+  -e JWIZARD_CANONICAL_URL=<canonical url> \
   -e JWIZARD_API_URL=<api url> \
   -e JWIZARD_LANDING_PAGE_URL=<landing page url> \
   -e JWIZARD_ANALYTICS_UMAMI_URL=<optional, umami script url> \
@@ -41,6 +42,7 @@ services:
     ports:
       - '8080:8080'
     environment:
+      JWIZARD_CANONICAL_URL: <canonical url>
       JWIZARD_API_URL: <api url>
       JWIZARD_LANDING_PAGE_URL: <landing page url>
       JWIZARD_ANALYTICS_UMAMI_URL: <optional, umami script url>
