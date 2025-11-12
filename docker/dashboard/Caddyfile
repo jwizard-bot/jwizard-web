@@ -3,16 +3,14 @@
   encode gzip zstd
 
   handle /globals.js {
-    templates
-
     header Content-Type "application/javascript"
     header Cache-Control "no-store, no-cache, must-revalidate"
 
-    respond "window.globals = { \
-      JWIZARD_CANONICAL_URL: '{$JWIZARD_CANONICAL_URL}', \
-      JWIZARD_LANDING_PAGE_URL: '{$JWIZARD_LANDING_PAGE_URL}', \
-      JWIZARD_ANALYTICS_UMAMI_URL: '{$JWIZARD_ANALYTICS_UMAMI_URL}', \
-      JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: '{$JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID}', \
+    respond "window.globals = {
+      JWIZARD_CANONICAL_URL: \"{$JWIZARD_CANONICAL_URL}\",
+      JWIZARD_LANDING_PAGE_URL: \"{$JWIZARD_LANDING_PAGE_URL}\",
+      JWIZARD_ANALYTICS_UMAMI_URL: \"{$JWIZARD_ANALYTICS_UMAMI_URL}\",
+      JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: \"{$JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID}\"
     };" 200
   }
 
@@ -21,7 +19,7 @@
   }
 
   handle {
-    file_server
     try_files {path} /index.html
+    file_server
   }
 }
