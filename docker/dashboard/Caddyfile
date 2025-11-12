@@ -7,6 +7,8 @@
     respond "window.globals = { \
       JWIZARD_CANONICAL_URL: '{$JWIZARD_CANONICAL_URL}', \
       JWIZARD_LANDING_PAGE_URL: '{$JWIZARD_LANDING_PAGE_URL}', \
+      JWIZARD_ANALYTICS_UMAMI_URL: '{$JWIZARD_ANALYTICS_UMAMI_URL}', \
+      JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: '{$JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID}', \
     };" 200 {
       headers {
         Content-Type "application/javascript"

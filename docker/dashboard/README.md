@@ -26,6 +26,8 @@ docker run -d \
   -p 8080:8080 \
   -e JWIZARD_API_URL=<api url> \
   -e JWIZARD_LANDING_PAGE_URL=<landing page url> \
+  -e JWIZARD_ANALYTICS_UMAMI_URL=<optional, umami script url> \
+  -e JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID=<optional, umami website id> \
   milosz08/jwizard-dashboard:latest
 ```
 
@@ -41,6 +43,8 @@ services:
     environment:
       JWIZARD_API_URL: <api url>
       JWIZARD_LANDING_PAGE_URL: <landing page url>
+      JWIZARD_ANALYTICS_UMAMI_URL: <optional, umami script url>
+      JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: <optional, umami website id>
     networks:
       - jwizard-network
 

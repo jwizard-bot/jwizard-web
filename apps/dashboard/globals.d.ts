@@ -3,6 +3,8 @@ declare global {
     jw: {
       JWIZARD_CANONICAL_URL: string;
       JWIZARD_LANDING_PAGE_URL: string;
+      JWIZARD_ANALYTICS_UMAMI_URL?: string;
+      JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID?: string;
     };
   }
 

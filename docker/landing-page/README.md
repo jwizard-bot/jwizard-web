@@ -27,6 +27,8 @@ docker run -d \
   -e JWIZARD_CANONICAL_URL=<canonical url> \
   -e JWIZARD_API_URL=<api url> \
   -e JWIZARD_DASHBOARD_URL=<dashboard url> \
+  -e JWIZARD_ANALYTICS_UMAMI_URL=<optional, umami script url> \
+  -e JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID=<optional, umami website id> \
   milosz08/jwizard-landing-page:latest
 ```
 
@@ -43,6 +45,8 @@ services:
       JWIZARD_CANONICAL_URL: <canonical url>
       JWIZARD_API_URL: <api url>
       JWIZARD_DASHBOARD_URL: <dashboard url>
+      JWIZARD_ANALYTICS_UMAMI_URL: <optional, umami script url>
+      JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: <optional, umami website id>
     networks:
       - jwizard-network
 

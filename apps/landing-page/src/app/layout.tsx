@@ -1,12 +1,14 @@
 import * as React from 'react';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 import { CookieConsentModal } from '@/component/cookie-consent-modal';
+import { getEnv } from '@/env';
 import { WithEnvironment } from '@/env/with-environment';
 import { IntlRootProvider } from '@/i18n/server';
 import { MainLayout } from '@/layout';
 import { generateRootLayoutMetadata } from '@/meta';
 import { ThemeContextProvider } from '@/theme';
+import { UmamiAnalyticsLoader } from '@jwizard-web/lib/analytics';
 import { cn } from '@jwizard-web/lib/util';
 import '@jwizard-web/tailwind-config/globalcss';
 import { ToastContainer } from '@jwizard-web/ui/widget/toast-notification';
@@ -18,6 +20,10 @@ export async function generateMetadata(): Promise<Metadata> {
 type Props = {
   children: React.ReactNode;
 };
+
+const {
+  analytics: { umami },
+} = getEnv();
 
 const RootLayout: React.FC<Props> = async ({ children }): Promise<React.ReactElement> => {
   const language = await getLocale();
@@ -33,6 +39,7 @@ const RootLayout: React.FC<Props> = async ({ children }): Promise<React.ReactEle
             </ThemeContextProvider>
           </IntlRootProvider>
         </WithEnvironment>
+        <UmamiAnalyticsLoader {...umami} />
       </body>
     </html>
   );

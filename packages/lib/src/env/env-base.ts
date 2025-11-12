@@ -1,4 +1,4 @@
-type EnvironmentBase = {
+type Environment = {
   git: {
     organizationUrl: string;
     repositoryName: string;
@@ -6,7 +6,16 @@ type EnvironmentBase = {
   };
 };
 
-const environmentBase = (buildVersion: string): EnvironmentBase => ({
+type EnvironmentBase = {
+  analytics: {
+    umami: {
+      url?: string;
+      websiteId?: string;
+    };
+  };
+} & Environment;
+
+const environmentBase = (buildVersion: string): Environment => ({
   git: {
     organizationUrl: 'https://github.com/jwizard-bot',
     repositoryName: 'jwizard-web',

@@ -15,6 +15,12 @@ const environment: Environment = {
     api: process.env.JWIZARD_API_URL,
     dashboard: process.env.JWIZARD_DASHBOARD_URL,
   },
+  analytics: {
+    umami: {
+      url: process.env.JWIZARD_ANALYTICS_UMAMI_URL,
+      websiteId: process.env.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID,
+    },
+  },
   ...environmentBase(process.env.JWIZARD_BURNED_BUILD_VERSION),
 };
 

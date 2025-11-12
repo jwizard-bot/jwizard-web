@@ -29,6 +29,8 @@ module.exports = merge(webpackCommonConfig(false), {
         const configScript = `window.jw = {
           JWIZARD_CANONICAL_URL: '${process.env.JWIZARD_CANONICAL_URL}',
           JWIZARD_LANDING_PAGE_URL: '${process.env.JWIZARD_LANDING_PAGE_URL}',
+          JWIZARD_ANALYTICS_UMAMI_URL: '${process.env.JWIZARD_ANALYTICS_UMAMI_URL}',
+          JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: '${process.env.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID}',
         };`;
         res.setHeader('Content-Type', 'application/javascript');
         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');

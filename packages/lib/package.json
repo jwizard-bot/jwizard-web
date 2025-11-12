@@ -9,6 +9,7 @@
     "url": "https://jwizard.pl"
   },
   "exports": {
+    "./analytics": "./src/analytics/index.ts",
     "./env": "./src/env/index.ts",
     "./util": "./src/util/index.ts",
     "./i18n": "./src/i18n.ts",
