@@ -1,6 +1,6 @@
 const sentryConfig = (dsn: string) => ({
   dsn,
-  tracesSampleRate: 1,
+  tracesSampleRate: 0.5,
   sendDefaultPii: true,
 });
 
