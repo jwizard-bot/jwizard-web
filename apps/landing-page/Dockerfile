@@ -1,6 +1,7 @@
 FROM node:20-alpine AS build
 
 ARG JWIZARD_BUILD_VERSION="UNKNOWN"
+ARG SENTRY_AUTH_TOKEN
 
 ENV BUILD_DIR=/build/jww-lp
 ENV ENTRY_DIR=/app/jww-lp
@@ -22,7 +23,7 @@ COPY /docker/landing-page $BUILD_DIR/docker/landing-page/
 COPY /i18n-translations/common $BUILD_DIR/i18n-translations/common/
 COPY /i18n-translations/landing-page $BUILD_DIR/i18n-translations/landing-page/
 
-RUN JWIZARD_BUILD_VERSION=$JWIZARD_BUILD_VERSION yarn run landing-page:build
+RUN JWIZARD_BUILD_VERSION=$JWIZARD_BUILD_VERSION SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN yarn run landing-page:build
 
 FROM node:20-alpine
 

@@ -3,10 +3,12 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { merge } = require('webpack-merge');
+const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 const webpackCommonConfig = require('./webpack.config.cjs');
 
 module.exports = merge(webpackCommonConfig(true), {
   mode: 'production',
+  devtool: 'hidden-source-map',
   optimization: {
     runtimeChunk: 'single',
     minimizer: [
@@ -36,5 +38,17 @@ module.exports = merge(webpackCommonConfig(true), {
       }),
     ],
   },
-  plugins: [new CleanWebpackPlugin({ verbose: true })],
+  plugins: [
+    new CleanWebpackPlugin({ verbose: true }),
+    sentryWebpackPlugin({
+      org: 'jwizard',
+      project: 'jwizard-dashboard',
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      telemetry: false,
+      sourcemaps: {
+        // delete all source maps before create final build
+        filesToDeleteAfterUpload: '**/*.map',
+      },
+    }),
+  ],
 });

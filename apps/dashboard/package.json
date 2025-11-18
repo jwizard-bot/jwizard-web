@@ -40,6 +40,7 @@
     "@jwizard-web/prettier-config": "*",
     "@jwizard-web/tailwind-config": "*",
     "@jwizard-web/typescript-config": "*",
+    "@sentry/webpack-plugin": "^4.6.0",
     "@types/node": "^20.11.24",
     "@types/react": "^18.3.1",
     "@types/react-dom": "18.3.1",

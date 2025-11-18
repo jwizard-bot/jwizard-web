@@ -46,6 +46,7 @@ jobs:
         run: yarn run dashboard:build
         env:
           JWIZARD_BUILD_VERSION: '${{ steps.build.outputs.sha }}'
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - name: Upload generated dist files
         uses: actions/upload-artifact@v4

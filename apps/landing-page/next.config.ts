@@ -58,7 +58,8 @@ const nextConfig: NextConfig = {
 export default withSentryConfig(withNextIntl(nextConfig), {
   org: 'jwizard',
   project: 'jwizard-landing-page',
-  silent: !!process.env.CI,
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: !process.env.CI,
   widenClientFileUpload: true,
   tunnelRoute: '/monitoring',
   disableLogger: true,
