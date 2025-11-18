@@ -29,6 +29,7 @@ docker run -d \
   -e JWIZARD_LANDING_PAGE_URL=<landing page url> \
   -e JWIZARD_ANALYTICS_UMAMI_URL=<optional, umami script url> \
   -e JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID=<optional, umami website id> \
+  -e JWIZARD_ANALYTICS_SENTRY_DSN=<optional, sentry issue tracker DSN> \
   milosz08/jwizard-dashboard:latest
 ```
 
@@ -47,6 +48,7 @@ services:
       JWIZARD_LANDING_PAGE_URL: <landing page url>
       JWIZARD_ANALYTICS_UMAMI_URL: <optional, umami script url>
       JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: <optional, umami website id>
+      JWIZARD_ANALYTICS_SENTRY_DSN: <optional, sentry issue tracker DSN>
     networks:
       - jwizard-network
 

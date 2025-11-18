@@ -1,8 +1,10 @@
-import { Environment, environment } from '@/env/environment';
+import { Environment, environment, metaEnvironment } from '@/env/environment';
 import { ServerEnvironment, serverEnvironment } from '@/env/server-environment';
 
 const getEnv = (): Environment => environment;
 
 const getServerEnv = (): ServerEnvironment => serverEnvironment;
 
-export { getEnv, getServerEnv };
+const getMetaEnv = (): typeof metaEnvironment => metaEnvironment;
+
+export { getEnv, getServerEnv, getMetaEnv };

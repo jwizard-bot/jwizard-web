@@ -6,6 +6,8 @@ const webpackCommonConfig = require('./webpack.config.cjs');
 
 dotenv.config({ path: '.env.development' });
 
+const strToNotDef = value => (value ? `'${value}'` : value);
+
 module.exports = merge(webpackCommonConfig(false), {
   mode: 'development',
   devtool: 'eval',
@@ -29,8 +31,9 @@ module.exports = merge(webpackCommonConfig(false), {
         const configScript = `window.jw = {
           JWIZARD_CANONICAL_URL: '${process.env.JWIZARD_CANONICAL_URL}',
           JWIZARD_LANDING_PAGE_URL: '${process.env.JWIZARD_LANDING_PAGE_URL}',
-          JWIZARD_ANALYTICS_UMAMI_URL: '${process.env.JWIZARD_ANALYTICS_UMAMI_URL}',
-          JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: '${process.env.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID}',
+          JWIZARD_ANALYTICS_UMAMI_URL: ${strToNotDef(process.env.JWIZARD_ANALYTICS_UMAMI_URL)},
+          JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID: ${strToNotDef(process.env.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID)},
+          JWIZARD_ANALYTICS_SENTRY_DSN: ${strToNotDef(process.env.JWIZARD_ANALYTICS_SENTRY_DSN)},
         };`;
         res.setHeader('Content-Type', 'application/javascript');
         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');

@@ -12,6 +12,9 @@ type EnvironmentBase = {
       url?: string;
       websiteId?: string;
     };
+    sentry: {
+      dsn?: string;
+    };
   };
 } & Environment;
 
@@ -23,4 +26,11 @@ const environmentBase = (buildVersion: string): Environment => ({
   },
 });
 
-export { type EnvironmentBase, environmentBase };
+const wrapAsNotDef = (value?: string): string | undefined => {
+  if (!value || value === 'undefined' || value === 'null') {
+    return undefined;
+  }
+  return value;
+};
+
+export { type EnvironmentBase, environmentBase, wrapAsNotDef };

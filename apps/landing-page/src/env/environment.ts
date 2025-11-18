@@ -1,5 +1,5 @@
 // environment variables for server and client side, DO NOT ENTER HERE SECRETS!
-import { EnvironmentBase, environmentBase } from '@jwizard-web/lib/env';
+import { EnvironmentBase, environmentBase, wrapAsNotDef } from '@jwizard-web/lib/env';
 
 type Environment = {
   url: {
@@ -9,6 +9,8 @@ type Environment = {
   };
 } & EnvironmentBase;
 
+const sentryDsn = wrapAsNotDef(process.env.JWIZARD_ANALYTICS_SENTRY_DSN);
+
 const environment: Environment = {
   url: {
     canonical: process.env.JWIZARD_CANONICAL_URL,
@@ -17,11 +19,20 @@ const environment: Environment = {
   },
   analytics: {
     umami: {
-      url: process.env.JWIZARD_ANALYTICS_UMAMI_URL,
-      websiteId: process.env.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID,
+      url: wrapAsNotDef(process.env.JWIZARD_ANALYTICS_UMAMI_URL),
+      websiteId: wrapAsNotDef(process.env.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID),
+    },
+    sentry: {
+      dsn: sentryDsn,
     },
   },
   ...environmentBase(process.env.JWIZARD_BURNED_BUILD_VERSION),
 };
 
-export { type Environment, environment };
+const metaEnvironment = {
+  ...(sentryDsn ? { 'sentry:dsn': sentryDsn } : {}),
+};
+
+type MetaKeys = keyof typeof metaEnvironment;
+
+export { type Environment, type MetaKeys, environment, metaEnvironment };

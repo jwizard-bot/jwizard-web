@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { getEnv } from '@/env';
+import { getEnv, getMetaEnv } from '@/env';
 import { ROOT_KEY } from '@/i18n/config';
 import { getRootTranslations } from '@/i18n/server';
 import { languages } from '@jwizard-web/lib/i18n';
@@ -10,6 +10,8 @@ const faviconSizesPx: number[] = [32, 64] as const;
 const {
   url: { canonical },
 } = getEnv();
+
+const metaEnv = getMetaEnv();
 
 const generateSubPageMetadata = async ({
   i18nTitleKey = 'title',
@@ -75,6 +77,9 @@ const generateRootLayoutMetadata = async (): Promise<Metadata> => {
         url: `/favicon/favicon-${sizePx}x${sizePx}.ico`,
       })),
     ],
+    other: {
+      ...metaEnv,
+    },
   };
 };
 

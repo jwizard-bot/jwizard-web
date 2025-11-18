@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { startTransition } from 'react';
+import { startTransition, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -11,6 +11,7 @@ import { FlexContainer, SafetyContainer } from '@jwizard-web/ui/container';
 import { Button } from '@jwizard-web/ui/widget/button';
 import { Header } from '@jwizard-web/ui/widget/header';
 import { Paragraph } from '@jwizard-web/ui/widget/paragraph';
+import * as Sentry from '@sentry/nextjs';
 import { ArrowLeft, RefreshCw } from 'lucide-react';
 
 type Props = {
@@ -28,6 +29,10 @@ const ErrorPage: React.FC<Props> = ({ error, reset }): React.ReactElement => {
       reset();
     });
   };
+
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
 
   return (
     <MainLayout>

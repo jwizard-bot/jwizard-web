@@ -5,6 +5,7 @@ declare global {
       JWIZARD_LANDING_PAGE_URL: string;
       JWIZARD_ANALYTICS_UMAMI_URL?: string;
       JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID?: string;
+      JWIZARD_ANALYTICS_SENTRY_DSN?: string;
     };
   }
 

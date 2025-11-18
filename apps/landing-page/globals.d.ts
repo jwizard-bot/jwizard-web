@@ -6,6 +6,7 @@ declare global {
       JWIZARD_DASHBOARD_URL: string;
       JWIZARD_ANALYTICS_UMAMI_URL?: string;
       JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID?: string;
+      JWIZARD_ANALYTICS_SENTRY_DSN?: string;
       JWIZARD_BURNED_BUILD_VERSION: string;
       JWIZARD_BURNED_PACKAGES_ROOT_PATH: string;
     }

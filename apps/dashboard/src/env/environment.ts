@@ -1,4 +1,4 @@
-import { EnvironmentBase, environmentBase } from '@jwizard-web/lib/env';
+import { EnvironmentBase, environmentBase, wrapAsNotDef } from '@jwizard-web/lib/env';
 
 type Environment = {
   isProd: boolean;
@@ -16,8 +16,11 @@ const environment: Environment & EnvironmentBase = {
   },
   analytics: {
     umami: {
-      url: window.jw.JWIZARD_ANALYTICS_UMAMI_URL,
-      websiteId: window.jw.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID,
+      url: wrapAsNotDef(window.jw.JWIZARD_ANALYTICS_UMAMI_URL),
+      websiteId: wrapAsNotDef(window.jw.JWIZARD_ANALYTICS_UMAMI_WEBSITE_ID),
+    },
+    sentry: {
+      dsn: wrapAsNotDef(window.jw.JWIZARD_ANALYTICS_SENTRY_DSN),
     },
   },
   ...environmentBase(process.env.JWIZARD_BUILD_VERSION),
