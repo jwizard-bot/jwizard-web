@@ -13,6 +13,7 @@ player. This image contains React SPA for managing guilds, playlists and control
 docker build \
  -f ./apps/dashboard/Dockerfile \
  --build-arg JWIZARD_BUILD_VERSION=<build version (sha)> \
+ --build-arg SENTRY_AUTH_TOKEN=<sentry source-maps and release token> \
  -t milosz08/jwizard-dashboard .
 ```
 

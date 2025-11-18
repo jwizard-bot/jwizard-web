@@ -13,6 +13,7 @@ player. This image contains Next.js application (SSR and SSG) generating and ren
 docker build \
  -f ./apps/landing-page/Dockerfile \
  --build-arg JWIZARD_BUILD_VERSION=<build version (sha)> \
+ --build-arg SENTRY_AUTH_TOKEN=<sentry source-maps and release token> \
  -t milosz08/jwizard-landing-page .
 ```
 
