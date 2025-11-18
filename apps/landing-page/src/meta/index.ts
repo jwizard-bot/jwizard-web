@@ -7,6 +7,10 @@ import { languages } from '@jwizard-web/lib/i18n';
 
 const faviconSizesPx: number[] = [32, 64] as const;
 
+const {
+  url: { canonical },
+} = getEnv();
+
 const generateSubPageMetadata = async ({
   i18nTitleKey = 'title',
   prefix = '',
@@ -34,9 +38,6 @@ const generateSubPageMetadata = async ({
 const generateRootLayoutMetadata = async (): Promise<Metadata> => {
   const language = await getLocale();
   const t = await getRootTranslations(language);
-  const {
-    url: { canonical },
-  } = getEnv();
   return {
     title: {
       template: `%s | JWizard`,
