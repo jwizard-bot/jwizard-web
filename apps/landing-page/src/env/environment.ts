@@ -29,10 +29,24 @@ const environment: Environment = {
   ...environmentBase(process.env.JWIZARD_BURNED_BUILD_VERSION),
 };
 
+// environment variables only for server purposes (not included in browser bundle,
+// ENTER HERE SECRETS)
+
+type ServerEnvironment = {
+  packagesRootPath: string;
+};
+
+const serverEnvironment: ServerEnvironment = {
+  packagesRootPath: process.env.JWIZARD_BURNED_PACKAGES_ROOT_PATH,
+};
+
+// meta environments are visible for client which not yet initialized react (or in non-react
+// components code)
+
 const metaEnvironment = {
   ...(sentryDsn ? { 'sentry:dsn': sentryDsn } : {}),
 };
 
 type MetaKeys = keyof typeof metaEnvironment;
 
-export { type Environment, type MetaKeys, environment, metaEnvironment };
+export { type Environment, type MetaKeys, environment, serverEnvironment, metaEnvironment };
