@@ -7,10 +7,12 @@ import * as Sentry from '@sentry/react';
 
 const {
   analytics: { sentry },
+  git: { buildVersion },
 } = environment;
 
 if (sentry.dsn) {
   Sentry.init({
+    release: `jwizard-dashboard@${buildVersion}`,
     integrations: [
       Sentry.reactRouterV7BrowserTracingIntegration({
         useEffect: React.useEffect,
@@ -19,7 +21,6 @@ if (sentry.dsn) {
         createRoutesFromChildren,
         matchRoutes,
       }),
-      Sentry.browserTracingIntegration(),
     ],
     ...sentryConfig(sentry.dsn),
   });

@@ -49,6 +49,10 @@ module.exports = merge(webpackCommonConfig(true), {
         // delete all source maps before create final build
         filesToDeleteAfterUpload: '**/*.map',
       },
+      release: {
+        name: `jwizard-dashboard@${process.env.JWIZARD_BUILD_VERSION}`,
+        create: true,
+      },
     }),
   ],
 });
