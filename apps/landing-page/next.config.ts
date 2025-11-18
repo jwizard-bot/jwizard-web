@@ -12,6 +12,9 @@ const hashGen = (isProd: boolean): string => `[${isProd ? 'hash:10' : 'name'}]`;
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  // disable streaming metadata (issue with SEO and dynamically generated metadata tags)
+  // more: https://github.com/vercel/next.js/issues/79313
+  htmlLimitedBots: /.*/,
   compiler: {
     removeConsole: isProd,
   },
