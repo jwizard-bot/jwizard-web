@@ -5,8 +5,11 @@ import { sessionApiSlice } from '@/redux/api/session/slice';
 import { listenerMiddleware } from '@/redux/listener-middleware';
 import { mainSlice } from '@/redux/store/main-slice';
 import { configureStore } from '@reduxjs/toolkit';
+import * as Sentry from '@sentry/react';
 
 const { isProd } = environment;
+
+const sentryReduxEnhancer = Sentry.createReduxEnhancer({});
 
 const store = configureStore({
   reducer: {
@@ -20,6 +23,7 @@ const store = configureStore({
     getDefaultMiddleware()
       .prepend(listenerMiddleware.middleware)
       .concat([sessionApiSlice.middleware]),
+  enhancers: getDefaultEnhancers => getDefaultEnhancers().concat(sentryReduxEnhancer),
 });
 
 type RootState = ReturnType<typeof store.getState>;

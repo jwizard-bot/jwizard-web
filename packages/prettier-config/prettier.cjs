@@ -11,6 +11,7 @@ module.exports = {
   importOrderParserPlugins: ["typescript", "jsx"],
   plugins: ["@trivago/prettier-plugin-sort-imports"],
   importOrder: [
+    "^\\./instrument$",
     "^react(.*)$",
     "^next(.*)$",
     "^@(.*)$",
