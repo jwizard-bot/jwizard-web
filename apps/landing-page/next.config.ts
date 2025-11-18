@@ -26,6 +26,8 @@ const nextConfig: NextConfig = {
     JWIZARD_BURNED_PACKAGES_ROOT_PATH: isProd ? './' : '../../',
     JWIZARD_BURNED_BUILD_VERSION: process.env.JWIZARD_BUILD_VERSION || 'UNKNOWN',
   },
+  // fix: linkage error in instrumentation lib-dependent imports
+  transpilePackages: ['@jwizard/lib'],
   webpack: config => {
     config.module.rules.push({
       test: /\.md$/,
