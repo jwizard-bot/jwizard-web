@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { useEffect } from 'react';
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 
 const SCRIPT_ID = 'umami-analytics';
 
-const UmamiAnalyticsLoader = ({ url, websiteId }: Props): null => {
+const UmamiAnalyticsLoader: React.FC<Props> = ({ url, websiteId }): null => {
   useEffect(() => {
     if (typeof window === 'undefined' || document.getElementById(SCRIPT_ID)) {
       return;
