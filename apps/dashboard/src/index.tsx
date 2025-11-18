@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
+import { useLocation, useNavigationType } from 'react-router';
+import { createRoutesFromChildren, matchRoutes } from 'react-router-dom';
 import { AppInitiator } from '@/app/app-initiator';
 import { RootRouterProvider } from '@/app/router';
 import { CookieConsentModal } from '@/component';
@@ -19,6 +21,15 @@ const {
 
 if (sentry.dsn) {
   Sentry.init({
+    integrations: [
+      Sentry.reactRouterV7BrowserTracingIntegration({
+        useEffect: React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes,
+      }),
+    ],
     ...sentryConfig(sentry.dsn),
   });
 }

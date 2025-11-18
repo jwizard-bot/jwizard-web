@@ -4,12 +4,15 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { DashboardLayout } from '@/app/page/dashboard/layout';
 import { RootLayout } from '@/app/root-layout';
 import { RouteProtector } from '@/app/route-protector';
+import * as Sentry from '@sentry/react';
 
 const Login = lazy(() => import('@/app/page/login'));
 const Dashboard = lazy(() => import('@/app/page/dashboard'));
 const NotFound = lazy(() => import('@/app/page/not-found'));
 
-const router = createBrowserRouter([
+const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouterV7(createBrowserRouter);
+
+const router = sentryCreateBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
