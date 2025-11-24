@@ -9,7 +9,6 @@ import { Button } from '@jwizard-web/ui/widget/button';
 import { Header } from '@jwizard-web/ui/widget/header';
 import { Paragraph } from '@jwizard-web/ui/widget/paragraph';
 import { ArrowLeft } from 'lucide-react';
-import { MainLayout } from 'src/layout';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateSubPageMetadata({ i18nTitleKey: 'notFound' });
@@ -18,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const NotFound: React.FC = async (): Promise<React.ReactElement> => {
   const t = await getRootTranslations();
   return (
-    <MainLayout>
+    <>
       <MeshBackgroundImage />
       <SafetyContainer>
         <FlexContainer col centerContent fullWidth fillScreenSpace>
@@ -34,7 +33,7 @@ const NotFound: React.FC = async (): Promise<React.ReactElement> => {
           </Button>
         </FlexContainer>
       </SafetyContainer>
-    </MainLayout>
+    </>
   );
 };
 

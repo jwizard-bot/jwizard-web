@@ -1,0 +1,72 @@
+'use client';
+
+import * as React from 'react';
+import { startTransition, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
+import NextLink from 'next/link';
+import { useRouter } from 'next/navigation';
+import { MeshBackgroundImage, PurifiedRenderer } from '@/component';
+import { FlexContainer, SafetyContainer } from '@jwizard-web/ui/container';
+import { Button } from '@jwizard-web/ui/widget/button';
+import { Header } from '@jwizard-web/ui/widget/header';
+import { Paragraph } from '@jwizard-web/ui/widget/paragraph';
+import * as Sentry from '@sentry/nextjs';
+import { ArrowLeft, RefreshCw } from 'lucide-react';
+
+type Props = {
+  error: Error & { digest?: string };
+  reset: () => void;
+};
+
+const ErrorPage: React.FC<Props> = ({ error, reset }): React.ReactElement => {
+  const t = useTranslations();
+  const router = useRouter();
+
+  const refreshAndReset = (): void => {
+    startTransition(() => {
+      router.refresh();
+      reset();
+    });
+  };
+
+  useEffect(() => {
+    Sentry.captureException(error);
+  }, [error]);
+
+  return (
+    <>
+      <MeshBackgroundImage />
+      <SafetyContainer>
+        <FlexContainer col centerContent fullWidth fillScreenSpace gap="normal">
+          <Header size="xl" className="sm:mb-4 max-w-[1200px] text-center">
+            {t('globalErrorTitle')}
+          </Header>
+          <PurifiedRenderer
+            dangerousText={t.markup('globalErrorDescription', {
+              mail: chunks => `<a href="mailto:${chunks}" class="font-bold">${chunks}</a>`,
+            })}
+            Component={Paragraph}
+            className="max-w-[700px] text-center"
+          />
+          <FlexContainer gap="normal" toColOnSmallDevices fullWidthOnSmallDevices className="mt-8">
+            <Button asChild fluid size="lg" variant="outline">
+              <NextLink href="/">
+                <ArrowLeft />
+                {t('returnToHome')}
+              </NextLink>
+            </Button>
+            <Button fluid size="lg" onClick={refreshAndReset}>
+              <RefreshCw />
+              {t('refresh')}
+            </Button>
+          </FlexContainer>
+          <Paragraph size="sm">
+            {t('globalErrorDigest')}: {error.digest}
+          </Paragraph>
+        </FlexContainer>
+      </SafetyContainer>
+    </>
+  );
+};
+
+export default ErrorPage;
