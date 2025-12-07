@@ -9,11 +9,18 @@ ENV HOSTNAME=0.0.0.0
 ENV PORT=8080
 ENV NEXT_SHARP_PATH=node_modules/sharp
 
-COPY $BUILD_DIR/build/ $ENTRY_DIR
+RUN addgroup -S jwgroup && \
+    adduser -S jwuser -G jwgroup
 
 WORKDIR $ENTRY_DIR
+
+RUN chown jwuser:jwgroup $ENTRY_DIR
+COPY --chown=jwuser:jwgroup $BUILD_DIR/build/ $ENTRY_DIR
 
 LABEL maintainer="JWizard <info@jwizard.pl>"
 
 EXPOSE $PORT
+
+USER jwuser
+
 ENTRYPOINT [ "node", "server.js" ]

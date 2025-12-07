@@ -27,12 +27,20 @@ RUN JWIZARD_BUILD_VERSION=$JWIZARD_BUILD_VERSION SENTRY_AUTH_TOKEN=$SENTRY_AUTH_
 
 FROM caddy:latest
 
+RUN addgroup -S jwgroup && \
+    adduser -S jwuser -G jwgroup
+
 ENV BUILD_DIR=/build/jww-d/apps/dashboard
 ENV ENTRY_DIR=/app/jww-d
 
-COPY --from=build $BUILD_DIR/dist/ $ENTRY_DIR
-COPY /docker/dashboard/Caddyfile /etc/caddy/Caddyfile
+RUN mkdir -p /config /data && \
+    chown -R jwuser:jwgroup /config /data
+
+COPY --chown=jwuser:jwgroup --from=build $BUILD_DIR/dist/ $ENTRY_DIR
+COPY --chown=jwuser:jwgroup /docker/dashboard/Caddyfile /etc/caddy/Caddyfile
 
 LABEL maintainer="JWizard <info@jwizard.pl>"
 
 EXPOSE 8080
+
+USER jwuser

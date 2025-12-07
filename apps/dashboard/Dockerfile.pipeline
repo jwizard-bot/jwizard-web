@@ -1,11 +1,19 @@
 FROM caddy:2.10
 
+RUN addgroup -S jwgroup && \
+    adduser -S jwuser -G jwgroup
+
 ENV BUILD_DIR=/docker/dashboard
 ENV ENTRY_DIR=/app/jww-d
 
-COPY $BUILD_DIR/dist/ $ENTRY_DIR
-COPY $BUILD_DIR/Caddyfile /etc/caddy/Caddyfile
+RUN mkdir -p /config /data && \
+    chown -R jwuser:jwgroup /config /data
+
+COPY --chown=jwuser:jwgroup $BUILD_DIR/dist/ $ENTRY_DIR
+COPY --chown=jwuser:jwgroup $BUILD_DIR/Caddyfile /etc/caddy/Caddyfile
 
 LABEL maintainer="JWizard <info@jwizard.pl>"
 
 EXPOSE 8080
+
+USER jwuser
