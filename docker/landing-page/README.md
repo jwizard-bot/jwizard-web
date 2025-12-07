@@ -1,12 +1,3 @@
-# JWizard Landing Page
-
-JWizard is an open-source Discord music bot handling audio content from various multimedia sources with innovative web
-player. This image contains Next.js application (SSR and SSG) generating and rendering pages for JWizard landing page.
-
-[Webpage](https://jwizard.pl)
-| [GitHub repository](https://github.com/jwizard-bot/jwizard-web)
-| [Support](https://github.com/sponsors/jwizard-bot)
-
 ## Build image
 
 ```bash

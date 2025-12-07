@@ -1,12 +1,3 @@
-# JWizard Dashboard
-
-JWizard is an open-source Discord music bot handling audio content from various multimedia sources with innovative web
-player. This image contains React SPA for managing guilds, playlists and control playing content on Discord guilds.
-
-[Webpage](https://jwizard.pl)
-| [GitHub repository](https://github.com/jwizard-bot/jwizard-web)
-| [Support](https://github.com/sponsors/jwizard-bot)
-
 ## Build image
 
 ```bash
