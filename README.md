@@ -37,7 +37,7 @@ Dashboard:
 
 ## Clone and install
 
-1. Make sure you have at least JDK 17, Kotlin 2.0 and Node v20.
+1. Make sure you have at least JDK 21, Kotlin 2.2 and Node v20.
 2. Go to [jwizard-lib](https://github.com/jwizard-bot/jwizard-lib), configure and run all necessary
    containers defined in `README.md` file in this repository. You must have up these containers:
 
