@@ -25,7 +25,7 @@ COPY /i18n-translations/dashboard $BUILD_DIR/i18n-translations/dashboard/
 
 RUN JWIZARD_BUILD_VERSION=$JWIZARD_BUILD_VERSION SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN yarn run dashboard:build
 
-FROM caddy:latest
+FROM caddy:2.10
 
 RUN addgroup -S jwgroup && \
     adduser -S jwuser -G jwgroup
